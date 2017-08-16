@@ -1,10 +1,18 @@
 Package: shiny.i18n
 Title: Shiny applications internationalization
 Version: 0.0.0.9000
-Authors@R: person("Krzysztof", "Słomczyński", email = "krzysztofslomczynski@gmail.com", role = c("cre", "aut"))
+Authors@R: c(person("Krzysztof", "Słomczyński",
+                    email = "krzysztofslomczynski@gmail.com",
+                    role = c("cre", "aut")),
+             person("Dominik", "Krzemiński",
+                    email = "dominik.krzeminski@appsilondatascience.com",
+                    role = "aut")
+            )
 Description: shiny.i18n is a package for easy internationalization of Shiny
     applications.
-Depends: R (>= 3.4.0)
+Depends: R (>= 3.3.2)
+Imports: yaml,
+         jsonlite
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
