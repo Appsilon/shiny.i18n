@@ -12,13 +12,13 @@
 #' multmerge(c("file1.csv", "file2.csv"))
 #' }
 multmerge = function(filenames) {
-  datalist <- lapply(filenames, function(x){read.csv(file=x,header=T)})
-  Reduce(function(x,y) {merge(x,y)}, datalist)
+  datalist <- lapply(filenames, function(x){read.csv(file = x, header = TRUE)})
+  Reduce(function(x, y) {merge(x, y)}, datalist)
 }
 
 #' Column to row
 #'
-#' Returns the same data.frame where one columns is rowname now.
+#' Returns the same data.frame where one column is a rowname now.
 #'
 #' @param data data.frame with data
 #' @param colname character with column name

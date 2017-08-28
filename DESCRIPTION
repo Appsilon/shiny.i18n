@@ -1,12 +1,9 @@
 Package: shiny.i18n
 Title: Shiny applications internationalization
 Version: 0.0.0.9000
-Authors@R: c(person("Krzysztof", "Słomczyński",
-                    email = "krzysztofslomczynski@gmail.com",
-                    role = c("cre", "aut")),
-             person("Dominik", "Krzemiński",
+Authors@R: c(person("Dominik", "Krzemiński",
                     email = "dominik.krzeminski@appsilondatascience.com",
-                    role = "aut")
+                    role = c("cre", "aut"))
             )
 Description: shiny.i18n is a package for easy internationalization of Shiny
     applications.

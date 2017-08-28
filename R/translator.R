@@ -62,7 +62,7 @@ Translator$methods(
 
     # If key_translation is not found translations, pick the first one from the list.
     languages <<- as.vector(json_data$languages)
-    key_translation <- check_value_presence(
+    key_translation <<- check_value_presence(
       key_translation,
       languages,
       sprintf("Translation '%s' not found, '%s' set as default",
@@ -77,20 +77,21 @@ Translator$methods(
     # Config setting loading
     translation_csv_config <- paste0(translation_file, ".yaml")
     if (file.exists(translation_csv_config)){
-      local_config <- yaml.load_file(paste0(translation_file, ".yaml"))
+      local_config <- yaml.load_file(translation_csv_config)
       options <<- modifyList(options, local_config)
     }
     else
       warning(paste0("You didn't specify config translation yaml file. ",
-                     "Default setting are used."))
+                     "Default settings are used."))
 
     # read all csv files in format: 'translation_file_<language_code>'
     translation_files <- list.files(dirname(translation_file))
-    translation_files <- translation_files[grep(paste0(translation_file, "_..[.]csv"),
+    translation_files <- translation_files[grep(paste0(translation_file,
+                                                       "_[[:lower:]]{2}[.]csv"),
                                                        translation_files)]
     tmp_translation <- multmerge(translation_files)
     languages <<- as.vector(colnames(tmp_translation))
-    key_translation <- check_value_presence(
+    key_translation <<- check_value_presence(
       key_translation,
       languages,
       sprintf("Translation '%s' not found, '%s' set as default",
@@ -104,7 +105,11 @@ Translator$methods(
       keyword
     else {
       tr <- as.character(translations[keyword, translation_language])
-      ifelse(!is.na(tr), tr, keyword)
+      if (is.na(tr)){
+        warning(sprintf("'%s' translation does not exist.", keyword))
+        tr <- keyword
+      }
+      tr
     }
   },
   t = function(keyword) {
