@@ -125,7 +125,7 @@ Translator$methods(
       translation_language <<- transl_language
   },
   parse_date = function(date) {
-    # TODO
+    format(as.Date(date), format = options$cultural_date_format)
   },
   parse_number = function(number) {
     # TODO
