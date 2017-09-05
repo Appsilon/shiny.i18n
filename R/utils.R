@@ -56,3 +56,15 @@ check_value_presence <- function(val, vect, warn_msg = "") {
   }
   val
 }
+
+#' Read and merge CSVs
+#'
+#' This function reads and merges data from multiple csv files in given folder.
+#'
+#' @param file_path character with path to folder
+#'
+#' @return data.frame with CSV files content
+read_and_merge_csvs <- function(file_path) {
+  all_files <- list.files(file_path, pattern = "*.csv", full.names = TRUE)
+  multmerge(all_files)
+}

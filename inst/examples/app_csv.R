@@ -2,10 +2,10 @@ library(shiny)
 library(shiny.i18n)
 
 # file with translations
-n18i <- i18n(translation_json_path = "data/translation.json")
+n18i <- i18n(translation_csvs_path = "data")
 
 # change this to en
-n18i$set_translation_language("pl")
+n18i$set_translation_language("it")
 
 ui <- shinyUI(fluidPage(
   titlePanel(n18i$t("Hello Shiny!")),
