@@ -1,5 +1,4 @@
 ---
-title: Repo documentation
 output: html_document
 params:
    website_url: http://appsilondatascience.com
