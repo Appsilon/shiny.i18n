@@ -4,7 +4,7 @@
 shiny.i18n
 ==========
 
-Shiny applications internationalization made easy
+Shiny applications internationalisation made easy
 
 Change languages and formats easy with shiny.i18n.
 

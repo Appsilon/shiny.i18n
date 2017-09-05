@@ -14,7 +14,7 @@ params:
 `r params$repo_name`
 ===========
 
-<div class="subheader">Shiny applications internationalization made easy</div>
+<div class="subheader">Shiny applications internationalisation made easy</div>
 
 <div class="section level2">
 Change languages and formats easy with shiny.i18n.
