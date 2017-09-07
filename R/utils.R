@@ -20,14 +20,15 @@ multmerge = function(filenames) {
   Reduce(function(x, y) {merge(x, y)}, datalist)
 }
 
-#' Validate Names
+#' Validate Column Names
 #'
-#' Validate if n-th column of data.frames (given in list) is the same.
+#' Validate if n-th column name of data.frames (given in list) is the same.
 #'
-#' @param list_df list of data frames.
-#' @param n inetgern denoting column name
+#' @param list_df list of data frames
+#' @param n integer denoting column number
 #'
-#' @return TRUE or FALSE
+#' @return TRUE if names of n-th columns of data.frames is the same,
+#' FALSE otherwise.
 validate_names <- function(list_df, n = 1) {
   length(unique(sapply(list_df, function(x) names(x)[n]))) == 1
 }
