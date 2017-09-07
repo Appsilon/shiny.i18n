@@ -1,25 +1,25 @@
 library(shiny)
 library(shiny.i18n)
 
-# file with translations
-n18i <- i18n(translation_json_path = "data/translation.json")
+# File with translations
+i18n <- Translator$new(translation_json_path = "data/translation.json")
 
-# change this to en
-n18i$set_translation_language("pl")
+# Change this to en or comment this line
+i18n$set_translation_language("pl")
 
 ui <- shinyUI(fluidPage(
-  titlePanel(n18i$t("Hello Shiny!")),
+  titlePanel(i18n$t("Hello Shiny!")),
   sidebarLayout(
     sidebarPanel(
       sliderInput("bins",
-                  n18i$t("Number of bins:"),
+                  i18n$t("Number of bins:"),
                   min = 1,
                   max = 50,
                   value = 30)
     ),
     mainPanel(
       plotOutput("distPlot"),
-      p(n18i$t("This is description of the plot."))
+      p(i18n$t("This is description of the plot."))
     )
   )
 ))
@@ -31,7 +31,7 @@ server <- shinyServer(function(input, output) {
     bins <- seq(min(x), max(x), length.out = input$bins + 1)
     hist(x, breaks = bins,
          col = "darkgray", border = "white",
-         main = n18i$t("Histogram of x"), ylab = n18i$t("Frequency"))
+         main = i18n$t("Histogram of x"), ylab = i18n$t("Frequency"))
   })
 })
 

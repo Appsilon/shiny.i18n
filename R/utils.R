@@ -12,8 +12,24 @@
 #' multmerge(c("file1.csv", "file2.csv"))
 #' }
 multmerge = function(filenames) {
-  datalist <- lapply(filenames, function(x){read.csv(file = x, header = TRUE)})
+  datalist <- lapply(filenames, function(x){read.csv(file = x,
+                                                     header = TRUE,
+                                                     encoding = "UTF-8")})
+  if (!validate_names(datalist))
+    stop("Key translation is not the same in all files.")
   Reduce(function(x, y) {merge(x, y)}, datalist)
+}
+
+#' Validate Names
+#'
+#' Validate if n-th column of data.frames (given in list) is the same.
+#'
+#' @param list_df list of data frames.
+#' @param n inetgern denoting column name
+#'
+#' @return TRUE or FALSE
+validate_names <- function(list_df, n = 1) {
+  length(unique(sapply(list_df, function(x) names(x)[n]))) == 1
 }
 
 #' Column to row
@@ -24,7 +40,6 @@ multmerge = function(filenames) {
 #' @param colname character with column name
 #'
 #' @return data.frame with one column less
-#' @export
 #'
 #' @examples
 #' column_to_row(data.frame(a=c("1","2"), b=1:2), "a")
@@ -61,10 +76,29 @@ check_value_presence <- function(val, vect, warn_msg = "") {
 #'
 #' This function reads and merges data from multiple csv files in given folder.
 #'
-#' @param file_path character with path to folder
+#' @param dir_path character with path to directory with csv files
 #'
 #' @return data.frame with CSV files content
-read_and_merge_csvs <- function(file_path) {
-  all_files <- list.files(file_path, pattern = "*.csv", full.names = TRUE)
+read_and_merge_csvs <- function(dir_path) {
+  all_files <- list.files(dir_path, pattern = "*.csv", full.names = TRUE)
   multmerge(all_files)
+}
+
+#' Load Local YAML Config
+#'
+#' @param yaml_config_path path to yaml config file
+#'
+#' @return list of config options or empty list if file not exists
+#'
+load_local_config <- function(yaml_config_path) {
+  if (!is.null(yaml_config_path) &&
+      file.exists(yaml_config_path)) {
+    local_config <- yaml.load_file(yaml_config_path)
+  }
+  else {
+    warning(paste0("You didn't specify config translation yaml file. ",
+                   "Default settings are used."))
+    local_config <- list()
+  }
+  local_config
 }
