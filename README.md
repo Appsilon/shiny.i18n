@@ -1,6 +1,7 @@
 # shiny.i18n
 
-The goal of shiny.i18n is to provide useful functions for Shiny applications internationalization.
+The goal of shiny.i18n is to provide useful functions for Shiny applications
+internationalization.
 
 ## Installation
 
