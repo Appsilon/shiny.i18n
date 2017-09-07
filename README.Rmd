@@ -62,6 +62,7 @@ devtools::install_github("Appsilon/`r params$repo_name`", ref = "0.1.0")
 Example {.firebrick}
 -------
 
+You can find some basic examples in `/inst/examples`.
 
 How to contribute?
 -----------------
