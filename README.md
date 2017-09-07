@@ -1,17 +1,59 @@
-# shiny.i18n
+shiny.i18n
+==========
 
-The goal of shiny.i18n is to provide useful functions for Shiny applications
-internationalization.
+Shiny applications internationalisation made easy
 
-## Installation
+Change languages and formats easy with shiny.i18n.
 
-You can install shiny.i18n from github with:
+<!-- #Basic tutorial article is available on [Appsilon Data Science blog](your_future_art_link). -->
+<!-- Live demo link below 
+<p style="text-align: center; font-size: x-large;">
+<a href="http://appsilondatascience.com/demos">Live demo</a>
+</p>
+-->
 
-``` r
-# install.packages("devtools")
-devtools::install_github("Appsilon/shiny.i18n")
-```
+Source code
+-----------
 
-## Example
+This library source code can be found on [Appsilon Data Science's](http://appsilondatascience.com) Github: <br> <https://github.com/Appsilon/shiny.i18n/>
 
-No examples yet!
+How to install?
+---------------
+
+**Note! This library is still in its infancy. Api might change in the future.**
+
+At the moment it's possible to install this library through [devtools](https://github.com/hadley/devtools).
+
+    devtools::install_github("Appsilon/shiny.i18n")
+
+To install [previous version]() you can run:
+
+    devtools::install_github("Appsilon/shiny.i18n", ref = "0.1.0")
+
+Example
+-------
+
+How to contribute?
+------------------
+
+If you want to contribute to this project please submit a regular PR, once you're done with new feature or bug fix.<br>
+
+**Changes in documentation**
+
+Both repository **README.md** file and an official documentation page are generated with Rmarkdown, so if there is a need to update them, please modify accordingly a **README.Rmd** file and run a **build\_readme.R** script to compile it.
+
+Troubleshooting
+---------------
+
+We used the latest versions of dependencies for this library, so please update your R environment before installation.
+
+Future enhacements
+------------------
+
+-   CRAN release
+-   Format numeric data
+
+Appsilon Data Science
+=====================
+
+Get in touch [dev@appsilondatascience.com](dev@appsilondatascience.com)
