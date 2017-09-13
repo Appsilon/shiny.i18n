@@ -1,8 +1,6 @@
 library(shiny)
 library(shiny.i18n)
 
-SUPPORTED_LANGUAGES <- c("pl", "en", "it")
-
 ui <- shinyUI(fluidPage(
   titlePanel('shiny.i18n'),
   uiOutput('page_content')
@@ -14,10 +12,8 @@ server <- shinyServer(function(input, output) {
 
   i18n <- reactive({
     selected <- input$selected_language
-    if (length(selected) > 0 && selected %in% SUPPORTED_LANGUAGES) {
+    if (length(selected) > 0 && selected %in% translator$languages) {
       translator$set_translation_language(selected)
-    } else {
-      translator$set_translation_language("pl")
     }
     translator
   })
@@ -36,7 +32,7 @@ server <- shinyServer(function(input, output) {
         sidebarPanel(
           selectInput('selected_language',
                       i18n()$t("Change language"),
-                      choices = SUPPORTED_LANGUAGES,
+                      choices = translator$languages,
                       selected = input$selected_language),
           sliderInput("bins",
                       i18n()$t("Number of bins:"),
