@@ -4,7 +4,13 @@
 shiny.i18n
 ==========
 
-Shiny applications internationalisation made easy
+Shiny applications internationalisation made easy!
+
+Actually, you can use **shiny.i18n** as a standalone R package - shiny app is just a perfect usecase example.
+
+Using it is very simple: just prepare your translation files in one of the supported formats, read them into your app using user-friendly **shiny.i18n** interface and surround your expressions to translate by a translator tag. Thanks to that your app will remain neat and readible.
+
+For more informations check the **Example** section below!
 
 Change languages and formats easy with shiny.i18n.
 
@@ -37,6 +43,14 @@ Example
 -------
 
 You can find some basic examples in `/inst/examples`.
+
+#### Translation file format
+
+Currently **shiny.i18n** supports two formats:
+
+-   **csv** - where each translation is in separate file `translation_<LANGUAGE-CODE>.csv`. Example of `translation_pl.csv` for Polish language you may find here: `inst/examples/data/translation_pl.csv`.
+
+-   **json** - single file `translation.json` with mandatory fields: `"languages"` with list of all language codes and `"translation"` with list of dictionaries assigning each translation to a language code. Example of such a json file for Polish language you may find here: `inst/examples/data/translation.json`.
 
 How to contribute?
 ------------------
