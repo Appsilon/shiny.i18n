@@ -22,7 +22,8 @@ multmerge = function(filenames) {
 
 #' Validate Column Names
 #'
-#' Validate if n-th column name of data.frames (given in list) is the same.
+#' Validate if n-th column name of data.frames (given in list) is the same
+#' in all data frames from \code{list_df}.
 #'
 #' @param list_df list of data frames
 #' @param n integer denoting column number
