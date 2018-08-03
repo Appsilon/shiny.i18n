@@ -11,10 +11,12 @@
 #' \dontrun{
 #' multmerge(c("file1.csv", "file2.csv"))
 #' }
-multmerge = function(filenames) {
-  datalist <- lapply(filenames, function(x){read.csv(file = x,
-                                                     header = TRUE,
-                                                     encoding = "UTF-8")})
+multmerge <- function(filenames) {
+  datalist <- lapply(filenames, function(x) {
+    read.csv(file = x,
+             header = TRUE,
+             encoding = "UTF-8")
+    })
   if (!validate_names(datalist))
     stop("Key translation is not the same in all files.")
   Reduce(function(x, y) {merge(x, y)}, datalist)
@@ -22,8 +24,7 @@ multmerge = function(filenames) {
 
 #' Validate Column Names
 #'
-#' Validate if n-th column name of data.frames (given in list) is the same
-#' in all data frames from \code{list_df}.
+#' Validate if n-th column name of data.frames (given in list) is the same.
 #'
 #' @param list_df list of data frames
 #' @param n integer denoting column number
@@ -47,7 +48,7 @@ validate_names <- function(list_df, n = 1) {
 #' column_to_row(data.frame(a=c("1","2"), b=1:2), "a")
 column_to_row <- function(data, colname) {
   stopifnot(colname %in% colnames(data))
-  key_index <- which(colname == colnames((data)))
+  key_index <- which(colname == colnames( (data) ))
   ndata <<- data[-key_index]
   rownames(ndata) <<- data[, key_index]
   ndata
