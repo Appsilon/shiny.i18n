@@ -6,6 +6,7 @@
 #' @param filenames character vector with filenames
 #'
 #' @return data.frame with merged files
+#' @importFrom utils read.csv
 #'
 #' @examples
 #' \dontrun{
@@ -51,8 +52,8 @@ validate_names <- function(list_df, n = 1) {
 column_to_row <- function(data, colname) {
   stopifnot(colname %in% colnames(data))
   key_index <- which(colname == colnames( (data) ))
-  ndata <<- data[-key_index]
-  rownames(ndata) <<- data[, key_index]
+  ndata <- data[-key_index]
+  rownames(ndata) <- data[, key_index]
   ndata
 }
 
