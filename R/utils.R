@@ -45,7 +45,9 @@ validate_names <- function(list_df, n = 1) {
 #' @return data.frame with one column less
 #'
 #' @examples
-#' column_to_row(data.frame(a=c("1","2"), b=1:2), "a")
+#' \dontrun{
+#'  column_to_row(data.frame(a=c("1","2"), b=1:2), "a")
+#' }
 column_to_row <- function(data, colname) {
   stopifnot(colname %in% colnames(data))
   key_index <- which(colname == colnames( (data) ))
