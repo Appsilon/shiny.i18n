@@ -106,7 +106,7 @@ Translator$methods(
   },
   parse_number = function(number) {
     "Parse numbers (to be implemented)."
-    # TODO
+    # TODO numbers parsing
     warning("This is not implemented yet. Sorry!")
     number
   }
