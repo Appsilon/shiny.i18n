@@ -65,8 +65,10 @@ column_to_row <- function(data, colname) {
 #'
 #' @return updated val
 #'
-#' @example
-#' \dontrun{check_value_presence(5, 1:3, "aaa")}
+#' @examples
+#' \dontrun{
+#'  check_value_presence(5, 1:3, "aaa")
+#' }
 check_value_presence <- function(val, vect, warn_msg = "") {
   if (!(val %in% vect)) {
     warning(warn_msg)

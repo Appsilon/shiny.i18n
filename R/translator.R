@@ -20,6 +20,12 @@
 #' @exportClass Translator
 #'
 #' @examples
+#' \dontrun{
+#'   i18n <- Translator(translation_json_path = "data/translation.json")
+#'   i18n$set_translation_language("it")
+#'   i18n$t("This text will be translated to italian")
+#' }
+#' @name translator
 #' @rdname translator
 Translator <- setRefClass(
   "Translator",
@@ -32,7 +38,6 @@ Translator <- setRefClass(
   )
 )
 
-#' @rdname translator
 Translator$methods(
   initialize = function(translation_csvs_path = NULL,
                         translation_json_path = NULL,
