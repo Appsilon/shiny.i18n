@@ -24,7 +24,7 @@ Change languages and formats easy with shiny.i18n.
 Source code
 -----------
 
-This library source code can be found on [Appsilon Data Science's](http://appsilondatascience.com) Github: <br> <https://github.com/Appsilon/shiny.i18n/>
+This library source code can be found on [Appsilon Data Science's](http://appsilondatascience.com) Github: <br> https://github.com/Appsilon/shiny.i18n/
 
 How to install?
 ---------------
@@ -35,7 +35,7 @@ At the moment it's possible to install this library through [devtools](https://g
 
     devtools::install_github("Appsilon/shiny.i18n")
 
-To install [previous version]() you can run:
+To install previous version you can run:
 
     devtools::install_github("Appsilon/shiny.i18n", ref = "0.1.0")
 
