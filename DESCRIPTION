@@ -5,7 +5,7 @@ Authors@R: c(person("Dominik", "Krzemiński",
                     email = "dominik@appsilon.com",
                     role = c("cre", "aut"))
             )
-Description: The package provides easy internationalization of Shiny
+Description: It provides easy internationalization of Shiny
     applications. It can be used as standalone translation package
     to translate reports, interactive visualizations or
     graphical elements as well.
