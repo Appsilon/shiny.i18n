@@ -5,8 +5,10 @@ Authors@R: c(person("Dominik", "Krzemiński",
                     email = "dominik@appsilon.com",
                     role = c("cre", "aut"))
             )
-Description: shiny.i18n is a package for easy internationalization of Shiny
-    applications.
+Description: The package provides easy internationalization of Shiny
+    applications. It can be used as standalone translation package
+    to translate reports, interactive visualizations or
+    graphical elements as well.
 Depends: R (>= 3.3.2)
 Imports: yaml,
          jsonlite,
@@ -20,4 +22,3 @@ RoxygenNote: 6.0.1
 Suggests: knitr,
           rmarkdown,
     testthat
-VignetteBuilder: knitr
