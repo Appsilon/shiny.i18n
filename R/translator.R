@@ -22,7 +22,7 @@
 #'
 #' @examples
 #' \dontrun{
-#'   i18n <- Translator(translation_json_path = "data/translation.json")
+#'   i18n <- Translator(translation_json_path = "translation.json") # translation file
 #'   i18n$set_translation_language("it")
 #'   i18n$t("This text will be translated to italian")
 #' }
