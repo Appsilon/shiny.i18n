@@ -8,7 +8,7 @@ ui <- shinyUI(fluidPage(
 
 translator <- Translator$new(translation_csvs_path = "../data")
 
-server <- shinyServer(function(input, output) {
+server <- shinyServer(function(input, output, session) {
 
   i18n <- reactive({
     selected <- input$selected_language
@@ -35,7 +35,7 @@ server <- shinyServer(function(input, output) {
                       choices = translator$languages,
                       selected = input$selected_language),
           sliderInput("bins",
-                      i18n()$t("Number of bins:"),
+                      "Number of bins:",
                       min = 1,
                       max = 50,
                       value = 30)
@@ -46,6 +46,10 @@ server <- shinyServer(function(input, output) {
         )
       )
     )
+  })
+
+  observeEvent(i18n(), {
+    updateSliderInput(session, "bins", label =  i18n()$t("Number of bins:"), value = input$bins)
   })
 
 })
