@@ -1,11 +1,11 @@
 ---
 output: html_document
 params:
-   website_url: http://appsilondatascience.com
+   website_url: http://appsilon.com
    logo_url: https://cdn.rawgit.com/Appsilon/website-cdn/gh-pages/logo-white.png
    repo_name: shiny.i18n
    repo_url: https://github.com/Appsilon/shiny.i18n/
-   demo_url: http://appsilondatascience.com/demos
+   demo_url: http://appsilon.com/demos
 ---
 
 <link href="http://fonts.googleapis.com/css?family=Maven+Pro:400,700|Inconsolata" rel="stylesheet" type="text/css">
@@ -110,7 +110,7 @@ if (params$type == "web") {
 }
 ```
 
-Get in touch [dev@appsilondatascience.com](dev@appsilondatascience.com)
+Get in touch [dev@appsilon.com](dev@appsilon.com)
 
 ```{r, echo = F, results='asis'}
 if (params$type == "web") {
