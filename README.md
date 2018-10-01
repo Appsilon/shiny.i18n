@@ -17,21 +17,25 @@ Change languages and formats easy with shiny.i18n.
 <!-- #Basic tutorial article is available on [Appsilon Data Science blog](your_future_art_link). -->
 <!-- Live demo link below 
 <p style="text-align: center; font-size: x-large;">
-<a href="http://appsilondatascience.com/demos">Live demo</a>
+<a href="http://appsilon.com/demos">Live demo</a>
 </p>
 -->
 
 Source code
 -----------
 
-This library source code can be found on [Appsilon Data Science's](http://appsilondatascience.com) Github: <br> https://github.com/Appsilon/shiny.i18n/
+This library source code can be found on [Appsilon Data Science's](http://appsilon.com) Github: <br> <https://github.com/Appsilon/shiny.i18n/>
 
 How to install?
 ---------------
 
 **Note! This library is still in its infancy. Api might change in the future.**
 
-At the moment it's possible to install this library through [devtools](https://github.com/hadley/devtools).
+The stable version of the package you might get from CRAN:
+
+    install.packages("shiny.i18n")
+
+Use [devtools](https://github.com/hadley/devtools) to install the most recent version.
 
     devtools::install_github("Appsilon/shiny.i18n")
 
@@ -50,7 +54,7 @@ Currently **shiny.i18n** supports two formats:
 
 -   **csv** - where each translation is in separate file `translation_<LANGUAGE-CODE>.csv`. Example of `translation_pl.csv` for Polish language you may find here: `inst/examples/data/translation_pl.csv`.
 
--   **json** - single file `translation.json` with mandatory fields: `"languages"` with list of all language codes and `"translation"` with list of dictionaries assigning each translation to a language code. Example of such a json file for Polish language you may find here: `inst/examples/data/translation.json`.
+-   **json** - single json file `translation.json` with mandatory fields: `"languages"` with list of all language codes and `"translation"` with list of dictionaries assigning each translation to a language code. Example of such a json file for Polish language you may find here: `inst/examples/data/translation.json`.
 
 How to contribute?
 ------------------
@@ -75,4 +79,4 @@ Future enhacements
 Appsilon Data Science
 ---------------------
 
-Get in touch [dev@appsilondatascience.com](dev@appsilondatascience.com)
+Get in touch [dev@appsilon.com](dev@appsilon.com)
