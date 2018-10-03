@@ -5,7 +5,7 @@ library(shiny.i18n)
 i18n <- Translator$new(translation_csvs_path = "../data")
 
 # change this to en
-i18n$set_translation_language("pl")
+i18n$set_translation_language("en")
 
 ui <- shinyUI(fluidPage(
   titlePanel(i18n$t("Hello Shiny!")),

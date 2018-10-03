@@ -31,11 +31,15 @@ How to install?
 
 **Note! This library is still in its infancy. Api might change in the future.**
 
-At the moment it's possible to install this library through [devtools](https://github.com/hadley/devtools).
+The stable version of the package you might get from CRAN:
+
+    install.packages("shiny.i18n")
+
+Use [devtools](https://github.com/hadley/devtools) to install the most recent version.
 
     devtools::install_github("Appsilon/shiny.i18n")
 
-To install [previous version]() you can run:
+To install previous version you can run:
 
     devtools::install_github("Appsilon/shiny.i18n", ref = "0.1.0")
 

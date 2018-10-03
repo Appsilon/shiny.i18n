@@ -7,11 +7,6 @@
 #'
 #' @return data.frame with merged files
 #' @importFrom utils read.csv
-#'
-#' @examples
-#' \dontrun{
-#' multmerge(c("file1.csv", "file2.csv"))
-#' }
 multmerge <- function(filenames) {
   datalist <- lapply(filenames, function(x) {
     read.csv(file = x,
@@ -45,10 +40,6 @@ validate_names <- function(list_df, n = 1) {
 #'
 #' @return data.frame with one column less
 #'
-#' @examples
-#' \dontrun{
-#'  column_to_row(data.frame(a=c("1","2"), b=1:2), "a")
-#' }
 column_to_row <- function(data, colname) {
   stopifnot(colname %in% colnames(data))
   key_index <- which(colname == colnames( (data) ))
@@ -67,11 +58,6 @@ column_to_row <- function(data, colname) {
 #' @param warn_msg warning message to be displayed if \code{val} not in \code{vect}
 #'
 #' @return updated val
-#'
-#' @examples
-#' \dontrun{
-#'  check_value_presence(5, 1:3, "aaa")
-#' }
 check_value_presence <- function(val, vect, warn_msg = "") {
   if (!(val %in% vect)) {
     warning(warn_msg)
@@ -97,7 +83,6 @@ read_and_merge_csvs <- function(dir_path) {
 #' @param yaml_config_path path to yaml config file
 #'
 #' @return list of config options or empty list if file not exists
-#'
 load_local_config <- function(yaml_config_path) {
   if (!is.null(yaml_config_path) &&
       file.exists(yaml_config_path)) {

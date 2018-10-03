@@ -62,7 +62,7 @@ At the moment it's possible to install this library through [devtools](https://g
 devtools::install_github("Appsilon/`r params$repo_name`")
 ```
 
-To install [previous version](`r params$changelog_url`) you can run:
+To install previous version you can run:
 ```
 devtools::install_github("Appsilon/`r params$repo_name`", ref = "0.1.0")
 ```
