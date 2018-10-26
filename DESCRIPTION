@@ -19,6 +19,8 @@ LazyData: true
 URL: http://github.com/Appsilon/shiny.i18n
 BugReports: http://github.com/Appsilon/shiny.i18n/issues
 RoxygenNote: 6.0.1
-Suggests: knitr,
-          rmarkdown,
-    testthat
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat,
+    covr
