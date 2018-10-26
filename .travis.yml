@@ -2,3 +2,5 @@ language: r
 
 dist: trusty
 
+after_success:
+  - Rscript -e 'library(covr);codecov()'
