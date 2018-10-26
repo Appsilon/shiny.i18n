@@ -1,6 +1,8 @@
 
 <link href="http://fonts.googleapis.com/css?family=Maven+Pro:400,700|Inconsolata" rel="stylesheet" type="text/css"> <link href='docs/style.css' rel='stylesheet' type='text/css'>
 
+[![Travis build status](https://travis-ci.org/Appsilon/shiny.i18n.svg?branch=master)](https://travis-ci.org/Appsilon/shiny.i18n)
+
 shiny.i18n
 ==========
 
