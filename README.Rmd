@@ -14,6 +14,10 @@ params:
 `r params$repo_name`
 ===========
 
+[![Travis build status](https://travis-ci.org/Appsilon/shiny.i18n.svg?branch=master)](https://travis-ci.org/Appsilon/shiny.i18n)
+![](https://codecov.io/gh/Appsilon/shiny.i18n/branch/master/graph/badge.svg)
+![](https://www.r-pkg.org/badges/version/shiny.i18n)
+
 <div class="subheader">Shiny applications internationalisation made easy!</div>
 
 <div class="section level2">
@@ -94,9 +98,8 @@ We used the latest versions of dependencies for this library, so please update y
 
 Future enhacements
 ------------------
-* CRAN release
 * Format numeric data
-
+* Support plural forms
 
 Appsilon Data Science {.footer}
 ------------------

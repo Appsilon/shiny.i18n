@@ -1,10 +1,10 @@
 
 <link href="http://fonts.googleapis.com/css?family=Maven+Pro:400,700|Inconsolata" rel="stylesheet" type="text/css"> <link href='docs/style.css' rel='stylesheet' type='text/css'>
 
-[![Travis build status](https://travis-ci.org/Appsilon/shiny.i18n.svg?branch=master)](https://travis-ci.org/Appsilon/shiny.i18n)
-
 shiny.i18n
 ==========
+
+[![Travis build status](https://travis-ci.org/Appsilon/shiny.i18n.svg?branch=master)](https://travis-ci.org/Appsilon/shiny.i18n) ![](https://codecov.io/gh/Appsilon/shiny.i18n/branch/master/graph/badge.svg) ![](https://www.r-pkg.org/badges/version/shiny.i18n)
 
 Shiny applications internationalisation made easy!
 
@@ -33,11 +33,7 @@ How to install?
 
 **Note! This library is still in its infancy. Api might change in the future.**
 
-The stable version of the package you might get from CRAN:
-
-    install.packages("shiny.i18n")
-
-Use [devtools](https://github.com/hadley/devtools) to install the most recent version.
+At the moment it's possible to install this library through [devtools](https://github.com/hadley/devtools).
 
     devtools::install_github("Appsilon/shiny.i18n")
 
@@ -75,8 +71,8 @@ We used the latest versions of dependencies for this library, so please update y
 Future enhacements
 ------------------
 
--   CRAN release
 -   Format numeric data
+-   Support plural forms
 
 Appsilon Data Science
 ---------------------

@@ -90,6 +90,9 @@ img {
 .tabbed-pane {
   padding-top: 12px;
 }
+.html-widget {
+  margin-bottom: 20px;
+}
 button.code-folding-btn:focus {
   outline: none;
 }
@@ -122,6 +125,7 @@ $(document).ready(function () {
 
 
 <p><link href="data:text/css; charset=utf-8,%40font%2Dface%20%7B%0A%20%20font%2Dfamily%3A%20%27Inconsolata%27%3B%0A%20%20font%2Dstyle%3A%20normal%3B%0A%20%20font%2Dweight%3A%20400%3B%0A%20%20src%3A%20local%28%27Inconsolata%20Regular%27%29%2C%20local%28%27Inconsolata%2DRegular%27%29%2C%20url%28http%3A%2F%2Ffonts%2Egstatic%2Ecom%2Fs%2Finconsolata%2Fv16%2FQldKNThLqRwH%2DOJ1UHjlKGlZ5q0%2Ettf%29%20format%28%27truetype%27%29%3B%0A%7D%0A%40font%2Dface%20%7B%0A%20%20font%2Dfamily%3A%20%27Maven%20Pro%27%3B%0A%20%20font%2Dstyle%3A%20normal%3B%0A%20%20font%2Dweight%3A%20400%3B%0A%20%20src%3A%20local%28%27Maven%20Pro%20Regular%27%29%2C%20local%28%27MavenPro%2DRegular%27%29%2C%20url%28http%3A%2F%2Ffonts%2Egstatic%2Ecom%2Fs%2Fmavenpro%2Fv11%2F7Au9p%5FAqnyWWAxW2Wk3GzWQN%2Ettf%29%20format%28%27truetype%27%29%3B%0A%7D%0A%40font%2Dface%20%7B%0A%20%20font%2Dfamily%3A%20%27Maven%20Pro%27%3B%0A%20%20font%2Dstyle%3A%20normal%3B%0A%20%20font%2Dweight%3A%20700%3B%0A%20%20src%3A%20local%28%27Maven%20Pro%20Bold%27%29%2C%20local%28%27MavenPro%2DBold%27%29%2C%20url%28http%3A%2F%2Ffonts%2Egstatic%2Ecom%2Fs%2Fmavenpro%2Fv11%2F7Au4p%5FAqnyWWAxW2Wk3OdkEdP3kG%2Ettf%29%20format%28%27truetype%27%29%3B%0A%7D%0A" rel="stylesheet" type="text/css"> <link href="data:text/css;charset=utf-8,body%20%7B%0Abackground%3A%20%23fcd73d22%3B%0Afont%2Dfamily%3A%20%22Maven%20Pro%22%2C%20sans%2Dserif%3B%0A%7D%0Ah1%20%7B%0Atext%2Dalign%3A%20center%3B%0Afont%2Dsize%3A%2080px%3B%0Afont%2Dweight%3A%20400%3B%0Apadding%2Dtop%3A%201em%3B%0Amargin%3A%200%3B%0A%7D%0A%2Esection%2Elevel2%2Efooter%20%2A%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0A%2Efooter%20h2%20%7B%0Adisplay%3A%20none%3B%0A%7D%0A%2Efooter%20a%20%7B%0Acolor%3A%20white%3B%0Atext%2Ddecoration%3A%20underline%3B%0A%7D%0A%2Esection%2Efooter%20img%20%7B%0Awidth%3A%20150px%20%21important%3B%0Amargin%3A%201em%3B%0Amargin%2Dbottom%3A%201em%3B%0A%7D%0Ah2%2C%20%2Esubheader%20%7B%0Afont%2Dsize%3A%2022px%3B%0Atext%2Dalign%3A%20center%3B%0Afont%2Dstyle%3A%20italic%3B%0Afont%2Dweight%3A%20400%3B%0Amargin%3A%200%3B%0A%7D%0A%2Emain%2Dcontainer%20%7B%0Amax%2Dwidth%3A%20100%25%3B%0Apadding%3A%200%3B%0A%7D%0A%2Ecustom%20%7B%0Abackground%2Dcolor%3A%20rgb%2852%2C%2052%2C%2052%29%3B%0A%7D%0A%2Esection%2Elevel2%20%7B%0Atext%2Dalign%3A%20center%3B%0Apadding%3A%201em%200%3B%0A%7D%0A%2Esection%2Elevel2%20%3E%20div%2C%20%2Esection%2Elevel2%20%3E%20p%2C%20%2Esection%2Elevel2%20%3E%20pre%2C%0A%2Esection%2Elevel2%20%3E%20ol%2C%20%2Esection%2Elevel2%20%3E%20ul%2C%20%2Esection%2Elevel2%20%3E%20h2%20%7B%0Atext%2Dalign%3A%20left%3B%0Amargin%3A%201em%20auto%3B%0Awidth%3A%2050%25%3B%0Amax%2Dwidth%3A%20940px%3B%0A%7D%0A%2Esection%2Elevel1%2Efooter%20%2A%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0A%2Edarkslide%20%7B%0Abackground%2Dcolor%3A%20%2315354a%3B%0Acolor%3A%20%23fcd73d%3B%0A%7D%0A%2Efooter%20%7B%0Abackground%2Dcolor%3A%20%2315354a%3B%0Acolor%3A%20white%3B%0Apadding%2Dbottom%3A%202em%3B%0A%7D%0A%2Edarkslide%20a%20%7B%0Acolor%3A%20white%3B%0A%7D%0A%2Efirebrick%20%7B%0Abackground%2Dcolor%3A%20%23ff364a%3B%0Acolor%3A%20white%3B%0A%7D%0A%2Efirebrick%20a%7B%0Acolor%3A%20%23fcd73d%3B%0A%7D%0A%2Edarkorange%20%7B%0Abackground%2Dcolor%3A%20%23fcd73d%3B%0Acolor%3A%20%23343434%3B%0A%7D%0A%2Elogo%20img%20%7B%0Awidth%3A%20100px%20%21important%3B%0A%7D%0A" rel="stylesheet" type="text/css"></p>
+<p><a href="https://travis-ci.org/Appsilon/shiny.i18n"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MCIgaGVpZ2h0PSIyMCI+PGxpbmVhckdyYWRpZW50IGlkPSJhIiB4Mj0iMCIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2JiYiIgc3RvcC1vcGFjaXR5PSIuMSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1vcGFjaXR5PSIuMSIvPjwvbGluZWFyR3JhZGllbnQ+PHJlY3Qgcng9IjMiIHdpZHRoPSI5MCIgaGVpZ2h0PSIyMCIgZmlsbD0iIzU1NSIvPjxyZWN0IHJ4PSIzIiB4PSIzNyIgd2lkdGg9IjUzIiBoZWlnaHQ9IjIwIiBmaWxsPSIjNGMxIi8+PHBhdGggZmlsbD0iIzRjMSIgZD0iTTM3IDBoNHYyMGgtNHoiLz48cmVjdCByeD0iMyIgd2lkdGg9IjkwIiBoZWlnaHQ9IjIwIiBmaWxsPSJ1cmwoI2EpIi8+PGcgZmlsbD0iI2ZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkRlamFWdSBTYW5zLFZlcmRhbmEsR2VuZXZhLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTEiPjx0ZXh0IHg9IjE5LjUiIHk9IjE1IiBmaWxsPSIjMDEwMTAxIiBmaWxsLW9wYWNpdHk9Ii4zIj5idWlsZDwvdGV4dD48dGV4dCB4PSIxOS41IiB5PSIxNCI+YnVpbGQ8L3RleHQ+PHRleHQgeD0iNjIuNSIgeT0iMTUiIGZpbGw9IiMwMTAxMDEiIGZpbGwtb3BhY2l0eT0iLjMiPnBhc3Npbmc8L3RleHQ+PHRleHQgeD0iNjIuNSIgeT0iMTQiPnBhc3Npbmc8L3RleHQ+PC9nPjwvc3ZnPg==" alt="Travis build status" /></a> <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5NiIgaGVpZ2h0PSIyMCI+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImIiIHgyPSIwIiB5Mj0iMTAwJSI+CiAgICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjYmJiIiBzdG9wLW9wYWNpdHk9Ii4xIiAvPgogICAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1vcGFjaXR5PSIuMSIgLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bWFzayBpZD0iYSI+CiAgICAgICAgPHJlY3Qgd2lkdGg9Ijk2IiBoZWlnaHQ9IjIwIiByeD0iMyIgZmlsbD0iI2ZmZiIgLz4KICAgIDwvbWFzaz4KICAgIDxnIG1hc2s9InVybCgjYSkiPgogICAgICAgIDxwYXRoIGZpbGw9IiM1NTUiIGQ9Ik0wIDBoNjB2MjBIMHoiIC8+CiAgICAgICAgPHBhdGggZmlsbD0iI2FmYWIxYyIgZD0iTTYwIDBoMzZ2MjBINjB6IiAvPgogICAgICAgIDxwYXRoIGZpbGw9InVybCgjYikiIGQ9Ik0wIDBoOTZ2MjBIMHoiIC8+CiAgICA8L2c+CiAgICA8ZyBmaWxsPSIjZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iRGVqYVZ1IFNhbnMsVmVyZGFuYSxHZW5ldmEsc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMSI+CiAgICAgICAgPHRleHQgeD0iMzAiIHk9IjE1IiBmaWxsPSIjMDEwMTAxIiBmaWxsLW9wYWNpdHk9Ii4zIj5jb2RlY292PC90ZXh0PgogICAgICAgIDx0ZXh0IHg9IjMwIiB5PSIxNCI+Y29kZWNvdjwvdGV4dD4KICAgICAgICA8dGV4dCB4PSI3NyIgeT0iMTUiIGZpbGw9IiMwMTAxMDEiIGZpbGwtb3BhY2l0eT0iLjMiPjg3JTwvdGV4dD4KICAgICAgICA8dGV4dCB4PSI3NyIgeT0iMTQiPjg3JTwvdGV4dD4KICAgIDwvZz4KPC9zdmc+" /></p>
 <div id="shiny.i18n" class="section level1">
 <h1>shiny.i18n</h1>
 <div class="subheader">
@@ -153,7 +157,7 @@ Shiny applications internationalisation made easy!
 <p><strong>Note! This library is still in its infancy. Api might change in the future.</strong></p>
 <p>At the moment it’s possible to install this library through <a href="https://github.com/hadley/devtools">devtools</a>.</p>
 <pre><code>devtools::install_github(&quot;Appsilon/shiny.i18n&quot;)</code></pre>
-<p>To install <a href>previous version</a> you can run:</p>
+<p>To install previous version you can run:</p>
 <pre><code>devtools::install_github(&quot;Appsilon/shiny.i18n&quot;, ref = &quot;0.1.0&quot;)</code></pre>
 </div>
 <div id="example" class="section level2 darkorange">
@@ -181,8 +185,8 @@ Shiny applications internationalisation made easy!
 <div id="future-enhacements" class="section level2">
 <h2>Future enhacements</h2>
 <ul>
-<li>CRAN release</li>
 <li>Format numeric data</li>
+<li>Support plural forms</li>
 </ul>
 </div>
 <div id="appsilon-data-science" class="section level2 footer">
