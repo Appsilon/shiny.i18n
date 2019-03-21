@@ -15,7 +15,7 @@ multmerge <- function(filenames) {
     })
   if (!validate_names(datalist))
     stop("Key translation is not the same in all files.")
-  Reduce(function(x, y) {merge(x, y)}, datalist)
+  Reduce(function(x, y) {merge(x, y, all = TRUE)}, datalist)
 }
 
 #' Validate Column Names
