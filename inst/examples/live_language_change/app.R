@@ -49,7 +49,7 @@ server <- shinyServer(function(input, output, session) {
   })
 
   observeEvent(i18n(), {
-    updateSliderInput(session, "bins", label =  i18n()$t("Number of bins:"), value = input$bins)
+    updateSliderInput(session, "bins", label =  i18n()$t("Number of bins:"), value = req(input$bins))
   })
 
 })
