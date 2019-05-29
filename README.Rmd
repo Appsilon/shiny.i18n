@@ -14,9 +14,10 @@ params:
 `r params$repo_name`
 ===========
 
+<center>
 [![Travis build status](https://travis-ci.org/Appsilon/shiny.i18n.svg?branch=master)](https://travis-ci.org/Appsilon/shiny.i18n)
-![](https://codecov.io/gh/Appsilon/shiny.i18n/branch/master/graph/badge.svg)
-![](https://www.r-pkg.org/badges/version/shiny.i18n)
+[![codecov](https://codecov.io/gh/Appsilon/shiny.i18n/branch/master/graph/badge.svg)](https://codecov.io/gh/Appsilon/shiny.i18n)
+</center>
 
 <div class="subheader">Shiny applications internationalisation made easy!</div>
 
