@@ -4,9 +4,6 @@
 shiny.i18n
 ==========
 
-<center>
-[![Travis build status](https://travis-ci.org/Appsilon/shiny.i18n.svg?branch=master)](https://travis-ci.org/Appsilon/shiny.i18n) [![codecov](https://codecov.io/gh/Appsilon/shiny.i18n/branch/master/graph/badge.svg)](https://codecov.io/gh/Appsilon/shiny.i18n)
-</center>
 Shiny applications internationalisation made easy!
 
 Actually, you can use **shiny.i18n** as a standalone R package - shiny app is just a perfect usecase example.
