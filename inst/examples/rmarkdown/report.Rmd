@@ -1,0 +1,21 @@
+---
+title: "i18n"
+author: "Appsilon"
+date: "4/7/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(shiny.i18n)
+i18n <- Translator$new(translation_csvs_path = "../data")
+i18n$set_translation_language("en")
+```
+
+## `r i18n$t("Hello Shiny!")`
+
+```{r include=FALSE}
+i18n$set_translation_language("it")
+```
+
+## `r i18n$t("Hello Shiny!")`
