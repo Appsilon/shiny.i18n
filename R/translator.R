@@ -86,9 +86,10 @@ Translator$methods(
       if (identical(translation_language, character(0)))
         return(keyword)
       tr <- as.character(translations[keyword, translation_language])
-      if (is.na(tr)){
-        warning(sprintf("'%s' translation does not exist.", keyword))
-        tr <- keyword
+      if (anyNA(tr)){
+        warning(sprintf("'%s' translation does not exist.",
+                        keyword[which(is.na(tr))]))
+        tr[which(is.na(tr))] <- keyword[which(is.na(tr))]
       }
       tr
     },
