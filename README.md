@@ -1,6 +1,9 @@
 
 <link href="http://fonts.googleapis.com/css?family=Maven+Pro:400,700|Inconsolata" rel="stylesheet" type="text/css"> <link href='docs/style.css' rel='stylesheet' type='text/css'>
 
+<img src="man/figures/shiny.i18n.png" align="right" alt="" width="120" />
+
+
 shiny.i18n
 ==========
 
