@@ -9,9 +9,9 @@ shiny.i18n
 
 Shiny applications internationalisation made easy!
 
-Actually, you can use **shiny.i18n** as a standalone R package - shiny app is just a perfect usecase example.
-
 Using it is very simple: just prepare your translation files in one of the supported formats, read them into your app using user-friendly **shiny.i18n** interface and surround your expressions to translate by a translator tag. Thanks to that your app will remain neat and readible.
+
+*Actually, you can use **shiny.i18n** as a standalone R package - shiny app is just a perfect usecase example.*
 
 For more informations check the **Example** section below!
 
@@ -45,11 +45,11 @@ To install previous version you can run:
 Example
 -------
 
-You can find some basic examples in `/inst/examples`.
+You can find some basic examples in `examples` folder.
 
 #### Translation file format
 
-Currently **shiny.i18n** supports two formats:
+Currently **shiny.i18n** supports two translation formats:
 
 -   **csv** - where each translation is in separate file `translation_<LANGUAGE-CODE>.csv`. Example of `translation_pl.csv` for Polish language you may find here: `inst/examples/data/translation_pl.csv`.
 
@@ -60,9 +60,6 @@ How to contribute?
 
 If you want to contribute to this project please submit a regular PR, once you're done with new feature or bug fix.<br>
 
-**Changes in documentation**
-
-Both repository **README.md** file and an official documentation page are generated with Rmarkdown, so if there is a need to update them, please modify accordingly a **README.Rmd** file and run a **build\_readme.R** script to compile it.
 
 Troubleshooting
 ---------------
