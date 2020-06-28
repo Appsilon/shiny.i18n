@@ -23,4 +23,5 @@ Suggests:
     knitr,
     rmarkdown,
     testthat,
-    covr
+    covr,
+    googleLanguageR
