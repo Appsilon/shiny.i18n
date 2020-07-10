@@ -3,28 +3,40 @@ library(shiny.i18n)
 
 # File with translations
 i18n <- Translator$new(translation_json_path = "../data/translation.json")
-
-# Change this to en or comment this line
-i18n$set_translation_language("pl")
+i18n$set_translation_language("en")
 
 ui <- shinyUI(fluidPage(
-  titlePanel(i18n$t("Hello Shiny!")),
+  init_i18nUI(i18n),
+  actionButton("go", "GO!"),
+  titlePanel(uitranslate("Hello Shiny!")),
   sidebarLayout(
     sidebarPanel(
       sliderInput("bins",
-                  i18n$t("Number of bins:"),
+                  uitranslate("Number of bins:"),
                   min = 1,
                   max = 50,
                   value = 30)
     ),
     mainPanel(
       plotOutput("distPlot"),
-      p(i18n$t("This is description of the plot."))
+      p(uitranslate("This is description of the plot."))
     )
   )
 ))
 
-server <- shinyServer(function(input, output) {
+server <- shinyServer(function(input, output, session) {
+
+  observeEvent(input$go,{
+    session$sendCustomMessage("handleri18nout", message)
+  })
+
+  observeEvent(input$i18nValues, {
+    i18n$set_translation_language(input$i18n_langs)
+    tmp <- as.list(i18n$t(input$i18nValues))
+    names(tmp) <- input$i18nValues
+    print(tmp)
+    session$sendCustomMessage("handleri18nin", jsonlite::toJSON(tmp))
+  })
 
   output$distPlot <- renderPlot({
     x    <- faithful[, 2]

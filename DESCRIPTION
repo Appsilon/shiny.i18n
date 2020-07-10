@@ -1,6 +1,6 @@
 Package: shiny.i18n
 Title: Shiny Applications Internationalization
-Version: 0.1.0
+Version: 0.2.0
 Authors@R: c(person("Dominik", "Krzemiński",
                     email = "dominik@appsilon.com",
                     role = c("cre", "aut")),
