@@ -32,6 +32,10 @@ server <- shinyServer(function(input, output, session) {
 
   observeEvent(input$i18nValues, {
     i18n$set_translation_language(input$i18n_langs)
+    print(input$i18n_langs)
+    print(i18n$translation_language)
+    print('----')
+    print(input$i18nValues)
     tmp <- as.list(i18n$t(input$i18nValues))
     names(tmp) <- input$i18nValues
     print(tmp)

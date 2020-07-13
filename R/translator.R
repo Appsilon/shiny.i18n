@@ -33,6 +33,7 @@ Translator <- setRefClass(
   fields = list(
     languages = "character",
     translation_language = "character",
+    key_translation = "character",
     options = "list",
     translations = "data.frame",
     mode = "character"
@@ -56,7 +57,7 @@ Translator$methods(
         stop("You must provide either translation json or csv files.")
       translation_language <<- character(0)
     },
-    .read_json = function(translation_file, key_translation) {
+    .read_json = function(translation_file) {
       mode <<- "json"
       # TODO validate format of a json translation_file
       # Update the list of options, or take a default from config.
@@ -65,7 +66,7 @@ Translator$methods(
       options <<- modifyList(options, json_data[common_fields])
 
       languages <<- as.vector(json_data$languages)
-      key_translation <- languages[1]
+      key_translation <<- languages[1]
       # To make sure that key translation is always first in vector
       languages <<- unique(c(key_translation, languages))
       translations <<- column_to_row(json_data$translation, key_translation)
@@ -78,12 +79,12 @@ Translator$methods(
 
       tmp_translation <- read_and_merge_csvs(translation_path)
       languages <<- as.vector(colnames(tmp_translation))
-      key_translation <- languages[1]
+      key_translation <<- languages[1]
       translations <<- column_to_row(tmp_translation, key_translation)
     },
     translate = function(keyword) {
       "Translates 'keyword' to language specified by 'set_translation_language'"
-      if (identical(translation_language, character(0)))
+      if (identical(translation_language, key_translation))
         return(keyword)
       tr <- as.character(translations[keyword, translation_language])
       if (anyNA(tr)){
@@ -102,11 +103,11 @@ Translator$methods(
       if (!(transl_language %in% languages))
         stop(sprintf("'%s' not in Translator object languages",
                      transl_language))
-      key_translation <- languages[1]
-      if (transl_language == key_translation)
-        translation_language <<- character(0)
-      else
-        translation_language <<- transl_language
+      #key_translation <- languages[1]
+      #if (transl_language == key_translation)
+      #  translation_language <<- character(0)
+      #else
+      translation_language <<- transl_language
     },
     parse_date = function(date) {
       "Parse date to format described in 'cultural_date_format' field in config."

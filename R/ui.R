@@ -4,7 +4,7 @@ init_i18nUI <- function(translator, label = ""){
     shiny::tags$head(
       shiny::tags$script(src = "shiny-i18n.js")
     ),
-    selectInput("i18n_langs", label, i18n$languages)
+    selectInput("i18n_langs", label, translator$languages)
   )
 }
 
