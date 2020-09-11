@@ -36,7 +36,8 @@ Translator <- setRefClass(
     key_translation = "character",
     options = "list",
     translations = "data.frame",
-    mode = "character"
+    mode = "character",
+    js = "logical"
   )
 )
 
@@ -44,8 +45,10 @@ Translator <- setRefClass(
 Translator$methods(
     initialize = function(translation_csvs_path = NULL,
                           translation_json_path = NULL,
-                          translation_csv_config = NULL) {
+                          translation_csv_config = NULL,
+                          js = FALSE) {
       options <<- .translator_options
+      js <<- js
       if (!is.null(translation_csvs_path) && !is.null(translation_json_path))
         stop(paste("Arguments 'translation_csvs_path' and",
              "'translation_json_path' are mutually exclusive."))
@@ -84,13 +87,19 @@ Translator$methods(
     },
     translate = function(keyword) {
       "Translates 'keyword' to language specified by 'set_translation_language'"
-      if (identical(translation_language, key_translation))
+      if (identical(translation_language, key_translation)) {
+        if (js)
+          return(shiny::span(class = 'i18n', `data-key` = keyword, keyword))
         return(keyword)
+      }
       tr <- as.character(translations[keyword, translation_language])
       if (anyNA(tr)){
         warning(sprintf("'%s' translation does not exist.",
                         keyword[which(is.na(tr))]))
         tr[which(is.na(tr))] <- keyword[which(is.na(tr))]
+      }
+      if (js) {
+        return(shiny::span(class = 'i18n', `data-key` = keyword, tr)) # todo vector case
       }
       tr
     },
