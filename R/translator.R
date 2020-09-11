@@ -35,6 +35,7 @@ Translator <- setRefClass(
     translation_language = "character",
     options = "list",
     translations = "data.frame",
+    automatic = "logical",
     mode = "character"
   )
 )
@@ -43,7 +44,8 @@ Translator <- setRefClass(
 Translator$methods(
     initialize = function(translation_csvs_path = NULL,
                           translation_json_path = NULL,
-                          translation_csv_config = NULL) {
+                          translation_csv_config = NULL,
+                          automatic = FALSE) {
       options <<- .translator_options
       if (!is.null(translation_csvs_path) && !is.null(translation_json_path))
         stop(paste("Arguments 'translation_csvs_path' and",
@@ -53,8 +55,10 @@ Translator$methods(
       else if (!is.null(translation_json_path))
         .read_json(translation_json_path)
       else
-        stop("You must provide either translation json or csv files.")
+        if (isFALSE(automatic))
+          stop("You must provide either translation json or csv files.")
       translation_language <<- character(0)
+      automatic <<- automatic
     },
     .read_json = function(translation_file, key_translation) {
       mode <<- "json"
@@ -83,6 +87,9 @@ Translator$methods(
     },
     translate = function(keyword) {
       "Translates 'keyword' to language specified by 'set_translation_language'"
+      if (isTRUE(automatic))
+        warning(paste("Automatic translations are on. Use 'automatic_translate'",
+                      "or 'at' to translate via API."))
       if (identical(translation_language, character(0)))
         return(keyword)
       tr <- as.character(translations[keyword, translation_language])
@@ -99,6 +106,10 @@ Translator$methods(
     },
     set_translation_language = function(transl_language) {
       "Specify language of translation. It must exist in 'languages' field."
+      if (isTRUE(automatic)) {
+        translation_language <<- transl_language
+        return(transl_language)
+      }
       if (!(transl_language %in% languages))
         stop(sprintf("'%s' not in Translator object languages",
                      transl_language))
@@ -117,5 +128,19 @@ Translator$methods(
       # TODO numbers parsing
       warning("This is not implemented yet. Sorry!")
       number
+    },
+    automatic_translate = function(keyword, api = "google") {
+      "Translates 'keyword' to language specified by 'set_translation_language'
+      using cloud service 'api'"
+      if (identical(translation_language, character(0)))
+        stop("Please provide a 'translation_language'. Check docs how.")
+      tr <- switch(api,
+       google = translate_with_google_cloud(keyword, translation_language),
+       stop("This 'api' is not supported.")
+      )
+    },
+    at = function(keyword, api = "google") {
+      "Wrapper method. Look at 'automatic_translate'"
+      automatic_translate(keyword, api)
     }
 )
