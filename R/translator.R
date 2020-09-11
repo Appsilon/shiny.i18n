@@ -88,7 +88,8 @@ Translator$methods(
     translate = function(keyword) {
       "Translates 'keyword' to language specified by 'set_translation_language'"
       if (isTRUE(automatic))
-        stop("For automatic translations use 'automatictranslate' or 'at'.")
+        warning(paste("Automatic translations are on. Use 'automatic_translate'",
+                      "or 'at' to translate via API."))
       if (identical(translation_language, character(0)))
         return(keyword)
       tr <- as.character(translations[keyword, translation_language])
@@ -128,7 +129,7 @@ Translator$methods(
       warning("This is not implemented yet. Sorry!")
       number
     },
-    automatictranslate = function(keyword, api = "google") {
+    automatic_translate = function(keyword, api = "google") {
       "Translates 'keyword' to language specified by 'set_translation_language'
       using cloud service 'api'"
       if (identical(translation_language, character(0)))
@@ -138,8 +139,8 @@ Translator$methods(
        stop("This 'api' is not supported.")
       )
     },
-    at = function(keyword) {
-      "Wrapper method. Look at 'translate'"
-      automatictranslate(keyword)
+    at = function(keyword, api = "google") {
+      "Wrapper method. Look at 'automatic_translate'"
+      automatic_translate(keyword, api)
     }
 )
