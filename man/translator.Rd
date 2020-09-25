@@ -41,6 +41,7 @@ Initialize the Translator with data
   translation_csvs_path = NULL,
   translation_json_path = NULL,
   translation_csv_config = NULL,
+  separator_csv = ",",
   automatic = FALSE
 )}\if{html}{\out{</div>}}
 }
@@ -56,6 +57,8 @@ See more in  Details.}
 
 \item{\code{translation_csv_config}}{character with path to configuration file for
 csv option.}
+
+\item{\code{separator_csv}}{separator of CSV values (default ",")}
 
 \item{\code{automatic}}{logical flag, indicating if i18n should use an automatic
 translation API.}

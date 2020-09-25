@@ -15,7 +15,6 @@
 #'   i18n$set_translation_language("it")
 #'   i18n$t("This text will be translated to Italian")
 #' }
-
 Translator <- R6::R6Class("Translator",
   public = list(
     #' @description
@@ -26,18 +25,22 @@ Translator <- R6::R6Class("Translator",
     #' csv option.
     #' @param translation_json_path character with path to JSON translation file.
     #' See more in  Details.
+    #' @param separator_csv separator of CSV values (default ",")
     #' @param automatic logical flag, indicating if i18n should use an automatic
     #' translation API.
     initialize = function(translation_csvs_path = NULL,
                           translation_json_path = NULL,
                           translation_csv_config = NULL,
+                          separator_csv = ",",
                           automatic = FALSE) {
       private$options <- .translator_options
       if (!is.null(translation_csvs_path) && !is.null(translation_json_path))
         stop(paste("Arguments 'translation_csvs_path' and",
                    "'translation_json_path' are mutually exclusive."))
       else if (!is.null(translation_csvs_path))
-        private$read_csv(translation_csvs_path, translation_csv_config)
+        private$read_csv(translation_csvs_path,
+                         translation_csv_config,
+                         separator_csv)
       else if (!is.null(translation_json_path))
         private$read_json(translation_json_path)
       else
@@ -157,12 +160,13 @@ Translator <- R6::R6Class("Translator",
       private$translations <- column_to_row(json_data$translation, key_translation)
     },
     read_csv = function(translation_path,
-                        translation_csv_config) {
+                        translation_csv_config,
+                        separator = ",") {
       private$mode <- "csv"
       local_config <- load_local_config(translation_csv_config)
       private$options <<- modifyList(private$options, local_config)
 
-      tmp_translation <- read_and_merge_csvs(translation_path)
+      tmp_translation <- read_and_merge_csvs(translation_path, separator)
       private$languages <- as.vector(colnames(tmp_translation))
       key_translation <- private$languages[1]
       private$translations <<- column_to_row(tmp_translation, key_translation)
