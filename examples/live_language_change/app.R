@@ -12,7 +12,7 @@ server <- shinyServer(function(input, output, session) {
 
   i18n <- reactive({
     selected <- input$selected_language
-    if (length(selected) > 0 && selected %in% translator$languages) {
+    if (length(selected) > 0 && selected %in% translator$get_languages()) {
       translator$set_translation_language(selected)
     }
     translator
@@ -32,7 +32,7 @@ server <- shinyServer(function(input, output, session) {
         sidebarPanel(
           selectInput('selected_language',
                       i18n()$t("Change language"),
-                      choices = translator$languages,
+                      choices = translator$get_languages(),
                       selected = input$selected_language),
           sliderInput("bins",
                       "Number of bins:",
