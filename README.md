@@ -1,6 +1,3 @@
-
-<link href="http://fonts.googleapis.com/css?family=Maven+Pro:400,700|Inconsolata" rel="stylesheet" type="text/css"> <link href='docs/style.css' rel='stylesheet' type='text/css'>
-
 <img src="man/figures/shiny.i18n.png" align="right" alt="" width="120" />
 
 
@@ -17,13 +14,6 @@ For more informations check the **Example** section below!
 
 Change languages and formats easy with shiny.i18n.
 
-<!-- #Basic tutorial article is available on [Appsilon Data Science blog](your_future_art_link). -->
-<!-- Live demo link below 
-<p style="text-align: center; font-size: x-large;">
-<a href="http://appsilon.com/demos">Live demo</a>
-</p>
--->
-
 Source code
 -----------
 
@@ -32,7 +22,7 @@ This library source code can be found on [Appsilon Data Science's](http://appsil
 How to install?
 ---------------
 
-**Note! This library is still in its infancy. Api might change in the future.**
+**Note! This library is still in its infancy. API might change in the future.**
 
 At the moment it's possible to install this library through [devtools](https://github.com/hadley/devtools).
 
@@ -58,7 +48,7 @@ Currently **shiny.i18n** supports two translation formats:
 How to contribute?
 ------------------
 
-If you want to contribute to this project please submit a regular PR, once you're done with new feature or bug fix.<br>
+If you want to contribute to this project please submit a regular PR, once you're done with new feature or bug fix.
 
 
 Troubleshooting
