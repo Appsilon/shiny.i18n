@@ -22,14 +22,15 @@ extract_key_expressions <- function(text, handle = "i18n") {
 #'
 #' @param key_expressions vector with key expression to translate
 #' @param output_path character with path to output file (default:
-#' "translation.json")
+#' "translation.json" if NULL)
 #' @import jsonlite
-save_to_json <- function(key_expressions, output_path = "translation.json") {
+save_to_json <- function(key_expressions, output_path = NULL) {
   list_to_save <- list(
     translation = lapply(key_expressions,
                          function(x) list(key = unbox(x))),
     languages = "key")
   json_to_save <- jsonlite::toJSON(list_to_save)
+  if (is.null(output_path)) output_path <- "translation.json"
   jsonlite::write_json(list_to_save, output_path)
 }
 
@@ -40,11 +41,12 @@ save_to_json <- function(key_expressions, output_path = "translation.json") {
 #'
 #' @param key_expressions vector with key expression to translate
 #' @param output_path character with path to output file (default:
-#' "translate_lang.csv")
-save_to_csv <- function(key_expressions, output_path = "translate_lang.csv") {
+#' "translate_lang.csv" if NULL)
+save_to_csv <- function(key_expressions, output_path = NULL) {
   df_to_save <- data.frame(
     list(key = key_expressions, lang = rep("", length(key_expressions)))
   )
+  if (is.null(output_path)) output_path <- "translate_lang.csv"
   write.csv(df_to_save, output_path, row.names = FALSE)
 }
 
@@ -55,18 +57,21 @@ save_to_csv <- function(key_expressions, output_path = "translate_lang.csv") {
 #'
 #' @param path character with path of the file that needs to be inspected for
 #' key translations
-#' @param type type of the example output file with translations, eihter "json"
+#' @param type type of the example output file with translations, either "json"
 #' or "csv"
 #' @param handle name of \code{Translator} object within script from \code{path}
+#' @param output if NULL (default) the output will be saved with a default file
+#' name ("translation.json" for JSON and "translate_lang.csv" for CSV)
 #'
 #' @return
 #' @export
-create_translation_file <- function(path, type = "json", handle = "i18n") {
+create_translation_file <- function(path, type = "json", handle = "i18n",
+                                    output = NULL) {
   file_source <- readLines(con <- file(path))
   key_expressions <- extract_key_expressions(file_source, handle)
   switch(type,
-    json = save_to_json(key_expressions),
-    csv = save_to_csv(key_expressions),
+    json = save_to_json(key_expressions, output),
+    csv = save_to_csv(key_expressions, output),
     stop("'type' of output not recognized, check docs!")
   )
 }
