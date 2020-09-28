@@ -17,3 +17,15 @@ navbar:
       href: https://github.com/Appsilon/shiny.i18n
     - icon: fa-twitter fa-lg
       href: https://twitter.com/Appsilon
+
+
+reference:
+- title: i18n Translator
+  contents:
+  - '`Translator`'
+
+- title: Auxiliary functions
+  contents:
+  - '`init_i18n`'
+  - '`usei18n`'
+  - '`update_lang`'
