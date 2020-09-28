@@ -29,6 +29,7 @@ Translator R6 Class
 \item \href{#method-parse_number}{\code{Translator$parse_number()}}
 \item \href{#method-automatic_translate}{\code{Translator$automatic_translate()}}
 \item \href{#method-at}{\code{Translator$at()}}
+\item \href{#method-use_js}{\code{Translator$use_js()}}
 \item \href{#method-clone}{\code{Translator$clone()}}
 }
 }
@@ -43,8 +44,7 @@ Initialize the Translator with data
   translation_json_path = NULL,
   translation_csv_config = NULL,
   separator_csv = ",",
-  automatic = FALSE,
-  js = TRUE
+  automatic = FALSE
 )}\if{html}{\out{</div>}}
 }
 
@@ -229,6 +229,15 @@ supported: \code{google}.}
 }
 \if{html}{\out{</div>}}
 }
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-use_js"></a>}}
+\if{latex}{\out{\hypertarget{method-use_js}{}}}
+\subsection{Method \code{use_js()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Translator$use_js()}\if{html}{\out{</div>}}
+}
+
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-clone"></a>}}

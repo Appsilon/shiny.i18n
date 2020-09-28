@@ -2,7 +2,7 @@ library(shiny)
 library(shiny.i18n)
 
 # File with translations
-i18n <- Translator$new(translation_json_path = "../data/translation.json", js = TRUE)
+i18n <- Translator$new(translation_json_path = "../data/translation.json")
 
 # Change this to en
 i18n$set_translation_language("en")
@@ -33,7 +33,6 @@ server <- shinyServer(function(input, output, session) {
   })
 
   output$distPlot <- renderPlot({
-    print("render")
     x    <- faithful[, 2]
     bins <- seq(min(x), max(x), length.out = input$bins + 1)
     hist(x, breaks = bins,

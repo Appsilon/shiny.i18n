@@ -33,8 +33,7 @@ Translator <- R6::R6Class(
                           translation_json_path = NULL,
                           translation_csv_config = NULL,
                           separator_csv = ",",
-                          automatic = FALSE,
-                          js = TRUE) {
+                          automatic = FALSE) {
       private$options <- .translator_options
       if (!is.null(translation_csvs_path) && !is.null(translation_json_path))
         stop(paste("Arguments 'translation_csvs_path' and",
@@ -48,7 +47,6 @@ Translator <- R6::R6Class(
       else if (isFALSE(automatic))
         stop("You must provide either translation json or csv files.")
       private$automatic <<- automatic
-      if (js) private$js <- TRUE
     },
     #' @description
     #' Get all available languages
@@ -137,7 +135,8 @@ Translator <- R6::R6Class(
     #' supported: \code{google}.
     at = function(keyword, api = "google") {
       self$automatic_translate(keyword, api)
-    }
+    },
+    use_js = function() private$js <- TRUE
   ),
   private = list(
     options = list(),
