@@ -5,12 +5,12 @@ library(shiny.i18n)
 i18n <- Translator$new(translation_json_path = "../data/translation.json", js = TRUE)
 
 # Change this to en
-i18n$set_translation_language("pl")
+i18n$set_translation_language("en")
 
 ui <- shinyUI(fluidPage(
   usei18n(i18n),
   actionButton("go", "GO!"),
-  titlePanel(i18n$t("Hello Shiny!")),
+  titlePanel(i18n$t("Hello Shiny!"), windowTitle = NULL),
   sidebarLayout(
     sidebarPanel(
       sliderInput("bins",
@@ -33,6 +33,7 @@ server <- shinyServer(function(input, output, session) {
   })
 
   output$distPlot <- renderPlot({
+    print("render")
     x    <- faithful[, 2]
     bins <- seq(min(x), max(x), length.out = input$bins + 1)
     hist(x, breaks = bins,

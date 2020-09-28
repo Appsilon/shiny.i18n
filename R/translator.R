@@ -62,18 +62,16 @@ Translator <- R6::R6Class(
     #' @param keyword character or vector of characters with a word or
     #' expression to translate
     translate = function(keyword, session = shiny::getDefaultReactiveDomain()) {
-      if (isTRUE(private$automatic))
-        warning(paste("Automatic translations are on. Use 'automatic_translate'",
-                      "or 'at' to translate via API."))
-      if (identical(private$translation_language, character(0)))
-        return(private$try_js_translate(keyword, keyword, session))
-      tr <- as.character(private$translations[keyword, private$translation_language])
-      if (anyNA(tr)){
-        warning(sprintf("'%s' translation does not exist.",
-                        keyword[which(is.na(tr))]))
-        tr[which(is.na(tr))] <- keyword[which(is.na(tr))]
+      if (!is.null(session)) {
+        translation_language <- if (!is.null(session$input$`i18n-state`)) {
+          session$input$`i18n-state`
+        } else {
+          private$translation_language
+        }
+        private$raw_translate(keyword, translation_language)
+      } else {
+        private$try_js_translate(keyword, private$raw_translate(keyword))
       }
-      private$try_js_translate(keyword, tr, session)
     },
     #' @description
     #' Wrapper to \code{translate} method.
@@ -150,15 +148,28 @@ Translator <- R6::R6Class(
     automatic = FALSE,
     js = FALSE,
     translation_language = character(0),
-    try_js_translate = function(keyword, translation, session) {
+    try_js_translate = function(keyword, translation) {
       if (!private$js) {
         return(translation)
       }
-      if (is.null(session)) {
-        shiny::span(class = 'i18n', `data-key` = keyword, translation)
-      } else {
-        translation
+      shiny::span(class = 'i18n', `data-key` = keyword, translation)
+    },
+    raw_translate = function(keyword, translation_language) {
+      if (missing(translation_language)) {
+        translation_language <- private$translation_language
       }
+      if (isTRUE(private$automatic))
+        warning(paste("Automatic translations are on. Use 'automatic_translate'",
+                      "or 'at' to translate via API."))
+      if (identical(translation_language, character(0)))
+        return(keyword)
+      tr <- as.character(private$translations[keyword, translation_language])
+      if (anyNA(tr)){
+        warning(sprintf("'%s' translation does not exist.",
+                        keyword[which(is.na(tr))]))
+        tr[which(is.na(tr))] <- keyword[which(is.na(tr))]
+      }
+      tr
     },
     read_json = function(translation_file, key_translation) {
       private$mode <- "json"
@@ -187,10 +198,6 @@ Translator <- R6::R6Class(
     }
   )
 )
-
-try_js_translate <- function(translation, session) {
-
-}
 
 #' Creates new i18n Translator object
 #'
