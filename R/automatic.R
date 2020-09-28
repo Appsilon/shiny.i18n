@@ -7,6 +7,7 @@
 #'
 #' @param txt_to_translate character with text to translate
 #' @param target_lang character with language code
+#' @export
 translate_with_google_cloud <- function(txt_to_translate, target_lang) {
   tryCatch({
     googleLanguageR::gl_translate(txt_to_translate, target = target_lang)$translatedText

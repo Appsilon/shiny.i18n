@@ -15,7 +15,23 @@
 #'   i18n$set_translation_language("it")
 #'   i18n$t("This text will be translated to Italian")
 #' }
-Translator <- R6::R6Class("Translator",
+#'
+#' # Shiny example
+#' if (interactive()) {
+#' library(shiny)
+#' library(shiny.i18n)
+#'  #to run this example  make sure that you have a translation file
+#'  #in the same path
+#' i18n <- Translator$new(translation_json_path = "examples/data/translation.json")
+#' i18n$set_translation_language("pl")
+#' ui <- fluidPage(
+#'   h2(i18n$t("Hello Shiny!"))
+#' )
+#' server <- function(input, output) {}
+#' shinyApp(ui = ui, server = server)
+#' }
+Translator <- R6::R6Class(
+  "Translator",
   public = list(
     #' @description
     #' Initialize the Translator with data
@@ -55,29 +71,32 @@ Translator <- R6::R6Class("Translator",
     #' Get whole translation matrix
     get_translations = function() private$translations,
     #' @description
+    #' Get active key translation
+    get_key_translation = function() private$key_translation,
+    #' @description
     #' Translates 'keyword' to language specified by 'set_translation_language'
     #' @param keyword character or vector of characters with a word or
     #' expression to translate
-    translate = function(keyword) {
-      if (isTRUE(private$automatic))
-        warning(paste("Automatic translations are on. Use 'automatic_translate'",
-                      "or 'at' to translate via API."))
-      if (identical(private$translation_language, character(0)))
-        return(keyword)
-      tr <- as.character(private$translations[keyword, private$translation_language])
-      if (anyNA(tr)){
-        warning(sprintf("'%s' translation does not exist.",
-                        keyword[which(is.na(tr))]))
-        tr[which(is.na(tr))] <- keyword[which(is.na(tr))]
+    #' @param session Shiny server session (default: current reactive domain)
+    translate = function(keyword, session = shiny::getDefaultReactiveDomain()) {
+      if (!is.null(session)) {
+        translation_language <- if (!is.null(session$input$`i18n-state`)) {
+          session$input$`i18n-state`
+        } else {
+          private$translation_language
+        }
+        private$raw_translate(keyword, translation_language)
+      } else {
+        private$try_js_translate(keyword, private$raw_translate(keyword))
       }
-      tr
     },
     #' @description
     #' Wrapper to \code{translate} method.
     #' @param keyword character or vector of characters with a word or
     #' expression to translate
-    t = function(keyword) {
-      self$translate(keyword)
+    #' @param session Shiny server session (default: current reactive domain)
+    t = function(keyword, session = shiny::getDefaultReactiveDomain()) {
+      self$translate(keyword, session)
     },
     #' @description
     #' Specify language of translation. It must exist in 'languages' field.
@@ -91,8 +110,8 @@ Translator <- R6::R6Class("Translator",
       if (!(transl_language %in% private$languages))
         stop(sprintf("'%s' not in Translator object languages",
                      transl_language))
-      key_translation <- private$languages[1]
-      if (transl_language == key_translation)
+      private$key_translation <- private$languages[1]
+      if (transl_language == private$key_translation)
         private$translation_language <- character(0)
       else
         private$translation_language <- transl_language
@@ -136,7 +155,10 @@ Translator <- R6::R6Class("Translator",
     #' supported: \code{google}.
     at = function(keyword, api = "google") {
       self$automatic_translate(keyword, api)
-    }
+    },
+    #' @description
+    #' Call to wrap translation in span object. Used for browser-side translations.
+    use_js = function() private$js <- TRUE
   ),
   private = list(
     options = list(),
@@ -145,7 +167,31 @@ Translator <- R6::R6Class("Translator",
     languages = c(),
     translations = NULL,
     automatic = FALSE,
+    js = FALSE,
     translation_language = character(0),
+    try_js_translate = function(keyword, translation) {
+      if (!private$js) {
+        return(translation)
+      }
+      shiny::span(class = 'i18n', `data-key` = keyword, translation)
+    },
+    raw_translate = function(keyword, translation_language) {
+      if (missing(translation_language)) {
+        translation_language <- private$translation_language
+      }
+      if (isTRUE(private$automatic))
+        warning(paste("Automatic translations are on. Use 'automatic_translate'",
+                      "or 'at' to translate via API."))
+      if (identical(translation_language, character(0)))
+        return(keyword)
+      tr <- as.character(private$translations[keyword, translation_language])
+      if (anyNA(tr)){
+        warning(sprintf("'%s' translation does not exist.",
+                        keyword[which(is.na(tr))]))
+        tr[which(is.na(tr))] <- keyword[which(is.na(tr))]
+      }
+      tr
+    },
     read_json = function(translation_file, key_translation) {
       private$mode <- "json"
       # TODO validate format of a json translation_file
@@ -154,10 +200,11 @@ Translator <- R6::R6Class("Translator",
       common_fields <- intersect(names(json_data), names(options))
       private$options <- modifyList(private$options, json_data[common_fields])
       private$languages <- as.vector(json_data$languages)
-      key_translation <- private$languages[1]
+      private$key_translation <- private$languages[1]
       # To make sure that key translation is always first in vector
-      private$languages <- unique(c(key_translation, private$languages))
-      private$translations <- column_to_row(json_data$translation, key_translation)
+      private$languages <- unique(c(private$key_translation, private$languages))
+      private$translations <- column_to_row(json_data$translation,
+                                            private$key_translation)
     },
     read_csv = function(translation_path,
                         translation_csv_config,
@@ -168,12 +215,12 @@ Translator <- R6::R6Class("Translator",
 
       tmp_translation <- read_and_merge_csvs(translation_path, separator)
       private$languages <- as.vector(colnames(tmp_translation))
-      key_translation <- private$languages[1]
-      private$translations <- column_to_row(tmp_translation, key_translation)
+      private$key_translation <- private$languages[1]
+      private$translations <- column_to_row(tmp_translation,
+                                            private$key_translation)
     }
   )
 )
-
 
 #' Creates new i18n Translator object
 #'
@@ -199,5 +246,5 @@ init_i18n <- function(translation_csvs_path = NULL,
                       translation_csv_config = NULL,
                       automatic = FALSE){
   Translator$new(translation_csvs_path, translation_json_path,
-                  translation_csv_config, automatic)
+                 translation_csv_config, automatic)
 }
