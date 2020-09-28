@@ -12,7 +12,8 @@ Description: It provides easy internationalization of Shiny
 Depends: R (>= 3.3.0)
 Imports: yaml,
          jsonlite,
-         methods
+         methods,
+         R6
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
