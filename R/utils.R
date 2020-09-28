@@ -4,12 +4,14 @@
 #' https://www.r-bloggers.com/merging-multiple-data-files-into-one-data-frame/
 #'
 #' @param filenames character vector with filenames
+#' @param sep fields separator
 #'
 #' @return data.frame with merged files
 #' @importFrom utils read.csv
-multmerge <- function(filenames) {
+multmerge <- function(filenames, sep = ",") {
   datalist <- lapply(filenames, function(x) {
     read.csv(file = x,
+             sep = sep,
              header = TRUE,
              encoding = "UTF-8")
     })
@@ -71,11 +73,12 @@ check_value_presence <- function(val, vect, warn_msg = "") {
 #' This function reads and merges data from multiple csv files in given folder.
 #'
 #' @param dir_path character with path to directory with csv files
+#' @param sep fields separator
 #'
 #' @return data.frame with CSV files content
-read_and_merge_csvs <- function(dir_path) {
+read_and_merge_csvs <- function(dir_path, sep = ",") {
   all_files <- list.files(dir_path, pattern = ".*[.]csv$", full.names = TRUE)
-  multmerge(all_files)
+  multmerge(all_files, sep)
 }
 
 #' Load Local YAML Config

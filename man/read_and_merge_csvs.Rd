@@ -4,10 +4,12 @@
 \alias{read_and_merge_csvs}
 \title{Read and merge CSVs}
 \usage{
-read_and_merge_csvs(dir_path)
+read_and_merge_csvs(dir_path, sep = ",")
 }
 \arguments{
 \item{dir_path}{character with path to directory with csv files}
+
+\item{sep}{fields separator}
 }
 \value{
 data.frame with CSV files content

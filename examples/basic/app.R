@@ -3,7 +3,9 @@ library(shiny.i18n)
 
 # File with translations
 i18n <- Translator$new(translation_json_path = "../data/translation.json", js = TRUE)
-i18n$set_translation_language("en")
+
+# Change this to en
+i18n$set_translation_language("pl")
 
 ui <- shinyUI(fluidPage(
   usei18n(i18n),
