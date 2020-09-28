@@ -10,7 +10,7 @@
 #'
 #' @importFrom yaml yaml.load_file
 .onLoad <- function(libname, pkgname) {
-  .i18_config <<- yaml::yaml.load_file(system.file("config.yaml",
+  .i18_config <<- yaml.load_file(system.file("config.yaml",
                                              package = "shiny.i18n"))
 }
 
