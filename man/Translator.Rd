@@ -92,6 +92,7 @@ Get whole translation matrix
 \if{html}{\out{<a id="method-get_key_translation"></a>}}
 \if{latex}{\out{\hypertarget{method-get_key_translation}{}}}
 \subsection{Method \code{get_key_translation()}}{
+Get current key translation
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Translator$get_key_translation()}\if{html}{\out{</div>}}
 }
@@ -111,6 +112,8 @@ Translates 'keyword' to language specified by 'set_translation_language'
 \describe{
 \item{\code{keyword}}{character or vector of characters with a word or
 expression to translate}
+
+\item{\code{session}}{Shiny session object.}
 }
 \if{html}{\out{</div>}}
 }
@@ -129,6 +132,8 @@ Wrapper to \code{translate} method.
 \describe{
 \item{\code{keyword}}{character or vector of characters with a word or
 expression to translate}
+
+\item{\code{session}}{Shiny session object.}
 }
 \if{html}{\out{</div>}}
 }
@@ -234,6 +239,7 @@ supported: \code{google}.}
 \if{html}{\out{<a id="method-use_js"></a>}}
 \if{latex}{\out{\hypertarget{method-use_js}{}}}
 \subsection{Method \code{use_js()}}{
+Call to wrap translation in span object. Used for browser-side translations.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Translator$use_js()}\if{html}{\out{</div>}}
 }

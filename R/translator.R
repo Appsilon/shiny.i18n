@@ -62,6 +62,7 @@ Translator <- R6::R6Class(
     #' Translates 'keyword' to language specified by 'set_translation_language'
     #' @param keyword character or vector of characters with a word or
     #' expression to translate
+    #' @param session Shiny session object.
     translate = function(keyword, session = shiny::getDefaultReactiveDomain()) {
       if (!is.null(session)) {
         translation_language <- if (!is.null(session$input$`i18n-state`)) {
@@ -78,6 +79,7 @@ Translator <- R6::R6Class(
     #' Wrapper to \code{translate} method.
     #' @param keyword character or vector of characters with a word or
     #' expression to translate
+    #' @param session Shiny session object.
     t = function(keyword, session = shiny::getDefaultReactiveDomain()) {
       self$translate(keyword, session)
     },
@@ -139,6 +141,8 @@ Translator <- R6::R6Class(
     at = function(keyword, api = "google") {
       self$automatic_translate(keyword, api)
     },
+    #' @description
+    #' Call to wrap translation in span object. Used for browser-side translations.
     use_js = function() private$js <- TRUE
   ),
   private = list(
