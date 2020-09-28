@@ -55,6 +55,8 @@ Translator <- R6::R6Class(
     #' @description
     #' Get whole translation matrix
     get_translations = function() private$translations,
+    #' @description
+    #' Get current key translation
     get_key_translation = function() private$key_translation,
     #' @description
     #' Translates 'keyword' to language specified by 'set_translation_language'

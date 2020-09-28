@@ -5,7 +5,7 @@ library(shiny.i18n)
 i18n <- Translator$new(translation_json_path = "../data/translation.json")
 
 # Change this to en
-i18n$set_translation_language("en")
+i18n$set_translation_language("pl")
 
 ui <- shinyUI(fluidPage(
   usei18n(i18n),
@@ -29,7 +29,7 @@ ui <- shinyUI(fluidPage(
 server <- shinyServer(function(input, output, session) {
 
   observeEvent(input$go,{
-    update_lang(session, "pl")
+    update_lang(session, "en")
   })
 
   output$distPlot <- renderPlot({
