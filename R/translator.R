@@ -56,6 +56,7 @@ Translator <- R6::R6Class(
     #' @description
     #' Get whole translation matrix
     get_translations = function() private$translations,
+    get_key_translation = function() private$key_translation,
     #' @description
     #' Translates 'keyword' to language specified by 'set_translation_language'
     #' @param keyword character or vector of characters with a word or
@@ -93,8 +94,8 @@ Translator <- R6::R6Class(
       if (!(transl_language %in% private$languages))
         stop(sprintf("'%s' not in Translator object languages",
                      transl_language))
-      key_translation <- private$languages[1]
-      if (transl_language == key_translation)
+      private$key_translation <- private$languages[1]
+      if (transl_language == private$key_translation)
         private$translation_language <- character(0)
       else
         private$translation_language <- transl_language
@@ -149,7 +150,7 @@ Translator <- R6::R6Class(
     automatic = FALSE,
     js = FALSE,
     translation_language = character(0),
-    try_js_translate <- function(keyword, translation, session) {
+    try_js_translate = function(keyword, translation, session) {
       if (!private$js) {
         return(translation)
       }

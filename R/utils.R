@@ -89,7 +89,7 @@ read_and_merge_csvs <- function(dir_path, sep = ",") {
 load_local_config <- function(yaml_config_path) {
   if (!is.null(yaml_config_path) &&
       file.exists(yaml_config_path)) {
-    local_config <- yaml.load_file(yaml_config_path)
+    local_config <- yaml::yaml.load_file(yaml_config_path)
   }
   else {
     warning(paste0("You didn't specify config translation yaml file. ",

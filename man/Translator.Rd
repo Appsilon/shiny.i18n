@@ -21,6 +21,7 @@ Translator R6 Class
 \item \href{#method-new}{\code{Translator$new()}}
 \item \href{#method-get_languages}{\code{Translator$get_languages()}}
 \item \href{#method-get_translations}{\code{Translator$get_translations()}}
+\item \href{#method-get_key_translation}{\code{Translator$get_key_translation()}}
 \item \href{#method-translate}{\code{Translator$translate()}}
 \item \href{#method-t}{\code{Translator$t()}}
 \item \href{#method-set_translation_language}{\code{Translator$set_translation_language()}}
@@ -42,7 +43,8 @@ Initialize the Translator with data
   translation_json_path = NULL,
   translation_csv_config = NULL,
   separator_csv = ",",
-  automatic = FALSE
+  automatic = FALSE,
+  js = TRUE
 )}\if{html}{\out{</div>}}
 }
 
@@ -87,12 +89,21 @@ Get whole translation matrix
 
 }
 \if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_key_translation"></a>}}
+\if{latex}{\out{\hypertarget{method-get_key_translation}{}}}
+\subsection{Method \code{get_key_translation()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Translator$get_key_translation()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-translate"></a>}}
 \if{latex}{\out{\hypertarget{method-translate}{}}}
 \subsection{Method \code{translate()}}{
 Translates 'keyword' to language specified by 'set_translation_language'
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Translator$translate(keyword)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{Translator$translate(keyword, session = shiny::getDefaultReactiveDomain())}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
@@ -110,7 +121,7 @@ expression to translate}
 \subsection{Method \code{t()}}{
 Wrapper to \code{translate} method.
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Translator$t(keyword)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{Translator$t(keyword, session = shiny::getDefaultReactiveDomain())}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
