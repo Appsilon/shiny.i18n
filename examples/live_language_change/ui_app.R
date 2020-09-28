@@ -1,15 +1,25 @@
+#' This script demonstrates how to use shiny.i18n Translator object
+#' for live language change on the UI side. Two key steps are:
+#' (a) add `usei18n(i18n)` to UI
+#' (b) use `update_lang` function to change the language
+
 library(shiny)
 library(shiny.i18n)
 
 # File with translations
-i18n <- Translator$new(translation_json_path = "../data/translation.json")
+i18n <- Translator$new(translation_csvs_path = "../data/")
 
 # Change this to en
-i18n$set_translation_language("pl")
+i18n$set_translation_language("en")
 
 ui <- shinyUI(fluidPage(
-  usei18n(i18n),
-  actionButton("go", "GO!"),
+  shiny.i18n::usei18n(i18n),
+  div( style = "float: right;",
+    selectInput('selected_language',
+                i18n$t("Change language"),
+                choices = i18n$get_languages(),
+                selected = i18n$get_key_translation())
+  ),
   titlePanel(i18n$t("Hello Shiny!"), windowTitle = NULL),
   sidebarLayout(
     sidebarPanel(
@@ -28,8 +38,9 @@ ui <- shinyUI(fluidPage(
 
 server <- shinyServer(function(input, output, session) {
 
-  observeEvent(input$go,{
-    update_lang(session, "en")
+  observeEvent(input$selected_language,{
+    print("Language change!")
+    update_lang(session, input$selected_language)
   })
 
   output$distPlot <- renderPlot({

@@ -15,6 +15,21 @@
 #'   i18n$set_translation_language("it")
 #'   i18n$t("This text will be translated to Italian")
 #' }
+#'
+#' # Shiny example
+#' if (interactive()) {
+#' library(shiny)
+#' library(shiny.i18n)
+#'  #to run this example  make sure that you have a translation file
+#'  #in the same path
+#' i18n <- Translator$new(translation_json_path = "examples/data/translation.json")
+#' i18n$set_translation_language("pl")
+#' ui <- fluidPage(
+#'   h2(i18n$t("Hello Shiny!"))
+#' )
+#' server <- function(input, output) {}
+#' shinyApp(ui = ui, server = server)
+#' }
 Translator <- R6::R6Class(
   "Translator",
   public = list(
@@ -56,13 +71,13 @@ Translator <- R6::R6Class(
     #' Get whole translation matrix
     get_translations = function() private$translations,
     #' @description
-    #' Get current key translation
+    #' Get active key translation
     get_key_translation = function() private$key_translation,
     #' @description
     #' Translates 'keyword' to language specified by 'set_translation_language'
     #' @param keyword character or vector of characters with a word or
     #' expression to translate
-    #' @param session Shiny session object.
+    #' @param session Shiny server session (default: current reactive domain)
     translate = function(keyword, session = shiny::getDefaultReactiveDomain()) {
       if (!is.null(session)) {
         translation_language <- if (!is.null(session$input$`i18n-state`)) {
@@ -79,7 +94,7 @@ Translator <- R6::R6Class(
     #' Wrapper to \code{translate} method.
     #' @param keyword character or vector of characters with a word or
     #' expression to translate
-    #' @param session Shiny session object.
+    #' @param session Shiny server session (default: current reactive domain)
     t = function(keyword, session = shiny::getDefaultReactiveDomain()) {
       self$translate(keyword, session)
     },
@@ -185,10 +200,11 @@ Translator <- R6::R6Class(
       common_fields <- intersect(names(json_data), names(options))
       private$options <- modifyList(private$options, json_data[common_fields])
       private$languages <- as.vector(json_data$languages)
-      key_translation <- private$languages[1]
+      private$key_translation <- private$languages[1]
       # To make sure that key translation is always first in vector
-      private$languages <- unique(c(key_translation, private$languages))
-      private$translations <- column_to_row(json_data$translation, key_translation)
+      private$languages <- unique(c(private$key_translation, private$languages))
+      private$translations <- column_to_row(json_data$translation,
+                                            private$key_translation)
     },
     read_csv = function(translation_path,
                         translation_csv_config,
@@ -199,8 +215,9 @@ Translator <- R6::R6Class(
 
       tmp_translation <- read_and_merge_csvs(translation_path, separator)
       private$languages <- as.vector(colnames(tmp_translation))
-      key_translation <- private$languages[1]
-      private$translations <- column_to_row(tmp_translation, key_translation)
+      private$key_translation <- private$languages[1]
+      private$translations <- column_to_row(tmp_translation,
+                                            private$key_translation)
     }
   )
 )

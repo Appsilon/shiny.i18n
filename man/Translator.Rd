@@ -14,6 +14,21 @@ Translator R6 Class
   i18n$set_translation_language("it")
   i18n$t("This text will be translated to Italian")
 }
+
+# Shiny example
+if (interactive()) {
+library(shiny)
+library(shiny.i18n)
+ #to run this example  make sure that you have a translation file
+ #in the same path
+i18n <- Translator$new(translation_json_path = "examples/data/translation.json")
+i18n$set_translation_language("pl")
+ui <- fluidPage(
+  h2(i18n$t("Hello Shiny!"))
+)
+server <- function(input, output) {}
+shinyApp(ui = ui, server = server)
+}
 }
 \section{Methods}{
 \subsection{Public methods}{
@@ -92,7 +107,7 @@ Get whole translation matrix
 \if{html}{\out{<a id="method-get_key_translation"></a>}}
 \if{latex}{\out{\hypertarget{method-get_key_translation}{}}}
 \subsection{Method \code{get_key_translation()}}{
-Get current key translation
+Get active key translation
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Translator$get_key_translation()}\if{html}{\out{</div>}}
 }
@@ -113,7 +128,7 @@ Translates 'keyword' to language specified by 'set_translation_language'
 \item{\code{keyword}}{character or vector of characters with a word or
 expression to translate}
 
-\item{\code{session}}{Shiny session object.}
+\item{\code{session}}{Shiny server session (default: current reactive domain)}
 }
 \if{html}{\out{</div>}}
 }
@@ -133,7 +148,7 @@ Wrapper to \code{translate} method.
 \item{\code{keyword}}{character or vector of characters with a word or
 expression to translate}
 
-\item{\code{session}}{Shiny session object.}
+\item{\code{session}}{Shiny server session (default: current reactive domain)}
 }
 \if{html}{\out{</div>}}
 }

@@ -1,3 +1,6 @@
+#' This script demonstrates how to use shiny.i18n Translator object
+#' to change the language dynamically on the server side.
+
 library(shiny)
 library(shiny.i18n)
 

@@ -2,9 +2,13 @@
 
 export(Translator)
 export(init_i18n)
+export(translate_with_google_cloud)
 export(update_lang)
 export(usei18n)
+import(glue)
 import(jsonlite)
 import(methods)
+import(shiny)
+import(yaml)
 importFrom(utils,read.csv)
 importFrom(yaml,yaml.load_file)

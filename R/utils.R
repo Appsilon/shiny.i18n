@@ -86,6 +86,7 @@ read_and_merge_csvs <- function(dir_path, sep = ",") {
 #' @param yaml_config_path path to yaml config file
 #'
 #' @return list of config options or empty list if file not exists
+#' @import yaml
 load_local_config <- function(yaml_config_path) {
   if (!is.null(yaml_config_path) &&
       file.exists(yaml_config_path)) {

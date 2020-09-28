@@ -1,14 +1,14 @@
 #' This script demonstrates how to use shiny.i18n
-#' with CSV translation files.
+#' with JSON translation files.
 
 library(shiny)
 library(shiny.i18n)
 
-# file with translations
-i18n <- Translator$new(translation_csvs_path = "../data")
+# File with translations
+i18n <- Translator$new(translation_json_path = "../data/translation.json")
 
-# change this to en
-i18n$set_translation_language("en")
+# Change this to en or comment this line
+i18n$set_translation_language("pl")
 
 ui <- shinyUI(fluidPage(
   titlePanel(i18n$t("Hello Shiny!")),
@@ -27,7 +27,7 @@ ui <- shinyUI(fluidPage(
   )
 ))
 
-server <- shinyServer(function(input, output) {
+server <- function(input, output) {
 
   output$distPlot <- renderPlot({
     x    <- faithful[, 2]
@@ -36,6 +36,6 @@ server <- shinyServer(function(input, output) {
          col = "darkgray", border = "white",
          main = i18n$t("Histogram of x"), ylab = i18n$t("Frequency"))
   })
-})
+}
 
 shinyApp(ui = ui, server = server)
