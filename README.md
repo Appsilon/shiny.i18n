@@ -1,6 +1,3 @@
-
-<link href="http://fonts.googleapis.com/css?family=Maven+Pro:400,700|Inconsolata" rel="stylesheet" type="text/css"> <link href='docs/style.css' rel='stylesheet' type='text/css'>
-
 <img src="man/figures/shiny.i18n.png" align="right" alt="" width="120" />
 
 
@@ -13,16 +10,7 @@ Using it is very simple: just prepare your translation files in one of the suppo
 
 *Actually, you can use **shiny.i18n** as a standalone R package - shiny app is just a perfect usecase example.*
 
-For more informations check the **Example** section below!
-
-Change languages and formats easy with shiny.i18n.
-
-<!-- #Basic tutorial article is available on [Appsilon Data Science blog](your_future_art_link). -->
-<!-- Live demo link below 
-<p style="text-align: center; font-size: x-large;">
-<a href="http://appsilon.com/demos">Live demo</a>
-</p>
--->
+Change languages and formats easy with **shiny.i18n**.
 
 Source code
 -----------
@@ -32,20 +20,30 @@ This library source code can be found on [Appsilon Data Science's](http://appsil
 How to install?
 ---------------
 
-**Note! This library is still in its infancy. Api might change in the future.**
+At the moment it's possible to install this library with [devtools](https://github.com/hadley/devtools).
 
-At the moment it's possible to install this library through [devtools](https://github.com/hadley/devtools).
-
-    devtools::install_github("Appsilon/shiny.i18n")
+```r
+devtools::install_github("Appsilon/shiny.i18n")
+```
 
 To install previous version you can run:
 
-    devtools::install_github("Appsilon/shiny.i18n", ref = "0.1.0")
+```r
+devtools::install_github("Appsilon/shiny.i18n", ref = "0.1.0")
+```
 
-Example
--------
+Examples
+--------
 
-You can find some basic examples in `examples` folder.
+You can find some basic examples in `examples` folder:
+
+1) Using i18n object with [CSV translation files](https://github.com/Appsilon/shiny.i18n/blob/master/examples/basic/app_csv.R) or [JSON translation files](https://github.com/Appsilon/shiny.i18n/blob/master/examples/basic/app_json.R)
+
+2) Live language change on the [browser side](https://github.com/Appsilon/shiny.i18n/blob/master/examples/live_language_change/browser_app.R) or with the server [function renderUI](https://github.com/Appsilon/shiny.i18n/blob/master/examples/live_language_change/server_app.R)
+
+3) [RMarkdown translations](https://github.com/Appsilon/shiny.i18n/blob/master/examples/rmarkdown/report.Rmd).
+
+4) Example of translation [data format](https://github.com/Appsilon/shiny.i18n/blob/master/examples/data).
 
 #### Translation file format
 
@@ -58,7 +56,11 @@ Currently **shiny.i18n** supports two translation formats:
 How to contribute?
 ------------------
 
-If you want to contribute to this project please submit a regular PR, once you're done with new feature or bug fix.<br>
+If you want to contribute to this project please submit a regular PR, once you're done with new feature or bug fix.
+
+**Changes in documentation**
+
+Documentation is rendered with `pkgdown`. Just run `pkgdown::build_site()` after editing documentation or `README.md`.
 
 
 Troubleshooting
