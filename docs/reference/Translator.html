@@ -73,7 +73,7 @@ Translator R6 Class" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">SHINY.I18N</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
@@ -96,7 +96,7 @@ Translator R6 Class" />
   </a>
 </li>
 <li>
-  <a href="https://github.com/Appsilon/shiny.semantic">
+  <a href="https://github.com/Appsilon/shiny.i18n">
     <span class="fa fa-github fa-lg"></span>
      
   </a>
@@ -141,6 +141,7 @@ Translator R6 Class" />
 <li><p><a href='#method-new'><code>Translator$new()</code></a></p></li>
 <li><p><a href='#method-get_languages'><code>Translator$get_languages()</code></a></p></li>
 <li><p><a href='#method-get_translations'><code>Translator$get_translations()</code></a></p></li>
+<li><p><a href='#method-get_key_translation'><code>Translator$get_key_translation()</code></a></p></li>
 <li><p><a href='#method-translate'><code>Translator$translate()</code></a></p></li>
 <li><p><a href='#method-t'><code>Translator$t()</code></a></p></li>
 <li><p><a href='#method-set_translation_language'><code>Translator$set_translation_language()</code></a></p></li>
@@ -148,6 +149,7 @@ Translator R6 Class" />
 <li><p><a href='#method-parse_number'><code>Translator$parse_number()</code></a></p></li>
 <li><p><a href='#method-automatic_translate'><code>Translator$automatic_translate()</code></a></p></li>
 <li><p><a href='#method-at'><code>Translator$at()</code></a></p></li>
+<li><p><a href='#method-use_js'><code>Translator$use_js()</code></a></p></li>
 <li><p><a href='#method-clone'><code>Translator$clone()</code></a></p></li>
 </ul>
 <p><hr>
@@ -189,25 +191,34 @@ translation API.</p></dd>
 <p><div class="r"></p><pre><span class='no'>Translator</span>$<span class='fu'>get_translations</span>()</pre><p></div></p>
 
 <p><hr>
+<a id="method-get_key_translation"></a></p><h3>Method <code>get_key_translation()</code></h3>
+<p>Get active key translation</p><h3>Usage</h3>
+<p><div class="r"></p><pre><span class='no'>Translator</span>$<span class='fu'>get_key_translation</span>()</pre><p></div></p>
+
+<p><hr>
 <a id="method-translate"></a></p><h3>Method <code>translate()</code></h3>
 <p>Translates 'keyword' to language specified by 'set_translation_language'</p><h3>Usage</h3>
-<p><div class="r"></p><pre><span class='no'>Translator</span>$<span class='fu'>translate</span>(<span class='no'>keyword</span>)</pre><p></div></p>
+<p><div class="r"></p><pre><span class='no'>Translator</span>$<span class='fu'>translate</span>(<span class='no'>keyword</span>, <span class='kw'>session</span> <span class='kw'>=</span> <span class='kw pkg'>shiny</span><span class='kw ns'>::</span><span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/domains.html'>getDefaultReactiveDomain</a></span>())</pre><p></div></p>
 
 <h3>Arguments</h3>
 <p><div class="arguments"></p><dl'>
 <dt><code>keyword</code></dt><dd><p>character or vector of characters with a word or
 expression to translate</p></dd>
+
+<dt><code>session</code></dt><dd><p>Shiny server session (default: current reactive domain)</p></dd>
 
 </dl><p></div></p>
 <p><hr>
 <a id="method-t"></a></p><h3>Method <code><a href='https://rdrr.io/r/base/t.html'>t()</a></code></h3>
 <p>Wrapper to <code>translate</code> method.</p><h3>Usage</h3>
-<p><div class="r"></p><pre><span class='no'>Translator</span>$<span class='fu'><a href='https://rdrr.io/r/base/t.html'>t</a></span>(<span class='no'>keyword</span>)</pre><p></div></p>
+<p><div class="r"></p><pre><span class='no'>Translator</span>$<span class='fu'><a href='https://rdrr.io/r/base/t.html'>t</a></span>(<span class='no'>keyword</span>, <span class='kw'>session</span> <span class='kw'>=</span> <span class='kw pkg'>shiny</span><span class='kw ns'>::</span><span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/domains.html'>getDefaultReactiveDomain</a></span>())</pre><p></div></p>
 
 <h3>Arguments</h3>
 <p><div class="arguments"></p><dl'>
 <dt><code>keyword</code></dt><dd><p>character or vector of characters with a word or
 expression to translate</p></dd>
+
+<dt><code>session</code></dt><dd><p>Shiny server session (default: current reactive domain)</p></dd>
 
 </dl><p></div></p>
 <p><hr>
@@ -272,6 +283,11 @@ supported: <code>google</code>.</p></dd>
 
 </dl><p></div></p>
 <p><hr>
+<a id="method-use_js"></a></p><h3>Method <code>use_js()</code></h3>
+<p>Call to wrap translation in span object. Used for browser-side translations.</p><h3>Usage</h3>
+<p><div class="r"></p><pre><span class='no'>Translator</span>$<span class='fu'>use_js</span>()</pre><p></div></p>
+
+<p><hr>
 <a id="method-clone"></a></p><h3>Method <code>clone()</code></h3>
 <p>The objects of this class are cloneable with this method.</p><h3>Usage</h3>
 <p><div class="r"></p><pre><span class='no'>Translator</span>$<span class='fu'>clone</span>(<span class='kw'>deep</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre><p></div></p>
@@ -289,6 +305,21 @@ supported: <code>google</code>.</p></dd>
   <span class='no'>i18n</span> <span class='kw'>&lt;-</span> <span class='no'>Translator</span>$<span class='fu'>new</span>(<span class='kw'>translation_json_path</span> <span class='kw'>=</span> <span class='st'>"translation.json"</span>) <span class='co'># translation file</span>
   <span class='no'>i18n</span>$<span class='fu'>set_translation_language</span>(<span class='st'>"it"</span>)
   <span class='no'>i18n</span>$<span class='fu'><a href='https://rdrr.io/r/base/t.html'>t</a></span>(<span class='st'>"This text will be translated to Italian"</span>)
+}
+
+<span class='co'># Shiny example</span>
+<span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>shiny</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>shiny.i18n</span>)
+ <span class='co'>#to run this example  make sure that you have a translation file</span>
+ <span class='co'>#in the same path</span>
+<span class='no'>i18n</span> <span class='kw'>&lt;-</span> <span class='no'>Translator</span>$<span class='fu'>new</span>(<span class='kw'>translation_json_path</span> <span class='kw'>=</span> <span class='st'>"examples/data/translation.json"</span>)
+<span class='no'>i18n</span>$<span class='fu'>set_translation_language</span>(<span class='st'>"pl"</span>)
+<span class='no'>ui</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html'>fluidPage</a></span>(
+  <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/reexports.html'>h2</a></span>(<span class='no'>i18n</span>$<span class='fu'><a href='https://rdrr.io/r/base/t.html'>t</a></span>(<span class='st'>"Hello Shiny!"</span>))
+)
+<span class='no'>server</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>input</span>, <span class='no'>output</span>) {}
+<span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html'>shinyApp</a></span>(<span class='kw'>ui</span> <span class='kw'>=</span> <span class='no'>ui</span>, <span class='kw'>server</span> <span class='kw'>=</span> <span class='no'>server</span>)
 }</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -301,7 +332,7 @@ supported: <code>google</code>.</p></dd>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Dominik Krzemiński.</p>
+  <p>Developed by Dominik Krzemiński, Krystian Igras.</p>
 </div>
 
 <div class="pkgdown">

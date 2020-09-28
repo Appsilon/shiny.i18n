@@ -34,7 +34,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">SHINY.I18N</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
@@ -57,7 +57,7 @@
   </a>
 </li>
 <li>
-  <a href="https://github.com/Appsilon/shiny.semantic">
+  <a href="https://github.com/Appsilon/shiny.i18n">
     <span class="fa fa-github fa-lg"></span>
      
   </a>
@@ -88,8 +88,7 @@
 <p>Shiny applications internationalisation made easy!</p>
 <p>Using it is very simple: just prepare your translation files in one of the supported formats, read them into your app using user-friendly <strong>shiny.i18n</strong> interface and surround your expressions to translate by a translator tag. Thanks to that your app will remain neat and readible.</p>
 <p><em>Actually, you can use <strong>shiny.i18n</strong> as a standalone R package - shiny app is just a perfect usecase example.</em></p>
-<p>For more informations check the <strong>Example</strong> section below!</p>
-<p>Change languages and formats easy with shiny.i18n.</p>
+<p>Change languages and formats easy with <strong>shiny.i18n</strong>.</p>
 <div id="source-code" class="section level2">
 <h2 class="hasAnchor">
 <a href="#source-code" class="anchor"></a>Source code</h2>
@@ -98,16 +97,19 @@
 <div id="how-to-install" class="section level2">
 <h2 class="hasAnchor">
 <a href="#how-to-install" class="anchor"></a>How to install?</h2>
-<p><strong>Note! This library is still in its infancy. API might change in the future.</strong></p>
-<p>At the moment it’s possible to install this library through <a href="https://github.com/hadley/devtools">devtools</a>.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">"Appsilon/shiny.i18n"</span>)</span></code></pre></div>
+<p>At the moment it’s possible to install this library with <a href="https://github.com/hadley/devtools">devtools</a>.</p>
+<div class="sourceCode" id="cb1"><pre class="r"><span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"Appsilon/shiny.i18n"</span>)</pre></div>
 <p>To install previous version you can run:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">"Appsilon/shiny.i18n"</span>, <span class="dt">ref =</span> <span class="st">"0.1.0"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="r"><span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"Appsilon/shiny.i18n"</span>, <span class="kw">ref</span> <span class="kw">=</span> <span class="st">"0.1.0"</span>)</pre></div>
 </div>
-<div id="example" class="section level2">
+<div id="examples" class="section level2">
 <h2 class="hasAnchor">
-<a href="#example" class="anchor"></a>Example</h2>
-<p>You can find some basic examples in <code>examples</code> folder.</p>
+<a href="#examples" class="anchor"></a>Examples</h2>
+<p>You can find some basic examples in <code>examples</code> folder:</p>
+<p>1) Using i18n object with <a href="https://github.com/Appsilon/shiny.i18n/blob/master/examples/basic/app_csv.R">CSV translation files</a> or <a href="https://github.com/Appsilon/shiny.i18n/blob/master/examples/basic/app_json.R">JSON translation files</a></p>
+<p>2) Live language change on the <a href="https://github.com/Appsilon/shiny.i18n/blob/master/examples/live_language_change/browser_app.R">browser side</a> or with the server <a href="https://github.com/Appsilon/shiny.i18n/blob/master/examples/live_language_change/server_app.R">function renderUI</a></p>
+<p>3) <a href="https://github.com/Appsilon/shiny.i18n/blob/master/examples/rmarkdown/report.Rmd">RMarkdown translations</a>.</p>
+<p>4) Example of translation <a href="https://github.com/Appsilon/shiny.i18n/blob/master/examples/data">data format</a>.</p>
 <div id="translation-file-format" class="section level4">
 <h4 class="hasAnchor">
 <a href="#translation-file-format" class="anchor"></a>Translation file format</h4>
@@ -122,6 +124,8 @@
 <h2 class="hasAnchor">
 <a href="#how-to-contribute" class="anchor"></a>How to contribute?</h2>
 <p>If you want to contribute to this project please submit a regular PR, once you’re done with new feature or bug fix.</p>
+<p><strong>Changes in documentation</strong></p>
+<p>Documentation is rendered with <code>pkgdown</code>. Just run <code><a href="https://pkgdown.r-lib.org/reference/build_site.html">pkgdown::build_site()</a></code> after editing documentation or <code>README.md</code>.</p>
 </div>
 <div id="troubleshooting" class="section level2">
 <h2 class="hasAnchor">
@@ -169,6 +173,7 @@
 <h2>Developers</h2>
 <ul class="list-unstyled">
 <li>Dominik Krzemiński <br><small class="roles"> Maintainer, author </small>  </li>
+<li>Krystian Igras <br><small class="roles"> Author </small>  </li>
 <li><a href="authors.html">All authors...</a></li>
 </ul>
 </div>
@@ -178,7 +183,7 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Dominik Krzemiński.</p>
+  <p>Developed by Dominik Krzemiński, Krystian Igras.</p>
 </div>
 
 <div class="pkgdown">
