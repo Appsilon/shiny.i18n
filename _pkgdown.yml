@@ -29,3 +29,8 @@ reference:
   - '`init_i18n`'
   - '`usei18n`'
   - '`update_lang`'
+
+- title: Creating tranlsation files
+  contents:
+  - '`create_translation_file`'
+

@@ -20,7 +20,8 @@ Imports: yaml,
          R6,
          glue,
          shiny,
-         rstudioapi
+         rstudioapi,
+         utils
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

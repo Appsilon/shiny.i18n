@@ -23,8 +23,7 @@ extract_key_expressions <- function(text, handle = "i18n") {
 #' @param key_expressions vector with key expression to translate
 #' @param output_path character with path to output file (default:
 #' "translation.json" if NULL)
-#' @importFrom jsonlite toJSON
-#' @importFrom jsonlite write_json
+#' @importFrom jsonlite toJSON unbox write_json
 save_to_json <- function(key_expressions, output_path = NULL) {
   list_to_save <- list(
     translation = lapply(key_expressions,
@@ -43,6 +42,7 @@ save_to_json <- function(key_expressions, output_path = NULL) {
 #' @param key_expressions vector with key expression to translate
 #' @param output_path character with path to output file (default:
 #' "translate_lang.csv" if NULL)
+#' @import utils
 save_to_csv <- function(key_expressions, output_path = NULL) {
   df_to_save <- data.frame(
     list(key = key_expressions, lang = rep("", length(key_expressions)))
@@ -54,7 +54,7 @@ save_to_csv <- function(key_expressions, output_path = NULL) {
 #' Create translation file
 #'
 #' Auxiliary shiny.i18n function that searches for all key expressions (eg.
-#' surrounded by \code{i18n$t()} tag in the script)
+#' surrounded by \code{i18n$t()} tag in the script).
 #'
 #' @param path character with path of the file that needs to be inspected for
 #' key translations
@@ -64,7 +64,6 @@ save_to_csv <- function(key_expressions, output_path = NULL) {
 #' @param output if NULL (default) the output will be saved with a default file
 #' name ("translation.json" for JSON and "translate_lang.csv" for CSV)
 #'
-#' @return
 #' @export
 create_translation_file <- function(path, type = "json", handle = "i18n",
                                     output = NULL) {

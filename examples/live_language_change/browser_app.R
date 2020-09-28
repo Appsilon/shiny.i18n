@@ -12,7 +12,11 @@ i18n <- Translator$new(translation_csvs_path = "data/")
 # Change this to en
 i18n$set_translation_language("en")
 
-ui <- shinyUI(fluidPage(
+ui <- shinyUI(
+  tagList(
+    shiny.info::powered_by("Appsilon", link = "https://appsilon.com", position = "bottom left"),
+    shiny.info::display(HTML("See more at <a href='https://appsilon.github.io/shiny.i18n/'>shiny.i18n</a>"), position = "bottom right"),
+  fluidPage(
   shiny.i18n::usei18n(i18n),
   div( style = "float: right;",
     selectInput('selected_language',
@@ -33,6 +37,7 @@ ui <- shinyUI(fluidPage(
       plotOutput("distPlot"),
       p(i18n$t("This is description of the plot."))
     )
+  )
   )
 ))
 
