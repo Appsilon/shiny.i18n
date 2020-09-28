@@ -7,7 +7,7 @@ library(shiny)
 library(shiny.i18n)
 
 # File with translations
-i18n <- Translator$new(translation_csvs_path = "../data/")
+i18n <- Translator$new(translation_csvs_path = "data/")
 
 # Change this to en
 i18n$set_translation_language("en")
@@ -38,8 +38,8 @@ ui <- shinyUI(fluidPage(
 
 server <- shinyServer(function(input, output, session) {
 
-  observeEvent(input$selected_language,{
-    print("Language change!")
+  observeEvent(input$selected_language, {
+    print(paste("Language change!", input$selected_language))
     update_lang(session, input$selected_language)
   })
 

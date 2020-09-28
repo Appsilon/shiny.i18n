@@ -29,6 +29,7 @@ BugReports: http://github.com/Appsilon/shiny.i18n/issues
 RoxygenNote: 7.1.1
 Suggests: 
     knitr,
+    googleLanguageR,
     rmarkdown,
     testthat,
     covr

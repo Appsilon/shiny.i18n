@@ -6,8 +6,15 @@
 )
 
 #' Translator R6 Class
-#' @import jsonlite
+#'
+#' This creates shinny.i18n Translator object used for translations.
+#' Now you can surround the pieces of the text you want to translate by
+#' one of the translate statements (ex.: \code{Translator$t("translate me")}).
+#' Find details in method descriptions below.
+#'
+#' @importFrom jsonlite fromJSON
 #' @import methods
+#' @import shiny
 #' @export
 #' @examples
 #' \dontrun{
@@ -63,6 +70,8 @@ Translator <- R6::R6Class(
         if (isFALSE(automatic))
           stop("You must provide either translation json or csv files.")
       private$automatic <- automatic
+      private$key_translation <- private$languages[1]
+      private$translation_language <- private$key_translation
     },
     #' @description
     #' Get all available languages
@@ -110,11 +119,7 @@ Translator <- R6::R6Class(
       if (!(transl_language %in% private$languages))
         stop(sprintf("'%s' not in Translator object languages",
                      transl_language))
-      private$key_translation <- private$languages[1]
-      if (transl_language == private$key_translation)
-        private$translation_language <- character(0)
-      else
-        private$translation_language <- transl_language
+      private$translation_language <- transl_language
     },
     #' @description
     #' Parse date to format described in 'cultural_date_format' field in config.
@@ -182,7 +187,7 @@ Translator <- R6::R6Class(
       if (isTRUE(private$automatic))
         warning(paste("Automatic translations are on. Use 'automatic_translate'",
                       "or 'at' to translate via API."))
-      if (identical(translation_language, character(0)))
+      if (identical(translation_language, private$key_translation))
         return(keyword)
       tr <- as.character(private$translations[keyword, translation_language])
       if (anyNA(tr)){
@@ -196,7 +201,7 @@ Translator <- R6::R6Class(
       private$mode <- "json"
       # TODO validate format of a json translation_file
       # Update the list of options, or take a default from config.
-      json_data <- jsonlite::fromJSON(translation_file)
+      json_data <- fromJSON(translation_file)
       common_fields <- intersect(names(json_data), names(options))
       private$options <- modifyList(private$options, json_data[common_fields])
       private$languages <- as.vector(json_data$languages)

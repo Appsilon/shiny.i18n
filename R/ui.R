@@ -47,6 +47,7 @@ i18n_state <- function(init_language) {
 #'   shinyApp(ui = ui, server = server)
 #' }
 #' @import shiny
+#' @importFrom jsonlite toJSON
 #' @import glue
 #' @export
 usei18n <- function(translator) {
@@ -58,7 +59,7 @@ usei18n <- function(translator) {
   translations[[key_translation]] <- rownames(translations)
   shiny::tagList(
     shiny::tags$head(
-      shiny::tags$script(glue::glue("var i18n_translations = {jsonlite::toJSON(translations, auto_unbox = TRUE)}")),
+      shiny::tags$script(glue::glue("var i18n_translations = {toJSON(translations, auto_unbox = TRUE)}")),
       shiny::tags$script(src = js_file)
     ),
     i18n_state(translator$key_translation)

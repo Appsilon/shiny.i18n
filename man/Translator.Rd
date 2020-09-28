@@ -8,6 +8,12 @@ Translator R6 Class
 
 Translator R6 Class
 }
+\details{
+This creates shinny.i18n Translator object used for translations.
+Now you can surround the pieces of the text you want to translate by
+one of the translate statements (ex.: \code{Translator$t("translate me")}).
+Find details in method descriptions below.
+}
 \examples{
 \dontrun{
   i18n <- Translator$new(translation_json_path = "translation.json") # translation file
