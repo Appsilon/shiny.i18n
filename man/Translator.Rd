@@ -14,6 +14,21 @@ Translator R6 Class
   i18n$set_translation_language("it")
   i18n$t("This text will be translated to Italian")
 }
+
+# Shiny example
+if (interactive()) {
+library(shiny)
+library(shiny.i18n)
+ #to run this example  make sure that you have a translation file
+ #in the same path
+i18n <- Translator$new(translation_json_path = "examples/data/translation.json")
+i18n$set_translation_language("pl")
+ui <- fluidPage(
+  h2(i18n$t("Hello Shiny!"))
+)
+server <- function(input, output) {}
+shinyApp(ui = ui, server = server)
+}
 }
 \section{Methods}{
 \subsection{Public methods}{
@@ -21,6 +36,7 @@ Translator R6 Class
 \item \href{#method-new}{\code{Translator$new()}}
 \item \href{#method-get_languages}{\code{Translator$get_languages()}}
 \item \href{#method-get_translations}{\code{Translator$get_translations()}}
+\item \href{#method-get_key_translation}{\code{Translator$get_key_translation()}}
 \item \href{#method-translate}{\code{Translator$translate()}}
 \item \href{#method-t}{\code{Translator$t()}}
 \item \href{#method-set_translation_language}{\code{Translator$set_translation_language()}}
@@ -28,6 +44,7 @@ Translator R6 Class
 \item \href{#method-parse_number}{\code{Translator$parse_number()}}
 \item \href{#method-automatic_translate}{\code{Translator$automatic_translate()}}
 \item \href{#method-at}{\code{Translator$at()}}
+\item \href{#method-use_js}{\code{Translator$use_js()}}
 \item \href{#method-clone}{\code{Translator$clone()}}
 }
 }
@@ -87,12 +104,22 @@ Get whole translation matrix
 
 }
 \if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_key_translation"></a>}}
+\if{latex}{\out{\hypertarget{method-get_key_translation}{}}}
+\subsection{Method \code{get_key_translation()}}{
+Get active key translation
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Translator$get_key_translation()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-translate"></a>}}
 \if{latex}{\out{\hypertarget{method-translate}{}}}
 \subsection{Method \code{translate()}}{
 Translates 'keyword' to language specified by 'set_translation_language'
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Translator$translate(keyword)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{Translator$translate(keyword, session = shiny::getDefaultReactiveDomain())}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
@@ -100,6 +127,8 @@ Translates 'keyword' to language specified by 'set_translation_language'
 \describe{
 \item{\code{keyword}}{character or vector of characters with a word or
 expression to translate}
+
+\item{\code{session}}{Shiny server session (default: current reactive domain)}
 }
 \if{html}{\out{</div>}}
 }
@@ -110,7 +139,7 @@ expression to translate}
 \subsection{Method \code{t()}}{
 Wrapper to \code{translate} method.
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Translator$t(keyword)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{Translator$t(keyword, session = shiny::getDefaultReactiveDomain())}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
@@ -118,6 +147,8 @@ Wrapper to \code{translate} method.
 \describe{
 \item{\code{keyword}}{character or vector of characters with a word or
 expression to translate}
+
+\item{\code{session}}{Shiny server session (default: current reactive domain)}
 }
 \if{html}{\out{</div>}}
 }
@@ -218,6 +249,16 @@ supported: \code{google}.}
 }
 \if{html}{\out{</div>}}
 }
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-use_js"></a>}}
+\if{latex}{\out{\hypertarget{method-use_js}{}}}
+\subsection{Method \code{use_js()}}{
+Call to wrap translation in span object. Used for browser-side translations.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Translator$use_js()}\if{html}{\out{</div>}}
+}
+
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-clone"></a>}}

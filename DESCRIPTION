@@ -1,9 +1,12 @@
 Package: shiny.i18n
 Title: Shiny Applications Internationalization
-Version: 0.1.1
+Version: 0.2.0
 Authors@R: c(person("Dominik", "Krzemiński",
                     email = "dominik@appsilon.com",
                     role = c("cre", "aut")),
+            person("Krystian", "Igras",
+                    email = "krystian@appsilon.com",
+                    role = c("aut")),
              person(family = "Appsilon", role = c("cph")))            
 Description: It provides easy internationalization of Shiny
     applications. It can be used as standalone translation package
@@ -15,6 +18,9 @@ Imports: yaml,
          methods,
          stringr,
          glue
+         R6,
+         glue,
+         shiny
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -25,5 +31,4 @@ Suggests:
     knitr,
     rmarkdown,
     testthat,
-    covr,
-    googleLanguageR
+    covr
