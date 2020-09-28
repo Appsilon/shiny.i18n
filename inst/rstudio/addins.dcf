@@ -1,0 +1,4 @@
+Name: Create translation file
+Description: It creates an empty translation file from currect open script.
+Binding: create_translation_addin
+Interactive: false

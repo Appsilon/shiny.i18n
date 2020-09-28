@@ -16,6 +16,8 @@ Depends: R (>= 3.3.0)
 Imports: yaml,
          jsonlite,
          methods,
+         stringr,
+         glue
          R6,
          glue,
          shiny
