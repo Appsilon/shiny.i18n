@@ -35,6 +35,8 @@ devtools::install_github("Appsilon/shiny.i18n", ref = "0.1.0")
 Examples
 --------
 
+See live examples *[here](https://demo.appsilon.ai:443/apps/i18n/)*.
+
 You can find some basic examples in `examples` folder:
 
 1) Using i18n object with [CSV translation files](https://github.com/Appsilon/shiny.i18n/blob/master/examples/basic/app_csv.R) or [JSON translation files](https://github.com/Appsilon/shiny.i18n/blob/master/examples/basic/app_json.R)
