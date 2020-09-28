@@ -23,15 +23,16 @@ extract_key_expressions <- function(text, handle = "i18n") {
 #' @param key_expressions vector with key expression to translate
 #' @param output_path character with path to output file (default:
 #' "translation.json" if NULL)
-#' @import jsonlite
+#' @importFrom jsonlite toJSON
+#' @importFrom jsonlite write_json
 save_to_json <- function(key_expressions, output_path = NULL) {
   list_to_save <- list(
     translation = lapply(key_expressions,
                          function(x) list(key = unbox(x))),
     languages = "key")
-  json_to_save <- jsonlite::toJSON(list_to_save)
+  json_to_save <- toJSON(list_to_save)
   if (is.null(output_path)) output_path <- "translation.json"
-  jsonlite::write_json(list_to_save, output_path)
+  write_json(list_to_save, output_path)
 }
 
 #' Save example i18n file to CSV

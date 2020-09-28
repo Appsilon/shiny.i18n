@@ -17,17 +17,17 @@ Imports: yaml,
          jsonlite,
          methods,
          stringr,
-         glue
          R6,
          glue,
-         shiny
+         shiny,
+         rstudioapi
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 URL: http://github.com/Appsilon/shiny.i18n
 BugReports: http://github.com/Appsilon/shiny.i18n/issues
 RoxygenNote: 7.1.1
-Suggests: 
+Suggests:
     knitr,
     googleLanguageR,
     rmarkdown,
