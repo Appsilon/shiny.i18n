@@ -46,7 +46,7 @@ Translator <- R6::R6Class("Translator",
       else
         if (isFALSE(automatic))
           stop("You must provide either translation json or csv files.")
-      private$automatic <<- automatic
+      private$automatic <- automatic
     },
     #' @description
     #' Get all available languages
@@ -164,12 +164,12 @@ Translator <- R6::R6Class("Translator",
                         separator = ",") {
       private$mode <- "csv"
       local_config <- load_local_config(translation_csv_config)
-      private$options <<- modifyList(private$options, local_config)
+      private$options <- modifyList(private$options, local_config)
 
       tmp_translation <- read_and_merge_csvs(translation_path, separator)
       private$languages <- as.vector(colnames(tmp_translation))
       key_translation <- private$languages[1]
-      private$translations <<- column_to_row(tmp_translation, key_translation)
+      private$translations <- column_to_row(tmp_translation, key_translation)
     }
   )
 )
