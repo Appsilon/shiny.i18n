@@ -105,10 +105,14 @@
 <div id="examples" class="section level2">
 <h2 class="hasAnchor">
 <a href="#examples" class="anchor"></a>Examples</h2>
-<p>See live examples <em><a href="https://demo.appsilon.ai:443/apps/i18n/">here</a></em>.</p>
+<center>
+<h3>
+<a href="https://demo.appsilon.ai/apps/i18n/">See shiny.i18n in action live</a>
+</h3>
+</center>
 <p>You can find some basic examples in <code>examples</code> folder:</p>
-<p>1) Using i18n object with <a href="https://github.com/Appsilon/shiny.i18n/blob/master/examples/basic/app_csv.R">CSV translation files</a> or <a href="https://github.com/Appsilon/shiny.i18n/blob/master/examples/basic/app_json.R">JSON translation files</a></p>
-<p>2) Live language change on the <a href="https://github.com/Appsilon/shiny.i18n/blob/master/examples/live_language_change/browser_app.R">browser side</a> or with the server <a href="https://github.com/Appsilon/shiny.i18n/blob/master/examples/live_language_change/server_app.R">function renderUI</a></p>
+<p>1) Using i18n object with <a href="https://github.com/Appsilon/shiny.i18n/blob/master/examples/basic/app_csv.R">CSV translation files</a> or <a href="https://github.com/Appsilon/shiny.i18n/blob/master/examples/basic/app_json.R">JSON translation files</a>.</p>
+<p>2) Live language change on the <a href="https://github.com/Appsilon/shiny.i18n/blob/master/examples/live_language_change/browser_app.R">browser side</a> or with the server <a href="https://github.com/Appsilon/shiny.i18n/blob/master/examples/live_language_change/server_app.R">function renderUI</a>.</p>
 <p>3) <a href="https://github.com/Appsilon/shiny.i18n/blob/master/examples/rmarkdown/report.Rmd">RMarkdown translations</a>.</p>
 <p>4) Example of translation <a href="https://github.com/Appsilon/shiny.i18n/blob/master/examples/data">data format</a>.</p>
 <div id="translation-file-format" class="section level4">
@@ -116,7 +120,7 @@
 <a href="#translation-file-format" class="anchor"></a>Translation file format</h4>
 <p>Currently <strong>shiny.i18n</strong> supports two translation formats:</p>
 <ul>
-<li><p><strong>csv</strong> - where each translation is in separate file <code>translation_&lt;LANGUAGE-CODE&gt;.csv</code>. Example of <code>translation_pl.csv</code> for Polish language you may find here: <code>inst/examples/data/translation_pl.csv</code>.</p></li>
+<li><p><strong>csv</strong> - where each translation is in separate file <code>translation_&lt;LANGUAGE-CODE&gt;.csv</code> containing two columns: key translation, language to which it needs to be translated. Example of <code>translation_pl.csv</code> for Polish language you may find here: <code>inst/examples/data/translation_pl.csv</code>.</p></li>
 <li><p><strong>json</strong> - single json file <code>translation.json</code> with mandatory fields: <code>"languages"</code> with list of all language codes and <code>"translation"</code> with list of dictionaries assigning each translation to a language code. Example of such a json file for Polish language you may find here: <code>inst/examples/data/translation.json</code>.</p></li>
 </ul>
 </div>

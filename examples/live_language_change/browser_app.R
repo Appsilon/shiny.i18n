@@ -7,7 +7,7 @@ library(shiny)
 library(shiny.i18n)
 
 # File with translations
-i18n <- Translator$new(translation_csvs_path = "data/")
+i18n <- Translator$new(translation_csvs_path = "../data/")
 
 # Change this to en
 i18n$set_translation_language("en")

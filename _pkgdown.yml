@@ -30,7 +30,7 @@ reference:
   - '`usei18n`'
   - '`update_lang`'
 
-- title: Creating tranlsation files
+- title: Creating translation files
   contents:
   - '`create_translation_file`'
 

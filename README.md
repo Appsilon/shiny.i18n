@@ -35,13 +35,17 @@ devtools::install_github("Appsilon/shiny.i18n", ref = "0.1.0")
 Examples
 --------
 
-See live examples *[here](https://demo.appsilon.ai:443/apps/i18n/)*.
+<center>
+<h3>
+<a href="https://demo.appsilon.ai/apps/i18n/">See shiny.i18n in action live</a>
+</h3>
+</center>
 
 You can find some basic examples in `examples` folder:
 
-1) Using i18n object with [CSV translation files](https://github.com/Appsilon/shiny.i18n/blob/master/examples/basic/app_csv.R) or [JSON translation files](https://github.com/Appsilon/shiny.i18n/blob/master/examples/basic/app_json.R)
+1) Using i18n object with [CSV translation files](https://github.com/Appsilon/shiny.i18n/blob/master/examples/basic/app_csv.R) or [JSON translation files](https://github.com/Appsilon/shiny.i18n/blob/master/examples/basic/app_json.R).
 
-2) Live language change on the [browser side](https://github.com/Appsilon/shiny.i18n/blob/master/examples/live_language_change/browser_app.R) or with the server [function renderUI](https://github.com/Appsilon/shiny.i18n/blob/master/examples/live_language_change/server_app.R)
+2) Live language change on the [browser side](https://github.com/Appsilon/shiny.i18n/blob/master/examples/live_language_change/browser_app.R) or with the server [function renderUI](https://github.com/Appsilon/shiny.i18n/blob/master/examples/live_language_change/server_app.R).
 
 3) [RMarkdown translations](https://github.com/Appsilon/shiny.i18n/blob/master/examples/rmarkdown/report.Rmd).
 
@@ -51,7 +55,7 @@ You can find some basic examples in `examples` folder:
 
 Currently **shiny.i18n** supports two translation formats:
 
--   **csv** - where each translation is in separate file `translation_<LANGUAGE-CODE>.csv`. Example of `translation_pl.csv` for Polish language you may find here: `inst/examples/data/translation_pl.csv`.
+-   **csv** - where each translation is in separate file `translation_<LANGUAGE-CODE>.csv` containing two columns: key translation, language to which it needs to be translated. Example of `translation_pl.csv` for Polish language you may find here: `inst/examples/data/translation_pl.csv`.
 
 -   **json** - single json file `translation.json` with mandatory fields: `"languages"` with list of all language codes and `"translation"` with list of dictionaries assigning each translation to a language code. Example of such a json file for Polish language you may find here: `inst/examples/data/translation.json`.
 
