@@ -43,7 +43,8 @@ Translator <- R6::R6Class(
     #' @description
     #' Initialize the Translator with data
     #' @param translation_csvs_path character with path to folder containing csv
-    #' translation files. See more in  Details.
+    #' translation files. Files must have "translation_" prefix, for example:
+    #' \code{translation_<LANG-CODE>.csv}.
     #' @param translation_csv_config character with path to configuration file for
     #' csv option.
     #' @param translation_json_path character with path to JSON translation file.

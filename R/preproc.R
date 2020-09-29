@@ -81,7 +81,7 @@ create_translation_file <- function(path, type = "json", handle = "i18n",
 #' @export
 create_translation_addin <- function(){
   rstudioapi::showDialog("shiny.i18n", "This extension searches for 'i18n$t'
-                         variables in your file and creates an example of
+                         wrappers in your file and creates an example of
                          a translation file for you. For more customized
                          behaviour use 'create_translation_file' function.")
   path <- rstudioapi::getActiveDocumentContext()$path
@@ -90,5 +90,6 @@ create_translation_addin <- function(){
   else{
     answ <- rstudioapi::showQuestion("shiny.i18n", "What type of file generate?", "json", "csv")
     create_translation_file(path, ifelse(answ, "json", "csv"))
+    print("Done (create translation file)!")
   }
 }

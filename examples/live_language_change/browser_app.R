@@ -12,11 +12,7 @@ i18n <- Translator$new(translation_csvs_path = "../data/")
 # Change this to en
 i18n$set_translation_language("en")
 
-ui <- shinyUI(
-  tagList(
-    shiny.info::powered_by("Appsilon", link = "https://appsilon.com", position = "bottom left"),
-    shiny.info::display(HTML("See more at <a href='https://appsilon.github.io/shiny.i18n/'>shiny.i18n</a>"), position = "bottom right"),
-  fluidPage(
+ui <- fluidPage(
   shiny.i18n::usei18n(i18n),
   div( style = "float: right;",
     selectInput('selected_language',
@@ -38,10 +34,9 @@ ui <- shinyUI(
       p(i18n$t("This is description of the plot."))
     )
   )
-  )
-))
+)
 
-server <- shinyServer(function(input, output, session) {
+server <- function(input, output, session) {
 
   observeEvent(input$selected_language, {
     print(paste("Language change!", input$selected_language))
@@ -55,6 +50,6 @@ server <- shinyServer(function(input, output, session) {
          col = "darkgray", border = "white",
          main = i18n$t("Histogram of x"), ylab = i18n$t("Frequency"))
   })
-})
+}
 
-shinyApp(ui = ui, server = server)
+shinyApp(ui, server)

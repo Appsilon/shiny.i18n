@@ -33,7 +33,7 @@ i18n_state <- function(init_language) {
 #'   i18n$set_translation_language("en")
 #'
 #'   ui <- fluidPage(
-#'     shiny.i18n::usei18n(i18n),
+#'     usei18n(i18n),
 #'     actionButton("go", "GO!"),
 #'     h2(i18n$t("Hello Shiny!"))
 #'   )
