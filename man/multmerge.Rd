@@ -4,10 +4,12 @@
 \alias{multmerge}
 \title{Mulitple Merge}
 \usage{
-multmerge(filenames)
+multmerge(filenames, sep = ",")
 }
 \arguments{
 \item{filenames}{character vector with filenames}
+
+\item{sep}{fields separator}
 }
 \value{
 data.frame with merged files

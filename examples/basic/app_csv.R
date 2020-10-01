@@ -1,3 +1,6 @@
+#' This script demonstrates how to use shiny.i18n
+#' with CSV translation files.
+
 library(shiny)
 library(shiny.i18n)
 

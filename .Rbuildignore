@@ -9,3 +9,5 @@ build_readme\.R
 \.travis\.yml
 ^\.git.*$
 docs
+examples
+_pkgdown\.yml

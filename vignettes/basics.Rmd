@@ -1,0 +1,168 @@
+---
+title: "Introduction to shiny.i18n"
+author: "Appsilon"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to shiny.i18n}
+  %\VignetteEngine{knitr::knitr}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE, screenshot.force = FALSE}
+library(shiny)
+library(shiny.i18n)
+```
+
+
+In this tutorial we will walk you through the basics of `shiny.i18n` (which means internationalization of `Shiny`).
+The package can be used in 3 modes.
+Although it was designed to work smoothly with `Shiny` apps and reactivity, it can be also
+used for translation of other R documents, for example RMarkdown. Let's have a look at the 3 most
+common use-cases of translation.
+
+## Back-end translation
+
+Imagine that you have a Shiny app like the one below.
+
+```{r echo = T, include = T, eval = FALSE}
+library(shiny)
+library(shiny.i18n)
+
+ui <- fluidPage(p("Hello"))
+
+server <- function(input, output) {}
+
+shinyApp(ui, server)
+```
+
+Now, you would like to translate the content of your application using the translations
+from a file *translation.json*.
+
+**More about the format of translation file you can find in the other tutorial**.
+
+First of all, you need to load the data and create Translator object:
+
+```{r echo = T, include = T, eval = FALSE}
+i18n <- Translator$new(translation_json_path = "translation.json")
+```
+
+Next just surround each text in your app by `i18n$translate` or `i18n$t` (for short) tags. For example:
+
+```{r echo = T, include = T, eval = FALSE}
+i18n$translate("Hello")
+# or
+i18n$t("Hello")
+```
+
+The only thing that is left is selecting the target translation language. You do it with
+`i18n$set_translation_language` method that takes as an argument the code of your language.
+
+Your full application might look now like this:
+
+```{r echo = T, include = T, eval = FALSE}
+library(shiny)
+library(shiny.i18n)
+
+i18n <- Translator$new(translation_json_path = "translation.json")
+
+i18n$set_translation_language("en")
+
+ui <- fluidPage(p(i18n$t("Hello")))
+
+server <- function(input, output) {}
+
+shinyApp(ui, server)
+```
+
+If you want to display the text in a different language, just change the code from "en"
+to the language that is in your *"translation.json"* file, eg. "pl" for Polish.
+
+## Live language change
+
+The example above demonstrates only how to run various instances of the app
+with different languages. What if we want to enable user to change the language dynamically?
+
+You have two options here.
+
+### Option (a)
+
+You can make your i18n a reactive variable that accepts the language code from
+some UI input, eg. `input$selected_language`.
+
+```{r echo = T, include = T, eval = FALSE}
+translator <- Translator$new(translation_json_path = "translation.json")
+
+server <- function(input, output, session) {
+
+  i18n <- reactive({
+    selected <- input$selected_language
+    if (length(selected) > 0 && selected %in% translator$get_languages()) {
+      translator$set_translation_language(selected)
+    }
+    translator
+  })
+}
+```
+
+See the full example [here](https://github.com/Appsilon/shiny.i18n/blob/master/examples/live_language_change/server_app.R).
+
+### Option (b)
+
+Alternatively, you may introduce to your UI the following statement: `usei18n(i18n)`. This will tell
+`shiny.i18n` to use JS script nested in the header of your app to perform the translation.
+
+See this minimal example:
+
+```{r echo = T, include = T, eval = FALSE}
+library(shiny)
+library(shiny.i18n)
+
+i18n <- Translator$new(translation_json_path = "translation.json")
+
+i18n$set_translation_language("en")
+
+ui <- fluidPage(usei18n(i18n),
+                p(i18n$t("Hello")),
+                actionButton("go", "GO!")
+      )
+
+server <- function(input, output, session) {
+  observeEvent(input$go,{
+       update_lang(session, "pl")
+  })
+}
+
+shinyApp(ui, server)
+```
+
+## Automatic translations
+
+Sometimes there is no time to translate your application to many different languages
+and there is a number of automatic translation services with public API. With `shiny.i18n`
+it's easy to take advantage of some of them. Remember though that you need to set-up
+credential to the service you want to use first. Here is an example on how to
+internationalize your app with Google API (note that we replace `i18n$t` by `i18n$at`).
+
+**(! Note that you need to check with a provider of the API for a specific language code)**
+
+```{r echo = T, include = T, eval = FALSE}
+library(shiny)
+library(shiny.i18n)
+library(googleLanguageR)
+
+
+# setting up credentials to google cloud API (see more in googleLanguageR docs)
+i18n <- Translator$new(automatic = TRUE)
+
+i18n$set_translation_language("de")
+
+ui <- fluidPage(p(i18n$at("Hello")))
+
+server <- function(input, output) {}
+
+shinyApp(ui, server)
+```
+
+That's the end of this tutorial. Hopefully you learned something new about `shiny.i18n`.
+Check more examples in `examples` folder of `shiny.i18n` code [repository](https://github.com/Appsilon/shiny.i18n).

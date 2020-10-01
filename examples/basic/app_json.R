@@ -1,3 +1,6 @@
+#' This script demonstrates how to use shiny.i18n
+#' with JSON translation files.
+
 library(shiny)
 library(shiny.i18n)
 
@@ -24,7 +27,7 @@ ui <- shinyUI(fluidPage(
   )
 ))
 
-server <- shinyServer(function(input, output) {
+server <- function(input, output) {
 
   output$distPlot <- renderPlot({
     x    <- faithful[, 2]
@@ -33,6 +36,6 @@ server <- shinyServer(function(input, output) {
          col = "darkgray", border = "white",
          main = i18n$t("Histogram of x"), ylab = i18n$t("Frequency"))
   })
-})
+}
 
 shinyApp(ui = ui, server = server)
