@@ -55,14 +55,22 @@ You can find some basic examples in `examples` folder:
 
 Currently **shiny.i18n** supports two translation formats:
 
--   **csv** - where each translation is in separate file `translation_<LANGUAGE-CODE>.csv` containing two columns: key translation, language to which it needs to be translated. Example of `translation_pl.csv` for Polish language you may find here: `inst/examples/data/translation_pl.csv`.
+-   **csv** - where each translation is in separate file `translation_<LANGUAGE-CODE>.csv` containing two columns: key translation, language to which it needs to be translated. Example of `translation_pl.csv` for Polish language you may find here: `inst/examples/data/translation_pl.csv`. You load the data by passing the path to folder containing all the csv files:
 
--   **json** - single json file `translation.json` with mandatory fields: `"languages"` with list of all language codes and `"translation"` with list of dictionaries assigning each translation to a language code. Example of such a json file for Polish language you may find here: `inst/examples/data/translation.json`.
+```r
+Translator$new(translation_csvs_path = "...")
+```
+
+-   **json** - single json file `translation.json` with mandatory fields: `"languages"` with list of all language codes and `"translation"` with list of dictionaries assigning each translation to a language code. Example of such a json file for Polish language you may find here: `inst/examples/data/translation.json`. You load the data by passing the path to json file.
+
+```r
+Translator$new(translation_json_path = "...")
+```
 
 How to contribute?
 ------------------
 
-If you want to contribute to this project please submit a regular PR, once you're done with new feature or bug fix.
+If you want to contribute to this project please submit a regular PR, once you're done with new feature or bug fix. Reporting a bug is also helpful - please use github issues and describe your problem as detailed as possible.
 
 **Changes in documentation**
 

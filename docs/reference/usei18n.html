@@ -159,7 +159,7 @@ for live language translations.</p>
   <span class='no'>i18n</span>$<span class='fu'>set_translation_language</span>(<span class='st'>"en"</span>)
 
   <span class='no'>ui</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html'>fluidPage</a></span>(
-    <span class='kw pkg'>shiny.i18n</span><span class='kw ns'>::</span><span class='fu'>usei18n</span>(<span class='no'>i18n</span>),
+    <span class='fu'>usei18n</span>(<span class='no'>i18n</span>),
     <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/actionButton.html'>actionButton</a></span>(<span class='st'>"go"</span>, <span class='st'>"GO!"</span>),
     <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/reexports.html'>h2</a></span>(<span class='no'>i18n</span>$<span class='fu'><a href='https://rdrr.io/r/base/t.html'>t</a></span>(<span class='st'>"Hello Shiny!"</span>))
   )

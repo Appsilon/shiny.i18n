@@ -144,6 +144,8 @@ it's easy to take advantage of some of them. Remember though that you need to se
 credential to the service you want to use first. Here is an example on how to
 internationalize your app with Google API (note that we replace `i18n$t` by `i18n$at`).
 
+**(! Note that you need to check with a provider of the API for a specific language code)**
+
 ```{r echo = T, include = T, eval = FALSE}
 library(shiny)
 library(shiny.i18n)
@@ -152,6 +154,8 @@ library(googleLanguageR)
 
 # setting up credentials to google cloud API (see more in googleLanguageR docs)
 i18n <- Translator$new(automatic = TRUE)
+
+i18n$set_translation_language("de")
 
 ui <- fluidPage(p(i18n$at("Hello")))
 

@@ -127,15 +127,21 @@
 <a href="#translation-file-format" class="anchor"></a>Translation file format</h4>
 <p>Currently <strong>shiny.i18n</strong> supports two translation formats:</p>
 <ul>
-<li><p><strong>csv</strong> - where each translation is in separate file <code>translation_&lt;LANGUAGE-CODE&gt;.csv</code> containing two columns: key translation, language to which it needs to be translated. Example of <code>translation_pl.csv</code> for Polish language you may find here: <code>inst/examples/data/translation_pl.csv</code>.</p></li>
-<li><p><strong>json</strong> - single json file <code>translation.json</code> with mandatory fields: <code>"languages"</code> with list of all language codes and <code>"translation"</code> with list of dictionaries assigning each translation to a language code. Example of such a json file for Polish language you may find here: <code>inst/examples/data/translation.json</code>.</p></li>
+<li>
+<strong>csv</strong> - where each translation is in separate file <code>translation_&lt;LANGUAGE-CODE&gt;.csv</code> containing two columns: key translation, language to which it needs to be translated. Example of <code>translation_pl.csv</code> for Polish language you may find here: <code>inst/examples/data/translation_pl.csv</code>. You load the data by passing the path to folder containing all the csv files:</li>
 </ul>
+<div class="sourceCode" id="cb3"><pre class="r"><span class="no">Translator</span>$<span class="fu">new</span>(<span class="kw">translation_csvs_path</span> <span class="kw">=</span> <span class="st">"..."</span>)</pre></div>
+<ul>
+<li>
+<strong>json</strong> - single json file <code>translation.json</code> with mandatory fields: <code>"languages"</code> with list of all language codes and <code>"translation"</code> with list of dictionaries assigning each translation to a language code. Example of such a json file for Polish language you may find here: <code>inst/examples/data/translation.json</code>. You load the data by passing the path to json file.</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="r"><span class="no">Translator</span>$<span class="fu">new</span>(<span class="kw">translation_json_path</span> <span class="kw">=</span> <span class="st">"..."</span>)</pre></div>
 </div>
 </div>
 <div id="how-to-contribute" class="section level2">
 <h2 class="hasAnchor">
 <a href="#how-to-contribute" class="anchor"></a>How to contribute?</h2>
-<p>If you want to contribute to this project please submit a regular PR, once you’re done with new feature or bug fix.</p>
+<p>If you want to contribute to this project please submit a regular PR, once you’re done with new feature or bug fix. Reporting a bug is also helpful - please use github issues and describe your problem as detailed as possible.</p>
 <p><strong>Changes in documentation</strong></p>
 <p>Documentation is rendered with <code>pkgdown</code>. Just run <code><a href="https://pkgdown.r-lib.org/reference/build_site.html">pkgdown::build_site()</a></code> after editing documentation or <code>README.md</code>.</p>
 </div>

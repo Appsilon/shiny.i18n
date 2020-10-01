@@ -134,8 +134,7 @@
 <p>The format is based on <a href="http://keepachangelog.com/">Keep a Changelog</a>.</p>
 <div id="unreleased" class="section level2">
 <h2 class="hasAnchor">
-<a href="#unreleased" class="anchor"></a><a href="https://github.com/Appsilon/shiny.i18n/compare/0.1.0...HEAD">Unreleased</a>
-</h2>
+<a href="#unreleased" class="anchor"></a>[Unreleased]</h2>
 <div id="added" class="section level3">
 <h3 class="hasAnchor">
 <a href="#added" class="anchor"></a>Added</h3>
@@ -153,16 +152,43 @@
 <a href="#removed" class="anchor"></a>Removed</h3>
 </div>
 </div>
-<div id="010---2016-12-05" class="section level2">
+<div id="020---2020-10-07" class="section level2">
 <h2 class="hasAnchor">
-<a href="#010---2016-12-05" class="anchor"></a>[0.1.0] - 2016-12-05</h2>
+<a href="#020---2020-10-07" class="anchor"></a>[0.2.0] - 2020-10-07</h2>
 <div id="added-1" class="section level3">
 <h3 class="hasAnchor">
 <a href="#added-1" class="anchor"></a>Added</h3>
 <ul>
-<li>TODO your feature</li>
+<li><p><code>preproc</code> script with preprocessing functions - they create example translation csv, or json files</p></li>
+<li><p>RStudio addin that searches for all <code>i18nt</code> tags</p></li>
+<li><p>js bindings that identify html elements with i18n class</p></li>
+<li><p><code>ui</code> script with ui translations related function</p></li>
+<li><p>automatic translations via API (currently only google cloud supported)</p></li>
+<li><p>increased test coverage to 63%</p></li>
+<li><p>2 vignettes with tutorials</p></li>
+<li><p>examples with live language translation on the UI side and with automatic translation via API</p></li>
+<li><p>pkgdown documentation</p></li>
 </ul>
-<p>// [0.1.0]: <a href="https://github.com/Appsilon/shiny.i18n/compare/your_repo_init_comit_hash" class="uri">https://github.com/Appsilon/shiny.i18n/compare/your_repo_init_comit_hash</a>…0.1.0</p>
+</div>
+<div id="changed-1" class="section level3">
+<h3 class="hasAnchor">
+<a href="#changed-1" class="anchor"></a>Changed</h3>
+<ul>
+<li><p>Translator class is R6 class now</p></li>
+<li><p><code>translate</code> method now automatically detects whether object is in UI or server and applies reactive or js translation accordingly</p></li>
+</ul>
+</div>
+</div>
+<div id="010---2016-12-05" class="section level2">
+<h2 class="hasAnchor">
+<a href="#010---2016-12-05" class="anchor"></a>[0.1.0] - 2016-12-05</h2>
+<div id="added-2" class="section level3">
+<h3 class="hasAnchor">
+<a href="#added-2" class="anchor"></a>Added</h3>
+<ul>
+<li><p>Translator reference class</p></li>
+<li><p>examples with basic json and csv usage and with live language translation on the server side</p></li>
+</ul>
 </div>
 </div>
 </div>

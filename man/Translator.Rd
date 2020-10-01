@@ -73,7 +73,8 @@ Initialize the Translator with data
 \if{html}{\out{<div class="arguments">}}
 \describe{
 \item{\code{translation_csvs_path}}{character with path to folder containing csv
-translation files. See more in  Details.}
+translation files. Files must have "translation_" prefix, for example:
+\code{translation_<LANG-CODE>.csv}.}
 
 \item{\code{translation_json_path}}{character with path to JSON translation file.
 See more in  Details.}
