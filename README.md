@@ -4,6 +4,13 @@
 shiny.i18n
 ==========
 
+<!-- badges: start -->
+![R-CMD-check](https://github.com/Appsilon/shiny.i18n/workflows/R-CMD-check/badge.svg)
+[![codecov](https://codecov.io/gh/Appsilon/shiny.i18n/branch/master/graph/badge.svg)](https://codecov.io/gh/Appsilon/shiny.i18n)
+[![cranlogs](https://cranlogs.r-pkg.org/badges/shiny.i18n)](https://CRAN.R-project.org/package=shiny.i18n)
+[![total](https://cranlogs.r-pkg.org/badges/grand-total/shiny.i18n)](https://CRAN.R-project.org/package=shiny.i18n)
+<!-- badges: end -->
+
 Shiny applications internationalisation made easy!
 
 Using it is very simple: just prepare your translation files in one of the supported formats, read them into your app using user-friendly **shiny.i18n** interface and surround your expressions to translate by a translator tag. Thanks to that your app will remain neat and readible.
@@ -20,7 +27,11 @@ This library source code can be found on [Appsilon Data Science's](https://appsi
 How to install?
 ---------------
 
-At the moment it's possible to install this library with [devtools](https://github.com/r-lib/devtools).
+```r
+install.packages("shiny.i18n")
+```
+
+Or use [devtools](https://github.com/r-lib/devtools) for the most recent version:
 
 ```r
 devtools::install_github("Appsilon/shiny.i18n")
