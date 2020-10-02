@@ -15,12 +15,12 @@ Change languages and formats easy with **shiny.i18n**.
 Source code
 -----------
 
-This library source code can be found on [Appsilon Data Science's](http://appsilon.com) Github: <br> <https://github.com/Appsilon/shiny.i18n/>
+This library source code can be found on [Appsilon Data Science's](https://appsilon.com) Github: <br> <https://github.com/Appsilon/shiny.i18n/>
 
 How to install?
 ---------------
 
-At the moment it's possible to install this library with [devtools](https://github.com/hadley/devtools).
+At the moment it's possible to install this library with [devtools](https://github.com/r-lib/devtools).
 
 ```r
 devtools::install_github("Appsilon/shiny.i18n")
@@ -49,7 +49,7 @@ You can find some basic examples in `examples` folder:
 
 3) [RMarkdown translations](https://github.com/Appsilon/shiny.i18n/blob/master/examples/rmarkdown/report.Rmd).
 
-4) Example of translation [data format](https://github.com/Appsilon/shiny.i18n/blob/master/examples/data).
+4) Example of translation [data format](https://github.com/Appsilon/shiny.i18n/tree/master/examples/data).
 
 #### Translation file format
 
@@ -91,4 +91,4 @@ Future enhacements
 Appsilon Data Science
 ---------------------
 
-Get in touch [dev@appsilon.com](dev@appsilon.com)
+Get in touch *dev@appsilon.com*.

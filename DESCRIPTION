@@ -25,8 +25,8 @@ Imports: yaml,
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-URL: http://github.com/Appsilon/shiny.i18n
-BugReports: http://github.com/Appsilon/shiny.i18n/issues
+URL: https://github.com/Appsilon/shiny.i18n
+BugReports: https://github.com/Appsilon/shiny.i18n/issues
 RoxygenNote: 7.1.1
 Suggests:
     knitr,
