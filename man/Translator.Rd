@@ -43,6 +43,7 @@ shinyApp(ui = ui, server = server)
 \item \href{#method-get_languages}{\code{Translator$get_languages()}}
 \item \href{#method-get_translations}{\code{Translator$get_translations()}}
 \item \href{#method-get_key_translation}{\code{Translator$get_key_translation()}}
+\item \href{#method-get_translation_language}{\code{Translator$get_translation_language()}}
 \item \href{#method-translate}{\code{Translator$translate()}}
 \item \href{#method-t}{\code{Translator$t()}}
 \item \href{#method-set_translation_language}{\code{Translator$set_translation_language()}}
@@ -117,6 +118,16 @@ Get whole translation matrix
 Get active key translation
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Translator$get_key_translation()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_translation_language"></a>}}
+\if{latex}{\out{\hypertarget{method-get_translation_language}{}}}
+\subsection{Method \code{get_translation_language()}}{
+Get current target translation language
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Translator$get_translation_language()}\if{html}{\out{</div>}}
 }
 
 }

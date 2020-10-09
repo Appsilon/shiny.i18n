@@ -84,6 +84,9 @@ Translator <- R6::R6Class(
     #' Get active key translation
     get_key_translation = function() private$key_translation,
     #' @description
+    #' Get current target translation language
+    get_translation_language = function() private$translation_language,
+    #' @description
     #' Translates 'keyword' to language specified by 'set_translation_language'
     #' @param keyword character or vector of characters with a word or
     #' expression to translate
