@@ -13,7 +13,7 @@ translate_with_google_cloud <- function(txt_to_translate, target_lang) {
     googleLanguageR::gl_translate(txt_to_translate, target = target_lang)$translatedText
   }, error = function(cond) {
     message("!!!")
-    message(as.character(cond))
+    message(cond$message)
     message("Did you set you google cloud API credentials correctly?")
     message("Check how here: https://github.com/ropensci/googleLanguageR/")
     txt_to_translate
