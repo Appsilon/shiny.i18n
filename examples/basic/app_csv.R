@@ -10,7 +10,7 @@ i18n <- Translator$new(translation_csvs_path = "../data")
 # change this to en
 i18n$set_translation_language("en")
 
-ui <- shinyUI(fluidPage(
+ui <- fluidPage(
   titlePanel(i18n$t("Hello Shiny!")),
   sidebarLayout(
     sidebarPanel(
@@ -25,9 +25,9 @@ ui <- shinyUI(fluidPage(
       p(i18n$t("This is description of the plot."))
     )
   )
-))
+)
 
-server <- shinyServer(function(input, output) {
+server <- function(input, output) {
 
   output$distPlot <- renderPlot({
     x    <- faithful[, 2]
@@ -36,6 +36,6 @@ server <- shinyServer(function(input, output) {
          col = "darkgray", border = "white",
          main = i18n$t("Histogram of x"), ylab = i18n$t("Frequency"))
   })
-})
+}
 
 shinyApp(ui = ui, server = server)

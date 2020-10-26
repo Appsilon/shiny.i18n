@@ -151,7 +151,8 @@ Translator <- R6::R6Class(
       if (identical(private$translation_language, character(0)))
         stop("Please provide a 'translation_language'. Check docs how.")
       tr <- switch(api,
-                   google = translate_with_google_cloud(keyword, translation_language),
+                   google = translate_with_google_cloud(keyword,
+                                                        private$translation_language),
                    stop("This 'api' is not supported.")
       )
       tr
