@@ -63,7 +63,7 @@ i18n <- Translator$new(translation_json_path = "translation.json")
 
 ## CSV
 
-Again let's start by looking at the example of **translation_it.csv**.
+Again, let's start by looking at the example of **translation_it.csv**.
 
 ```
 en,it
@@ -71,13 +71,13 @@ Hello Shiny!,Ciao Shiny!
 Frequency, Frequenza
 ```
 
-Here the name of the file is important. It has to have the prefix: `translation_`,
+Here, the name of the file is important It **has to have** the prefix: `translation_`,
 which is followed by a language code.
 
-Note that in CSV consists of two columns. The left is a **key translation** with its code in header.
-The right is a target translation with its code as a column name. The code needs to match the csv file name.
+Note that CSV typically consists of two columns. The left column is a **key translation** with its code in header.
+The right one is a target translation with its code as a column name. The code needs to match the csv file name.
 
-Having said that you can create CSV files. For [Klingon](https://en.wikipedia.org/wiki/Klingon_language) it would look like this:
+With all that in mind, let's see how to create another CSV file. For [Klingon](https://en.wikipedia.org/wiki/Klingon_language) it would look like this:
 
 **translation_kling.csv**
 ```
@@ -89,7 +89,7 @@ Frequency,chaDvay'
 Just remember to follow above-mentioned pattern and keep all the files in the same directory.
 
 You can load CSV files by passing path to folder containing them as `translation_csvs_path` argument to `Translator`. This will automatically detect all files with the pattern: `translation_*.csv`, for example:
-`translation_it.csv` for Italian.
+`translation_it.csv` for Italian, `translation_kling.csv` for Klingon and so on.
 
 ```{r echo = T, include = T, eval = FALSE}
 i18n <- Translator$new(translation_csvs_path = "translation_data/")
@@ -107,3 +107,5 @@ file for you. It detect all places in your code wrapped with tag: `i18n$t` or
 Just go to your "Addins" menu in *RStudio*.
 
 <img src="images/addin.png" alt="addin" width="400"/>
+
+For more customized tags detection use `create_translation_file` function.

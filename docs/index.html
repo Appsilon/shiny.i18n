@@ -34,7 +34,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">SHINY.I18N</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
       </span>
     </div>
 
@@ -92,6 +92,8 @@
 <div id="shinyi18n" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#shinyi18n" class="anchor"></a>shiny.i18n</h1></div>
+<!-- badges: start -->
+<p><img src="https://github.com/Appsilon/shiny.i18n/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"><a href="https://codecov.io/gh/Appsilon/shiny.i18n"><img src="https://codecov.io/gh/Appsilon/shiny.i18n/branch/master/graph/badge.svg" alt="codecov"></a> <a href="https://CRAN.R-project.org/package=shiny.i18n"><img src="https://cranlogs.r-pkg.org/badges/shiny.i18n" alt="cranlogs"></a> <a href="https://CRAN.R-project.org/package=shiny.i18n"><img src="https://cranlogs.r-pkg.org/badges/grand-total/shiny.i18n" alt="total"></a> <!-- badges: end --></p>
 <p>Shiny applications internationalisation made easy!</p>
 <p>Using it is very simple: just prepare your translation files in one of the supported formats, read them into your app using user-friendly <strong>shiny.i18n</strong> interface and surround your expressions to translate by a translator tag. Thanks to that your app will remain neat and readible.</p>
 <p><em>Actually, you can use <strong>shiny.i18n</strong> as a standalone R package - shiny app is just a perfect usecase example.</em></p>
@@ -99,15 +101,16 @@
 <div id="source-code" class="section level2">
 <h2 class="hasAnchor">
 <a href="#source-code" class="anchor"></a>Source code</h2>
-<p>This library source code can be found on <a href="http://appsilon.com">Appsilon Data Science’s</a> Github: <br><a href="https://github.com/Appsilon/shiny.i18n/" class="uri">https://github.com/Appsilon/shiny.i18n/</a></p>
+<p>This library source code can be found on <a href="https://appsilon.com">Appsilon Data Science’s</a> Github: <br><a href="https://github.com/Appsilon/shiny.i18n/" class="uri">https://github.com/Appsilon/shiny.i18n/</a></p>
 </div>
 <div id="how-to-install" class="section level2">
 <h2 class="hasAnchor">
 <a href="#how-to-install" class="anchor"></a>How to install?</h2>
-<p>At the moment it’s possible to install this library with <a href="https://github.com/hadley/devtools">devtools</a>.</p>
-<div class="sourceCode" id="cb1"><pre class="r"><span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"Appsilon/shiny.i18n"</span>)</pre></div>
+<div class="sourceCode" id="cb1"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"shiny.i18n"</span>)</pre></div>
+<p>Or use <a href="https://github.com/r-lib/devtools">devtools</a> for the most recent version:</p>
+<div class="sourceCode" id="cb2"><pre class="r"><span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"Appsilon/shiny.i18n"</span>)</pre></div>
 <p>To install previous version you can run:</p>
-<div class="sourceCode" id="cb2"><pre class="r"><span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"Appsilon/shiny.i18n"</span>, <span class="kw">ref</span> <span class="kw">=</span> <span class="st">"0.1.0"</span>)</pre></div>
+<div class="sourceCode" id="cb3"><pre class="r"><span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"Appsilon/shiny.i18n"</span>, <span class="kw">ref</span> <span class="kw">=</span> <span class="st">"0.1.0"</span>)</pre></div>
 </div>
 <div id="examples" class="section level2">
 <h2 class="hasAnchor">
@@ -121,7 +124,7 @@
 <p>1) Using i18n object with <a href="https://github.com/Appsilon/shiny.i18n/blob/master/examples/basic/app_csv.R">CSV translation files</a> or <a href="https://github.com/Appsilon/shiny.i18n/blob/master/examples/basic/app_json.R">JSON translation files</a>.</p>
 <p>2) Live language change on the <a href="https://github.com/Appsilon/shiny.i18n/blob/master/examples/live_language_change/browser_app.R">browser side</a> or with the server <a href="https://github.com/Appsilon/shiny.i18n/blob/master/examples/live_language_change/server_app.R">function renderUI</a>.</p>
 <p>3) <a href="https://github.com/Appsilon/shiny.i18n/blob/master/examples/rmarkdown/report.Rmd">RMarkdown translations</a>.</p>
-<p>4) Example of translation <a href="https://github.com/Appsilon/shiny.i18n/blob/master/examples/data">data format</a>.</p>
+<p>4) Example of translation <a href="https://github.com/Appsilon/shiny.i18n/tree/master/examples/data">data format</a>.</p>
 <div id="translation-file-format" class="section level4">
 <h4 class="hasAnchor">
 <a href="#translation-file-format" class="anchor"></a>Translation file format</h4>
@@ -130,12 +133,12 @@
 <li>
 <strong>csv</strong> - where each translation is in separate file <code>translation_&lt;LANGUAGE-CODE&gt;.csv</code> containing two columns: key translation, language to which it needs to be translated. Example of <code>translation_pl.csv</code> for Polish language you may find here: <code>inst/examples/data/translation_pl.csv</code>. You load the data by passing the path to folder containing all the csv files:</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="r"><span class="no">Translator</span>$<span class="fu">new</span>(<span class="kw">translation_csvs_path</span> <span class="kw">=</span> <span class="st">"..."</span>)</pre></div>
+<div class="sourceCode" id="cb4"><pre class="r"><span class="no">Translator</span>$<span class="fu">new</span>(<span class="kw">translation_csvs_path</span> <span class="kw">=</span> <span class="st">"..."</span>)</pre></div>
 <ul>
 <li>
 <strong>json</strong> - single json file <code>translation.json</code> with mandatory fields: <code>"languages"</code> with list of all language codes and <code>"translation"</code> with list of dictionaries assigning each translation to a language code. Example of such a json file for Polish language you may find here: <code>inst/examples/data/translation.json</code>. You load the data by passing the path to json file.</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="r"><span class="no">Translator</span>$<span class="fu">new</span>(<span class="kw">translation_json_path</span> <span class="kw">=</span> <span class="st">"..."</span>)</pre></div>
+<div class="sourceCode" id="cb5"><pre class="r"><span class="no">Translator</span>$<span class="fu">new</span>(<span class="kw">translation_json_path</span> <span class="kw">=</span> <span class="st">"..."</span>)</pre></div>
 </div>
 </div>
 <div id="how-to-contribute" class="section level2">
@@ -161,7 +164,7 @@
 <div id="appsilon-data-science" class="section level2">
 <h2 class="hasAnchor">
 <a href="#appsilon-data-science" class="anchor"></a>Appsilon Data Science</h2>
-<p>Get in touch <a href="dev@appsilon.com">dev@appsilon.com</a></p>
+<p>Get in touch <em><a href="mailto:dev@appsilon.com" class="email">dev@appsilon.com</a></em>.</p>
 </div>
 </div>
 
@@ -173,9 +176,9 @@
 <ul class="list-unstyled">
 <li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=shiny.i18n">https://​cloud.r-project.org/​package=shiny.i18n</a>
 </li>
-<li>Browse source code at <br><a href="http://github.com/Appsilon/shiny.i18n/">http://​github.com/​Appsilon/​shiny.i18n/​</a>
+<li>Browse source code at <br><a href="https://github.com/Appsilon/shiny.i18n/">https://​github.com/​Appsilon/​shiny.i18n/​</a>
 </li>
-<li>Report a bug at <br><a href="http://github.com/Appsilon/shiny.i18n/issues">http://​github.com/​Appsilon/​shiny.i18n/​issues</a>
+<li>Report a bug at <br><a href="https://github.com/Appsilon/shiny.i18n/issues">https://​github.com/​Appsilon/​shiny.i18n/​issues</a>
 </li>
 </ul>
 </div>

@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">SHINY.I18N</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
       </span>
     </div>
 
@@ -88,9 +88,9 @@
       <h1 data-toc-skip>Introduction to translation files format</h1>
                         <h4 class="author">Appsilon</h4>
             
-            <h4 class="date">2020-10-01</h4>
+            <h4 class="date">2020-10-27</h4>
       
-      <small class="dont-index">Source: <a href="http://github.com/Appsilon/shiny.i18n/blob/master/vignettes/translation_format.Rmd"><code>vignettes/translation_format.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/Appsilon/shiny.i18n/blob/master/vignettes/translation_format.Rmd"><code>vignettes/translation_format.Rmd</code></a></small>
       <div class="hidden name"><code>translation_format.Rmd</code></div>
 
     </div>
@@ -126,19 +126,19 @@
 <div id="csv" class="section level2">
 <h2 class="hasAnchor">
 <a href="#csv" class="anchor"></a>CSV</h2>
-<p>Again let’s start by looking at the example of <strong>translation_it.csv</strong>.</p>
+<p>Again, let’s start by looking at the example of <strong>translation_it.csv</strong>.</p>
 <pre><code>en,it
 Hello Shiny!,Ciao Shiny!
 Frequency, Frequenza</code></pre>
-<p>Here the name of the file is important. It has to have the prefix: <code>translation_</code>, which is followed by a language code.</p>
-<p>Note that in CSV consists of two columns. The left is a <strong>key translation</strong> with its code in header. The right is a target translation with its code as a column name. The code needs to match the csv file name.</p>
-<p>Having said that you can create CSV files. For <a href="https://en.wikipedia.org/wiki/Klingon_language">Klingon</a> it would look like this:</p>
+<p>Here, the name of the file is important It <strong>has to have</strong> the prefix: <code>translation_</code>, which is followed by a language code.</p>
+<p>Note that CSV typically consists of two columns. The left column is a <strong>key translation</strong> with its code in header. The right one is a target translation with its code as a column name. The code needs to match the csv file name.</p>
+<p>With all that in mind, let’s see how to create another CSV file. For <a href="https://en.wikipedia.org/wiki/Klingon_language">Klingon</a> it would look like this:</p>
 <p><strong>translation_kling.csv</strong></p>
 <pre><code>en,kling
 Hello Shiny!,bIpIv'a' Shiny!
 Frequency,chaDvay'</code></pre>
 <p>Just remember to follow above-mentioned pattern and keep all the files in the same directory.</p>
-<p>You can load CSV files by passing path to folder containing them as <code>translation_csvs_path</code> argument to <code>Translator</code>. This will automatically detect all files with the pattern: <code>translation_*.csv</code>, for example: <code>translation_it.csv</code> for Italian.</p>
+<p>You can load CSV files by passing path to folder containing them as <code>translation_csvs_path</code> argument to <code>Translator</code>. This will automatically detect all files with the pattern: <code>translation_*.csv</code>, for example: <code>translation_it.csv</code> for Italian, <code>translation_kling.csv</code> for Klingon and so on.</p>
 <div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="no">i18n</span> <span class="kw">&lt;-</span> <span class="no">Translator</span>$<span class="fu">new</span>(<span class="kw">translation_csvs_path</span> <span class="kw">=</span> <span class="st">"translation_data/"</span>)</pre></body></html></div>
 <p>If you want to set extra options (like : “cultural_date_format”, etc.) just create simple <em>yaml</em> file and pass it as <code>translation_csv_config</code> argument to <code>Translator</code>.</p>
 </div>
@@ -148,6 +148,7 @@ Frequency,chaDvay'</code></pre>
 <p>For your convenience we introduced the addin that builds a demo translation file for you. It detect all places in your code wrapped with tag: <code>i18n$t</code> or <code>i18n$translate</code>.</p>
 <p>Just go to your “Addins” menu in <em>RStudio</em>.</p>
 <p><img src="images/addin.png" alt="addin" width="400"></p>
+<p>For more customized tags detection use <code>create_translation_file</code> function.</p>
 </div>
   </div>
 
