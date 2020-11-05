@@ -1,18 +1,23 @@
 #' This script demonstrates how to use shiny.i18n Translator object
 #' to change the language dynamically on the server side.
+#'
+#' Note that here we create a reactive object i18n in the server
+#' and rerender all the UI elements.
 
 library(shiny)
 library(shiny.i18n)
 
-ui <- shinyUI(fluidPage(
+ui <- fluidPage(
   titlePanel('shiny.i18n'),
   uiOutput('page_content')
-))
+)
 
+# Here we create our translator ...
 translator <- Translator$new(translation_csvs_path = "../data")
 
-server <- shinyServer(function(input, output, session) {
+server <- function(input, output, session) {
 
+  # ... and here its reactive version that react to changes of the language.
   i18n <- reactive({
     selected <- input$selected_language
     if (length(selected) > 0 && selected %in% translator$get_languages()) {
@@ -55,6 +60,6 @@ server <- shinyServer(function(input, output, session) {
     updateSliderInput(session, "bins", label =  i18n()$t("Number of bins:"), value = req(input$bins))
   })
 
-})
+}
 
 shinyApp(ui = ui, server = server)
