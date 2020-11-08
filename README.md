@@ -99,7 +99,12 @@ Future enhacements
 -   Format numeric data
 -   Support plural forms
 
-Appsilon Data Science
----------------------
+Appsilon
+--------
 
-Get in touch *dev@appsilon.com*.
+<img src="https://avatars0.githubusercontent.com/u/6096772" align="right" alt="" width="6%" />
+
+Appsilon is the **Full Service Certified RStudio Partner**. Learn more
+at [appsilon.com](https://appsilon.com).
+
+Get in touch [dev@appsilon.com](dev@appsilon.com)
