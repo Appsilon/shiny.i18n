@@ -9,7 +9,7 @@ let translate = function(key, new_lang) {
 
 $.extend(shinyi18n, {
   find: function(scope) {
-    return $(scope).find('#i18n-state');
+    return $(scope).find('.i18n-state');
   },
   getValue: function(el) {
     var new_lang = $(el).data("lang");

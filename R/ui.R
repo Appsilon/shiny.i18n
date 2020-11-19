@@ -6,13 +6,14 @@
 #'
 #' @return shiny tag with div \code{"i18n-state"}
 #' @import shiny
-i18n_state <- function(init_language) {
-    shiny::tags$div(
-      id = "i18n-state",
-      `data-keylang` = init_language,
-      `data-lang` = init_language,
-      style = "visibility: hidden; margin: 0; padding: 0; overflow: hidden; max-height: 0;"
-    )
+i18n_state <- function(init_language, ns) {
+  shiny::tags$div(
+    id = ns("i18n-state"),
+    class = "i18n-state",
+    `data-keylang` = init_language,
+    `data-lang` = init_language,
+    style = "visibility: hidden; margin: 0; padding: 0; overflow: hidden; max-height: 0;"
+  )
 }
 
 #' Use i18n in UI
@@ -50,7 +51,10 @@ i18n_state <- function(init_language) {
 #' @importFrom jsonlite toJSON
 #' @import glue
 #' @export
-usei18n <- function(translator) {
+usei18n <- function(translator, ns = NULL) {
+  if (is.null(ns)) {
+    ns <- function(id) id
+  }
   shiny::addResourcePath("shiny_i18n", system.file("www", package = "shiny.i18n"))
   js_file <- file.path("shiny_i18n", "shiny-i18n.js")
   translator$use_js()
@@ -62,7 +66,7 @@ usei18n <- function(translator) {
       shiny::tags$script(glue::glue("var i18n_translations = {toJSON(translations, auto_unbox = TRUE)}")),
       shiny::tags$script(src = js_file)
     ),
-    i18n_state(translator$key_translation)
+    i18n_state(key_translation, ns = ns)
   )
 }
 
