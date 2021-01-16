@@ -49,6 +49,8 @@ devtools::install_github("Appsilon/shiny.i18n", ref = "0.1.0")
 Examples
 --------
 
+<img src="man/figures/demo.gif" align="center" alt="" width="40%" />
+
 <center>
 <h3>
 <a href="https://demo.appsilon.ai/apps/i18n/">See shiny.i18n in action live</a>
