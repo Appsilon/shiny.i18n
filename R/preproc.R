@@ -7,10 +7,10 @@
 #' @import stringr
 #' @import glue
 extract_key_expressions <- function(text, handle = "i18n") {
-  found <- unlist(str_extract_all(text, glue::glue("{handle}\\$t\\((.*?)\\)")))
-  ke1 <- str_replace(str_replace(found, glue::glue("{handle}\\$t\\([\"']"), ""), "[\"']\\)", "")
-  found <- unlist(str_extract_all(text, glue::glue("{handle}\\$translate\\((.*?)\\)")))
-  ke2 <- str_replace(str_replace(found, glue::glue("{handle}\\$translate\\([\"']"), ""), "[\"']\\)", "")
+  found <- unlist(str_extract_all(text, glue::glue("{handle}\\$t\\(([\"']).*?\\1\\)")))
+  ke1 <- str_replace(str_replace(found, glue::glue("{handle}\\$t\\([\"']"), ""), "[\"']\\)$", "")
+  found <- unlist(str_extract_all(text, glue::glue("{handle}\\$translate\\(([\"']).*?\\1\\)")))
+  ke2 <- str_replace(str_replace(found, glue::glue("{handle}\\$translate\\([\"']"), ""), "[\"']\\)$", "")
   key_expressions <- c(ke1, ke2)
   key_expressions
 }

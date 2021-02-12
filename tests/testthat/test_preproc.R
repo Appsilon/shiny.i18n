@@ -5,8 +5,9 @@ test_that("test extract_key_expressions", {
   i18n$t(\"abc\")
   sadsjdajd
   i18n$translate(\"xyz zxy\")
+  i18n$translate(\"1 ('abc abc')2\")
   "
-  expect_equal(extract_key_expressions(txt), c("abc", "xyz zxy"))
+  expect_equal(extract_key_expressions(txt), c("abc", "xyz zxy", "1 ('abc abc')2"))
   txt <- "
   i18n$t('abc')
   ajsdjasdadnm
