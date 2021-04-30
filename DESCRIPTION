@@ -3,11 +3,12 @@ Title: Shiny Applications Internationalization
 Version: 0.2.1
 Authors@R: c(person("Dominik", "Krzemiński",
                     email = "dominik@appsilon.com",
-                    role = c("cre", "aut")),
+                    role = c("aut")),
             person("Krystian", "Igras",
                     email = "krystian@appsilon.com",
                     role = c("aut")),
-             person(family = "Appsilon", role = c("cph")))            
+            person("Developers", "Appsilon", email = "dev+shinyi18n@appsilon.com", role = "cre"),
+            person(family = "Appsilon", role = c("cph")))            
 Description: It provides easy internationalization of Shiny
     applications. It can be used as standalone translation package
     to translate reports, interactive visualizations or
