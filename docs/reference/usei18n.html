@@ -81,14 +81,14 @@ for live language translations." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home"></span>
+    <span class="fas fa-home"></span>
      
     Start
   </a>
 </li>
 <li>
   <a href="../articles/index.html">
-    <span class="fa fa-university"></span>
+    <span class="fas fa-university"></span>
      
     Tutorials
   </a>
@@ -97,20 +97,20 @@ for live language translations." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="../reference/index.html">
-    <span class="fa fa-file-code-o"></span>
+    <span class="fas fa-file-code-o"></span>
      
     Reference
   </a>
 </li>
 <li>
   <a href="https://github.com/Appsilon/shiny.i18n">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
 <li>
   <a href="https://twitter.com/Appsilon">
-    <span class="fa fa-twitter fa-lg"></span>
+    <span class="fas fa-twitter fa-lg"></span>
      
   </a>
 </li>
@@ -137,7 +137,7 @@ for live language translations." />
 for live language translations.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>usei18n</span>(<span class='no'>translator</span>)</pre>
+    <pre class="usage"><span class='fu'>usei18n</span><span class='op'>(</span><span class='va'>translator</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -150,28 +150,29 @@ for live language translations.</p>
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
-  <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>shiny</span>)
-  <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>shiny.i18n</span>)
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://shiny.rstudio.com/'>shiny</a></span><span class='op'>)</span>
+  <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/Appsilon/shiny.i18n'>shiny.i18n</a></span><span class='op'>)</span>
   <span class='co'># for this example to run make sure that you have a translation file</span>
   <span class='co'># in the same path</span>
-  <span class='no'>i18n</span> <span class='kw'>&lt;-</span> <span class='no'>Translator</span>$<span class='fu'>new</span>(<span class='kw'>translation_json_path</span> <span class='kw'>=</span> <span class='st'>"translation.json"</span>)
-  <span class='no'>i18n</span>$<span class='fu'>set_translation_language</span>(<span class='st'>"en"</span>)
+  <span class='va'>i18n</span> <span class='op'>&lt;-</span> <span class='va'><a href='Translator.html'>Translator</a></span><span class='op'>$</span><span class='fu'>new</span><span class='op'>(</span>translation_json_path <span class='op'>=</span> <span class='st'>"translation.json"</span><span class='op'>)</span>
+  <span class='va'>i18n</span><span class='op'>$</span><span class='fu'>set_translation_language</span><span class='op'>(</span><span class='st'>"en"</span><span class='op'>)</span>
 
-  <span class='no'>ui</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html'>fluidPage</a></span>(
-    <span class='fu'>usei18n</span>(<span class='no'>i18n</span>),
-    <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/actionButton.html'>actionButton</a></span>(<span class='st'>"go"</span>, <span class='st'>"GO!"</span>),
-    <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/reexports.html'>h2</a></span>(<span class='no'>i18n</span>$<span class='fu'><a href='https://rdrr.io/r/base/t.html'>t</a></span>(<span class='st'>"Hello Shiny!"</span>))
-  )
+  <span class='va'>ui</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/fluidPage.html'>fluidPage</a></span><span class='op'>(</span>
+    <span class='fu'>usei18n</span><span class='op'>(</span><span class='va'>i18n</span><span class='op'>)</span>,
+    <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/actionButton.html'>actionButton</a></span><span class='op'>(</span><span class='st'>"go"</span>, <span class='st'>"GO!"</span><span class='op'>)</span>,
+    <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>h2</a></span><span class='op'>(</span><span class='va'>i18n</span><span class='op'>$</span><span class='fu'>t</span><span class='op'>(</span><span class='st'>"Hello Shiny!"</span><span class='op'>)</span><span class='op'>)</span>
+  <span class='op'>)</span>
 
-  <span class='no'>server</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyServer.html'>shinyServer</a></span>(<span class='kw'>function</span>(<span class='no'>input</span>, <span class='no'>output</span>, <span class='no'>session</span>) {
-    <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html'>observeEvent</a></span>(<span class='no'>input</span>$<span class='no'>go</span>,{
-      <span class='fu'><a href='update_lang.html'>update_lang</a></span>(<span class='no'>session</span>, <span class='st'>"pl"</span>)
-    })
-  })
+  <span class='va'>server</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyServer.html'>shinyServer</a></span><span class='op'>(</span><span class='kw'>function</span><span class='op'>(</span><span class='va'>input</span>, <span class='va'>output</span>, <span class='va'>session</span><span class='op'>)</span> <span class='op'>{</span>
+    <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/observeEvent.html'>observeEvent</a></span><span class='op'>(</span><span class='va'>input</span><span class='op'>$</span><span class='va'>go</span>,<span class='op'>{</span>
+      <span class='fu'><a href='update_lang.html'>update_lang</a></span><span class='op'>(</span><span class='va'>session</span>, <span class='st'>"pl"</span><span class='op'>)</span>
+    <span class='op'>}</span><span class='op'>)</span>
+  <span class='op'>}</span><span class='op'>)</span>
 
-  <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html'>shinyApp</a></span>(<span class='kw'>ui</span> <span class='kw'>=</span> <span class='no'>ui</span>, <span class='kw'>server</span> <span class='kw'>=</span> <span class='no'>server</span>)
-}</div></pre>
+  <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span>ui <span class='op'>=</span> <span class='va'>ui</span>, server <span class='op'>=</span> <span class='va'>server</span><span class='op'>)</span>
+<span class='op'>}</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -183,11 +184,11 @@ for live language translations.</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Dominik Krzemiński, Krystian Igras.</p>
+  <p>Developed by Dominik Krzemiński, Krystian Igras, Jakub Sobolewski.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

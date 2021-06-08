@@ -36,3 +36,4 @@ vignettes/*.pdf
 #DS
 
 /*.DS*
+inst/doc

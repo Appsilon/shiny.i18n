@@ -1,8 +1,8 @@
-pandoc: 2.7.3
-pkgdown: 1.5.1
+pandoc: 2.14.0.1
+pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
   basics: basics.html
   translation_format: translation_format.html
-last_built: 2021-01-16T14:48Z
+last_built: 2021-06-08T13:07Z
 

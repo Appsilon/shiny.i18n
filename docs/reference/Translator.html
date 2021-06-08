@@ -81,14 +81,14 @@ Translator R6 Class" />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home"></span>
+    <span class="fas fa-home"></span>
      
     Start
   </a>
 </li>
 <li>
   <a href="../articles/index.html">
-    <span class="fa fa-university"></span>
+    <span class="fas fa-university"></span>
      
     Tutorials
   </a>
@@ -97,20 +97,20 @@ Translator R6 Class" />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="../reference/index.html">
-    <span class="fa fa-file-code-o"></span>
+    <span class="fas fa-file-code-o"></span>
      
     Reference
   </a>
 </li>
 <li>
   <a href="https://github.com/Appsilon/shiny.i18n">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
 <li>
   <a href="https://twitter.com/Appsilon">
-    <span class="fa fa-twitter fa-lg"></span>
+    <span class="fas fa-twitter fa-lg"></span>
      
   </a>
 </li>
@@ -148,7 +148,7 @@ Find details in method descriptions below.</p>
     <h2 class="hasAnchor" id="methods"><a class="anchor" href="#methods"></a>Methods</h2>
 
     
-<h3>Public methods</h3>
+<h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Public methods</h3>
 
 <ul>
 <li><p><a href='#method-new'><code>Translator$new()</code></a></p></li>
@@ -167,18 +167,18 @@ Find details in method descriptions below.</p>
 <li><p><a href='#method-clone'><code>Translator$clone()</code></a></p></li>
 </ul>
 <p><hr>
-<a id="method-new"></a></p><h3>Method <code>new()</code></h3>
-<p>Initialize the Translator with data</p><h3>Usage</h3>
-<p><div class="r"></p><pre><span class='no'>Translator</span>$<span class='fu'>new</span>(
-  <span class='kw'>translation_csvs_path</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>translation_json_path</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>translation_csv_config</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>separator_csv</span> <span class='kw'>=</span> <span class='st'>","</span>,
-  <span class='kw'>automatic</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
-)</pre><p></div></p>
+<a id="method-new"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>new()</code></h3>
+<p>Initialize the Translator with data</p><h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='va'>Translator</span><span class='op'>$</span><span class='fu'>new</span><span class='op'>(</span>
+  translation_csvs_path <span class='op'>=</span> <span class='cn'>NULL</span>,
+  translation_json_path <span class='op'>=</span> <span class='cn'>NULL</span>,
+  translation_csv_config <span class='op'>=</span> <span class='cn'>NULL</span>,
+  separator_csv <span class='op'>=</span> <span class='st'>","</span>,
+  automatic <span class='op'>=</span> <span class='cn'>FALSE</span>
+<span class='op'>)</span></pre><p></div></p>
 
-<h3>Arguments</h3>
-<p><div class="arguments"></p><dl'>
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
+<p><div class="arguments"></p><dl>
 <dt><code>translation_csvs_path</code></dt><dd><p>character with path to folder containing csv
 translation files. Files must have "translation_" prefix, for example:
 <code>translation_&lt;LANG-CODE&gt;.csv</code>.</p></dd>
@@ -196,32 +196,32 @@ translation API.</p></dd>
 
 </dl><p></div></p>
 <p><hr>
-<a id="method-get_languages"></a></p><h3>Method <code>get_languages()</code></h3>
-<p>Get all available languages</p><h3>Usage</h3>
-<p><div class="r"></p><pre><span class='no'>Translator</span>$<span class='fu'>get_languages</span>()</pre><p></div></p>
+<a id="method-get_languages"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>get_languages()</code></h3>
+<p>Get all available languages</p><h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='va'>Translator</span><span class='op'>$</span><span class='fu'>get_languages</span><span class='op'>(</span><span class='op'>)</span></pre><p></div></p>
 
 <p><hr>
-<a id="method-get_translations"></a></p><h3>Method <code>get_translations()</code></h3>
-<p>Get whole translation matrix</p><h3>Usage</h3>
-<p><div class="r"></p><pre><span class='no'>Translator</span>$<span class='fu'>get_translations</span>()</pre><p></div></p>
+<a id="method-get_translations"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>get_translations()</code></h3>
+<p>Get whole translation matrix</p><h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='va'>Translator</span><span class='op'>$</span><span class='fu'>get_translations</span><span class='op'>(</span><span class='op'>)</span></pre><p></div></p>
 
 <p><hr>
-<a id="method-get_key_translation"></a></p><h3>Method <code>get_key_translation()</code></h3>
-<p>Get active key translation</p><h3>Usage</h3>
-<p><div class="r"></p><pre><span class='no'>Translator</span>$<span class='fu'>get_key_translation</span>()</pre><p></div></p>
+<a id="method-get_key_translation"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>get_key_translation()</code></h3>
+<p>Get active key translation</p><h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='va'>Translator</span><span class='op'>$</span><span class='fu'>get_key_translation</span><span class='op'>(</span><span class='op'>)</span></pre><p></div></p>
 
 <p><hr>
-<a id="method-get_translation_language"></a></p><h3>Method <code>get_translation_language()</code></h3>
-<p>Get current target translation language</p><h3>Usage</h3>
-<p><div class="r"></p><pre><span class='no'>Translator</span>$<span class='fu'>get_translation_language</span>()</pre><p></div></p>
+<a id="method-get_translation_language"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>get_translation_language()</code></h3>
+<p>Get current target translation language</p><h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='va'>Translator</span><span class='op'>$</span><span class='fu'>get_translation_language</span><span class='op'>(</span><span class='op'>)</span></pre><p></div></p>
 
 <p><hr>
-<a id="method-translate"></a></p><h3>Method <code>translate()</code></h3>
-<p>Translates 'keyword' to language specified by 'set_translation_language'</p><h3>Usage</h3>
-<p><div class="r"></p><pre><span class='no'>Translator</span>$<span class='fu'>translate</span>(<span class='no'>keyword</span>, <span class='kw'>session</span> <span class='kw'>=</span> <span class='kw pkg'>shiny</span><span class='kw ns'>::</span><span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/domains.html'>getDefaultReactiveDomain</a></span>())</pre><p></div></p>
+<a id="method-translate"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>translate()</code></h3>
+<p>Translates 'keyword' to language specified by 'set_translation_language'</p><h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='va'>Translator</span><span class='op'>$</span><span class='fu'>translate</span><span class='op'>(</span><span class='va'>keyword</span>, session <span class='op'>=</span> <span class='fu'>shiny</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/shiny/man/domains.html'>getDefaultReactiveDomain</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></pre><p></div></p>
 
-<h3>Arguments</h3>
-<p><div class="arguments"></p><dl'>
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
+<p><div class="arguments"></p><dl>
 <dt><code>keyword</code></dt><dd><p>character or vector of characters with a word or
 expression to translate</p></dd>
 
@@ -229,12 +229,12 @@ expression to translate</p></dd>
 
 </dl><p></div></p>
 <p><hr>
-<a id="method-t"></a></p><h3>Method <code><a href='https://rdrr.io/r/base/t.html'>t()</a></code></h3>
-<p>Wrapper to <code>translate</code> method.</p><h3>Usage</h3>
-<p><div class="r"></p><pre><span class='no'>Translator</span>$<span class='fu'><a href='https://rdrr.io/r/base/t.html'>t</a></span>(<span class='no'>keyword</span>, <span class='kw'>session</span> <span class='kw'>=</span> <span class='kw pkg'>shiny</span><span class='kw ns'>::</span><span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/domains.html'>getDefaultReactiveDomain</a></span>())</pre><p></div></p>
+<a id="method-t"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code><a href='https://rdrr.io/r/base/t.html'>t()</a></code></h3>
+<p>Wrapper to <code>translate</code> method.</p><h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='va'>Translator</span><span class='op'>$</span><span class='fu'>t</span><span class='op'>(</span><span class='va'>keyword</span>, session <span class='op'>=</span> <span class='fu'>shiny</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/shiny/man/domains.html'>getDefaultReactiveDomain</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></pre><p></div></p>
 
-<h3>Arguments</h3>
-<p><div class="arguments"></p><dl'>
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
+<p><div class="arguments"></p><dl>
 <dt><code>keyword</code></dt><dd><p>character or vector of characters with a word or
 expression to translate</p></dd>
 
@@ -242,45 +242,45 @@ expression to translate</p></dd>
 
 </dl><p></div></p>
 <p><hr>
-<a id="method-set_translation_language"></a></p><h3>Method <code>set_translation_language()</code></h3>
-<p>Specify language of translation. It must exist in 'languages' field.</p><h3>Usage</h3>
-<p><div class="r"></p><pre><span class='no'>Translator</span>$<span class='fu'>set_translation_language</span>(<span class='no'>transl_language</span>)</pre><p></div></p>
+<a id="method-set_translation_language"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>set_translation_language()</code></h3>
+<p>Specify language of translation. It must exist in 'languages' field.</p><h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='va'>Translator</span><span class='op'>$</span><span class='fu'>set_translation_language</span><span class='op'>(</span><span class='va'>transl_language</span><span class='op'>)</span></pre><p></div></p>
 
-<h3>Arguments</h3>
-<p><div class="arguments"></p><dl'>
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
+<p><div class="arguments"></p><dl>
 <dt><code>transl_language</code></dt><dd><p>character with a translation language code</p></dd>
 
 </dl><p></div></p>
 <p><hr>
-<a id="method-parse_date"></a></p><h3>Method <code>parse_date()</code></h3>
-<p>Parse date to format described in 'cultural_date_format' field in config.</p><h3>Usage</h3>
-<p><div class="r"></p><pre><span class='no'>Translator</span>$<span class='fu'>parse_date</span>(<span class='no'>date</span>)</pre><p></div></p>
+<a id="method-parse_date"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>parse_date()</code></h3>
+<p>Parse date to format described in 'cultural_date_format' field in config.</p><h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='va'>Translator</span><span class='op'>$</span><span class='fu'>parse_date</span><span class='op'>(</span><span class='va'>date</span><span class='op'>)</span></pre><p></div></p>
 
-<h3>Arguments</h3>
-<p><div class="arguments"></p><dl'>
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
+<p><div class="arguments"></p><dl>
 <dt><code>date</code></dt><dd><p>date object to format</p></dd>
 
 </dl><p></div></p>
 <p><hr>
-<a id="method-parse_number"></a></p><h3>Method <code>parse_number()</code></h3>
-<p>Numbers parser. Not implemented yet.</p><h3>Usage</h3>
-<p><div class="r"></p><pre><span class='no'>Translator</span>$<span class='fu'>parse_number</span>(<span class='no'>number</span>)</pre><p></div></p>
+<a id="method-parse_number"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>parse_number()</code></h3>
+<p>Numbers parser. Not implemented yet.</p><h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='va'>Translator</span><span class='op'>$</span><span class='fu'>parse_number</span><span class='op'>(</span><span class='va'>number</span><span class='op'>)</span></pre><p></div></p>
 
-<h3>Arguments</h3>
-<p><div class="arguments"></p><dl'>
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
+<p><div class="arguments"></p><dl>
 <dt><code>number</code></dt><dd><p>numeric or character with number</p></dd>
 
 </dl><p></div></p>
-<h3>Returns</h3>
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Returns</h4>
 <p>character with number formatting</p>
 <p><hr>
-<a id="method-automatic_translate"></a></p><h3>Method <code>automatic_translate()</code></h3>
+<a id="method-automatic_translate"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>automatic_translate()</code></h3>
 <p>Translates 'keyword' to language specified by 'set_translation_language'
-using cloud service 'api'. You need to set API settings first.</p><h3>Usage</h3>
-<p><div class="r"></p><pre><span class='no'>Translator</span>$<span class='fu'>automatic_translate</span>(<span class='no'>keyword</span>, <span class='kw'>api</span> <span class='kw'>=</span> <span class='st'>"google"</span>)</pre><p></div></p>
+using cloud service 'api'. You need to set API settings first.</p><h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='va'>Translator</span><span class='op'>$</span><span class='fu'>automatic_translate</span><span class='op'>(</span><span class='va'>keyword</span>, api <span class='op'>=</span> <span class='st'>"google"</span><span class='op'>)</span></pre><p></div></p>
 
-<h3>Arguments</h3>
-<p><div class="arguments"></p><dl'>
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
+<p><div class="arguments"></p><dl>
 <dt><code>keyword</code></dt><dd><p>character or vector of characters with a word or
 expression to translate</p></dd>
 
@@ -289,12 +289,12 @@ supported: <code>google</code>.</p></dd>
 
 </dl><p></div></p>
 <p><hr>
-<a id="method-at"></a></p><h3>Method <code>at()</code></h3>
-<p>Wrapper to <code>automatic_translate</code> method</p><h3>Usage</h3>
-<p><div class="r"></p><pre><span class='no'>Translator</span>$<span class='fu'>at</span>(<span class='no'>keyword</span>, <span class='kw'>api</span> <span class='kw'>=</span> <span class='st'>"google"</span>)</pre><p></div></p>
+<a id="method-at"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>at()</code></h3>
+<p>Wrapper to <code>automatic_translate</code> method</p><h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='va'>Translator</span><span class='op'>$</span><span class='fu'>at</span><span class='op'>(</span><span class='va'>keyword</span>, api <span class='op'>=</span> <span class='st'>"google"</span><span class='op'>)</span></pre><p></div></p>
 
-<h3>Arguments</h3>
-<p><div class="arguments"></p><dl'>
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
+<p><div class="arguments"></p><dl>
 <dt><code>keyword</code></dt><dd><p>character or vector of characters with a word or
 expression to translate</p></dd>
 
@@ -303,17 +303,17 @@ supported: <code>google</code>.</p></dd>
 
 </dl><p></div></p>
 <p><hr>
-<a id="method-use_js"></a></p><h3>Method <code>use_js()</code></h3>
-<p>Call to wrap translation in span object. Used for browser-side translations.</p><h3>Usage</h3>
-<p><div class="r"></p><pre><span class='no'>Translator</span>$<span class='fu'>use_js</span>()</pre><p></div></p>
+<a id="method-use_js"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>use_js()</code></h3>
+<p>Call to wrap translation in span object. Used for browser-side translations.</p><h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='va'>Translator</span><span class='op'>$</span><span class='fu'>use_js</span><span class='op'>(</span><span class='op'>)</span></pre><p></div></p>
 
 <p><hr>
-<a id="method-clone"></a></p><h3>Method <code>clone()</code></h3>
-<p>The objects of this class are cloneable with this method.</p><h3>Usage</h3>
-<p><div class="r"></p><pre><span class='no'>Translator</span>$<span class='fu'>clone</span>(<span class='kw'>deep</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre><p></div></p>
+<a id="method-clone"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>clone()</code></h3>
+<p>The objects of this class are cloneable with this method.</p><h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='va'>Translator</span><span class='op'>$</span><span class='fu'>clone</span><span class='op'>(</span>deep <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre><p></div></p>
 
-<h3>Arguments</h3>
-<p><div class="arguments"></p><dl'>
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
+<p><div class="arguments"></p><dl>
 <dt><code>deep</code></dt><dd><p>Whether to make a deep clone.</p></dd>
 
 </dl><p></div></p>
@@ -321,26 +321,27 @@ supported: <code>google</code>.</p></dd>
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-  <span class='no'>i18n</span> <span class='kw'>&lt;-</span> <span class='no'>Translator</span>$<span class='fu'>new</span>(<span class='kw'>translation_json_path</span> <span class='kw'>=</span> <span class='st'>"translation.json"</span>) <span class='co'># translation file</span>
-  <span class='no'>i18n</span>$<span class='fu'>set_translation_language</span>(<span class='st'>"it"</span>)
-  <span class='no'>i18n</span>$<span class='fu'><a href='https://rdrr.io/r/base/t.html'>t</a></span>(<span class='st'>"This text will be translated to Italian"</span>)
-}
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='va'>i18n</span> <span class='op'>&lt;-</span> <span class='va'>Translator</span><span class='op'>$</span><span class='fu'>new</span><span class='op'>(</span>translation_json_path <span class='op'>=</span> <span class='st'>"translation.json"</span><span class='op'>)</span> <span class='co'># translation file</span>
+  <span class='va'>i18n</span><span class='op'>$</span><span class='fu'>set_translation_language</span><span class='op'>(</span><span class='st'>"it"</span><span class='op'>)</span>
+  <span class='va'>i18n</span><span class='op'>$</span><span class='fu'>t</span><span class='op'>(</span><span class='st'>"This text will be translated to Italian"</span><span class='op'>)</span>
+<span class='op'>}</span>
 
 <span class='co'># Shiny example</span>
-<span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>shiny</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>shiny.i18n</span>)
+<span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://shiny.rstudio.com/'>shiny</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/Appsilon/shiny.i18n'>shiny.i18n</a></span><span class='op'>)</span>
  <span class='co'>#to run this example  make sure that you have a translation file</span>
  <span class='co'>#in the same path</span>
-<span class='no'>i18n</span> <span class='kw'>&lt;-</span> <span class='no'>Translator</span>$<span class='fu'>new</span>(<span class='kw'>translation_json_path</span> <span class='kw'>=</span> <span class='st'>"examples/data/translation.json"</span>)
-<span class='no'>i18n</span>$<span class='fu'>set_translation_language</span>(<span class='st'>"pl"</span>)
-<span class='no'>ui</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html'>fluidPage</a></span>(
-  <span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/reexports.html'>h2</a></span>(<span class='no'>i18n</span>$<span class='fu'><a href='https://rdrr.io/r/base/t.html'>t</a></span>(<span class='st'>"Hello Shiny!"</span>))
-)
-<span class='no'>server</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>input</span>, <span class='no'>output</span>) {}
-<span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html'>shinyApp</a></span>(<span class='kw'>ui</span> <span class='kw'>=</span> <span class='no'>ui</span>, <span class='kw'>server</span> <span class='kw'>=</span> <span class='no'>server</span>)
-}</div></pre>
+<span class='va'>i18n</span> <span class='op'>&lt;-</span> <span class='va'>Translator</span><span class='op'>$</span><span class='fu'>new</span><span class='op'>(</span>translation_json_path <span class='op'>=</span> <span class='st'>"examples/data/translation.json"</span><span class='op'>)</span>
+<span class='va'>i18n</span><span class='op'>$</span><span class='fu'>set_translation_language</span><span class='op'>(</span><span class='st'>"pl"</span><span class='op'>)</span>
+<span class='va'>ui</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/fluidPage.html'>fluidPage</a></span><span class='op'>(</span>
+  <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>h2</a></span><span class='op'>(</span><span class='va'>i18n</span><span class='op'>$</span><span class='fu'>t</span><span class='op'>(</span><span class='st'>"Hello Shiny!"</span><span class='op'>)</span><span class='op'>)</span>
+<span class='op'>)</span>
+<span class='va'>server</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>input</span>, <span class='va'>output</span><span class='op'>)</span> <span class='op'>{</span><span class='op'>}</span>
+<span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span>ui <span class='op'>=</span> <span class='va'>ui</span>, server <span class='op'>=</span> <span class='va'>server</span><span class='op'>)</span>
+<span class='op'>}</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -352,11 +353,11 @@ supported: <code>google</code>.</p></dd>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Dominik Krzemiński, Krystian Igras.</p>
+  <p>Developed by Dominik Krzemiński, Krystian Igras, Jakub Sobolewski.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

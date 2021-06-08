@@ -39,14 +39,14 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fa fa-home"></span>
+    <span class="fas fa-home"></span>
      
     Start
   </a>
 </li>
 <li>
   <a href="../articles/index.html">
-    <span class="fa fa-university"></span>
+    <span class="fas fa-university"></span>
      
     Tutorials
   </a>
@@ -55,20 +55,20 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="../reference/index.html">
-    <span class="fa fa-file-code-o"></span>
+    <span class="fas fa-file-code-o"></span>
      
     Reference
   </a>
 </li>
 <li>
   <a href="https://github.com/Appsilon/shiny.i18n">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
 <li>
   <a href="https://twitter.com/Appsilon">
-    <span class="fa fa-twitter fa-lg"></span>
+    <span class="fas fa-twitter fa-lg"></span>
      
   </a>
 </li>
@@ -82,13 +82,13 @@
 
       
 
-      </header><script src="translation_format_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><script src="translation_format_files/header-attrs-2.8/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Introduction to translation files format</h1>
                         <h4 class="author">Appsilon</h4>
             
-            <h4 class="date">2021-01-16</h4>
+            <h4 class="date">2021-06-08</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/Appsilon/shiny.i18n/blob/master/vignettes/translation_format.Rmd"><code>vignettes/translation_format.Rmd</code></a></small>
       <div class="hidden name"><code>translation_format.Rmd</code></div>
@@ -116,12 +116,14 @@
 <p>The file requires two mandatory fields: <code>"languages"</code> and <code>"translation"</code>.</p>
 <p><code>"languages"</code> contains the list of languages codes. For example we could call English: “engl”, but we decided to keep it shorter.</p>
 <p>The order of the code here is <strong>IMPORTANT</strong>. The first language in <code>"languages"</code> list is so-called <strong>key translation</strong>, so the text that you use to create your Shiny app and query for other translation. For example, here the content of our Shiny app would look like this:</p>
-<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="no">i18n</span>$<span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span>(<span class="st">"Hello Shiny!"</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">i18n</span><span class="op">$</span><span class="fu">t</span><span class="op">(</span><span class="st">"Hello Shiny!"</span><span class="op">)</span></code></pre></div>
 <p>because the position of “en” in <code>"languages"</code> defines it as the <strong>key translation</strong>.</p>
 <p>Then, in <code>"translation"</code> you need to put a list of dictionaries. Each dictionary maps the language code to the text in that language.</p>
 <p>Other parameters are optional: “cultural_date_format”, “cultural_bignumer_mark”, “cultural_punctuation_mark”.</p>
 <p>You can load JSON file by passing its path as <code>translation_json_path</code> argument to <code>Translator</code>.</p>
-<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="no">i18n</span> <span class="kw">&lt;-</span> <span class="no">Translator</span>$<span class="fu">new</span>(<span class="kw">translation_json_path</span> <span class="kw">=</span> <span class="st">"translation.json"</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">i18n</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/Translator.html">Translator</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>translation_json_path <span class="op">=</span> <span class="st">"translation.json"</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="csv" class="section level2">
 <h2 class="hasAnchor">
@@ -139,7 +141,8 @@ Hello Shiny!,bIpIv'a' Shiny!
 Frequency,chaDvay'</code></pre>
 <p>Just remember to follow above-mentioned pattern and keep all the files in the same directory.</p>
 <p>You can load CSV files by passing path to folder containing them as <code>translation_csvs_path</code> argument to <code>Translator</code>. This will automatically detect all files with the pattern: <code>translation_*.csv</code>, for example: <code>translation_it.csv</code> for Italian, <code>translation_kling.csv</code> for Klingon and so on.</p>
-<div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="no">i18n</span> <span class="kw">&lt;-</span> <span class="no">Translator</span>$<span class="fu">new</span>(<span class="kw">translation_csvs_path</span> <span class="kw">=</span> <span class="st">"translation_data/"</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">i18n</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/Translator.html">Translator</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>translation_csvs_path <span class="op">=</span> <span class="st">"translation_data/"</span><span class="op">)</span></code></pre></div>
 <p>If you want to set extra options (like : “cultural_date_format”, etc.) just create simple <em>yaml</em> file and pass it as <code>translation_csv_config</code> argument to <code>Translator</code>.</p>
 </div>
 <div id="addin" class="section level2">
@@ -163,11 +166,11 @@ Frequency,chaDvay'</code></pre>
 
 
       <footer><div class="copyright">
-  <p>Developed by Dominik Krzemiński, Krystian Igras.</p>
+  <p>Developed by Dominik Krzemiński, Krystian Igras, Jakub Sobolewski.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

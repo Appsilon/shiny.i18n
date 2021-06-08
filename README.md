@@ -40,12 +40,6 @@ Or use [devtools](https://github.com/r-lib/devtools) for the most recent version
 devtools::install_github("Appsilon/shiny.i18n")
 ```
 
-To install previous version you can run:
-
-```r
-devtools::install_github("Appsilon/shiny.i18n", ref = "0.1.0")
-```
-
 Examples
 --------
 

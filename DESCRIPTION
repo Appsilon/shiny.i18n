@@ -7,7 +7,9 @@ Authors@R: c(person("Dominik", "Krzemiński",
             person("Krystian", "Igras",
                     email = "krystian@appsilon.com",
                     role = c("aut")),
-            person("Developers", "Appsilon", email = "dev+shinyi18n@appsilon.com", role = "cre"),
+            person("Jakub", "Sobolewski", 
+                    email = "jakub.sobolewski@appsilon.com",
+                    role = c("cre")),
             person(family = "Appsilon", role = c("cph")))            
 Description: It provides easy internationalization of Shiny
     applications. It can be used as standalone translation package

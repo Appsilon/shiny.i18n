@@ -39,14 +39,14 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fa fa-home"></span>
+    <span class="fas fa-home"></span>
      
     Start
   </a>
 </li>
 <li>
   <a href="../articles/index.html">
-    <span class="fa fa-university"></span>
+    <span class="fas fa-university"></span>
      
     Tutorials
   </a>
@@ -55,20 +55,20 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="../reference/index.html">
-    <span class="fa fa-file-code-o"></span>
+    <span class="fas fa-file-code-o"></span>
      
     Reference
   </a>
 </li>
 <li>
   <a href="https://github.com/Appsilon/shiny.i18n">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
 <li>
   <a href="https://twitter.com/Appsilon">
-    <span class="fa fa-twitter fa-lg"></span>
+    <span class="fas fa-twitter fa-lg"></span>
      
   </a>
 </li>
@@ -82,13 +82,13 @@
 
       
 
-      </header><script src="basics_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><script src="basics_files/header-attrs-2.8/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Introduction to shiny.i18n</h1>
                         <h4 class="author">Appsilon</h4>
             
-            <h4 class="date">2021-01-16</h4>
+            <h4 class="date">2021-06-08</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/Appsilon/shiny.i18n/blob/master/vignettes/basics.Rmd"><code>vignettes/basics.Rmd</code></a></small>
       <div class="hidden name"><code>basics.Rmd</code></div>
@@ -102,36 +102,40 @@
 <h2 class="hasAnchor">
 <a href="#back-end-translation" class="anchor"></a>Back-end translation</h2>
 <p>Imagine that you have a Shiny app like the one below.</p>
-<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">shiny</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">shiny.i18n</span>)
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/">shiny</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/Appsilon/shiny.i18n">shiny.i18n</a></span><span class="op">)</span>
 
-<span class="no">ui</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html">fluidPage</a></span>(<span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/reexports.html">p</a></span>(<span class="st">"Hello"</span>))
+<span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">p</a></span><span class="op">(</span><span class="st">"Hello"</span><span class="op">)</span><span class="op">)</span>
 
-<span class="no">server</span> <span class="kw">&lt;-</span> <span class="kw">function</span>(<span class="no">input</span>, <span class="no">output</span>) {}
+<span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span><span class="op">}</span>
 
-<span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span>(<span class="no">ui</span>, <span class="no">server</span>)</pre></body></html></div>
+<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></code></pre></div>
 <p>Now, you would like to translate the content of your application using the translations from a file <em>translation.json</em>.</p>
 <p><strong>More about the format of translation file you can find in the other tutorial</strong>.</p>
 <p>First of all, you need to load the data and create Translator object:</p>
-<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="no">i18n</span> <span class="kw">&lt;-</span> <span class="no">Translator</span>$<span class="fu">new</span>(<span class="kw">translation_json_path</span> <span class="kw">=</span> <span class="st">"translation.json"</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">i18n</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/Translator.html">Translator</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>translation_json_path <span class="op">=</span> <span class="st">"translation.json"</span><span class="op">)</span></code></pre></div>
 <p>Next just surround each text in your app by <code>i18n$translate</code> or <code>i18n$t</code> (for short) tags. For example:</p>
-<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="no">i18n</span>$<span class="fu">translate</span>(<span class="st">"Hello"</span>)
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">i18n</span><span class="op">$</span><span class="fu">translate</span><span class="op">(</span><span class="st">"Hello"</span><span class="op">)</span>
 <span class="co"># or</span>
-<span class="no">i18n</span>$<span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span>(<span class="st">"Hello"</span>)</pre></body></html></div>
+<span class="va">i18n</span><span class="op">$</span><span class="fu">t</span><span class="op">(</span><span class="st">"Hello"</span><span class="op">)</span></code></pre></div>
 <p>The only thing that is left is selecting the target translation language. You do it with <code>i18n$set_translation_language</code> method that takes as an argument the code of your language.</p>
 <p>Your full application might look now like this:</p>
-<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">shiny</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">shiny.i18n</span>)
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/">shiny</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/Appsilon/shiny.i18n">shiny.i18n</a></span><span class="op">)</span>
 
-<span class="no">i18n</span> <span class="kw">&lt;-</span> <span class="no">Translator</span>$<span class="fu">new</span>(<span class="kw">translation_json_path</span> <span class="kw">=</span> <span class="st">"translation.json"</span>)
+<span class="va">i18n</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/Translator.html">Translator</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>translation_json_path <span class="op">=</span> <span class="st">"translation.json"</span><span class="op">)</span>
 
-<span class="no">i18n</span>$<span class="fu">set_translation_language</span>(<span class="st">"en"</span>)
+<span class="va">i18n</span><span class="op">$</span><span class="fu">set_translation_language</span><span class="op">(</span><span class="st">"en"</span><span class="op">)</span>
 
-<span class="no">ui</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html">fluidPage</a></span>(<span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/reexports.html">p</a></span>(<span class="no">i18n</span>$<span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span>(<span class="st">"Hello"</span>)))
+<span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">p</a></span><span class="op">(</span><span class="va">i18n</span><span class="op">$</span><span class="fu">t</span><span class="op">(</span><span class="st">"Hello"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
 
-<span class="no">server</span> <span class="kw">&lt;-</span> <span class="kw">function</span>(<span class="no">input</span>, <span class="no">output</span>) {}
+<span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span><span class="op">}</span>
 
-<span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span>(<span class="no">ui</span>, <span class="no">server</span>)</pre></body></html></div>
+<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></code></pre></div>
 <p>If you want to display the text in a different language, just change the code from “en” to the language that is in your <em>“translation.json”</em> file, eg. “pl” for Polish.</p>
 </div>
 <div id="live-language-change" class="section level2">
@@ -143,18 +147,19 @@
 <h3 class="hasAnchor">
 <a href="#option-a" class="anchor"></a>Option (a)</h3>
 <p>You can make your i18n a reactive variable that accepts the language code from some UI input, eg. <code>input$selected_language</code>.</p>
-<div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="no">translator</span> <span class="kw">&lt;-</span> <span class="no">Translator</span>$<span class="fu">new</span>(<span class="kw">translation_json_path</span> <span class="kw">=</span> <span class="st">"translation.json"</span>)
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">translator</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/Translator.html">Translator</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>translation_json_path <span class="op">=</span> <span class="st">"translation.json"</span><span class="op">)</span>
 
-<span class="no">server</span> <span class="kw">&lt;-</span> <span class="kw">function</span>(<span class="no">input</span>, <span class="no">output</span>, <span class="no">session</span>) {
+<span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span>
 
-  <span class="no">i18n</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/reactive.html">reactive</a></span>({
-    <span class="no">selected</span> <span class="kw">&lt;-</span> <span class="no">input</span>$<span class="no">selected_language</span>
-    <span class="kw">if</span> (<span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span>(<span class="no">selected</span>) <span class="kw">&gt;</span> <span class="fl">0</span> <span class="kw">&amp;&amp;</span> <span class="no">selected</span> <span class="kw">%in%</span> <span class="no">translator</span>$<span class="fu">get_languages</span>()) {
-      <span class="no">translator</span>$<span class="fu">set_translation_language</span>(<span class="no">selected</span>)
-    }
-    <span class="no">translator</span>
-  })
-}</pre></body></html></div>
+  <span class="va">i18n</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reactive.html">reactive</a></span><span class="op">(</span><span class="op">{</span>
+    <span class="va">selected</span> <span class="op">&lt;-</span> <span class="va">input</span><span class="op">$</span><span class="va">selected_language</span>
+    <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">selected</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">0</span> <span class="op">&amp;&amp;</span> <span class="va">selected</span> <span class="op">%in%</span> <span class="va">translator</span><span class="op">$</span><span class="fu">get_languages</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
+      <span class="va">translator</span><span class="op">$</span><span class="fu">set_translation_language</span><span class="op">(</span><span class="va">selected</span><span class="op">)</span>
+    <span class="op">}</span>
+    <span class="va">translator</span>
+  <span class="op">}</span><span class="op">)</span>
+<span class="op">}</span></code></pre></div>
 <p>See the full example <a href="https://github.com/Appsilon/shiny.i18n/blob/master/examples/live_language_change/server_app.R">here</a>.</p>
 </div>
 <div id="option-b" class="section level3">
@@ -162,25 +167,26 @@
 <a href="#option-b" class="anchor"></a>Option (b)</h3>
 <p>Alternatively, you may introduce to your UI the following statement: <code><a href="../reference/usei18n.html">usei18n(i18n)</a></code>. This will tell <code>shiny.i18n</code> to use JS script nested in the header of your app to perform the translation.</p>
 <p>See this minimal example:</p>
-<div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">shiny</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">shiny.i18n</span>)
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/">shiny</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/Appsilon/shiny.i18n">shiny.i18n</a></span><span class="op">)</span>
 
-<span class="no">i18n</span> <span class="kw">&lt;-</span> <span class="no">Translator</span>$<span class="fu">new</span>(<span class="kw">translation_json_path</span> <span class="kw">=</span> <span class="st">"translation.json"</span>)
+<span class="va">i18n</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/Translator.html">Translator</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>translation_json_path <span class="op">=</span> <span class="st">"translation.json"</span><span class="op">)</span>
 
-<span class="no">i18n</span>$<span class="fu">set_translation_language</span>(<span class="st">"en"</span>)
+<span class="va">i18n</span><span class="op">$</span><span class="fu">set_translation_language</span><span class="op">(</span><span class="st">"en"</span><span class="op">)</span>
 
-<span class="no">ui</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html">fluidPage</a></span>(<span class="fu"><a href="../reference/usei18n.html">usei18n</a></span>(<span class="no">i18n</span>),
-                <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/reexports.html">p</a></span>(<span class="no">i18n</span>$<span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span>(<span class="st">"Hello"</span>)),
-                <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/actionButton.html">actionButton</a></span>(<span class="st">"go"</span>, <span class="st">"GO!"</span>)
-      )
+<span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span><span class="op">(</span><span class="fu"><a href="../reference/usei18n.html">usei18n</a></span><span class="op">(</span><span class="va">i18n</span><span class="op">)</span>,
+                <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">p</a></span><span class="op">(</span><span class="va">i18n</span><span class="op">$</span><span class="fu">t</span><span class="op">(</span><span class="st">"Hello"</span><span class="op">)</span><span class="op">)</span>,
+                <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html">actionButton</a></span><span class="op">(</span><span class="st">"go"</span>, <span class="st">"GO!"</span><span class="op">)</span>
+      <span class="op">)</span>
 
-<span class="no">server</span> <span class="kw">&lt;-</span> <span class="kw">function</span>(<span class="no">input</span>, <span class="no">output</span>, <span class="no">session</span>) {
-  <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/observeEvent.html">observeEvent</a></span>(<span class="no">input</span>$<span class="no">go</span>,{
-       <span class="fu"><a href="../reference/update_lang.html">update_lang</a></span>(<span class="no">session</span>, <span class="st">"pl"</span>)
-  })
-}
+<span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span><span class="op">(</span><span class="va">input</span><span class="op">$</span><span class="va">go</span>,<span class="op">{</span>
+       <span class="fu"><a href="../reference/update_lang.html">update_lang</a></span><span class="op">(</span><span class="va">session</span>, <span class="st">"pl"</span><span class="op">)</span>
+  <span class="op">}</span><span class="op">)</span>
+<span class="op">}</span>
 
-<span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span>(<span class="no">ui</span>, <span class="no">server</span>)</pre></body></html></div>
+<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></code></pre></div>
 </div>
 </div>
 <div id="automatic-translations" class="section level2">
@@ -188,21 +194,22 @@
 <a href="#automatic-translations" class="anchor"></a>Automatic translations</h2>
 <p>Sometimes there is no time to translate your application to many different languages and there is a number of automatic translation services with public API. With <code>shiny.i18n</code> it’s easy to take advantage of some of them. Remember though that you need to set-up credential to the service you want to use first. Here is an example on how to internationalize your app with Google API (note that we replace <code>i18n$t</code> by <code>i18n$at</code>).</p>
 <p><strong>(! Note that you need to check with a provider of the API for a specific language code)</strong></p>
-<div class="sourceCode" id="cb7"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">shiny</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">shiny.i18n</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">googleLanguageR</span>)
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/">shiny</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/Appsilon/shiny.i18n">shiny.i18n</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://code.markedmondson.me/googleLanguageR/">googleLanguageR</a></span><span class="op">)</span>
 
 
 <span class="co"># setting up credentials to google cloud API (see more in googleLanguageR docs)</span>
-<span class="no">i18n</span> <span class="kw">&lt;-</span> <span class="no">Translator</span>$<span class="fu">new</span>(<span class="kw">automatic</span> <span class="kw">=</span> <span class="fl">TRUE</span>)
+<span class="va">i18n</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/Translator.html">Translator</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>automatic <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 
-<span class="no">i18n</span>$<span class="fu">set_translation_language</span>(<span class="st">"de"</span>)
+<span class="va">i18n</span><span class="op">$</span><span class="fu">set_translation_language</span><span class="op">(</span><span class="st">"de"</span><span class="op">)</span>
 
-<span class="no">ui</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html">fluidPage</a></span>(<span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/reexports.html">p</a></span>(<span class="no">i18n</span>$<span class="fu">at</span>(<span class="st">"Hello"</span>)))
+<span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">p</a></span><span class="op">(</span><span class="va">i18n</span><span class="op">$</span><span class="fu">at</span><span class="op">(</span><span class="st">"Hello"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
 
-<span class="no">server</span> <span class="kw">&lt;-</span> <span class="kw">function</span>(<span class="no">input</span>, <span class="no">output</span>) {}
+<span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span><span class="op">}</span>
 
-<span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html">shinyApp</a></span>(<span class="no">ui</span>, <span class="no">server</span>)</pre></body></html></div>
+<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></code></pre></div>
 <p>That’s the end of this tutorial. Hopefully you learned something new about <code>shiny.i18n</code>. Check more examples in <code>examples</code> folder of <code>shiny.i18n</code> code <a href="https://github.com/Appsilon/shiny.i18n">repository</a>.</p>
 </div>
   </div>
@@ -218,11 +225,11 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Dominik Krzemiński, Krystian Igras.</p>
+  <p>Developed by Dominik Krzemiński, Krystian Igras, Jakub Sobolewski.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

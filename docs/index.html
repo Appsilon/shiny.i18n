@@ -42,14 +42,14 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="index.html">
-    <span class="fa fa-home"></span>
+    <span class="fas fa-home"></span>
      
     Start
   </a>
 </li>
 <li>
   <a href="articles/index.html">
-    <span class="fa fa-university"></span>
+    <span class="fas fa-university"></span>
      
     Tutorials
   </a>
@@ -58,20 +58,20 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="reference/index.html">
-    <span class="fa fa-file-code-o"></span>
+    <span class="fas fa-file-code-o"></span>
      
     Reference
   </a>
 </li>
 <li>
   <a href="https://github.com/Appsilon/shiny.i18n">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
 <li>
   <a href="https://twitter.com/Appsilon">
-    <span class="fa fa-twitter fa-lg"></span>
+    <span class="fas fa-twitter fa-lg"></span>
      
   </a>
 </li>
@@ -107,11 +107,11 @@
 <div id="how-to-install" class="section level2">
 <h2 class="hasAnchor">
 <a href="#how-to-install" class="anchor"></a>How to install?</h2>
-<div class="sourceCode" id="cb1"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"shiny.i18n"</span>)</pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"shiny.i18n"</span><span class="op">)</span></code></pre></div>
 <p>Or use <a href="https://github.com/r-lib/devtools">devtools</a> for the most recent version:</p>
-<div class="sourceCode" id="cb2"><pre class="r"><span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"Appsilon/shiny.i18n"</span>)</pre></div>
-<p>To install previous version you can run:</p>
-<div class="sourceCode" id="cb3"><pre class="r"><span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"Appsilon/shiny.i18n"</span>, <span class="kw">ref</span> <span class="kw">=</span> <span class="st">"0.1.0"</span>)</pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"Appsilon/shiny.i18n"</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="examples" class="section level2">
 <h2 class="hasAnchor">
@@ -135,12 +135,14 @@
 <li>
 <strong>csv</strong> - where each translation is in separate file <code>translation_&lt;LANGUAGE-CODE&gt;.csv</code> containing two columns: key translation, language to which it needs to be translated. Example of <code>translation_pl.csv</code> for Polish language you may find here: <code>inst/examples/data/translation_pl.csv</code>. You load the data by passing the path to folder containing all the csv files:</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="r"><span class="no">Translator</span>$<span class="fu">new</span>(<span class="kw">translation_csvs_path</span> <span class="kw">=</span> <span class="st">"..."</span>)</pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va"><a href="reference/Translator.html">Translator</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>translation_csvs_path <span class="op">=</span> <span class="st">"..."</span><span class="op">)</span></code></pre></div>
 <ul>
 <li>
 <strong>json</strong> - single json file <code>translation.json</code> with mandatory fields: <code>"languages"</code> with list of all language codes and <code>"translation"</code> with list of dictionaries assigning each translation to a language code. Example of such a json file for Polish language you may find here: <code>inst/examples/data/translation.json</code>. You load the data by passing the path to json file.</li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="r"><span class="no">Translator</span>$<span class="fu">new</span>(<span class="kw">translation_json_path</span> <span class="kw">=</span> <span class="st">"..."</span>)</pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va"><a href="reference/Translator.html">Translator</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>translation_json_path <span class="op">=</span> <span class="st">"..."</span><span class="op">)</span></code></pre></div>
 </div>
 </div>
 <div id="how-to-contribute" class="section level2">
@@ -197,8 +199,9 @@
 <div class="developers">
 <h2>Developers</h2>
 <ul class="list-unstyled">
-<li>Dominik Krzemiński <br><small class="roles"> Maintainer, author </small>  </li>
+<li>Dominik Krzemiński <br><small class="roles"> Author </small>  </li>
 <li>Krystian Igras <br><small class="roles"> Author </small>  </li>
+<li>Jakub Sobolewski <br><small class="roles"> Maintainer </small>  </li>
 <li><a href="authors.html">All authors...</a></li>
 </ul>
 </div>
@@ -214,11 +217,11 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Dominik Krzemiński, Krystian Igras.</p>
+  <p>Developed by Dominik Krzemiński, Krystian Igras, Jakub Sobolewski.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
