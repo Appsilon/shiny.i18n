@@ -77,5 +77,6 @@ usei18n <- function(translator) {
 #' @export
 #' @seealso usei18n
 update_lang <- function(session, language) {
+  if (inherits(session, "session_proxy")) session <- session$rootScope()
   session$sendInputMessage("i18n-state", list(lang = language))
 }
