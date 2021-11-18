@@ -35,5 +35,9 @@ Suggests:
     knitr,
     googleLanguageR,
     rmarkdown,
+    markdown,
     testthat,
-    covr
+    covr,
+    withr
+VignetteBuilder:
+    knitr
