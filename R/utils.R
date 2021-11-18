@@ -77,7 +77,7 @@ check_value_presence <- function(val, vect, warn_msg = "") {
 #'
 #' @return data.frame with CSV files content
 read_and_merge_csvs <- function(dir_path, sep = ",") {
-  all_files <- list.files(dir_path, pattern = ".*[.]csv$", full.names = TRUE)
+  all_files <- list.files(dir_path, pattern = "translation_.*[.]csv", full.names = TRUE)
   multmerge(all_files, sep)
 }
 
