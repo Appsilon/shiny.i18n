@@ -5,8 +5,10 @@ template:
   bslib:
     pkgdown-nav-height: 100px
 
+url: https://appsilon.github.io/shiny.i18n/
+
 navbar:
-  type: inverse
+  bg: primary
   left:
     - icon: fa-home
       href: index.html
@@ -14,10 +16,10 @@ navbar:
     - icon: fa-university
       text: "Tutorials"
       href: articles/index.html
-  right:
     - icon: fa-file-code-o
       text: "Reference"
       href: reference/index.html
+  right:
     - icon: fa-github fa-lg
       href: https://github.com/Appsilon/shiny.i18n
     - icon: fa-twitter fa-lg
