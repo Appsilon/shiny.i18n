@@ -18,3 +18,4 @@ data.frame with merged files
 Inspired by:
 https://www.r-bloggers.com/merging-multiple-data-files-into-one-data-frame/
 }
+\keyword{internal}

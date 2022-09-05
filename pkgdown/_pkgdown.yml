@@ -1,7 +1,9 @@
-title: SHINY.I18N
+title: shiny.i18n
 template:
-  params:
-    bootswatch: yeti
+  bootstrap: 5
+  bootswatch: pulse
+  bslib:
+    pkgdown-nav-height: 100px
 
 navbar:
   type: inverse
@@ -43,4 +45,8 @@ reference:
 - title: Creating translation files
   contents:
   - '`create_translation_file`'
+
+- title: Automatic translations (in progress)
+  contents:
+  - '`translate_with_google_cloud`'
 

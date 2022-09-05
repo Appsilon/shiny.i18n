@@ -17,3 +17,4 @@ vector of characters with key expressions
 \description{
 Extract key expressions
 }
+\keyword{internal}

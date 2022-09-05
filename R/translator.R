@@ -1,4 +1,5 @@
 #' Translator options
+#' @keywords internal
 .translator_options <- list(
   cultural_bignumer_mark = NULL,
   cultural_punctuation_mark = NULL,

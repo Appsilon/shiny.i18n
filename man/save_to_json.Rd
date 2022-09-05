@@ -16,3 +16,4 @@ save_to_json(key_expressions, output_path = NULL)
 It saves translation data structure with language key code "key" as an
 example of a translation JSON file.
 }
+\keyword{internal}

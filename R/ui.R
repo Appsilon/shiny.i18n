@@ -6,6 +6,7 @@
 #'
 #' @return shiny tag with div \code{"i18n-state"}
 #' @import shiny
+#' @keywords internal
 i18n_state <- function(init_language) {
     shiny::tags$div(
       id = "i18n-state",

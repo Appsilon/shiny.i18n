@@ -19,3 +19,4 @@ updated val
 \description{
 If value is not present in vector it takes its first value.
 }
+\keyword{internal}

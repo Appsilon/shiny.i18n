@@ -6,6 +6,7 @@
 #' @return vector of characters with key expressions
 #' @import stringr
 #' @import glue
+#' @keywords internal
 extract_key_expressions <- function(text, handle = "i18n") {
   found <- unlist(str_extract_all(text, glue::glue("{handle}\\$t\\(([\"']).*?\\1\\)")))
   ke1 <- str_replace(str_replace(found, glue::glue("{handle}\\$t\\([\"']"), ""), "[\"']\\)$", "")
@@ -24,6 +25,7 @@ extract_key_expressions <- function(text, handle = "i18n") {
 #' @param output_path character with path to output file (default:
 #' "translation.json" if NULL)
 #' @importFrom jsonlite toJSON unbox write_json
+#' @keywords internal
 save_to_json <- function(key_expressions, output_path = NULL) {
   list_to_save <- list(
     translation = lapply(key_expressions,
@@ -43,6 +45,7 @@ save_to_json <- function(key_expressions, output_path = NULL) {
 #' @param output_path character with path to output file (default:
 #' "translate_lang.csv" if NULL)
 #' @import utils
+#' @keywords internal
 save_to_csv <- function(key_expressions, output_path = NULL) {
   df_to_save <- data.frame(
     list(key = key_expressions, lang = rep("", length(key_expressions)))
@@ -77,8 +80,7 @@ create_translation_file <- function(path, type = "json", handle = "i18n",
 }
 
 #' Create translation file addin
-#'
-#' @export
+#' @keywords internal
 create_translation_addin <- function(){
   rstudioapi::showDialog("shiny.i18n", "This extension searches for 'i18n$t'
                          wrappers in your file and creates an example of
