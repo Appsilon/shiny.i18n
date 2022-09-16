@@ -18,3 +18,4 @@ FALSE otherwise.
 \description{
 Validate if n-th column name of data.frames (given in list) is the same.
 }
+\keyword{internal}

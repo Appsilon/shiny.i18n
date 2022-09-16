@@ -9,3 +9,4 @@ create_translation_addin()
 \description{
 Create translation file addin
 }
+\keyword{internal}

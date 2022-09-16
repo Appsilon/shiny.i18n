@@ -13,4 +13,4 @@ An object of class \code{list} of length 3.
 \description{
 Translator options
 }
-\keyword{datasets}
+\keyword{internal}

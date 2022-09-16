@@ -15,3 +15,4 @@ character with option from config.yaml file
 \description{
 Get i18n config
 }
+\keyword{internal}

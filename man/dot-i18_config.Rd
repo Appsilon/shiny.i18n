@@ -13,4 +13,4 @@ An object of class \code{list} of length 3.
 \description{
 Global  i18n config list.
 }
-\keyword{datasets}
+\keyword{internal}

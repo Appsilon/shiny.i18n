@@ -15,3 +15,4 @@ shiny tag with div \code{"i18n-state"}
 \description{
 This hidden div contain information about i18 translation state.
 }
+\keyword{internal}

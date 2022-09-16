@@ -15,3 +15,4 @@ list of config options or empty list if file not exists
 \description{
 Load Local YAML Config
 }
+\keyword{internal}

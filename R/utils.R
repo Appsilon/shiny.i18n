@@ -8,6 +8,7 @@
 #'
 #' @return data.frame with merged files
 #' @importFrom utils read.csv
+#' @keywords internal
 multmerge <- function(filenames, sep = ",") {
   datalist <- lapply(filenames, function(x) {
     read.csv(file = x,
@@ -29,6 +30,7 @@ multmerge <- function(filenames, sep = ",") {
 #'
 #' @return TRUE if names of n-th columns of data.frames is the same,
 #' FALSE otherwise.
+#' @keywords internal
 validate_names <- function(list_df, n = 1) {
   length(unique(sapply(list_df, function(x) names(x)[n]))) == 1
 }
@@ -42,6 +44,7 @@ validate_names <- function(list_df, n = 1) {
 #'
 #' @return data.frame with one column less
 #'
+#' @keywords internal
 column_to_row <- function(data, colname) {
   stopifnot(colname %in% colnames(data))
   key_index <- which(colname == colnames( (data) ))
@@ -60,6 +63,7 @@ column_to_row <- function(data, colname) {
 #' @param warn_msg warning message to be displayed if \code{val} not in \code{vect}
 #'
 #' @return updated val
+#' @keywords internal
 check_value_presence <- function(val, vect, warn_msg = "") {
   if (!(val %in% vect)) {
     warning(warn_msg)
@@ -76,6 +80,7 @@ check_value_presence <- function(val, vect, warn_msg = "") {
 #' @param sep fields separator
 #'
 #' @return data.frame with CSV files content
+#' @keywords internal
 read_and_merge_csvs <- function(dir_path, sep = ",") {
   all_files <- list.files(dir_path, pattern = ".*[.]csv$", full.names = TRUE)
   multmerge(all_files, sep)
@@ -87,6 +92,7 @@ read_and_merge_csvs <- function(dir_path, sep = ",") {
 #'
 #' @return list of config options or empty list if file not exists
 #' @import yaml
+#' @keywords internal
 load_local_config <- function(yaml_config_path) {
   if (!is.null(yaml_config_path) &&
       file.exists(yaml_config_path)) {

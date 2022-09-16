@@ -39,25 +39,25 @@ shinyApp(ui = ui, server = server)
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{Translator$new()}}
-\item \href{#method-get_languages}{\code{Translator$get_languages()}}
-\item \href{#method-get_translations}{\code{Translator$get_translations()}}
-\item \href{#method-get_key_translation}{\code{Translator$get_key_translation()}}
-\item \href{#method-get_translation_language}{\code{Translator$get_translation_language()}}
-\item \href{#method-translate}{\code{Translator$translate()}}
-\item \href{#method-t}{\code{Translator$t()}}
-\item \href{#method-set_translation_language}{\code{Translator$set_translation_language()}}
-\item \href{#method-parse_date}{\code{Translator$parse_date()}}
-\item \href{#method-parse_number}{\code{Translator$parse_number()}}
-\item \href{#method-automatic_translate}{\code{Translator$automatic_translate()}}
-\item \href{#method-at}{\code{Translator$at()}}
-\item \href{#method-use_js}{\code{Translator$use_js()}}
-\item \href{#method-clone}{\code{Translator$clone()}}
+\item \href{#method-Translator-new}{\code{Translator$new()}}
+\item \href{#method-Translator-get_languages}{\code{Translator$get_languages()}}
+\item \href{#method-Translator-get_translations}{\code{Translator$get_translations()}}
+\item \href{#method-Translator-get_key_translation}{\code{Translator$get_key_translation()}}
+\item \href{#method-Translator-get_translation_language}{\code{Translator$get_translation_language()}}
+\item \href{#method-Translator-translate}{\code{Translator$translate()}}
+\item \href{#method-Translator-t}{\code{Translator$t()}}
+\item \href{#method-Translator-set_translation_language}{\code{Translator$set_translation_language()}}
+\item \href{#method-Translator-parse_date}{\code{Translator$parse_date()}}
+\item \href{#method-Translator-parse_number}{\code{Translator$parse_number()}}
+\item \href{#method-Translator-automatic_translate}{\code{Translator$automatic_translate()}}
+\item \href{#method-Translator-at}{\code{Translator$at()}}
+\item \href{#method-Translator-use_js}{\code{Translator$use_js()}}
+\item \href{#method-Translator-clone}{\code{Translator$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-Translator-new"></a>}}
+\if{latex}{\out{\hypertarget{method-Translator-new}{}}}
 \subsection{Method \code{new()}}{
 Initialize the Translator with data
 \subsection{Usage}{
@@ -92,8 +92,8 @@ translation API.}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-get_languages"></a>}}
-\if{latex}{\out{\hypertarget{method-get_languages}{}}}
+\if{html}{\out{<a id="method-Translator-get_languages"></a>}}
+\if{latex}{\out{\hypertarget{method-Translator-get_languages}{}}}
 \subsection{Method \code{get_languages()}}{
 Get all available languages
 \subsection{Usage}{
@@ -102,8 +102,8 @@ Get all available languages
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-get_translations"></a>}}
-\if{latex}{\out{\hypertarget{method-get_translations}{}}}
+\if{html}{\out{<a id="method-Translator-get_translations"></a>}}
+\if{latex}{\out{\hypertarget{method-Translator-get_translations}{}}}
 \subsection{Method \code{get_translations()}}{
 Get whole translation matrix
 \subsection{Usage}{
@@ -112,8 +112,8 @@ Get whole translation matrix
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-get_key_translation"></a>}}
-\if{latex}{\out{\hypertarget{method-get_key_translation}{}}}
+\if{html}{\out{<a id="method-Translator-get_key_translation"></a>}}
+\if{latex}{\out{\hypertarget{method-Translator-get_key_translation}{}}}
 \subsection{Method \code{get_key_translation()}}{
 Get active key translation
 \subsection{Usage}{
@@ -122,8 +122,8 @@ Get active key translation
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-get_translation_language"></a>}}
-\if{latex}{\out{\hypertarget{method-get_translation_language}{}}}
+\if{html}{\out{<a id="method-Translator-get_translation_language"></a>}}
+\if{latex}{\out{\hypertarget{method-Translator-get_translation_language}{}}}
 \subsection{Method \code{get_translation_language()}}{
 Get current target translation language
 \subsection{Usage}{
@@ -132,8 +132,8 @@ Get current target translation language
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-translate"></a>}}
-\if{latex}{\out{\hypertarget{method-translate}{}}}
+\if{html}{\out{<a id="method-Translator-translate"></a>}}
+\if{latex}{\out{\hypertarget{method-Translator-translate}{}}}
 \subsection{Method \code{translate()}}{
 Translates 'keyword' to language specified by 'set_translation_language'
 \subsection{Usage}{
@@ -152,8 +152,8 @@ expression to translate}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-t"></a>}}
-\if{latex}{\out{\hypertarget{method-t}{}}}
+\if{html}{\out{<a id="method-Translator-t"></a>}}
+\if{latex}{\out{\hypertarget{method-Translator-t}{}}}
 \subsection{Method \code{t()}}{
 Wrapper to \code{translate} method.
 \subsection{Usage}{
@@ -172,8 +172,8 @@ expression to translate}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-set_translation_language"></a>}}
-\if{latex}{\out{\hypertarget{method-set_translation_language}{}}}
+\if{html}{\out{<a id="method-Translator-set_translation_language"></a>}}
+\if{latex}{\out{\hypertarget{method-Translator-set_translation_language}{}}}
 \subsection{Method \code{set_translation_language()}}{
 Specify language of translation. It must exist in 'languages' field.
 \subsection{Usage}{
@@ -189,8 +189,8 @@ Specify language of translation. It must exist in 'languages' field.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-parse_date"></a>}}
-\if{latex}{\out{\hypertarget{method-parse_date}{}}}
+\if{html}{\out{<a id="method-Translator-parse_date"></a>}}
+\if{latex}{\out{\hypertarget{method-Translator-parse_date}{}}}
 \subsection{Method \code{parse_date()}}{
 Parse date to format described in 'cultural_date_format' field in config.
 \subsection{Usage}{
@@ -206,8 +206,8 @@ Parse date to format described in 'cultural_date_format' field in config.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-parse_number"></a>}}
-\if{latex}{\out{\hypertarget{method-parse_number}{}}}
+\if{html}{\out{<a id="method-Translator-parse_number"></a>}}
+\if{latex}{\out{\hypertarget{method-Translator-parse_number}{}}}
 \subsection{Method \code{parse_number()}}{
 Numbers parser. Not implemented yet.
 \subsection{Usage}{
@@ -226,8 +226,8 @@ character with number formatting
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-automatic_translate"></a>}}
-\if{latex}{\out{\hypertarget{method-automatic_translate}{}}}
+\if{html}{\out{<a id="method-Translator-automatic_translate"></a>}}
+\if{latex}{\out{\hypertarget{method-Translator-automatic_translate}{}}}
 \subsection{Method \code{automatic_translate()}}{
 Translates 'keyword' to language specified by 'set_translation_language'
 using cloud service 'api'. You need to set API settings first.
@@ -248,8 +248,8 @@ supported: \code{google}.}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-at"></a>}}
-\if{latex}{\out{\hypertarget{method-at}{}}}
+\if{html}{\out{<a id="method-Translator-at"></a>}}
+\if{latex}{\out{\hypertarget{method-Translator-at}{}}}
 \subsection{Method \code{at()}}{
 Wrapper to \code{automatic_translate} method
 \subsection{Usage}{
@@ -269,8 +269,8 @@ supported: \code{google}.}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-use_js"></a>}}
-\if{latex}{\out{\hypertarget{method-use_js}{}}}
+\if{html}{\out{<a id="method-Translator-use_js"></a>}}
+\if{latex}{\out{\hypertarget{method-Translator-use_js}{}}}
 \subsection{Method \code{use_js()}}{
 Call to wrap translation in span object. Used for browser-side translations.
 \subsection{Usage}{
@@ -279,8 +279,8 @@ Call to wrap translation in span object. Used for browser-side translations.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-Translator-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-Translator-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

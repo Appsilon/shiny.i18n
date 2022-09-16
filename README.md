@@ -1,11 +1,6 @@
-<a href = "https://appsilon.com/careers/" target="_blank"><img src="http://d2v95fjda94ghc.cloudfront.net/hiring.png" alt="We are hiring!"/></a>
+# shiny.i18n <a href="https://appsilon.github.io/shiny.i18n/"><img src="man/figures/shiny.i18n.png" align="right" alt="shiny.i18n logo" style="height: 140px;"></a>
 
-
-<img src="man/figures/shiny.i18n.png" align="right" alt="" width="120" />
-
-
-shiny.i18n
-==========
+> _Shiny applications internationalisation made easy!_
 
 <!-- badges: start -->
 ![R-CMD-check](https://github.com/Appsilon/shiny.i18n/workflows/R-CMD-check/badge.svg)
@@ -14,18 +9,11 @@ shiny.i18n
 [![total](https://cranlogs.r-pkg.org/badges/grand-total/shiny.i18n)](https://CRAN.R-project.org/package=shiny.i18n)
 <!-- badges: end -->
 
-Shiny applications internationalisation made easy!
-
 Using it is very simple: just prepare your translation files in one of the supported formats, read them into your app using user-friendly **shiny.i18n** interface and surround your expressions to translate by a translator tag. Thanks to that your app will remain neat and readible.
 
 *Actually, you can use **shiny.i18n** as a standalone R package - shiny app is just a perfect usecase example.*
 
 Change languages and formats easy with **shiny.i18n**.
-
-Source code
------------
-
-This library source code can be found on [Appsilon Data Science's](https://appsilon.com) Github: <br> <https://github.com/Appsilon/shiny.i18n/>
 
 How to install?
 ---------------
@@ -47,7 +35,7 @@ Examples
 
 <center>
 <h3>
-<a href="https://demo.appsilon.ai/apps/i18n/">See shiny.i18n in action live</a>
+<a href="https://connect.appsilon.com/i18n/">See shiny.i18n in action live</a>
 </h3>
 </center>
 
@@ -106,4 +94,6 @@ Appsilon
 Appsilon is the **Full Service Certified RStudio Partner**. Learn more
 at [appsilon.com](https://appsilon.com).
 
-Get in touch [support+opensource@appsilon.com](support+opensource@appsilon.com)
+Get in touch [opensource@appsilon.com](opensource@appsilon.com)
+
+<a href = "https://appsilon.com/careers/" target="_blank"><img src="http://d2v95fjda94ghc.cloudfront.net/hiring.png" alt="We are hiring!"/></a>

@@ -17,3 +17,4 @@ data.frame with one column less
 \description{
 Returns the same data.frame where one column is a rowname now.
 }
+\keyword{internal}

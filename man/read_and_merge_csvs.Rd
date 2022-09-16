@@ -17,3 +17,4 @@ data.frame with CSV files content
 \description{
 This function reads and merges data from multiple csv files in given folder.
 }
+\keyword{internal}
