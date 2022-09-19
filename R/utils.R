@@ -18,7 +18,12 @@ multmerge <- function(filenames, sep = ",") {
     })
   if (!validate_names(datalist))
     stop("Key translation is not the same in all files.")
-  Reduce(function(x, y) {merge(x, y, all = TRUE)}, datalist)
+  Reduce(
+    function(x, y) {
+      merge(x, y, all = TRUE)
+    },
+    datalist
+  )
 }
 
 #' Validate Column Names
@@ -47,7 +52,7 @@ validate_names <- function(list_df, n = 1) {
 #' @keywords internal
 column_to_row <- function(data, colname) {
   stopifnot(colname %in% colnames(data))
-  key_index <- which(colname == colnames( (data) ))
+  key_index <- which(colname == colnames((data)))
   ndata <- data[-key_index]
   rownames(ndata) <- data[, key_index]
   ndata
@@ -97,8 +102,7 @@ load_local_config <- function(yaml_config_path) {
   if (!is.null(yaml_config_path) &&
       file.exists(yaml_config_path)) {
     local_config <- yaml::yaml.load_file(yaml_config_path)
-  }
-  else {
+  } else {
     warning(paste0("You didn't specify config translation yaml file. ",
                    "Default settings are used."))
     local_config <- list()

@@ -11,3 +11,4 @@ build_readme\.R
 docs
 examples
 pkgdown
+.lintr
