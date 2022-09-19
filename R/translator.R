@@ -14,6 +14,7 @@
 #' Find details in method descriptions below.
 #'
 #' @importFrom jsonlite fromJSON
+#' @importFrom R6 R6Class
 #' @import methods
 #' @import shiny
 #' @export
@@ -38,7 +39,7 @@
 #' server <- function(input, output) {}
 #' shinyApp(ui = ui, server = server)
 #' }
-Translator <- R6::R6Class( #nolint
+Translator <- R6Class( #nolint
   "Translator",
   public = list(
     #' @description
