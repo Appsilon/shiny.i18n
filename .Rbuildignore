@@ -13,3 +13,4 @@ examples
 pkgdown
 .lintr
 .whitesource
+vignettes
