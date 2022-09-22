@@ -11,7 +11,11 @@ extract_key_expressions <- function(text, handle = "i18n") {
   found <- unlist(str_extract_all(text, glue::glue("{handle}\\$t\\(([\"']).*?\\1\\)")))
   ke1 <- str_replace(str_replace(found, glue::glue("{handle}\\$t\\([\"']"), ""), "[\"']\\)$", "")
   found <- unlist(str_extract_all(text, glue::glue("{handle}\\$translate\\(([\"']).*?\\1\\)")))
-  ke2 <- str_replace(str_replace(found, glue::glue("{handle}\\$translate\\([\"']"), ""), "[\"']\\)$", "")
+  ke2 <- str_replace(
+    str_replace(found, glue::glue("{handle}\\$translate\\([\"']"), ""),
+    "[\"']\\)$",
+    ""
+  )
   key_expressions <- c(ke1, ke2)
   key_expressions
 }
@@ -24,14 +28,14 @@ extract_key_expressions <- function(text, handle = "i18n") {
 #' @param key_expressions vector with key expression to translate
 #' @param output_path character with path to output file (default:
 #' "translation.json" if NULL)
-#' @importFrom jsonlite toJSON unbox write_json
+#' @importFrom jsonlite unbox write_json
 #' @keywords internal
 save_to_json <- function(key_expressions, output_path = NULL) {
   list_to_save <- list(
     translation = lapply(key_expressions,
                          function(x) list(key = unbox(x))),
     languages = "key")
-  json_to_save <- toJSON(list_to_save)
+
   if (is.null(output_path)) output_path <- "translation.json"
   write_json(list_to_save, output_path)
 }
@@ -70,7 +74,7 @@ save_to_csv <- function(key_expressions, output_path = NULL) {
 #' @export
 create_translation_file <- function(path, type = "json", handle = "i18n",
                                     output = NULL) {
-  file_source <- readLines(con <- file(path))
+  file_source <- readLines(con = file(path))
   key_expressions <- extract_key_expressions(file_source, handle)
   switch(type,
     json = save_to_json(key_expressions, output),
@@ -81,15 +85,15 @@ create_translation_file <- function(path, type = "json", handle = "i18n",
 
 #' Create translation file addin
 #' @keywords internal
-create_translation_addin <- function(){
+create_translation_addin <- function() {
   rstudioapi::showDialog("shiny.i18n", "This extension searches for 'i18n$t'
                          wrappers in your file and creates an example of
                          a translation file for you. For more customized
                          behaviour use 'create_translation_file' function.")
   path <- rstudioapi::getActiveDocumentContext()$path
-  if (nchar(path) == 0)
-    rstudioapi::showDialog("TODOr","No active document detected.")
-  else{
+  if (nchar(path) == 0) {
+    rstudioapi::showDialog("TODOr", "No active document detected.")
+  } else {
     answ <- rstudioapi::showQuestion("shiny.i18n", "What type of file generate?", "json", "csv")
     create_translation_file(path, ifelse(answ, "json", "csv"))
     print("Done (create translation file)!")

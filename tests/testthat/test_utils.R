@@ -17,9 +17,9 @@ test_that("test validate_names", {
 })
 
 test_that("test column_to_row", {
-  c2r <- column_to_row(data.frame(a = c("x","c"), b = 1:2), "a")
+  c2r <- column_to_row(data.frame(a = c("x", "c"), b = 1:2), "a")
   expect_equal(rownames(c2r)[[1]], "x")
-  c2r <- column_to_row(data.frame(a = c("x","c"), b = 1:2), "b")
+  c2r <- column_to_row(data.frame(a = c("x", "c"), b = 1:2), "b")
   expect_equal(rownames(c2r)[[1]], "1")
 })
 

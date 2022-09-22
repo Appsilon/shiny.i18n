@@ -14,6 +14,7 @@
 #' Find details in method descriptions below.
 #'
 #' @importFrom jsonlite fromJSON
+#' @importFrom R6 R6Class
 #' @import methods
 #' @import shiny
 #' @export
@@ -38,7 +39,7 @@
 #' server <- function(input, output) {}
 #' shinyApp(ui = ui, server = server)
 #' }
-Translator <- R6::R6Class(
+Translator <- R6Class( #nolint
   "Translator",
   public = list(
     #' @description
@@ -184,7 +185,7 @@ Translator <- R6::R6Class(
       if (!private$js) {
         return(translation)
       }
-      shiny::span(class = 'i18n', `data-key` = keyword, translation)
+      shiny::span(class = "i18n", `data-key` = keyword, translation)
     },
     raw_translate = function(keyword, translation_language) {
       if (missing(translation_language)) {
@@ -196,7 +197,7 @@ Translator <- R6::R6Class(
       if (identical(translation_language, private$key_translation))
         return(keyword)
       tr <- as.character(private$translations[keyword, translation_language])
-      if (anyNA(tr)){
+      if (anyNA(tr)) {
         warning(sprintf("'%s' translation does not exist.",
                         keyword[which(is.na(tr))]))
         tr[which(is.na(tr))] <- keyword[which(is.na(tr))]
@@ -255,7 +256,7 @@ Translator <- R6::R6Class(
 init_i18n <- function(translation_csvs_path = NULL,
                       translation_json_path = NULL,
                       translation_csv_config = NULL,
-                      automatic = FALSE){
+                      automatic = FALSE) {
   Translator$new(translation_csvs_path, translation_json_path,
                  translation_csv_config, automatic)
 }
