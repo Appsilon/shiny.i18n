@@ -23,7 +23,12 @@
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
+<![endif]--><!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-0FLEMEJTD8"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0FLEMEJTD8');
+</script>
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -103,7 +108,12 @@
 
     
     
-<p>In <code>shiny.i18n</code> we use unique translation file formats. We offer two options. If you prefer keeping all your translations in one place, then <strong>json</strong> file is designed for you. More often, you send the text of UI of your app to various translators specializing in different languages. For that use-case we prepared <strong>csv</strong> format. Let see how they work.</p>
+<p>In <code>shiny.i18n</code> we use unique translation file formats. We
+offer two options. If you prefer keeping all your translations in one
+place, then <strong>json</strong> file is designed for you. More often,
+you send the text of UI of your app to various translators specializing
+in different languages. For that use-case we prepared
+<strong>csv</strong> format. Let see how they work.</p>
 <div class="section level2">
 <h2 id="json">JSON<a class="anchor" aria-label="anchor" href="#json"></a>
 </h2>
@@ -119,45 +129,78 @@
     ],
   "cultural_date_format": "%d-%m-%Y"
 }</code></pre>
-<p>The file requires two mandatory fields: <code>"languages"</code> and <code>"translation"</code>.</p>
-<p><code>"languages"</code> contains the list of languages codes. For example we could call English: “engl”, but we decided to keep it shorter.</p>
-<p>The order of the code here is <strong>IMPORTANT</strong>. The first language in <code>"languages"</code> list is so-called <strong>key translation</strong>, so the text that you use to create your Shiny app and query for other translation. For example, here the content of our Shiny app would look like this:</p>
+<p>The file requires two mandatory fields: <code>"languages"</code> and
+<code>"translation"</code>.</p>
+<p><code>"languages"</code> contains the list of languages codes. For
+example we could call English: “engl”, but we decided to keep it
+shorter.</p>
+<p>The order of the code here is <strong>IMPORTANT</strong>. The first
+language in <code>"languages"</code> list is so-called <strong>key
+translation</strong>, so the text that you use to create your Shiny app
+and query for other translation. For example, here the content of our
+Shiny app would look like this:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">i18n</span><span class="op">$</span><span class="fu">t</span><span class="op">(</span><span class="st">"Hello Shiny!"</span><span class="op">)</span></span></code></pre></div>
-<p>because the position of “en” in <code>"languages"</code> defines it as the <strong>key translation</strong>.</p>
-<p>Then, in <code>"translation"</code> you need to put a list of dictionaries. Each dictionary maps the language code to the text in that language.</p>
-<p>Other parameters are optional: “cultural_date_format”, “cultural_bignumer_mark”, “cultural_punctuation_mark”.</p>
-<p>You can load JSON file by passing its path as <code>translation_json_path</code> argument to <code>Translator</code>.</p>
+<p>because the position of “en” in <code>"languages"</code> defines it
+as the <strong>key translation</strong>.</p>
+<p>Then, in <code>"translation"</code> you need to put a list of
+dictionaries. Each dictionary maps the language code to the text in that
+language.</p>
+<p>Other parameters are optional: “cultural_date_format”,
+“cultural_bignumer_mark”, “cultural_punctuation_mark”.</p>
+<p>You can load JSON file by passing its path as
+<code>translation_json_path</code> argument to
+<code>Translator</code>.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">i18n</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/Translator.html">Translator</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>translation_json_path <span class="op">=</span> <span class="st">"translation.json"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="csv">CSV<a class="anchor" aria-label="anchor" href="#csv"></a>
 </h2>
-<p>Again, let’s start by looking at the example of <strong>translation_it.csv</strong>.</p>
+<p>Again, let’s start by looking at the example of
+<strong>translation_it.csv</strong>.</p>
 <pre><code>en,it
 Hello Shiny!,Ciao Shiny!
 Frequency, Frequenza</code></pre>
-<p>Here, the name of the file is important It <strong>has to have</strong> the prefix: <code>translation_</code>, which is followed by a language code.</p>
-<p>Note that CSV typically consists of two columns. The left column is a <strong>key translation</strong> with its code in header. The right one is a target translation with its code as a column name. The code needs to match the csv file name.</p>
-<p>With all that in mind, let’s see how to create another CSV file. For <a href="https://en.wikipedia.org/wiki/Klingon_language" class="external-link">Klingon</a> it would look like this:</p>
+<p>Here, the name of the file is important It <strong>has to
+have</strong> the prefix: <code>translation_</code>, which is followed
+by a language code.</p>
+<p>Note that CSV typically consists of two columns. The left column is a
+<strong>key translation</strong> with its code in header. The right one
+is a target translation with its code as a column name. The code needs
+to match the csv file name.</p>
+<p>With all that in mind, let’s see how to create another CSV file. For
+<a href="https://en.wikipedia.org/wiki/Klingon_language" class="external-link">Klingon</a> it
+would look like this:</p>
 <p><strong>translation_kling.csv</strong></p>
 <pre><code>en,kling
 Hello Shiny!,bIpIv'a' Shiny!
 Frequency,chaDvay'</code></pre>
-<p>Just remember to follow above-mentioned pattern and keep all the files in the same directory.</p>
-<p>You can load CSV files by passing path to folder containing them as <code>translation_csvs_path</code> argument to <code>Translator</code>. This will automatically detect all files with the pattern: <code>translation_*.csv</code>, for example: <code>translation_it.csv</code> for Italian, <code>translation_kling.csv</code> for Klingon and so on.</p>
+<p>Just remember to follow above-mentioned pattern and keep all the
+files in the same directory.</p>
+<p>You can load CSV files by passing path to folder containing them as
+<code>translation_csvs_path</code> argument to <code>Translator</code>.
+This will automatically detect all files with the pattern:
+<code>translation_*.csv</code>, for example:
+<code>translation_it.csv</code> for Italian,
+<code>translation_kling.csv</code> for Klingon and so on.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">i18n</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/Translator.html">Translator</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>translation_csvs_path <span class="op">=</span> <span class="st">"translation_data/"</span><span class="op">)</span></span></code></pre></div>
-<p>If you want to set extra options (like : “cultural_date_format”, etc.) just create simple <em>yaml</em> file and pass it as <code>translation_csv_config</code> argument to <code>Translator</code>.</p>
+<p>If you want to set extra options (like : “cultural_date_format”,
+etc.) just create simple <em>yaml</em> file and pass it as
+<code>translation_csv_config</code> argument to
+<code>Translator</code>.</p>
 </div>
 <div class="section level2">
 <h2 id="addin">Addin<a class="anchor" aria-label="anchor" href="#addin"></a>
 </h2>
-<p>For your convenience we introduced the addin that builds a demo translation file for you. It detect all places in your code wrapped with tag: <code>i18n$t</code> or <code>i18n$translate</code>.</p>
+<p>For your convenience we introduced the addin that builds a demo
+translation file for you. It detect all places in your code wrapped with
+tag: <code>i18n$t</code> or <code>i18n$translate</code>.</p>
 <p>Just go to your “Addins” menu in <em>RStudio</em>.</p>
 <p><img src="images/addin.png" alt="addin" width="400"></p>
-<p>For more customized tags detection use <code>create_translation_file</code> function.</p>
+<p>For more customized tags detection use
+<code>create_translation_file</code> function.</p>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>
