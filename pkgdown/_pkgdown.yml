@@ -72,3 +72,8 @@ reference:
   contents:
   - '`translate_with_google_cloud`'
 
+footer:
+  structure:
+    left: developed
+  components:
+    developed: "Developed with :heart: by [Appsilon](https://appsilon.com)."
