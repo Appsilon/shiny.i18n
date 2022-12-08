@@ -1,6 +1,6 @@
 Package: shiny.i18n
 Title: Shiny Applications Internationalization
-Version: 0.2.1.9000
+Version: 0.2.1.9001
 Authors@R:
   c(
     person("Jakub", "Nowicki", email = "opensource+kuba@appsilon.com", role = c("cre", "aut")),
@@ -36,5 +36,5 @@ Suggests:
     lintr,
     rcmdcheck,
     rmarkdown,
-    withr,
-    testthat
+    testthat,
+    withr
