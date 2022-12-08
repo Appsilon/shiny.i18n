@@ -82,4 +82,8 @@ usei18n <- function(translator) {
 update_lang <- function(session, language) {
   if (inherits(session, "session_proxy")) session <- session$rootScope()
   session$sendInputMessage("i18n-state", list(lang = language))
+  if (is.null(session$userData$shiny.i18n$lang)) {
+    session$userData$shiny.i18n$lang <- reactiveVal()
+  }
+  session$userData$shiny.i18n$lang(language)
 }
