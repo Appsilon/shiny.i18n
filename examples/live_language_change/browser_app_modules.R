@@ -14,7 +14,7 @@ ui_module <- function(id) {
   ns <- NS(id)
 
   tagList(
-    shiny.i18n::usei18n(i18n),
+    usei18n(i18n),
     div(
       style = "float: right;",
       selectInput(ns("selected_language"),
@@ -54,7 +54,7 @@ server_module <- function(id) {
       # This print is just for demonstration
       print(paste("Language change!", input$selected_language))
       # Here is where we update language in session
-      shiny.i18n::update_lang(session, input$selected_language)
+      update_lang(session, input$selected_language)
     })
 
     server_plot_module("plot", reactive(input$bins))
