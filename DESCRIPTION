@@ -14,15 +14,17 @@ Description: It provides easy internationalization of Shiny
     to translate reports, interactive visualizations or
     graphical elements as well.
 Depends: R (>= 3.3.0)
-Imports: yaml,
-         jsonlite,
-         methods,
-         stringr,
-         R6,
-         glue,
-         shiny,
-         rstudioapi,
-         utils
+Imports: 
+    yaml,
+    jsonlite,
+    methods,
+    stringr,
+    R6,
+    glue,
+    shiny,
+    rstudioapi,
+    utils,
+    lifecycle
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -37,3 +39,4 @@ Suggests:
     rcmdcheck,
     rmarkdown,
     testthat
+Roxygen: list(markdown = TRUE)
