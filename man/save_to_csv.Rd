@@ -16,3 +16,4 @@ save_to_csv(key_expressions, output_path = NULL)
 It saves translation data structure with language key code "key" and
 language to translate name "lang" as an example of a translation csv file.
 }
+\keyword{internal}

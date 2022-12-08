@@ -38,11 +38,11 @@ test_that("test save_to_csv", {
 
 test_that("test save_to_csv", {
   cat("i18n$t('abc')\nsadsjdajd\ni18n$translate(\"xyz zxy\")\n", file = "tmp.R")
-  tmp_csv<- "tmp.csv"
+  tmp_csv <- "tmp.csv"
   create_translation_file("tmp.R", type = "csv", output = tmp_csv)
   expect_true(file.exists(tmp_csv))
   file.remove(tmp_csv)
-  tmp_json<- "tmp.json"
+  tmp_json <- "tmp.json"
   create_translation_file("tmp.R", type = "json", output = tmp_json)
   expect_true(file.exists(tmp_json))
   file.remove(tmp_json)

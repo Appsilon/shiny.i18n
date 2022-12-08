@@ -1,7 +1,6 @@
 ---
 title: "Introduction to translation files format"
 author: "Appsilon"
-date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Introduction to translation files format}
@@ -38,7 +37,7 @@ The file requires two mandatory fields: `"languages"` and `"translation"`.
 `"languages"` contains the list of languages codes. For example we could call English: "engl",
 but we decided to keep it shorter.
 
-The order of the code here is **IMPORTANT**. 
+The order of the code here is **IMPORTANT**.
 The first language in `"languages"` list is so-called **key translation**, so the text
 that you use to create your Shiny app and query for other translation.
 For example, here the content of our Shiny app would look like this:

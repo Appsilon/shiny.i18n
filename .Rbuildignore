@@ -10,4 +10,7 @@ build_readme\.R
 ^\.git.*$
 docs
 examples
-_pkgdown\.yml
+pkgdown
+.lintr
+.whitesource
+vignettes

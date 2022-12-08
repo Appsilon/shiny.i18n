@@ -6,6 +6,7 @@
 #'
 #' @return shiny tag with div \code{"i18n-state"}
 #' @import shiny
+#' @keywords internal
 i18n_state <- function(init_language) {
     shiny::tags$div(
       id = "i18n-state",
@@ -59,7 +60,9 @@ usei18n <- function(translator) {
   translations[[key_translation]] <- rownames(translations)
   shiny::tagList(
     shiny::tags$head(
-      shiny::tags$script(glue::glue("var i18n_translations = {toJSON(translations, auto_unbox = TRUE)}")),
+      shiny::tags$script(
+        glue::glue("var i18n_translations = {toJSON(translations, auto_unbox = TRUE)}")
+      ),
       shiny::tags$script(src = js_file)
     ),
     i18n_state(translator$key_translation)
@@ -77,5 +80,10 @@ usei18n <- function(translator) {
 #' @export
 #' @seealso usei18n
 update_lang <- function(session, language) {
+  if (inherits(session, "session_proxy")) session <- session$rootScope()
   session$sendInputMessage("i18n-state", list(lang = language))
+  if (is.null(session$userData$shiny.i18n$lang)) {
+    session$userData$shiny.i18n$lang <- reactiveVal()
+  }
+  session$userData$shiny.i18n$lang(language)
 }

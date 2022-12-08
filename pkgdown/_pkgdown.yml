@@ -1,10 +1,24 @@
-title: SHINY.I18N
+title: shiny.i18n
 template:
-  params:
-    bootswatch: yeti
+  bootstrap: 5
+  bootswatch: pulse
+  bslib:
+    pkgdown-nav-height: 100px
+  includes:
+    in_header: |
+      <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-0FLEMEJTD8"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-0FLEMEJTD8');
+      </script>
+
+url: https://appsilon.github.io/shiny.i18n/
 
 navbar:
-  type: inverse
+  bg: primary
   left:
     - icon: fa-home
       href: index.html
@@ -12,10 +26,10 @@ navbar:
     - icon: fa-university
       text: "Tutorials"
       href: articles/index.html
-  right:
     - icon: fa-file-code-o
       text: "Reference"
       href: reference/index.html
+  right:
     - icon: fa-github fa-lg
       href: https://github.com/Appsilon/shiny.i18n
     - icon: fa-twitter fa-lg
@@ -43,4 +57,8 @@ reference:
 - title: Creating translation files
   contents:
   - '`create_translation_file`'
+
+- title: Automatic translations (in progress)
+  contents:
+  - '`translate_with_google_cloud`'
 
