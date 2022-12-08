@@ -95,8 +95,8 @@ Translator <- R6Class( #nolint
     #' @param session Shiny server session (default: current reactive domain)
     translate = function(keyword, session = shiny::getDefaultReactiveDomain()) {
       if (!is.null(session)) {
-        translation_language <- if (!is.null(session$input$`i18n-state`)) {
-          session$input$`i18n-state`
+        translation_language <- if (!is.null(session$userData$shiny.i18n$lang)) {
+          session$userData$shiny.i18n$lang()
         } else {
           private$translation_language
         }

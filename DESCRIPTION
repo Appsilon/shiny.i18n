@@ -1,16 +1,14 @@
 Package: shiny.i18n
 Title: Shiny Applications Internationalization
-Version: 0.2.1
-Authors@R: c(person("Dominik", "Krzemiński",
-                    email = "dominik@appsilon.com",
-                    role = c("aut")),
-            person("Krystian", "Igras",
-                    email = "krystian@appsilon.com",
-                    role = c("aut")),
-            person("Jakub", "Sobolewski",
-                    email = "jakub.sobolewski@appsilon.com",
-                    role = c("cre")),
-            person(family = "Appsilon", role = c("cph")))
+Version: 0.2.1.9001
+Authors@R:
+  c(
+    person("Jakub", "Nowicki", email = "opensource+kuba@appsilon.com", role = c("cre", "aut")),
+    person("Dominik", "Krzemiński", email = "raymon92@gmail.com", role = c("aut")),
+    person("Krystian", "Igras", email = "krystian8207@gmail.com", role = c("aut")),
+    person("Jakub", "Sobolewski", email = "jakub.sobolewski@appsilon.com", role = c("aut")),
+    person("Appsilon Sp. z o.o.", role = "cph", email = "opensource@appsilon.com")
+  )
 Description: It provides easy internationalization of Shiny
     applications. It can be used as standalone translation package
     to translate reports, interactive visualizations or
@@ -28,7 +26,7 @@ Imports: yaml,
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-URL: https://github.com/Appsilon/shiny.i18n
+URL: https://appsilon.github.io/shiny.i18n/, https://github.com/Appsilon/shiny.i18n
 BugReports: https://github.com/Appsilon/shiny.i18n/issues
 RoxygenNote: 7.2.1
 Suggests:
@@ -38,4 +36,5 @@ Suggests:
     lintr,
     rcmdcheck,
     rmarkdown,
-    testthat
+    testthat,
+    withr
