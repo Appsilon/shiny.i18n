@@ -2,6 +2,9 @@
 
 #' Translate with Google cloud
 #'
+#' @description
+#' `r lifecycle::badge("experimental")`
+#'
 #' This is wrapper for \code{gl_translate} function from \code{googleLanguageR}
 #' package.
 #'

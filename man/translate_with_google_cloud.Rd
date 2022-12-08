@@ -13,6 +13,8 @@ translate_with_google_cloud(txt_to_translate, target_lang)
 \item{target_lang}{character with language code}
 }
 \description{
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
+
 This is wrapper for \code{gl_translate} function from \code{googleLanguageR}
 package.
 }
