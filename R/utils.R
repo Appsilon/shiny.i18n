@@ -1,4 +1,4 @@
-#' Mulitple Merge
+#' Multiple Merge
 #'
 #' Inspired by:
 #' https://www.r-bloggers.com/merging-multiple-data-files-into-one-data-frame/

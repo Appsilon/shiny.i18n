@@ -1,6 +1,6 @@
 # shiny.i18n <a href="https://appsilon.github.io/shiny.i18n/"><img src="man/figures/shiny.i18n.png" align="right" alt="shiny.i18n logo" style="height: 140px;"></a>
 
-> _Shiny applications internationalisation made easy!_
+> _Shiny applications internationalization made easy!_
 
 <!-- badges: start -->
 [![CRAN status](https://www.r-pkg.org/badges/version/shiny.i18n)](https://cran.r-project.org/package=shiny.i18n)
@@ -10,9 +10,9 @@
 [![R-CMD-check](https://github.com/Appsilon/shiny.i18n/workflows/R-CMD-check/badge.svg)](https://github.com/Appsilon/shiny.i18n/actions/workflows/main.yaml)
 <!-- badges: end -->
 
-Using it is very simple: just prepare your translation files in one of the supported formats, read them into your app using user-friendly **shiny.i18n** interface and surround your expressions to translate by a translator tag. Thanks to that your app will remain neat and readible.
+Using it is very simple: just prepare your translation files in one of the supported formats, read them into your app using user-friendly **shiny.i18n** interface and surround your expressions to translate by a translator tag. Thanks to that your app will remain neat and readable.
 
-*Actually, you can use **shiny.i18n** as a standalone R package - shiny app is just a perfect usecase example.*
+*Actually, you can use **shiny.i18n** as a standalone R package - shiny app is just a perfect use-case example.*
 
 Change languages and formats easy with **shiny.i18n**.
 

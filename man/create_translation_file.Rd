@@ -19,6 +19,6 @@ or "csv"}
 name ("translation.json" for JSON and "translate_lang.csv" for CSV)}
 }
 \description{
-Auxiliary shiny.i18n function that searches for all key expressions (eg.
+Auxiliary shiny.i18n function that searches for all key expressions (e.g.
 surrounded by \code{i18n$t()} tag in the script).
 }

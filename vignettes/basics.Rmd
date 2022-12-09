@@ -75,7 +75,7 @@ shinyApp(ui, server)
 ```
 
 If you want to display the text in a different language, just change the code from "en"
-to the language that is in your *"translation.json"* file, eg. "pl" for Polish.
+to the language that is in your *"translation.json"* file, e.g. "pl" for Polish.
 
 ## Live language change
 
@@ -87,7 +87,7 @@ You have two options here.
 ### Option (a)
 
 You can make your i18n a reactive variable that accepts the language code from
-some UI input, eg. `input$selected_language`.
+some UI input, e.g. `input$selected_language`.
 
 ```{r echo = T, include = T, eval = FALSE}
 translator <- Translator$new(translation_json_path = "translation.json")
