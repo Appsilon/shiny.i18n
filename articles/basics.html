@@ -156,7 +156,7 @@ method that takes as an argument the code of your language.</p>
 <span><span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span></code></pre></div>
 <p>If you want to display the text in a different language, just change
 the code from “en” to the language that is in your
-<em>“translation.json”</em> file, eg. “pl” for Polish.</p>
+<em>“translation.json”</em> file, e.g. “pl” for Polish.</p>
 </div>
 <div class="section level2">
 <h2 id="live-language-change">Live language change<a class="anchor" aria-label="anchor" href="#live-language-change"></a>
@@ -169,7 +169,7 @@ change the language dynamically?</p>
 <h3 id="option-a">Option (a)<a class="anchor" aria-label="anchor" href="#option-a"></a>
 </h3>
 <p>You can make your i18n a reactive variable that accepts the language
-code from some UI input, eg. <code>input$selected_language</code>.</p>
+code from some UI input, e.g. <code>input$selected_language</code>.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">translator</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/Translator.html">Translator</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>translation_json_path <span class="op">=</span> <span class="st">"translation.json"</span><span class="op">)</span></span>
 <span></span>
