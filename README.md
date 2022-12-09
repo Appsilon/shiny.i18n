@@ -3,10 +3,11 @@
 > _Shiny applications internationalisation made easy!_
 
 <!-- badges: start -->
-![R-CMD-check](https://github.com/Appsilon/shiny.i18n/workflows/R-CMD-check/badge.svg)
+[![CRAN status](https://www.r-pkg.org/badges/version/shiny.i18n)](https://cran.r-project.org/package=shiny.i18n)
 [![codecov](https://codecov.io/gh/Appsilon/shiny.i18n/branch/master/graph/badge.svg)](https://codecov.io/gh/Appsilon/shiny.i18n)
 [![cranlogs](https://cranlogs.r-pkg.org/badges/shiny.i18n)](https://CRAN.R-project.org/package=shiny.i18n)
 [![total](https://cranlogs.r-pkg.org/badges/grand-total/shiny.i18n)](https://CRAN.R-project.org/package=shiny.i18n)
+[![R-CMD-check](https://github.com/Appsilon/shiny.i18n/workflows/R-CMD-check/badge.svg)](https://github.com/Appsilon/shiny.i18n/actions/workflows/main.yaml)
 <!-- badges: end -->
 
 Using it is very simple: just prepare your translation files in one of the supported formats, read them into your app using user-friendly **shiny.i18n** interface and surround your expressions to translate by a translator tag. Thanks to that your app will remain neat and readible.
@@ -15,21 +16,21 @@ Using it is very simple: just prepare your translation files in one of the suppo
 
 Change languages and formats easy with **shiny.i18n**.
 
-How to install?
----------------
+## How to install?
+
+Stable version:
 
 ```r
 install.packages("shiny.i18n")
 ```
 
-Or use [devtools](https://github.com/r-lib/devtools) for the most recent version:
+Development version:
 
 ```r
-devtools::install_github("Appsilon/shiny.i18n")
+remotes::install_github("Appsilon/shiny.i18n")
 ```
 
-Examples
---------
+## Examples
 
 <img src="man/figures/demo.gif" align="center" alt="" width="40%" />
 
@@ -65,35 +66,22 @@ Translator$new(translation_csvs_path = "...")
 Translator$new(translation_json_path = "...")
 ```
 
-How to contribute?
-------------------
+## How to contribute?
 
-If you want to contribute to this project please submit a regular PR, once you're done with new feature or bug fix. Reporting a bug is also helpful - please use github issues and describe your problem as detailed as possible.
+If you want to contribute to this project please submit a regular PR, once you're done with a new feature or bug fix.
 
-**Changes in documentation**
+Reporting a bug is also helpful - please use [GitHub issues](https://github.com/Appsilon/shiny.i18n/issues) and describe your problem as detailed as possible.
 
-Documentation is rendered with `pkgdown`. Just run `pkgdown::build_site()` after editing documentation or `README.md`.
-
-
-Troubleshooting
----------------
-
-We used the latest versions of dependencies for this library, so please update your R environment before installation.
-
-Future enhacements
-------------------
-
--   Format numeric data
--   Support plural forms
-
-Appsilon
---------
+## Appsilon
 
 <img src="https://avatars0.githubusercontent.com/u/6096772" align="right" alt="" width="6%" />
 
-Appsilon is the **Full Service Certified RStudio Partner**. Learn more
+Appsilon is a **Posit (formerly RStudio) Full Service Certified Partner**.<br/>
+Learn more
 at [appsilon.com](https://appsilon.com).
 
 Get in touch [opensource@appsilon.com](opensource@appsilon.com)
+
+Check our [Open Source tools](https://shiny.tools).
 
 <a href = "https://appsilon.com/careers/" target="_blank"><img src="http://d2v95fjda94ghc.cloudfront.net/hiring.png" alt="We are hiring!"/></a>

@@ -14,15 +14,16 @@ template:
         gtag('js', new Date());
         gtag('config', 'G-0FLEMEJTD8');
       </script>
+      <script async defer src="https://buttons.github.io/buttons.js"></script>
+    before_navbar: |
+      <a href="https://shiny.tools" class="home"><i class="fa fa-lg fa-chevron-left"></i></a>
+
 
 url: https://appsilon.github.io/shiny.i18n/
 
 navbar:
   bg: primary
   left:
-    - icon: fa-home
-      href: index.html
-      text: "Start"
     - icon: fa-university
       text: "Tutorials"
       href: articles/index.html
@@ -34,6 +35,15 @@ navbar:
       href: https://github.com/Appsilon/shiny.i18n
     - icon: fa-twitter fa-lg
       href: https://twitter.com/Appsilon
+
+home:
+  sidebar:
+    structure: [star, links, license, community, citation, authors, dev]
+    components:
+      star:
+        title: GitHub
+        text: |
+          <a class="github-button" href="https://github.com/appsilon/shiny.i18n" data-size="large" data-show-count="true" aria-label="Star appsilon/shiny.i18n on GitHub">Star</a>
 
 articles:
 - title: All tutorials
@@ -62,3 +72,8 @@ reference:
   contents:
   - '`translate_with_google_cloud`'
 
+footer:
+  structure:
+    left: developed
+  components:
+    developed: "Developed with :heart: by [Appsilon](https://appsilon.com)."
