@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{multmerge}
 \alias{multmerge}
-\title{Mulitple Merge}
+\title{Multiple Merge}
 \usage{
 multmerge(filenames, sep = ",")
 }

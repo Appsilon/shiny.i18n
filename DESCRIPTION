@@ -36,5 +36,7 @@ Suggests:
     lintr,
     rcmdcheck,
     rmarkdown,
+    spelling,
     testthat,
     withr
+Language: en-US
