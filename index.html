@@ -34,7 +34,7 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-0FLEMEJTD8');
-</script>
+</script><script async defer src="https://buttons.github.io/buttons.js"></script>
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -46,20 +46,14 @@
 
     <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.1.9001</small>
 
-    
+    <a href="https://shiny.tools" class="external-link home"><i class="fa fa-lg fa-chevron-left"></i></a>
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
-<li class="active nav-item">
-  <a class="nav-link" href="index.html">
-    <span class="fa fa-home"></span>
-     
-    Start
-  </a>
-</li>
 <li class="nav-item">
   <a class="nav-link" href="articles/index.html">
     <span class="fa fa-university"></span>
@@ -114,11 +108,12 @@
 <div class="section level2">
 <h2 id="how-to-install">How to install?<a class="anchor" aria-label="anchor" href="#how-to-install"></a>
 </h2>
+<p>Stable version:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"shiny.i18n"</span><span class="op">)</span></span></code></pre></div>
-<p>Or use <a href="https://github.com/r-lib/devtools" class="external-link">devtools</a> for the most recent version:</p>
+<p>Development version:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"Appsilon/shiny.i18n"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"Appsilon/shiny.i18n"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="examples">Examples<a class="anchor" aria-label="anchor" href="#examples"></a>
@@ -157,33 +152,27 @@
 <div class="section level2">
 <h2 id="how-to-contribute">How to contribute?<a class="anchor" aria-label="anchor" href="#how-to-contribute"></a>
 </h2>
-<p>If you want to contribute to this project please submit a regular PR, once you’re done with new feature or bug fix. Reporting a bug is also helpful - please use github issues and describe your problem as detailed as possible.</p>
-<p><strong>Changes in documentation</strong></p>
-<p>Documentation is rendered with <code>pkgdown</code>. Just run <code><a href="https://pkgdown.r-lib.org/reference/build_site.html" class="external-link">pkgdown::build_site()</a></code> after editing documentation or <code>README.md</code>.</p>
-</div>
-<div class="section level2">
-<h2 id="troubleshooting">Troubleshooting<a class="anchor" aria-label="anchor" href="#troubleshooting"></a>
-</h2>
-<p>We used the latest versions of dependencies for this library, so please update your R environment before installation.</p>
-</div>
-<div class="section level2">
-<h2 id="future-enhacements">Future enhacements<a class="anchor" aria-label="anchor" href="#future-enhacements"></a>
-</h2>
-<ul>
-<li>Format numeric data</li>
-<li>Support plural forms</li>
-</ul>
+<p>If you want to contribute to this project please submit a regular PR, once you’re done with a new feature or bug fix.</p>
+<p>Reporting a bug is also helpful - please use <a href="https://github.com/Appsilon/shiny.i18n/issues" class="external-link">GitHub issues</a> and describe your problem as detailed as possible.</p>
 </div>
 <div class="section level2">
 <h2 id="appsilon">Appsilon<a class="anchor" aria-label="anchor" href="#appsilon"></a>
 </h2>
 <p><img src="https://avatars0.githubusercontent.com/u/6096772" align="right" alt="" width="6%"></p>
-<p>Appsilon is the <strong>Full Service Certified RStudio Partner</strong>. Learn more at <a href="https://appsilon.com" class="external-link">appsilon.com</a>.</p>
+<p>Appsilon is a <strong>Posit (formerly RStudio) Full Service Certified Partner</strong>.<br> Learn more at <a href="https://appsilon.com" class="external-link">appsilon.com</a>.</p>
 <p>Get in touch <a href="opensource@appsilon.com">opensource@appsilon.com</a></p>
+<p>Check our <a href="https://shiny.tools" class="external-link">Open Source tools</a>.</p>
 <p><a href="https://appsilon.com/careers/" target="_blank" class="external-link"><img src="http://d2v95fjda94ghc.cloudfront.net/hiring.png" alt="We are hiring!"></a></p>
 </div>
 </div>
-  </main><aside class="col-md-3"><div class="links">
+  </main><aside class="col-md-3"><div class="github">
+<h2 data-toc-skip>GitHub</h2>
+<ul class="list-unstyled">
+<li><p><a class="external-link github-button" href="https://github.com/appsilon/shiny.i18n" data-size="large" data-show-count="true" aria-label="Star appsilon/shiny.i18n on GitHub">Star</a></p></li>
+</ul>
+</div>
+
+<div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
 <li><a href="https://cloud.r-project.org/package=shiny.i18n" class="external-link">View on CRAN</a></li>
@@ -223,9 +212,11 @@
 <div class="dev-status">
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
+<li><a href="https://cran.r-project.org/package=shiny.i18n" class="external-link"><img src="https://www.r-pkg.org/badges/version/shiny.i18n" alt="CRAN status"></a></li>
 <li><a href="https://codecov.io/gh/Appsilon/shiny.i18n" class="external-link"><img src="https://codecov.io/gh/Appsilon/shiny.i18n/branch/master/graph/badge.svg" alt="codecov"></a></li>
 <li><a href="https://CRAN.R-project.org/package=shiny.i18n" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/shiny.i18n" alt="cranlogs"></a></li>
 <li><a href="https://CRAN.R-project.org/package=shiny.i18n" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/grand-total/shiny.i18n" alt="total"></a></li>
+<li><a href="https://github.com/Appsilon/shiny.i18n/actions/workflows/main.yaml" class="external-link"><img src="https://github.com/Appsilon/shiny.i18n/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
 </ul>
 </div>
 
@@ -235,7 +226,7 @@
 
     <footer><div class="pkgdown-footer-left">
   <p></p>
-<p>Developed by Jakub Nowicki, Dominik Krzemiński, Krystian Igras, Jakub Sobolewski.</p>
+<p>Developed with <span class="emoji" data-emoji="heart">❤️</span> by <a href="https://appsilon.com" class="external-link">Appsilon</a>.</p>
 </div>
 
 <div class="pkgdown-footer-right">

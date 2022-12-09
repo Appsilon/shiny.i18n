@@ -28,7 +28,7 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-0FLEMEJTD8');
-</script>
+</script><script async defer src="https://buttons.github.io/buttons.js"></script>
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -40,20 +40,14 @@
 
     <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.1.9001</small>
 
-    
+    <a href="https://shiny.tools" class="external-link home"><i class="fa fa-lg fa-chevron-left"></i></a>
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
-<li class="nav-item">
-  <a class="nav-link" href="../index.html">
-    <span class="fa fa-home"></span>
-     
-    Start
-  </a>
-</li>
 <li class="active nav-item">
   <a class="nav-link" href="../articles/index.html">
     <span class="fa fa-university"></span>
@@ -123,7 +117,7 @@ translation.</p>
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/" class="external-link">shiny</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://appsilon.github.io/shiny.i18n/">shiny.i18n</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html" class="external-link">fluidPage</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html" class="external-link">p</a></span><span class="op">(</span><span class="st">"Hello"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html" class="external-link">fluidPage</a></span><span class="op">(</span><span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">p</a></span><span class="op">(</span><span class="st">"Hello"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span><span class="op">}</span></span>
 <span></span>
@@ -155,7 +149,7 @@ method that takes as an argument the code of your language.</p>
 <span></span>
 <span><span class="va">i18n</span><span class="op">$</span><span class="fu">set_translation_language</span><span class="op">(</span><span class="st">"en"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html" class="external-link">fluidPage</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html" class="external-link">p</a></span><span class="op">(</span><span class="va">i18n</span><span class="op">$</span><span class="fu">t</span><span class="op">(</span><span class="st">"Hello"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html" class="external-link">fluidPage</a></span><span class="op">(</span><span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">p</a></span><span class="op">(</span><span class="va">i18n</span><span class="op">$</span><span class="fu">t</span><span class="op">(</span><span class="st">"Hello"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span><span class="op">}</span></span>
 <span></span>
@@ -208,7 +202,7 @@ translation.</p>
 <span><span class="va">i18n</span><span class="op">$</span><span class="fu">set_translation_language</span><span class="op">(</span><span class="st">"en"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html" class="external-link">fluidPage</a></span><span class="op">(</span><span class="fu"><a href="../reference/usei18n.html">usei18n</a></span><span class="op">(</span><span class="va">i18n</span><span class="op">)</span>,</span>
-<span>                <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html" class="external-link">p</a></span><span class="op">(</span><span class="va">i18n</span><span class="op">$</span><span class="fu">t</span><span class="op">(</span><span class="st">"Hello"</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>                <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">p</a></span><span class="op">(</span><span class="va">i18n</span><span class="op">$</span><span class="fu">t</span><span class="op">(</span><span class="st">"Hello"</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>                <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/actionButton.html" class="external-link">actionButton</a></span><span class="op">(</span><span class="st">"go"</span>, <span class="st">"GO!"</span><span class="op">)</span></span>
 <span>      <span class="op">)</span></span>
 <span></span>
@@ -244,7 +238,7 @@ a specific language code)</strong></p>
 <span></span>
 <span><span class="va">i18n</span><span class="op">$</span><span class="fu">set_translation_language</span><span class="op">(</span><span class="st">"de"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html" class="external-link">fluidPage</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html" class="external-link">p</a></span><span class="op">(</span><span class="va">i18n</span><span class="op">$</span><span class="fu">at</span><span class="op">(</span><span class="st">"Hello"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://shiny.rstudio.com/reference/shiny/latest/fluidPage.html" class="external-link">fluidPage</a></span><span class="op">(</span><span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">p</a></span><span class="op">(</span><span class="va">i18n</span><span class="op">$</span><span class="fu">at</span><span class="op">(</span><span class="st">"Hello"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span><span class="op">}</span></span>
 <span></span>
@@ -261,7 +255,7 @@ about <code>shiny.i18n</code>. Check more examples in
 
     <footer><div class="pkgdown-footer-left">
   <p></p>
-<p>Developed by Jakub Nowicki, Dominik Krzemiński, Krystian Igras, Jakub Sobolewski.</p>
+<p>Developed with <span class="emoji" data-emoji="heart">❤️</span> by <a href="https://appsilon.com" class="external-link">Appsilon</a>.</p>
 </div>
 
 <div class="pkgdown-footer-right">
