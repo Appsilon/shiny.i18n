@@ -9,14 +9,14 @@ vignette: >
 
 # Introduction
 
-This tutorial shows an easy way of implementing intrnationalization in a Shiny application
+This tutorial shows an easy way of implementing internationalization in a Shiny application
 built using [Rhino framework](https://appsilon.github.io/rhino/).
 The goal is to recreate a simple application that can be [found in the
 examples](https://github.com/Appsilon/shiny.i18n/blob/master/examples/live_language_change/browser_app.R), but with the Rhino setup.
 
 # Setup Rhino application
 
-First step is to create a Rhino application.
+The first step is to create a Rhino application.
 Before that, make sure that you have `rhino` installed:
 
 ```r
@@ -27,9 +27,9 @@ Now, initialize a new Rhino application. You can do it either by using RStudio W
 or a function `rhino::init("rhino_i18n")`.
 More details on how to create a Rhino app can be found in the [Rhino tutorial](https://appsilon.github.io/rhino/articles/tutorial/create-your-first-rhino-app.html#create-an-initial-application).
 
-After seting the initial application, the next step is to install `shiny.i18n` and add it to the dependencies.
+After setting the initial application, the next step is to install `shiny.i18n` and add it to the dependencies.
 
-_NOTE: `shiny.i18n` compatibility with `rhino` is currently available only in the development varsion. The installation guide will be updated after cRAN release._
+_NOTE: `shiny.i18n` compatibility with `rhino` is currently available only in the development version. The installation guide will be updated after the CRAN release._
 
 In the R console run:
 ```r
@@ -52,15 +52,15 @@ And update `renv.lock` by running in the R console:
 renv::snapshot()
 ```
 
-# Build basic application
+# Build a basic application
 
-Next step is to fill the application with the content.
+The next step is to fill out the application with the content.
 We will use the example application that can be [found in the
 examples](https://github.com/Appsilon/shiny.i18n/blob/master/examples/live_language_change/browser_app.R).
 
 ## Initial application
 
-First, lets implement the basic version of the app (without internationalization).
+First, let's implement the basic version of the app (without internationalization).
 Modify `app/main.R` in the following way:
 
 ```r
@@ -122,7 +122,7 @@ server <- function(id) {
 ```
 
 If you run it with `shiny::runApp()` you will see a slightly modified version
-of "Old Faithful Geyser Data" app.
+of the "Old Faithful Geyser Data" app.
 
 <div class="app-preview">
   ![](images/i18n_init.png)
@@ -130,8 +130,8 @@ of "Old Faithful Geyser Data" app.
 
 ## Add translator
 
-Next step is to add an instance of `shiny.i18n::Translator` class and provide the translations.
-In `shiny.i18n`, translations can be added as csv or json file - we will use the latter.
+The next step is to add an instance of `shiny.i18n::Translator` class and provide the translations.
+In `shiny.i18n`, translations can be added as CSV or JSON files - we will use the latter.
 Create `app/translations` directory, and inside add `translations.json` file:
 
 ```json
@@ -247,7 +247,7 @@ ui <- function(id) {
 ...
 ```
 
-We also need to add `shiny.i18n` dependencies and add translator to the UI
+We also need to add `shiny.i18n` dependencies and add the translator to the UI
 by calling `usei18n()`:
 
 ```r
@@ -411,8 +411,8 @@ application text with the proper translation:
 
 ## Translate server part
 
-The only missing part is the plot - the title and y axis label.
-The text there is rendered in the server, so we need to add translator there:
+The only missing part is the plot - the title and y-axis label.
+The text there is rendered in the server, so we need to add the translator there:
 
 ```r
 # app/main.R
@@ -489,9 +489,9 @@ Now, if you run the application, everything will be translated:
 
 # Add inner module
 
-A Rhino application is usually build from multiple Shiny modules.
+A Rhino application is usually built from multiple Shiny modules.
 You can learn more about the Rhino structure from [this article](https://appsilon.github.io/rhino/articles/explanation/application-structure.html).
-In this section we are going to show how the translator can used in such a setup,
+In this section, we are going to show how the translator can be used in such a setup,
 by moving the main panel into a separate module.
 
 First, create a new R file: `app/view/main_panel.R`:
@@ -556,10 +556,10 @@ server <- function(id, bins, i18n) {
 }
 ```
 
-Important part to notice here is that the Translator (`i18n` object) needs
-to be passed as argument to inner module.
+The important part to notice here is that the Translator (`i18n` object) needs
+to be passed as an argument to the inner module.
 
-Next step is to call the main panel module in the `app/main.R` file:
+The next step is to call the main panel module in the `app/main.R` file:
 
 ```r
 # app/main.R
