@@ -11,7 +11,7 @@ vignette: >
 
 This tutorial shows an easy way of implementing internationalization in a Shiny application
 built using [Rhino framework](https://appsilon.github.io/rhino/).
-The goal is to recreate a simple application that can be [found in the
+The goal is to recreate a simple app that can be [found in the
 examples](https://github.com/Appsilon/shiny.i18n/blob/master/examples/live_language_change/browser_app.R), but with the Rhino setup.
 
 # Setup Rhino application
@@ -192,7 +192,7 @@ ui <- function(id) {
 ...
 ```
 
-The next step is to choose the default translation:
+The next step is to choose the default translation language:
 
 ```r
 # app/main.R
@@ -409,7 +409,7 @@ application text with the proper translation:
   ![](images/i18n_browser_app.gif)
 </div>
 
-## Translate server part
+## Translate the server part
 
 The only missing part is the plot - the title and y-axis label.
 The text there is rendered in the server, so we need to add the translator there:
@@ -481,7 +481,7 @@ server <- function(id) {
   })
 }
 ```
-Now, if you run the application, everything will be translated:
+Now, if you run the application, everything should work:
 
 <div class="app-preview">
   ![](images/i18n_single_module_app.gif)
@@ -489,12 +489,12 @@ Now, if you run the application, everything will be translated:
 
 # Add inner module
 
-A Rhino application is usually built from multiple Shiny modules.
+A Rhino application is usually built using multiple Shiny modules.
 You can learn more about the Rhino structure from [this article](https://appsilon.github.io/rhino/articles/explanation/application-structure.html).
 In this section, we are going to show how the translator can be used in such a setup,
 by moving the main panel into a separate module.
 
-First, create a new R file: `app/view/main_panel.R`:
+First, create a new R file `app/view/main_panel.R`:
 
 ```r
 # app/view/main_panel.R
@@ -517,7 +517,7 @@ server <- function(id) {
 }
 ```
 
-Now, let's move the main panel from `app/main.R` into `app/view/main_panel/R`:
+Now, let's move the main panel from `app/main.R` into `app/view/main_panel.R`:
 
 ```r
 # app/view/main_panel.R
@@ -619,8 +619,7 @@ server <- function(id) {
 ```
 
 If you now run the application, it should look and behave as previously.
-The translation mechanism works, but the application code is now
-better structured.
+The translation mechanism works, but the application code is now better structured.
 
 <div class="app-preview">
   ![](images/i18n_finall_app.gif)
