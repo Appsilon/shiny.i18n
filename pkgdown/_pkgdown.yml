@@ -23,17 +23,27 @@ url: https://appsilon.github.io/shiny.i18n/
 
 navbar:
   bg: primary
-  left:
-    - icon: fa-university
+  structure:
+    left: [tutorials, reference, news]
+    right: [search, github, twitter]
+  components:
+    tutorials:
+      icon: fa-university
       text: "Tutorials"
       href: articles/index.html
-    - icon: fa-file-code-o
+    reference:
+      icon: fa-file-code-o
       text: "Reference"
       href: reference/index.html
-  right:
-    - icon: fa-github fa-lg
+    news:
+      icon: fa-newspaper-o
+      text: Changelog
+      href: news/index.html
+    github:
+      icon: fa-github fa-lg
       href: https://github.com/Appsilon/shiny.i18n
-    - icon: fa-twitter fa-lg
+    twitter:
+      icon: fa-twitter fa-lg
       href: https://twitter.com/Appsilon
 
 home:
