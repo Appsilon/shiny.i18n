@@ -4,9 +4,6 @@
     <loc>https://appsilon.github.io/shiny.i18n/404.html</loc>
   </url>
   <url>
-    <loc>https://appsilon.github.io/shiny.i18n/CHANGELOG.html</loc>
-  </url>
-  <url>
     <loc>https://appsilon.github.io/shiny.i18n/LICENSE-text.html</loc>
   </url>
   <url>
@@ -23,6 +20,9 @@
   </url>
   <url>
     <loc>https://appsilon.github.io/shiny.i18n/index.html</loc>
+  </url>
+  <url>
+    <loc>https://appsilon.github.io/shiny.i18n/news/index.html</loc>
   </url>
   <url>
     <loc>https://appsilon.github.io/shiny.i18n/pull_request_template.html</loc>
