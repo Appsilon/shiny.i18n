@@ -4,12 +4,12 @@
 \alias{update_lang}
 \title{Update language (i18n) in UI}
 \usage{
-update_lang(session, language)
+update_lang(language, session = shiny::getDefaultReactiveDomain())
 }
 \arguments{
-\item{session}{Shiny server session}
-
 \item{language}{character with language code}
+
+\item{session}{Shiny server session (default: current reactive domain)}
 }
 \description{
 It sends a message to session object to update the language in UI elements.
