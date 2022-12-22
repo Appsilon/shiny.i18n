@@ -25,7 +25,7 @@ navbar:
   bg: primary
   structure:
     left: [tutorials, reference, news]
-    right: [search, github, twitter]
+    right: [search, github, twitter, mastodon]
   components:
     tutorials:
       icon: fa-university
@@ -45,6 +45,9 @@ navbar:
     twitter:
       icon: fa-twitter fa-lg
       href: https://twitter.com/Appsilon
+    mastodon:
+      icon: fab fa-mastodon fa-lg
+      href: https://fosstodon.org/@appsilon
 
 home:
   sidebar:
