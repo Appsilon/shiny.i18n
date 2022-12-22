@@ -73,13 +73,13 @@ usei18n <- function(translator) {
 #'
 #' It sends a message to session object to update the language in UI elements.
 #'
-#' @param session Shiny server session
 #' @param language character with language code
+#' @param session Shiny server session (default: current reactive domain)
 #'
 #' @import shiny
 #' @export
 #' @seealso usei18n
-update_lang <- function(session, language) {
+update_lang <- function(language, session = shiny::getDefaultReactiveDomain()) {
   if (inherits(session, "session_proxy")) session <- session$rootScope()
   session$sendInputMessage("i18n-state", list(lang = language))
   if (is.null(session$userData$shiny.i18n$lang)) {
