@@ -80,7 +80,7 @@ Appsilon is a **Posit (formerly RStudio) Full Service Certified Partner**.<br/>
 Learn more
 at [appsilon.com](https://appsilon.com).
 
-Get in touch [opensource@appsilon.com](opensource@appsilon.com)
+Get in touch [opensource@appsilon.com](mailto:opensource@appsilon.com)
 
 Check our [Open Source tools](https://shiny.tools).
 
