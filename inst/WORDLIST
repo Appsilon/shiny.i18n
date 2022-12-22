@@ -24,9 +24,11 @@ json
 kling
 lang
 onLoad
+pkgdown
 renderUI
 rowname
 th
+ui
 usei
 www
 yaml
