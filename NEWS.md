@@ -1,6 +1,10 @@
-# shiny.i18n [development version]
+# shiny.i18n (development version)
 
-- 'get_translation_language' added
+- `shiny.i18n` full compatibility with `rhino` applications
+- `get_translation_language` method added to the `Translator` class
+- fixed regex in `extract_key_expressions`
+- translator reads only CSV files with the "translation_" prefix
+- added default session value in `update_lang`
 
 # shiny.i18n 0.2.0
 
