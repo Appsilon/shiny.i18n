@@ -1,10 +1,10 @@
 pandoc: 2.19.2
-pkgdown: 2.0.6
+pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
   basics: basics.html
   translation_format: translation_format.html
-last_built: 2022-12-09T15:38Z
+last_built: 2022-12-22T10:03Z
 urls:
   reference: https://appsilon.github.io/shiny.i18n/reference
   article: https://appsilon.github.io/shiny.i18n/articles
