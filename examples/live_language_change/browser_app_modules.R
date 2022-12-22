@@ -54,7 +54,7 @@ server_module <- function(id) {
       # This print is just for demonstration
       print(paste("Language change!", input$selected_language))
       # Here is where we update language in session
-      update_lang(session, input$selected_language)
+      update_lang(input$selected_language)
     })
 
     server_plot_module("plot", reactive(input$bins))
