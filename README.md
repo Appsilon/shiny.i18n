@@ -66,6 +66,11 @@ Translator$new(translation_csvs_path = "...")
 Translator$new(translation_json_path = "...")
 ```
 
+## `shiny.i18n` and `rhino`
+
+`shiny.i18n` can be used to add live language change feature to Shiny applications built using [Rhino framework](https://appsilon.github.io/rhino/).
+For more details, check [this tutorial](https://appsilon.github.io/shiny.i18n/articles/rhino.html).
+
 ## How to contribute?
 
 If you want to contribute to this project please submit a regular PR, once you're done with a new feature or bug fix.
