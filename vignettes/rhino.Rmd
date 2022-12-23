@@ -27,7 +27,7 @@ Now, initialize a new Rhino application. You can do it either by using RStudio W
 or a function `rhino::init("rhino_i18n")`.
 More details on how to create a Rhino app can be found in the [Rhino tutorial](https://appsilon.github.io/rhino/articles/tutorial/create-your-first-rhino-app.html#create-an-initial-application).
 
-After setting the initial application, the next step is to install `shiny.i18n` and add it to the dependencies.
+After initializing the application, the next step is to install `shiny.i18n` and add it to the dependencies.
 
 _NOTE: `shiny.i18n` compatibility with `rhino` is currently available only in the development version. The installation guide will be updated after the CRAN release._
 
