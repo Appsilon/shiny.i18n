@@ -3,8 +3,9 @@ pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
   basics: basics.html
+  rhino: rhino.html
   translation_format: translation_format.html
-last_built: 2022-12-22T15:35Z
+last_built: 2022-12-23T14:06Z
 urls:
   reference: https://appsilon.github.io/shiny.i18n/reference
   article: https://appsilon.github.io/shiny.i18n/articles
