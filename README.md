@@ -50,6 +50,8 @@ You can find some basic examples in `examples` folder:
 
 4) Example of translation [data format](https://github.com/Appsilon/shiny.i18n/tree/master/examples/data).
 
+5) **shiny.i18n** also works seamlessly with [Quarto](https://github.com/Appsilon/shiny.i18n/tree/master/examples/quarto).
+
 #### Translation file format
 
 Currently **shiny.i18n** supports two translation formats:
