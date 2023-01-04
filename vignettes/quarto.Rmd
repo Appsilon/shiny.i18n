@@ -1,0 +1,18 @@
+---
+title: "shiny.i18n in Quarto"
+author: "Appsilon"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{shiny.i18n in Quarto}
+  %\VignetteEngine{knitr::knitr}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE, screenshot.force = FALSE}
+library(shiny)
+library(shiny.i18n)
+library(quarto)
+```
+
+In this tutorial, we will integrate `{shiny.i18n}` in a {quarto} document or a .qmd file.
+
