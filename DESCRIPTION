@@ -38,5 +38,6 @@ Suggests:
     rmarkdown,
     spelling,
     testthat,
-    withr
+    withr,
+    quarto
 Language: en-US

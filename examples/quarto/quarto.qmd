@@ -1,0 +1,75 @@
+---
+title: "Mental Models"
+---
+
+```{r}
+
+# install.packages("shiny.i18n")
+library(shiny.i18n)
+
+```
+
+## Mental Models
+
+This is an experimental Quarto document to check whether we can use {shiny.i18n} with Quarto. The idea is simply to create a mock document and try using the package.
+
+[source](https://www.mentalmodelsbox.com/explore)
+
+### Occam's Razor
+
+When comparing hypotheses, the one with the fewest assumptions should be selected.
+
+#### Description
+
+Occam's razor originally stated that entities should not be multiplied unnecessarily. In other words, don't complicate things when you don't need to. By shaving off unnecessary additions, the resulting explanation tends to be less ambiguous, easier to verify, and just plain simpler. Occam's Razor is often mentioned when selecting a simple solution over a complex one. Note that this is a slightly stronger form than the principle intended--reality can be complex and there are cases where the simple solution is not correct.
+
+#### Examples
+
+-   A sore throat during during the winter is probably the result of a cold even though the symptoms match a rare terminal disease on WebMD.
+-   The pyramids being built by humans has far less assumptions than the pyramids being built by aliens.
+
+## Let's Try Translating
+
+First, we will make a simple Translator object.
+
+```{r}
+
+i18n <- Translator$new(translation_json_path = "translations.json")
+
+# Setting language to "pl" or Polish
+# This should be defined in the file passed for 'translation_json_path'
+
+i18n$set_translation_language("pl")
+
+i18n
+
+```
+
+Let's use Inline Code with the format `"r { code here }"`
+
+## `r { i18n$t("report_title") }`
+
+`r { i18n$t("title_desc") }`
+
+`r { i18n$t("source_link") }`
+
+### `r { i18n$t("subhead_one") }`
+
+`r { i18n$t("one_liner") }`
+
+#### `r { i18n$t("subhead_two") }`
+
+`r { i18n$t("definition") }`
+
+#### `r { i18n$t("subhead_three") }`
+
+-   `r { i18n$t("example_one") }`
+-   `r { i18n$t("example_two") }`
+
+## Conclusion
+
+Using `{shiny.i18n}` in Quarto has some caveats, but it works well.
+
+**The Good**: We can use it as inline code as well as in chunks. The setup is exactly the same as with other projects
+
+**The-Not-So-Good**: The Visual editor does not display the code results. We can only see it once we Render the document. But that is how it works for all R code, in general.

@@ -1,0 +1,65 @@
+{
+  "cultural_date_format": "%d-%m-%Y",
+  "languages": [
+    "key",
+    "en",
+    "pl"
+  ],
+  "translation": [
+    {
+      "key": "language_code",
+      "en": "English",
+      "pl": "Polish"
+    },
+    {
+      "key": "report_title",
+      "en": "Mental Models",
+      "pl": "Modele psychologiczne"
+    },
+    {
+      "key": "title_desc",
+      "en": "This is an experimental Quarto document to check whether we can use {shiny.i18n} with Quarto. The idea is simply to create a mock document and try using the package.",
+      "pl": "To jest eksperymentalny dokument Quarto, aby sprawdzić, czy możemy używać {shiny.i18n} z Quarto. Chodzi o to, aby po prostu stworzyć próbny dokument i spróbować użyć pakietu."
+    },
+    {
+      "key": "source_link",
+      "en": "[source](https://www.mentalmodelsbox.com/explore)",
+      "pl": "[źródło](https://www.mentalmodelsbox.com/explore)"
+    },
+    {
+      "key": "subhead_one",
+      "en": "Occam's Razor",
+      "pl": "Brzytwa Ockhama"
+    },
+    {
+      "key": "one_liner",
+      "en": "When comparing hypotheses, the one with the fewest assumptions should be selected.",
+      "pl": "Porównując hipotezy, należy wybrać tę, która ma najmniej założeń."
+    },
+    {
+      "key": "subhead_two",
+      "en": "Description",
+      "pl": "Opis"
+     },
+     {
+       "key": "definition",
+       "en": "Occam's razor originally stated that entities should not be multiplied unnecessarily. In other words, don't complicate things when you don't need to. By shaving off unnecessary additions, the resulting explanation tends to be less ambiguous, easier to verify, and just plain simpler. Occam's Razor is often mentioned when selecting a simple solution over a complex one. Note that this is a slightly stronger form than the principle intended--reality can be complex and there are cases where the simple solution is not correct.",
+       "pl": "Brzytwa Ockhama pierwotnie głosiła, że bytów nie należy mnożyć niepotrzebnie. Innymi słowy, nie komplikuj rzeczy, gdy nie musisz. Pozbywając się zbędnych dodatków, uzyskane wyjaśnienie wydaje się być mniej niejednoznaczne, łatwiejsze do zweryfikowania i po prostu prostsze. Brzytwa Ockhama jest często wymieniana przy wyborze prostego rozwiązania zamiast złożonego. Zauważ, że jest to nieco mocniejsza forma niż zamierzona zasada — rzeczywistość może być złożona i zdarzają się przypadki, w których proste rozwiązanie nie jest poprawne."
+     },
+     {
+       "key": "subhead_three",
+       "en": "Examples",
+       "pl": "Przykłady"
+     },
+     {
+       "key": "example_one",
+       "en": "A sore throat during during the winter is probably the result of a cold even though the symptoms match a rare terminal disease on WebMD.",
+       "pl": "Ból gardła w okresie zimowym jest prawdopodobnie wynikiem przeziębienia, mimo że objawy pasują do rzadkiej śmiertelnej choroby na WebMD."
+     },
+     {
+       "key": "example_two",
+       "en": "The pyramids being built by humans has far less assumptions than the pyramids being built by aliens.",
+       "pl": "Piramidy budowane przez ludzi mają znacznie mniej założeń niż piramidy budowane przez kosmitów."
+     }
+   ]
+}
