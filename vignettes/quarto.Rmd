@@ -14,7 +14,7 @@ library(shiny.i18n)
 library(quarto)
 ```
 
-In this tutorial, we will integrate `shiny.i18n` in a {quarto} document or a .qmd file. Before continuing, we recommend you follow through with the [basics](https://appsilon.github.io/shiny.i18n/articles/basics.html) of `shiny.i18n`, if you haven't already. Once you are equipped with the basics and setting up a translation file, this tutorial will be easier to follow.
+In this tutorial, we will integrate `shiny.i18n` in a {quarto} document or a `.qmd` file. Before continuing, we recommend you follow through with the [basics](https://appsilon.github.io/shiny.i18n/articles/basics.html) of `shiny.i18n`, if you haven't already. Once you are equipped with the basics and setting up a translation file, this tutorial will be easier to follow.
 
 ## Creating a Quarto Document
 
