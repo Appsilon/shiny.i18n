@@ -1,0 +1,20 @@
+{
+  "languages":
+    [
+      "key",
+      "en",
+      "pl",
+      "de",
+      "fr"
+    ],
+  "translation":
+    [
+      {
+        "key": "quote",
+        "en": "Here's to the crazy ones. The misfits, the rebels, the troublemakers, the round pegs in the square holes, the ones who see things differently. They're not fond of rules, and they have no respect for the status quo.",
+        "pl": "Oto dla szalonych. Odmieńcy, buntownicy, wichrzyciele, okrągłe kołki w kwadratowych dziurach, ci, którzy widzą rzeczy inaczej. Nie lubią zasad i nie mają szacunku dla status quo.",
+        "de": "Auf die Verrückten. Die Außenseiter, die Rebellen, die Unruhestifter, die runden Stifte in den eckigen Löchern, die das anders sehen. Sie mögen keine Regeln und haben keinen Respekt vor dem Status quo.",
+        "fr": "Voici pour les fous. Les inadaptés, les rebelles, les fauteurs de troubles, les chevilles rondes dans les trous carrés, ceux qui voient les choses différemment. Ils n'aiment pas les règles et n'ont aucun respect pour le statu quo."
+      }
+    ]
+}
