@@ -1,0 +1,44 @@
+{
+  "cultural_date_format": "%d-%m-%Y",
+  "languages": [
+    "key",
+    "en",
+    "es",
+    "fr",
+    "de",
+    "it",
+    "zh",
+    "ja",
+    "ko",
+    "pl",
+    "hi"
+  ],
+  "translation": [
+    {
+      "key": "language_name",
+      "en": "English",
+      "es": "Spanish",
+      "fr": "French",
+      "de": "German",
+      "it": "Italian",
+      "zh": "Chinese (Simplified)",
+      "ja": "Japanese",
+      "ko": "Korean",
+      "pl": "Polish",
+      "hi": "Hindi"
+    },
+    {
+      "key": "method",
+      "en": "Crack the egg into a bowl and beat it with a fork. Heat a pan over medium heat and add a small amount of butter or oil. Pour the beaten egg into the pan and stir constantly until the egg is fully cooked and no longer liquid.",
+      "es": "Rompe un huevo en un tazón y bátelo con un tenedor. Calienta una sartén a fuego medio y agrega una pequeña cantidad de mantequilla o aceite. Vierte el huevo batido en la sartén y revuelve constantemente hasta que el huevo esté completamente cocido y ya no sea líquido.",
+      "fr": "Cassez un œuf dans un bol et battez-le avec une fourchette. Faites chauffer une poêle à feu moyen et ajoutez une petite quantité de beurre ou d'huile. Versez l'œuf battu dans la poêle et mélangez constamment jusqu'à ce que l'œuf soit complètement cuit et ne soit plus liquide.",
+      "de": "Brich ein Ei in eine Schüssel und schlage es mit einer Gabel auf. Erhitze eine Pfanne bei mittlerer Hitze und füge eine kleine Menge Butter oder Öl hinzu. Gieße das aufgeschlagene Ei in die Pfanne und rühre ständig, bis das Ei vollständig gekocht ist und keine Flüssigkeit mehr enthält.",
+      "it": "Rompi un uovo in una ciotola e sbattilo con una forchetta. Scalda una padella a fuoco medio e aggiungi una piccola quantità di burro o olio. Versa l'uovo sbattuto nella padella e mescola costantemente finché l'uovo non è completamente cotto e non è più liquido.",
+      "zh": "把一个鸡蛋打进碗里，用叉子搅打。煎锅中火，加入少量黄油或油。倒入蛋液，不断搅拌直到蛋完全煮熟且不再是液体即可。",
+      "ja": "ボウルに卵を割り、フォークで混ぜる。フライパンを中火にして、少量のバターまたはオイルを入れる。卵を入れ、完全に焼けるまで混ぜ続ける。",
+      "ko": "접시에 알을 깨고, 포크로 휘젓습니다. 프라이팬을 중간 불에 올려, 소금이나 오일을 약간 추가합니다. 깨진 알을 프라이팬에 넣고, 완전히 익을 때까지 지속적으로 휘젓습니다.",
+      "pl": "Złam jajko do miski i roztrzep je za pomocą widełek. Rozgrzej patelnię na średnim ogniu i dodaj niewielką ilość masła lub oleju. Wlej roztrzepane jajko na patelnię i mieszaj ciągle aż jajko całkowicie się ugotuje i nie będzie już płynne.",
+      "hi": "एक बोल में एक अंडा टूटकर फोर्क से मिलाएँ। मध्यम ऊर्जा पर पैन सजाएँ और थोड़ा मक्खन या तेल डालें। मिलाई हुई अंडे को पैन में डालें और अंडा पूरी तरह से पकने तक हमेशा हिलाएँ।"
+    }
+   ]
+}
