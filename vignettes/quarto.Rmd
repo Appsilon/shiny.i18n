@@ -168,6 +168,8 @@ But for now, we do not need any such thing. We can simply set up the `translatio
 
 Once this is set up and saved in the same directory, our `Translator` object will be created without any issues.
 
+## Using Translations
+
 One crucial thing to understand here is that we will use the following syntax to translate into a particular language.
 
 ```r
@@ -183,6 +185,8 @@ i18n$t("method")
 ```
 
 In markdown files, if we want to use `R` code inline, we can only use it by wrapping it in curly braces `"r { CODE HERE }"` and having two lines of code will make it a bit unclear to read. Let's create a function.
+
+### Making It Cleaner
 
 ```r
 get_translation <- function(translator_object, language_code, content_key) {
@@ -261,13 +265,15 @@ This sets up an H2 Heading as well as the text that follows it. Here, we are set
 `r { get_translation(i18n, "hi", "method") }`
 ````
 
-Simple, isn't it!? That's all we have to do for the `shiny.i18n` side of things. Now, let's wrap this up with a conclusion.
+**Simple, isn't it!?** That's all we have to do for the `shiny.i18n` side of things. Now, let's wrap this up with a conclusion.
 
 ```md
 ## Get Scrambling
 
 This little guide was a demonstration of how you can use `shiny.i18n` with Quarto to create a document in multiple languages. And what's more, you now know how to scramble eggs! You can view the full tutorial [here](https://appsilon.github.io/shiny.i18n/articles/quarto.html)
 ```
+
+## Conclusion 
 
 And voila! Scrambled and served. You should now be able to render the Quarto document and it should look like the article in the screenshot or like [this](https://github.com/Appsilon/shiny.i18n/tree/master/examples/quarto_tutorial/quarto_shinyi18n.html).
 
