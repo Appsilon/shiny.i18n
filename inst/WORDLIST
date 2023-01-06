@@ -1,14 +1,15 @@
+Addin
 Addins
 Appsilon
 CMD
 Config
 JS
 JSON
+Pixabay
 RMarkdown
 RStudio
 UI
 YAML
-addin
 addin
 api
 appsilon
@@ -25,6 +26,7 @@ kling
 lang
 onLoad
 pkgdown
+pre
 renderUI
 rowname
 th
