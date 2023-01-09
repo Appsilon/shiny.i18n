@@ -1,0 +1,56 @@
+---
+title: "Quarto (Interactive Example)"
+author: "Appsilon"
+format:
+   html: default
+server: shiny
+---
+
+## Introduction
+
+In this example, we will try to define a Quarto document to showcase how we can use `shiny.i18n` in an interactive manner. To learn more about Quarto and how it integrates with R/Shiny, check out the [official documentation](https://quarto.org/docs/interactive/shiny/>).
+
+```{r eval=FALSE, include=FALSE}
+
+# Since this requires a Shiny instance running, we recommend you clone this example and run it manually.
+# Alternatively, if you are only looking to experience it, you can also view the deployed version at 
+# https://connect.appsilon.com/shinyi18n-quarto-interactive-example
+
+```
+
+
+## An Illustration
+
+Here, we translate a famous quote from the one of the most famous people to have ever existed in tech, **Steve Jobs**...
+
+```{r}
+
+selectInput(
+  "language",
+  "Select language: ",
+  list("English 🇬🇧" = "en",
+       "Polish 🇵🇱" = "pl",
+       "German 🇩🇪" = "de",
+       "French 🇫🇷" = "fr"),
+  selected = "en",
+  multiple = FALSE,
+  selectize = TRUE
+)
+
+htmlOutput("quote")
+HTML("<em>— Steve Jobs</em>")
+br()
+```
+
+```{r}
+#| context: server
+
+library(shiny.i18n)
+
+i18n <- Translator$new(translation_json_path = "translation.json")
+
+output$quote <- renderText({
+   i18n$set_translation_language(input$language)
+   paste0("<blockquote style='text-align: justify;'>", i18n$t("quote"), "</blockquote>")
+})
+```
