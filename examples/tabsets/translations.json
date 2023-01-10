@@ -1,0 +1,8 @@
+{
+  "languages": ["en", "pl"],
+  "translation": [
+      {"en": "Header", "pl": "Nagłówek"},
+      {"en": "Tab 1", "pl": "Zakładka 1"},
+      {"en": "Tab 2", "pl": "Zakładka 2"}
+    ]
+}
