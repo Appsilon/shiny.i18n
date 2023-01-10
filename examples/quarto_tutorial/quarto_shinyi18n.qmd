@@ -41,17 +41,17 @@ get_translation <- function(translator_object, language_code, content_key) {
 
 `r { get_translation(i18n, "it", "method") }`
 
-## `r { get_translation(i18n, "zh", "language_name") }`
+## `r { get_translation(i18n, "pt", "language_name") }`
 
-`r { get_translation(i18n, "zh", "method") }`
+`r { get_translation(i18n, "pt", "method") }`
 
 ## `r { get_translation(i18n, "ja", "language_name") }`
 
 `r { get_translation(i18n, "ja", "method") }`
 
-## `r { get_translation(i18n, "ko", "language_name") }`
+## `r { get_translation(i18n, "sv", "language_name") }`
 
-`r { get_translation(i18n, "ko", "method") }`
+`r { get_translation(i18n, "sv", "method") }`
 
 ## `r { get_translation(i18n, "pl", "language_name") }`
 
