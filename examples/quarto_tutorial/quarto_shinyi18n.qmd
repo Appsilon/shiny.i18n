@@ -1,0 +1,66 @@
+---
+title: "How To Scramble Eggs in 10 Languages?"
+---
+
+Here is how you can scramble an egg in ten languages.
+
+![](eggs.jpg){width=100%}
+
+_Image:_ [_Pixabay_](https://pixabay.com/photos/scrambled-eggs-eggs-breakfast-food-6582990/)
+
+```{r include=FALSE}
+
+library(shiny.i18n)
+
+i18n <- Translator$new(translation_json_path = "translation.json")
+
+get_translation <- function(translator_object, language_code, content_key) {
+  translator_object$set_translation_language(language_code)
+  translator_object$t(content_key)
+}
+
+```
+
+## `r { get_translation(i18n, "en", "language_name") }`
+
+`r { get_translation(i18n, "en", "method") }`
+
+## `r { get_translation(i18n, "es", "language_name") }`
+
+`r { get_translation(i18n, "es", "method") }`
+
+## `r { get_translation(i18n, "fr", "language_name") }`
+
+`r { get_translation(i18n, "fr", "method") }`
+
+## `r { get_translation(i18n, "de", "language_name") }`
+
+`r { get_translation(i18n, "de", "method") }`
+
+## `r { get_translation(i18n, "it", "language_name") }`
+
+`r { get_translation(i18n, "it", "method") }`
+
+## `r { get_translation(i18n, "pt", "language_name") }`
+
+`r { get_translation(i18n, "pt", "method") }`
+
+## `r { get_translation(i18n, "ja", "language_name") }`
+
+`r { get_translation(i18n, "ja", "method") }`
+
+## `r { get_translation(i18n, "sv", "language_name") }`
+
+`r { get_translation(i18n, "sv", "method") }`
+
+## `r { get_translation(i18n, "pl", "language_name") }`
+
+`r { get_translation(i18n, "pl", "method") }`
+
+## `r { get_translation(i18n, "hi", "language_name") }`
+
+`r { get_translation(i18n, "hi", "method") }`
+
+## Get Scrambling
+
+This little guide was a demonstration of how you can use `shiny.i18n` with Quarto to create a document in multiple languages. And what's more, you now know how to scramble eggs! You can view the full tutorial [here](https://appsilon.github.io/shiny.i18n/articles/quarto.html)
