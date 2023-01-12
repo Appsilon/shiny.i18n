@@ -16,7 +16,7 @@ template:
       </script>
       <script async defer src="https://buttons.github.io/buttons.js"></script>
     before_navbar: |
-      <a href="https://shiny.tools" class="home"><i class="fa fa-lg fa-chevron-left"></i></a>
+      <a href="https://shiny.tools/#shiny-i18n" class="home"><i class="fa fa-lg fa-chevron-left"></i></a>
 
 
 url: https://appsilon.github.io/shiny.i18n/
@@ -24,9 +24,13 @@ url: https://appsilon.github.io/shiny.i18n/
 navbar:
   bg: primary
   structure:
-    left: [tutorials, reference, news]
+    left: [home, tutorials, reference, news]
     right: [search, github, twitter, mastodon]
   components:
+    home:
+      icon: fa-home
+      text: "Start"
+      href: index.html
     tutorials:
       icon: fa-university
       text: "Tutorials"
