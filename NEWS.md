@@ -1,4 +1,4 @@
-# shiny.i18n (development version)
+# shiny.i18n 0.3.0
 
 - `shiny.i18n` full compatibility with `rhino` applications
 - `get_translation_language` method added to the `Translator` class
