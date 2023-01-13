@@ -4,7 +4,7 @@
 
 <!-- badges: start -->
 [![CRAN status](https://www.r-pkg.org/badges/version/shiny.i18n)](https://cran.r-project.org/package=shiny.i18n)
-[![codecov](https://codecov.io/gh/Appsilon/shiny.i18n/branch/master/graph/badge.svg)](https://codecov.io/gh/Appsilon/shiny.i18n)
+[![codecov](https://codecov.io/gh/Appsilon/shiny.i18n/branch/master/graph/badge.svg)](https://app.codecov.io/gh/Appsilon/shiny.i18n/)
 [![cranlogs](https://cranlogs.r-pkg.org/badges/shiny.i18n)](https://CRAN.R-project.org/package=shiny.i18n)
 [![total](https://cranlogs.r-pkg.org/badges/grand-total/shiny.i18n)](https://CRAN.R-project.org/package=shiny.i18n)
 [![R-CMD-check](https://github.com/Appsilon/shiny.i18n/workflows/R-CMD-check/badge.svg)](https://github.com/Appsilon/shiny.i18n/actions/workflows/main.yaml)
