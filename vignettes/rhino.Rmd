@@ -29,12 +29,9 @@ More details on how to create a Rhino app can be found in the [Rhino tutorial](h
 
 After initializing the application, the next step is to install `shiny.i18n` and add it to the dependencies.
 
-_NOTE: `shiny.i18n` compatibility with `rhino` is currently available only in the development version. The installation guide will be updated after the CRAN release._
-
 In the R console run:
 ```r
-renv::install("remotes")
-remotes::install_github("Appsilon/shiny.i18n")
+install.packages("shiny.i18n")
 ```
 
 After that, modify `dependencies.R` file:
