@@ -45,7 +45,7 @@ Here is how you can scramble an egg in ten languages.
 
 ```
 
-Next, we need the header image, which you can get as a free to use image from [Pixabay]https://pixabay.com/photos/scrambled-eggs-eggs-breakfast-food-6582990/).
+Next, we need the header image, which you can get as a free to use image from [Pixabay](https://pixabay.com/photos/scrambled-eggs-eggs-breakfast-food-6582990/).
 
 Let's call it `eggs.jpg` and place it in the same directory as a our `.qmd` file.
 
