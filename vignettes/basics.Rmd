@@ -128,7 +128,7 @@ ui <- fluidPage(usei18n(i18n),
 
 server <- function(input, output, session) {
   observeEvent(input$go,{
-       update_lang(session, "pl")
+       update_lang("pl", session)
   })
 }
 
