@@ -1,16 +1,16 @@
-#' This minimal example demonstrates translating ui elements using shiny.18n
+#' This example demonstrates adding minimal style to the language dropdown.
 
 library(shiny)
 library(shiny.i18n)
 
 # Folder that contains csv translation files
-i18n <- Translator$new(translation_csvs_path = "data")
+i18n <- Translator$new(translation_csvs_path = "../data")
 
 # Default language of the app
 i18n$set_translation_language("en")
 
 ui <- fluidPage(
-  #Use i18n in UI
+  # Use i18n in UI
   usei18n(i18n),
   selectInput(
     inputId = "selected_language",
@@ -21,12 +21,7 @@ ui <- fluidPage(
     ),
     selected = i18n$get_key_translation()
   ),
-  sliderInput("bins",
-              i18n$t("Number of bins:"),
-              min = 1,
-              max = 50,
-              value = 30
-  ),
+  sliderInput("bins", i18n$t("Number of bins:"), min = 1, max = 50, value = 30),
   p(i18n$t("This is description of the plot."))
 )
 
