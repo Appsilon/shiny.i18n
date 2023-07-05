@@ -67,8 +67,8 @@ test_that("Test create_translation_addin", {
     },
     `create_translation_file` = function(path, format) {
       # Mock the behavior of create_translation_file
-      expect_equal(path, temp, info = "create_translation_file should be called with the correct path")
-      expect_equal(format, "json", info = "create_translation_file should be called with the correct format")
+      expect_equal(path, temp)
+      expect_equal(format, "json")
     },
     {
       # Call the function

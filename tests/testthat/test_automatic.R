@@ -5,7 +5,7 @@ test_that("translate_with_google_cloud", {
     withr::with_envvar(
       new = c(
         GL_AUTH = "None"
-      ),{
+      ), {
         # Arrange
         txt <- "Hello, how are you?"
         target_lang <- "fr"
