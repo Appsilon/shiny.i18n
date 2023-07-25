@@ -49,7 +49,7 @@ test_that("test save_to_csv", {
   file.remove("tmp.R")
 })
 
-test_that("Test create_translation_addin", {
+test_that("create_translation_addin has proper behavior for rstudio addin", {
   temp <- tempfile()
   # Mock the behavior of RStudio API calls
   with_mock(
