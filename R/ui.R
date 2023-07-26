@@ -8,12 +8,12 @@
 #' @import shiny
 #' @keywords internal
 i18n_state <- function(init_language) {
-    shiny::tags$div(
-      id = "i18n-state",
-      `data-keylang` = init_language,
-      `data-lang` = init_language,
-      style = "visibility: hidden; margin: 0; padding: 0; overflow: hidden; max-height: 0;"
-    )
+  shiny::tags$div(
+    id = "i18n-state",
+    `data-keylang` = init_language,
+    `data-lang` = init_language,
+    style = "visibility: hidden; margin: 0; padding: 0; overflow: hidden; max-height: 0;"
+  )
 }
 
 #' Use i18n in UI

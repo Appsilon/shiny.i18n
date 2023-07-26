@@ -10,12 +10,17 @@
 #' @importFrom utils read.csv
 #' @keywords internal
 multmerge <- function(filenames, sep = ",") {
-  datalist <- lapply(filenames, function(x) {
-    read.csv(file = x,
-             sep = sep,
-             header = TRUE,
-             encoding = "UTF-8")
-    })
+  datalist <- lapply(
+    filenames,
+    function(x) {
+      read.csv(
+        file = x,
+        sep = sep,
+        header = TRUE,
+        encoding = "UTF-8"
+      )
+    }
+  )
   if (!validate_names(datalist))
     stop("Key translation is not the same in all files.")
   Reduce(
@@ -99,12 +104,15 @@ read_and_merge_csvs <- function(dir_path, sep = ",") {
 #' @import yaml
 #' @keywords internal
 load_local_config <- function(yaml_config_path) {
-  if (!is.null(yaml_config_path) &&
-      file.exists(yaml_config_path)) {
+  if (!is.null(yaml_config_path) && file.exists(yaml_config_path)) {
     local_config <- yaml::yaml.load_file(yaml_config_path)
   } else {
-    warning(paste0("You didn't specify config translation yaml file. ",
-                   "Default settings are used."))
+    warning(
+      paste0(
+        "You didn't specify config translation yaml file. ",
+        "Default settings are used."
+      )
+    )
     local_config <- list()
   }
   local_config

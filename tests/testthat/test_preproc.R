@@ -48,3 +48,32 @@ test_that("test save_to_csv", {
   file.remove(tmp_json)
   file.remove("tmp.R")
 })
+
+test_that("create_translation_addin has proper behavior for rstudio addin", {
+  temp <- tempfile()
+  # Mock the behavior of RStudio API calls
+  with_mock(
+    `rstudioapi::showDialog` = function(...) {
+      message("Mock: showDialog called")
+      TRUE
+    },
+    `rstudioapi::getActiveDocumentContext` = function() {
+      message("Mock: getActiveDocumentContext called")
+      list(path = temp)
+    },
+    `rstudioapi::showQuestion` = function(...) {
+      message("Mock: showQuestion called")
+      TRUE
+    },
+    `create_translation_file` = function(path, format) {
+      # Mock the behavior of create_translation_file
+      expect_equal(path, temp)
+      expect_equal(format, "json")
+    },
+    {
+      # Call the function
+      create_translation_addin()
+    }
+  )
+
+})
