@@ -152,10 +152,13 @@ Translator <- R6Class( #nolint
     automatic_translate = function(keyword, api = "google") {
       if (identical(private$translation_language, character(0)))
         stop("Please provide a 'translation_language'. Check docs how.")
-      tr <- switch(api,
-                   google = translate_with_google_cloud(keyword,
-                                                        private$translation_language),
-                   stop("This 'api' is not supported.")
+      tr <- switch(
+        api,
+        google = translate_with_google_cloud(
+          keyword,
+          private$translation_language
+        ),
+        stop("This 'api' is not supported.")
       )
       tr
     },

@@ -32,9 +32,12 @@ extract_key_expressions <- function(text, handle = "i18n") {
 #' @keywords internal
 save_to_json <- function(key_expressions, output_path = NULL) {
   list_to_save <- list(
-    translation = lapply(key_expressions,
-                         function(x) list(key = unbox(x))),
-    languages = "key")
+    translation = lapply(
+      key_expressions,
+      function(x) list(key = unbox(x))
+    ),
+    languages = "key"
+  )
 
   if (is.null(output_path)) output_path <- "translation.json"
   write_json(list_to_save, output_path)

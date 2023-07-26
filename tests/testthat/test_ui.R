@@ -19,16 +19,16 @@ test_that("usei18n returns proper format of shiny.tags from JSON parameters", {
     c("shiny.tag.list", "list")
   )
   expect_equal(
-   as.character(i18ntag[[1]]$children[[1]]),
-   paste0(
-     "<script>var i18n_translations = ",
-     "[{\"pl\":\"Witaj Shiny!\",\"en\":\"Hello Shiny!\",\"_row\":\"Hello Shiny!\"},",
-     "{\"pl\":\"Liczba podziałek\",\"en\":\"Number of bins:\",\"_row\":\"Number of bins:\"},",
-     "{\"pl\":\"To jest opis obrazka.\",\"en\":\"This is description of the plot.\",\"_row\":",
-     "\"This is description of the plot.\"},",
-     "{\"pl\":\"Histogram x\",\"en\":\"Histogram of x\",\"_row\":\"Histogram of x\"},",
-     "{\"pl\":\"Częstotliwość\",\"en\":\"Frequency\",\"_row\":\"Frequency\"}]</script>"
-   )
+    as.character(i18ntag[[1]]$children[[1]]),
+    paste0(
+      "<script>var i18n_translations = ",
+      "[{\"pl\":\"Witaj Shiny!\",\"en\":\"Hello Shiny!\",\"_row\":\"Hello Shiny!\"},",
+      "{\"pl\":\"Liczba podziałek\",\"en\":\"Number of bins:\",\"_row\":\"Number of bins:\"},",
+      "{\"pl\":\"To jest opis obrazka.\",\"en\":\"This is description of the plot.\",\"_row\":",
+      "\"This is description of the plot.\"},",
+      "{\"pl\":\"Histogram x\",\"en\":\"Histogram of x\",\"_row\":\"Histogram of x\"},",
+      "{\"pl\":\"Częstotliwość\",\"en\":\"Frequency\",\"_row\":\"Frequency\"}]</script>"
+    )
   )
   expect_equal(
     as.character(i18ntag[[1]]$children[[2]]),
@@ -39,7 +39,7 @@ test_that("usei18n returns proper format of shiny.tags from JSON parameters", {
     list(
       id = "i18n-state",
       style = "visibility: hidden; margin: 0; padding: 0; overflow: hidden; max-height: 0;"
-     )
+    )
   )
 })
 
