@@ -28,7 +28,7 @@ Encoding: UTF-8
 LazyData: true
 URL: https://appsilon.github.io/shiny.i18n/, https://github.com/Appsilon/shiny.i18n
 BugReports: https://github.com/Appsilon/shiny.i18n/issues
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
 Suggests:
     covr,
     googleLanguageR,

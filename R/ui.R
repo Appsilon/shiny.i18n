@@ -41,7 +41,7 @@ i18n_state <- function(init_language) {
 #'
 #'   server <- shinyServer(function(input, output, session) {
 #'     observeEvent(input$go,{
-#'       update_lang(session, "pl")
+#'       update_lang("pl")
 #'     })
 #'   })
 #'

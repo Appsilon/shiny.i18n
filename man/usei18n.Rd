@@ -30,7 +30,7 @@ if (interactive()) {
 
   server <- shinyServer(function(input, output, session) {
     observeEvent(input$go,{
-      update_lang(session, "pl")
+      update_lang("pl")
     })
   })
 
