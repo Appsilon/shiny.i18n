@@ -66,6 +66,7 @@ Modify `app/main.R` in the following way:
 box::use(
   shiny,
   graphics[hist],
+  datasets[faithful],
 )
 
 #' @export
@@ -103,7 +104,8 @@ ui <- function(id) {
 server <- function(id) {
   shiny$moduleServer(id, function(input, output, session) {
     output$distPlot <- shiny$renderPlot({
-      x <- datasets::faithful[, 2]
+      # Note : If you are using `box>=1.1.3`, import datasets directly without using `datasets::faithful`
+      x <- faithful[, 2]
       bins <- seq(min(x), max(x), length.out = input$bins + 1)
       hist(
         x,
@@ -287,6 +289,7 @@ box::use(
   shiny,
   graphics[hist],
   shiny.i18n[Translator, usei18n, update_lang],
+  datasets[faithful],
 )
 
 i18n <- Translator$new(translation_json_path = "app/translations/translations.json")
@@ -333,7 +336,8 @@ server <- function(id) {
     })
 
     output$distPlot <- shiny$renderPlot({
-      x <- datasets::faithful[, 2]
+      # Note : If you are using `box>=1.1.3`, import datasets directly without using `datasets::faithful`
+      x <- faithful[, 2]
       bins <- seq(min(x), max(x), length.out = input$bins + 1)
       hist(
         x,
@@ -418,6 +422,7 @@ box::use(
   shiny,
   graphics[hist],
   shiny.i18n[Translator, usei18n, update_lang],
+  datasets[faithful],
 )
 
 i18n <- Translator$new(translation_json_path = "app/translations/translations.json")
@@ -464,7 +469,8 @@ server <- function(id) {
     })
 
     output$distPlot <- shiny$renderPlot({
-      x <- datasets::faithful[, 2]
+      # Note : If you are using `box>=1.1.3`, import datasets directly without using `datasets::faithful`
+      x <- faithful[, 2]
       bins <- seq(min(x), max(x), length.out = input$bins + 1)
       hist(
         x,
@@ -522,6 +528,7 @@ Now, let's move the main panel from `app/main.R` into `app/view/main_panel.R`:
 box::use(
   shiny,
   graphics[hist],
+  datasets[faithful],
 )
 
 #' @export
@@ -538,7 +545,8 @@ ui <- function(id, i18n) {
 server <- function(id, bins, i18n) {
   shiny$moduleServer(id, function(input, output, session) {
     output$distPlot <- shiny$renderPlot({
-      x <- datasets::faithful[, 2]
+      # Note : If you are using `box>=1.1.3`, import datasets directly without using `datasets::faithful`
+      x <- faithful[, 2]
       bins <- seq(min(x), max(x), length.out = bins() + 1)
       hist(
         x,
