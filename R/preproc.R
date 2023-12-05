@@ -86,6 +86,36 @@ create_translation_file <- function(path, type = "json", handle = "i18n",
   )
 }
 
+#' Combine two translation json files
+#'
+#' @param x \code{chr/list} A path to a file or a list via \link[jsonlite]{fromJSON}
+#' @param y \code{chr/list} A path to a file or a list via \link[jsonlite]{fromJSON}
+#'
+#' @return \code{list} combined translation object
+#' @export
+#'
+
+combine_translations <- function(x, y) {
+  if (!do.call(identical, sapply(list(x, y), \(.x) unlist(.x$languages), simplify = FALSE))) {
+    stop("x & y must have the same languages")
+  }
+  translations <- lapply(list(x = x, y = y), \(.x) {
+    if (is.character(.x)) {
+      if (!file.exists(.x))
+        stop(paste0(.x, " does not exist. Check the path."))
+      jsonlite::read_json(.x)
+    } else
+      .x
+  })
+
+  combined <- lapply(translations, \(.x) .x$translation)
+  combined <- append(combined$x, combined$y)
+  # Remove duplicated entries based on the source string
+  combined <- combined[!duplicated(sapply(combined, \(.x) .x[[1]]))]
+  translations$x$translation <- combined
+  return(translations$x)
+}
+
 #' Create translation file addin
 #' @keywords internal
 create_translation_addin <- function() {
