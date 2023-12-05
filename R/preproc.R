@@ -40,7 +40,19 @@ save_to_json <- function(key_expressions, output_path = NULL) {
   )
 
   if (is.null(output_path)) output_path <- "translation.json"
-  write_json(list_to_save, output_path)
+  write_json_translations(list_to_save, output_path)
+}
+
+#' Write a list object as a JSON
+#'
+#' @inheritParams jsonlite::write_json
+#' @inheritDotParams jsonlite::toJSON
+#'
+#' @return None, writes to `path`
+#' @export
+
+write_json_translations <- function(x, path, auto_unbox = TRUE, pretty = TRUE, ...) {
+  jsonlite::write_json(x, path, auto_unbox = auto_unbox, pretty = pretty, ...)
 }
 
 #' Save example i18n file to CSV
@@ -117,6 +129,8 @@ combine_translations <- function(x, y) {
   translations$x$translation <- combined
   return(translations$x)
 }
+
+
 
 #' Create translation file addin
 #' @keywords internal
