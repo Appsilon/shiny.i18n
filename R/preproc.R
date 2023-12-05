@@ -96,9 +96,6 @@ create_translation_file <- function(path, type = "json", handle = "i18n",
 #'
 
 combine_translations <- function(x, y) {
-  if (!do.call(identical, sapply(list(x, y), \(.x) unlist(.x$languages), simplify = FALSE))) {
-    stop("x & y must have the same languages")
-  }
   translations <- lapply(list(x = x, y = y), \(.x) {
     if (is.character(.x)) {
       if (!file.exists(.x))
@@ -107,6 +104,11 @@ combine_translations <- function(x, y) {
     } else
       .x
   })
+
+  if (!do.call(identical, sapply(unname(translations), \(.x) unlist(.x$languages), simplify = FALSE))) {
+    stop("x & y must have the same languages")
+  }
+
 
   combined <- lapply(translations, \(.x) .x$translation)
   combined <- append(combined$x, combined$y)
