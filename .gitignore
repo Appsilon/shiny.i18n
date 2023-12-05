@@ -39,3 +39,7 @@ vignettes/*.pdf
 inst/doc
 
 /docs/
+
+tests/testthat/.DS_Store
+
+tests/.DS_Store

@@ -49,6 +49,11 @@ test_that("test save_to_csv", {
   file.remove("tmp.R")
 })
 
+test_that("test combine_translations", {
+  combined <- combine_translations(jsonlite::read_json("data/translation.json"), jsonlite::read_json("data/translation_additional.json"))
+  expect_length(combined$translation, 6)
+})
+
 test_that("create_translation_addin has proper behavior for rstudio addin", {
   temp <- tempfile()
   # Mock the behavior of RStudio API calls
@@ -77,3 +82,4 @@ test_that("create_translation_addin has proper behavior for rstudio addin", {
   )
 
 })
+
