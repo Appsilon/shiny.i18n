@@ -1,13 +1,13 @@
 .navbar {
-  background-color: #A04291 !important;
+  background-color: #E05A5A !important;
 }
 
 #navbar > ul.navbar-nav > li.nav-item a:hover {
-  background-color: #A04291 !important;
+  background-color: #E05A5A !important;
 }
 
 .navbar-dark .navbar-nav .active>.nav-link {
-  background-color: #A04291 !important;
+  background-color: #E05A5A !important;
   color: #fff;
 }
 
@@ -21,7 +21,7 @@ nav .text-muted {
 }
 
 a {
-  color: #A04291;
+  color: #E05A5A;
 }
 
 a:hover {
@@ -29,8 +29,8 @@ a:hover {
 }
 
 button.btn.btn-primary.btn-copy-ex {
-  background-color: #A04291;
-  border-color: #A04291;
+  background-color: #E05A5A;
+  border-color: #E05A5A;
 }
 
 .app-preview {
@@ -47,7 +47,7 @@ button.btn.btn-primary.btn-copy-ex {
   left: 0px;
   position: absolute;
   padding: 8px 30px;
-  color: rgba(255,255,255,0.55);
+  color: rgba(255,255,255,0.65);
 }
 
 .home:hover {
