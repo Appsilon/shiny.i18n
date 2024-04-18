@@ -14,8 +14,8 @@
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="../deps/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
 <meta property="og:title" content="shiny.i18n in Rhino applications">
@@ -39,7 +39,7 @@
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
     
 
-    <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-primary"><div class="container">
+    <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-primary" data-bs-theme="dark"><div class="container">
     
     <a class="navbar-brand me-2" href="../index.html">shiny.i18n</a>
 
@@ -159,7 +159,7 @@ tutorial</a>.</p>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://appsilon.github.io/shiny.i18n/">shiny.i18n</a></span><span class="op">)</span></span></code></pre></div>
 <p>And update <code>renv.lock</code> by running in the R console:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">renv</span><span class="fu">::</span><span class="fu"><a href="https://rstudio.github.io/renv/reference/snapshot.html" class="external-link">snapshot</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">renv</span><span class="fu">::</span><span class="fu">snapshot</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="build-a-basic-application">Build a basic application<a class="anchor" aria-label="anchor" href="#build-a-basic-application"></a>
@@ -243,73 +243,73 @@ slightly modified version of the “Old Faithful Geyser Data” app.</p>
 In <code>shiny.i18n</code>, translations can be added as CSV or JSON
 files - we will use the latter. Create <code>app/translations</code>
 directory, and inside add <code>translations.json</code> file:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"languages"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"en"</span><span class="ot">,</span> <span class="st">"pl"</span><span class="ot">,</span> <span class="st">"it"</span><span class="ot">]</span><span class="fu">,</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"translation"</span><span class="fu">:</span> <span class="ot">[</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>      <span class="fu">{</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"en"</span><span class="fu">:</span> <span class="st">"Hello Shiny!"</span><span class="fu">,</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"pl"</span><span class="fu">:</span> <span class="st">"Witaj Shiny!"</span><span class="fu">,</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"it"</span><span class="fu">:</span> <span class="st">"Ciao Shiny!"</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">}</span><span class="ot">,</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>      <span class="fu">{</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"en"</span><span class="fu">:</span> <span class="st">"Number of bins:"</span><span class="fu">,</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"pl"</span><span class="fu">:</span> <span class="st">"Liczba podziałek:"</span><span class="fu">,</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"it"</span><span class="fu">:</span> <span class="st">"Numero di intervalli"</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>      <span class="fu">}</span><span class="ot">,</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>      <span class="fu">{</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"en"</span><span class="fu">:</span> <span class="st">"This is description of the plot."</span><span class="fu">,</span></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"pl"</span><span class="fu">:</span> <span class="st">"To jest opis obrazka."</span><span class="fu">,</span></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"it"</span><span class="fu">:</span> <span class="st">"Questa è la descrizione della grafico."</span></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>      <span class="fu">}</span><span class="ot">,</span></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>      <span class="fu">{</span></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"en"</span><span class="fu">:</span> <span class="st">"Histogram of x"</span><span class="fu">,</span></span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"pl"</span><span class="fu">:</span> <span class="st">"Histogram x"</span><span class="fu">,</span></span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"it"</span><span class="fu">:</span> <span class="st">"Istogramma di x"</span></span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>      <span class="fu">}</span><span class="ot">,</span></span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>      <span class="fu">{</span></span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"en"</span><span class="fu">:</span> <span class="st">"Frequency"</span><span class="fu">,</span></span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"pl"</span><span class="fu">:</span> <span class="st">"Częstotliwość"</span><span class="fu">,</span></span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"it"</span><span class="fu">:</span> <span class="st">"Frequenza"</span></span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>      <span class="fu">}</span><span class="ot">,</span></span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>      <span class="fu">{</span></span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"en"</span><span class="fu">:</span> <span class="st">"Change language"</span><span class="fu">,</span></span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"pl"</span><span class="fu">:</span> <span class="st">"Wybierz język"</span><span class="fu">,</span></span>
-<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"it"</span><span class="fu">:</span> <span class="st">"Cambia lingua"</span></span>
-<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>      <span class="fu">}</span></span>
-<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>    <span class="ot">]</span></span>
-<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>  <span class="dt">"languages"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"en"</span><span class="ot">,</span> <span class="st">"pl"</span><span class="ot">,</span> <span class="st">"it"</span><span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>  <span class="dt">"translation"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>      <span class="fu">{</span></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>        <span class="dt">"en"</span><span class="fu">:</span> <span class="st">"Hello Shiny!"</span><span class="fu">,</span></span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>        <span class="dt">"pl"</span><span class="fu">:</span> <span class="st">"Witaj Shiny!"</span><span class="fu">,</span></span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>        <span class="dt">"it"</span><span class="fu">:</span> <span class="st">"Ciao Shiny!"</span></span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a>      <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a>      <span class="fu">{</span></span>
+<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a>        <span class="dt">"en"</span><span class="fu">:</span> <span class="st">"Number of bins:"</span><span class="fu">,</span></span>
+<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a>        <span class="dt">"pl"</span><span class="fu">:</span> <span class="st">"Liczba podziałek:"</span><span class="fu">,</span></span>
+<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a>        <span class="dt">"it"</span><span class="fu">:</span> <span class="st">"Numero di intervalli"</span></span>
+<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a>      <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb6-14"><a href="#cb6-14" tabindex="-1"></a>      <span class="fu">{</span></span>
+<span id="cb6-15"><a href="#cb6-15" tabindex="-1"></a>        <span class="dt">"en"</span><span class="fu">:</span> <span class="st">"This is description of the plot."</span><span class="fu">,</span></span>
+<span id="cb6-16"><a href="#cb6-16" tabindex="-1"></a>        <span class="dt">"pl"</span><span class="fu">:</span> <span class="st">"To jest opis obrazka."</span><span class="fu">,</span></span>
+<span id="cb6-17"><a href="#cb6-17" tabindex="-1"></a>        <span class="dt">"it"</span><span class="fu">:</span> <span class="st">"Questa è la descrizione della grafico."</span></span>
+<span id="cb6-18"><a href="#cb6-18" tabindex="-1"></a>      <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb6-19"><a href="#cb6-19" tabindex="-1"></a>      <span class="fu">{</span></span>
+<span id="cb6-20"><a href="#cb6-20" tabindex="-1"></a>        <span class="dt">"en"</span><span class="fu">:</span> <span class="st">"Histogram of x"</span><span class="fu">,</span></span>
+<span id="cb6-21"><a href="#cb6-21" tabindex="-1"></a>        <span class="dt">"pl"</span><span class="fu">:</span> <span class="st">"Histogram x"</span><span class="fu">,</span></span>
+<span id="cb6-22"><a href="#cb6-22" tabindex="-1"></a>        <span class="dt">"it"</span><span class="fu">:</span> <span class="st">"Istogramma di x"</span></span>
+<span id="cb6-23"><a href="#cb6-23" tabindex="-1"></a>      <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb6-24"><a href="#cb6-24" tabindex="-1"></a>      <span class="fu">{</span></span>
+<span id="cb6-25"><a href="#cb6-25" tabindex="-1"></a>        <span class="dt">"en"</span><span class="fu">:</span> <span class="st">"Frequency"</span><span class="fu">,</span></span>
+<span id="cb6-26"><a href="#cb6-26" tabindex="-1"></a>        <span class="dt">"pl"</span><span class="fu">:</span> <span class="st">"Częstotliwość"</span><span class="fu">,</span></span>
+<span id="cb6-27"><a href="#cb6-27" tabindex="-1"></a>        <span class="dt">"it"</span><span class="fu">:</span> <span class="st">"Frequenza"</span></span>
+<span id="cb6-28"><a href="#cb6-28" tabindex="-1"></a>      <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb6-29"><a href="#cb6-29" tabindex="-1"></a>      <span class="fu">{</span></span>
+<span id="cb6-30"><a href="#cb6-30" tabindex="-1"></a>        <span class="dt">"en"</span><span class="fu">:</span> <span class="st">"Change language"</span><span class="fu">,</span></span>
+<span id="cb6-31"><a href="#cb6-31" tabindex="-1"></a>        <span class="dt">"pl"</span><span class="fu">:</span> <span class="st">"Wybierz język"</span><span class="fu">,</span></span>
+<span id="cb6-32"><a href="#cb6-32" tabindex="-1"></a>        <span class="dt">"it"</span><span class="fu">:</span> <span class="st">"Cambia lingua"</span></span>
+<span id="cb6-33"><a href="#cb6-33" tabindex="-1"></a>      <span class="fu">}</span></span>
+<span id="cb6-34"><a href="#cb6-34" tabindex="-1"></a>    <span class="ot">]</span></span>
+<span id="cb6-35"><a href="#cb6-35" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 <p>Now, we need to create a Translator and pass the path to the
 translation file. In the <code>app/main.R</code> file add:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># app/main.R</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>box<span class="sc">::</span><span class="fu">use</span>(</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  shiny,</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  graphics[hist],</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  shiny.i18n[Translator],</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>i18n <span class="ot">&lt;-</span> Translator<span class="sc">$</span><span class="fu">new</span>(<span class="at">translation_json_path =</span> <span class="st">"app/translations/translations.json"</span>)</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co">#' @export</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="cf">function</span>(id) {</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>...</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="co"># app/main.R</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>box<span class="sc">::</span><span class="fu">use</span>(</span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>  shiny,</span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>  graphics[hist],</span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>  shiny.i18n[Translator],</span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a>)</span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a>i18n <span class="ot">&lt;-</span> Translator<span class="sc">$</span><span class="fu">new</span>(<span class="at">translation_json_path =</span> <span class="st">"app/translations/translations.json"</span>)</span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a><span class="co">#' @export</span></span>
+<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="cf">function</span>(id) {</span>
+<span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" tabindex="-1"></a>...</span></code></pre></div>
 <p>The next step is to choose the default translation language:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># app/main.R</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>box<span class="sc">::</span><span class="fu">use</span>(</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  shiny,</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  graphics[hist],</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  shiny.i18n[Translator],</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>i18n <span class="ot">&lt;-</span> Translator<span class="sc">$</span><span class="fu">new</span>(<span class="at">translation_json_path =</span> <span class="st">"app/translations/translations.json"</span>)</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>i18n<span class="sc">$</span><span class="fu">set_translation_language</span>(<span class="st">"en"</span>)</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co">#' @export</span></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="cf">function</span>(id) {</span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>...</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="co"># app/main.R</span></span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>box<span class="sc">::</span><span class="fu">use</span>(</span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a>  shiny,</span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a>  graphics[hist],</span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a>  shiny.i18n[Translator],</span>
+<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a>)</span>
+<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a>i18n <span class="ot">&lt;-</span> Translator<span class="sc">$</span><span class="fu">new</span>(<span class="at">translation_json_path =</span> <span class="st">"app/translations/translations.json"</span>)</span>
+<span id="cb8-10"><a href="#cb8-10" tabindex="-1"></a>i18n<span class="sc">$</span><span class="fu">set_translation_language</span>(<span class="st">"en"</span>)</span>
+<span id="cb8-11"><a href="#cb8-11" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" tabindex="-1"></a><span class="co">#' @export</span></span>
+<span id="cb8-13"><a href="#cb8-13" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="cf">function</span>(id) {</span>
+<span id="cb8-14"><a href="#cb8-14" tabindex="-1"></a></span>
+<span id="cb8-15"><a href="#cb8-15" tabindex="-1"></a>...</span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="translate-ui-elements">Translate UI elements<a class="anchor" aria-label="anchor" href="#translate-ui-elements"></a>
@@ -318,62 +318,62 @@ translation file. In the <code>app/main.R</code> file add:</p>
 application. First, the language selection input should use languages
 available in the translator and start with the default language
 selected.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># app/main.R</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>box<span class="sc">::</span><span class="fu">use</span>(</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  shiny,</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  graphics[hist],</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  shiny.i18n[Translator],</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>i18n <span class="ot">&lt;-</span> Translator<span class="sc">$</span><span class="fu">new</span>(<span class="at">translation_json_path =</span> <span class="st">"app/translations/translations.json"</span>)</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>i18n<span class="sc">$</span><span class="fu">set_translation_language</span>(<span class="st">"en"</span>)</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co">#' @export</span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="cf">function</span>(id) {</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  ns <span class="ot">&lt;-</span> shiny<span class="sc">$</span><span class="fu">NS</span>(id)</span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  shiny<span class="sc">$</span><span class="fu">fluidPage</span>(</span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    shiny<span class="sc">$</span><span class="fu">div</span>(</span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>      <span class="at">style =</span> <span class="st">"float: right;"</span>,</span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>      shiny<span class="sc">$</span><span class="fu">selectInput</span>(</span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>        <span class="fu">ns</span>(<span class="st">"selected_language"</span>),</span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Change language"</span>,</span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>        <span class="at">choices =</span> i18n<span class="sc">$</span><span class="fu">get_languages</span>(),</span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">selected =</span> i18n<span class="sc">$</span><span class="fu">get_key_translation</span>()</span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>      )</span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>    shiny<span class="sc">$</span><span class="fu">titlePanel</span>(<span class="st">"Hello Shiny!"</span>, <span class="at">windowTitle =</span> <span class="cn">NULL</span>),</span>
-<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>...</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="co"># app/main.R</span></span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>box<span class="sc">::</span><span class="fu">use</span>(</span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>  shiny,</span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>  graphics[hist],</span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a>  shiny.i18n[Translator],</span>
+<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a>)</span>
+<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a>i18n <span class="ot">&lt;-</span> Translator<span class="sc">$</span><span class="fu">new</span>(<span class="at">translation_json_path =</span> <span class="st">"app/translations/translations.json"</span>)</span>
+<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a>i18n<span class="sc">$</span><span class="fu">set_translation_language</span>(<span class="st">"en"</span>)</span>
+<span id="cb9-11"><a href="#cb9-11" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" tabindex="-1"></a><span class="co">#' @export</span></span>
+<span id="cb9-13"><a href="#cb9-13" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="cf">function</span>(id) {</span>
+<span id="cb9-14"><a href="#cb9-14" tabindex="-1"></a>  ns <span class="ot">&lt;-</span> shiny<span class="sc">$</span><span class="fu">NS</span>(id)</span>
+<span id="cb9-15"><a href="#cb9-15" tabindex="-1"></a>  shiny<span class="sc">$</span><span class="fu">fluidPage</span>(</span>
+<span id="cb9-16"><a href="#cb9-16" tabindex="-1"></a>    shiny<span class="sc">$</span><span class="fu">div</span>(</span>
+<span id="cb9-17"><a href="#cb9-17" tabindex="-1"></a>      <span class="at">style =</span> <span class="st">"float: right;"</span>,</span>
+<span id="cb9-18"><a href="#cb9-18" tabindex="-1"></a>      shiny<span class="sc">$</span><span class="fu">selectInput</span>(</span>
+<span id="cb9-19"><a href="#cb9-19" tabindex="-1"></a>        <span class="fu">ns</span>(<span class="st">"selected_language"</span>),</span>
+<span id="cb9-20"><a href="#cb9-20" tabindex="-1"></a>        <span class="st">"Change language"</span>,</span>
+<span id="cb9-21"><a href="#cb9-21" tabindex="-1"></a>        <span class="at">choices =</span> i18n<span class="sc">$</span><span class="fu">get_languages</span>(),</span>
+<span id="cb9-22"><a href="#cb9-22" tabindex="-1"></a>        <span class="at">selected =</span> i18n<span class="sc">$</span><span class="fu">get_key_translation</span>()</span>
+<span id="cb9-23"><a href="#cb9-23" tabindex="-1"></a>      )</span>
+<span id="cb9-24"><a href="#cb9-24" tabindex="-1"></a>    ),</span>
+<span id="cb9-25"><a href="#cb9-25" tabindex="-1"></a>    shiny<span class="sc">$</span><span class="fu">titlePanel</span>(<span class="st">"Hello Shiny!"</span>, <span class="at">windowTitle =</span> <span class="cn">NULL</span>),</span>
+<span id="cb9-26"><a href="#cb9-26" tabindex="-1"></a></span>
+<span id="cb9-27"><a href="#cb9-27" tabindex="-1"></a>...</span></code></pre></div>
 <p>We also need to add <code>shiny.i18n</code> dependencies and add the
 translator to the UI by calling <code><a href="../reference/usei18n.html">usei18n()</a></code>:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># app/main.R</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>box<span class="sc">::</span><span class="fu">use</span>(</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  shiny,</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  graphics[hist],</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  shiny.i18n[Translator, usei18n],</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>i18n <span class="ot">&lt;-</span> Translator<span class="sc">$</span><span class="fu">new</span>(<span class="at">translation_json_path =</span> <span class="st">"app/translations/translations.json"</span>)</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>i18n<span class="sc">$</span><span class="fu">set_translation_language</span>(<span class="st">"en"</span>)</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co">#' @export</span></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="cf">function</span>(id) {</span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  ns <span class="ot">&lt;-</span> shiny<span class="sc">$</span><span class="fu">NS</span>(id)</span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>  shiny<span class="sc">$</span><span class="fu">fluidPage</span>(</span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">usei18n</span>(i18n),</span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    shiny<span class="sc">$</span><span class="fu">div</span>(</span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>      <span class="at">style =</span> <span class="st">"float: right;"</span>,</span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>      shiny<span class="sc">$</span><span class="fu">selectInput</span>(</span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>        <span class="fu">ns</span>(<span class="st">"selected_language"</span>),</span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Change language"</span>,</span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">choices =</span> i18n<span class="sc">$</span><span class="fu">get_languages</span>(),</span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>        <span class="at">selected =</span> i18n<span class="sc">$</span><span class="fu">get_key_translation</span>()</span>
-<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>      )</span>
-<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>...</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="co"># app/main.R</span></span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>box<span class="sc">::</span><span class="fu">use</span>(</span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a>  shiny,</span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a>  graphics[hist],</span>
+<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a>  shiny.i18n[Translator, usei18n],</span>
+<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a>)</span>
+<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a>i18n <span class="ot">&lt;-</span> Translator<span class="sc">$</span><span class="fu">new</span>(<span class="at">translation_json_path =</span> <span class="st">"app/translations/translations.json"</span>)</span>
+<span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a>i18n<span class="sc">$</span><span class="fu">set_translation_language</span>(<span class="st">"en"</span>)</span>
+<span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="#cb10-12" tabindex="-1"></a><span class="co">#' @export</span></span>
+<span id="cb10-13"><a href="#cb10-13" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="cf">function</span>(id) {</span>
+<span id="cb10-14"><a href="#cb10-14" tabindex="-1"></a>  ns <span class="ot">&lt;-</span> shiny<span class="sc">$</span><span class="fu">NS</span>(id)</span>
+<span id="cb10-15"><a href="#cb10-15" tabindex="-1"></a>  shiny<span class="sc">$</span><span class="fu">fluidPage</span>(</span>
+<span id="cb10-16"><a href="#cb10-16" tabindex="-1"></a>    <span class="fu">usei18n</span>(i18n),</span>
+<span id="cb10-17"><a href="#cb10-17" tabindex="-1"></a>    shiny<span class="sc">$</span><span class="fu">div</span>(</span>
+<span id="cb10-18"><a href="#cb10-18" tabindex="-1"></a>      <span class="at">style =</span> <span class="st">"float: right;"</span>,</span>
+<span id="cb10-19"><a href="#cb10-19" tabindex="-1"></a>      shiny<span class="sc">$</span><span class="fu">selectInput</span>(</span>
+<span id="cb10-20"><a href="#cb10-20" tabindex="-1"></a>        <span class="fu">ns</span>(<span class="st">"selected_language"</span>),</span>
+<span id="cb10-21"><a href="#cb10-21" tabindex="-1"></a>        <span class="st">"Change language"</span>,</span>
+<span id="cb10-22"><a href="#cb10-22" tabindex="-1"></a>        <span class="at">choices =</span> i18n<span class="sc">$</span><span class="fu">get_languages</span>(),</span>
+<span id="cb10-23"><a href="#cb10-23" tabindex="-1"></a>        <span class="at">selected =</span> i18n<span class="sc">$</span><span class="fu">get_key_translation</span>()</span>
+<span id="cb10-24"><a href="#cb10-24" tabindex="-1"></a>      )</span>
+<span id="cb10-25"><a href="#cb10-25" tabindex="-1"></a>    ),</span>
+<span id="cb10-26"><a href="#cb10-26" tabindex="-1"></a></span>
+<span id="cb10-27"><a href="#cb10-27" tabindex="-1"></a>...</span></code></pre></div>
 <p>We still miss the connection between the select input and the
 translation language change. To achieve that, we will use an
 <code>observeEvent</code> with <code><a href="../reference/update_lang.html">shiny.i18n::update_lang</a></code>
@@ -725,7 +725,7 @@ now better structured.</p>
 
 <div class="pkgdown-footer-right">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.8.</p>
 </div>
 
     </footer>
