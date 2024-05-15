@@ -1,0 +1,10 @@
+{
+  "cultural_date_format": "%d-%m-%Y",
+  "languages": ["en", "pl"],
+  "translation": [
+      {
+        "en": "Extra translations",
+        "pl": "Dodatkowe tłumaczenie"
+      }
+    ]
+}
