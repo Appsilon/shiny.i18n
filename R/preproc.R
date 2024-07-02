@@ -38,6 +38,7 @@ extract_key_expressions <- function(str, handle = "i18n") {
 #' @param update logical. If TRUE, the output updates the existing translation file. If FALSE, any existing file of the name is overwritten.
 #' @import stats
 #' @import data.table
+#' @importFrom jsonlite read_json
 #' @keywords internal
 prepare_translation_table <- function(key_expressions,
                          output_path = NULL,
