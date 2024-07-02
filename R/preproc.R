@@ -172,7 +172,7 @@ save_to_csv <- function(key_expressions,
 #' Create translation file
 #'
 #' Auxiliary shiny.i18n function that searches for all key expressions (e.g.
-#' surrounded by \code{i18n$t()} tag in the script).
+#' surrounded by \code{i18n$t()} tag in the provided scripts).
 #'
 #' @param path character vector of one or more paths of the file(s) that needs to be inspected for
 #' key translations
