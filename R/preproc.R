@@ -107,6 +107,7 @@ prepare_translation_table <- function(key_expressions,
 #' @param key_expressions vector with key expression to translate
 #' @param output_path character with path to output file (default:
 #' "translation.json" if NULL)
+#' @importFrom jsonlite write_json
 #' @param key_language character specifying the language key code of the key_expressions
 #' @param translated_languages character vector specifying the key codes of the translated languages
 #' @param update logical. If TRUE, the output updates the existing translation file. If FALSE, any existing file of the name is overwritten.
