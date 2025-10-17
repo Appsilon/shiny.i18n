@@ -57,7 +57,7 @@ save_to_csv <- function(key_expressions, output_path = NULL) {
   df_to_save <- data.frame(
     list(key = key_expressions, lang = rep("", length(key_expressions)))
   )
-  if (is.null(output_path)) output_path <- "translate_lang.csv"
+  if (is.null(output_path)) output_path <- "translation_lang.csv"
   write.csv(df_to_save, output_path, row.names = FALSE)
 }
 
