@@ -72,7 +72,7 @@ save_to_csv <- function(key_expressions, output_path = NULL) {
 #' or "csv"
 #' @param handle name of \code{Translator} object within script from \code{path}
 #' @param output if NULL (default) the output will be saved with a default file
-#' name ("translation.json" for JSON and "translate_lang.csv" for CSV)
+#' name ("translation.json" for JSON and "translation_lang.csv" for CSV)
 #'
 #' @export
 create_translation_file <- function(path, type = "json", handle = "i18n",
