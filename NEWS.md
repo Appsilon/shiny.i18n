@@ -1,3 +1,7 @@
+# shiny.i18n 0.3.1
+
+- `use_agents_md()` adds an `AGENTS.md` file with `shiny.i18n` guidance for AI coding agents for auto-translation.
+
 # shiny.i18n 0.3.0
 
 - `shiny.i18n` full compatibility with `rhino` applications
