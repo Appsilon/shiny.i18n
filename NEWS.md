@@ -1,6 +1,6 @@
 # shiny.i18n 0.3.1
 
-- `use_agents_md()` adds an `AGENTS.md` file with `shiny.i18n` guidance for AI coding agents for auto-translation.
+- `use_i18n_skill()` installs a `shiny-i18n` skill with `shiny.i18n` guidance for AI coding agents (Claude Code, Copilot, Codex) and adds a short pointer to it in `AGENTS.md`.
 
 # shiny.i18n 0.3.0
 
