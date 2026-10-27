@@ -260,6 +260,10 @@ init_i18n <- function(translation_csvs_path = NULL,
                       translation_json_path = NULL,
                       translation_csv_config = NULL,
                       automatic = FALSE) {
-  Translator$new(translation_csvs_path, translation_json_path,
-                 translation_csv_config, automatic)
+  Translator$new(
+    translation_csvs_path = translation_csvs_path,
+    translation_json_path = translation_json_path,
+    translation_csv_config = translation_csv_config,
+    automatic = automatic
+  )
 }
