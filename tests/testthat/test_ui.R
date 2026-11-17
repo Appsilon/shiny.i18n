@@ -45,6 +45,17 @@ test_that("usei18n returns proper format of shiny.tags from JSON parameters", {
   )
 })
 
+test_that("usei18n keeps the translation language selected before building the UI", {
+  # Arrange
+  i18n <- Translator$new(translation_json_path = "data/translation.json")
+  i18n$set_translation_language("pl")
+  # Act
+  i18ntag <- usei18n(i18n)
+  # Assert
+  expect_equal(i18ntag[[2]]$attribs$`data-lang`, "pl")
+  expect_equal(i18ntag[[2]]$attribs$`data-keylang`, "en")
+})
+
 
 test_that("update_lang changes the selected language in session$userData$shiny.i18n$lang", {
   # Arrange
