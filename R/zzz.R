@@ -12,8 +12,11 @@
 #' @importFrom yaml yaml.load_file
 #' @keywords internal
 .onLoad <- function(libname, pkgname) {
-  .i18_config <<- yaml.load_file(system.file("config.yaml",
-                                             package = "shiny.i18n"))
+  assign(
+    ".i18_config",
+    yaml.load_file(system.file("config.yaml", package = "shiny.i18n")),
+    envir = asNamespace(pkgname)
+  )
 }
 
 #' Get i18n config
@@ -24,5 +27,5 @@
 #' @keywords internal
 get_i18n_config <- function(field) {
   stopifnot(field %in% names(.i18_config))
-  return(.i18_config[[field]])
+  .i18_config[[field]]
 }
