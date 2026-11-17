@@ -1,0 +1,162 @@
+# shiny.i18n [![shiny.i18n logo](reference/figures/shiny.i18n.png)](https://appsilon.github.io/shiny.i18n/)
+
+> *Shiny applications internationalization made easy!*
+
+Using it is very simple: just prepare your translation files in one of
+the supported formats, read them into your app using user-friendly
+**shiny.i18n** interface and surround your expressions to translate by a
+translator tag. Thanks to that your app will remain neat and readable.
+
+*Actually, you can use **shiny.i18n** as a standalone R package - shiny
+app is just a perfect use-case example.*
+
+Change languages and formats easy with **shiny.i18n**.
+
+## How to install?
+
+Stable version:
+
+``` r
+
+install.packages("shiny.i18n")
+```
+
+Development version:
+
+``` r
+
+remotes::install_github("Appsilon/shiny.i18n")
+```
+
+## Examples
+
+![](reference/figures/demo.gif)
+
+### [See shiny.i18n in action live](https://connect.appsilon.com/i18n/)
+
+You can find some basic examples in `examples` folder:
+
+1.  Using i18n object with [CSV translation
+    files](https://github.com/Appsilon/shiny.i18n/blob/master/examples/basic/app_csv.R)
+    or [JSON translation
+    files](https://github.com/Appsilon/shiny.i18n/blob/master/examples/basic/app_json.R).
+
+2.  Live language change on the [browser
+    side](https://github.com/Appsilon/shiny.i18n/blob/master/examples/live_language_change/browser_app.R)
+    or with the server [function
+    renderUI](https://github.com/Appsilon/shiny.i18n/blob/master/examples/live_language_change/server_app.R).
+
+3.  [RMarkdown
+    translations](https://github.com/Appsilon/shiny.i18n/blob/master/examples/rmarkdown/report.Rmd).
+
+4.  Example of translation [data
+    format](https://github.com/Appsilon/shiny.i18n/tree/master/examples/data).
+
+5.  **shiny.i18n** works seamlessly with
+    [Quarto](https://github.com/Appsilon/shiny.i18n/tree/master/examples/quarto).
+
+6.  **shiny.i18n** also works when used in interactive [Quarto + Shiny
+    instances](https://github.com/Appsilon/shiny.i18n/tree/master/examples/quarto_interactive).
+    Alternatively, you can also experience a [deployed
+    version](https://connect.appsilon.com/shinyi18n-quarto-interactive-example).
+
+#### Translation file format
+
+Currently **shiny.i18n** supports two translation formats:
+
+- **csv** - where each translation is in separate file
+  `translation_<LANGUAGE-CODE>.csv` containing two columns: key
+  translation, language to which it needs to be translated. Example of
+  `translation_pl.csv` for Polish language you may find here:
+  `inst/examples/data/translation_pl.csv`. You load the data by passing
+  the path to folder containing all the csv files:
+
+``` r
+
+Translator$new(translation_csvs_path = "...")
+```
+
+- **json** - single json file `translation.json` with mandatory fields:
+  `"languages"` with list of all language codes and `"translation"` with
+  list of dictionaries assigning each translation to a language code.
+  Example of such a json file for Polish language you may find here:
+  `inst/examples/data/translation.json`. You load the data by passing
+  the path to json file.
+
+``` r
+
+Translator$new(translation_json_path = "...")
+```
+
+## `shiny.i18n` and `rhino`
+
+`shiny.i18n` can be used to add live language change feature to Shiny
+applications built using [Rhino
+framework](https://appsilon.github.io/rhino/). For more details, check
+[this
+tutorial](https://appsilon.github.io/shiny.i18n/articles/rhino.html).
+
+## How to contribute?
+
+If you want to contribute to this project please submit a regular PR,
+once you’re done with a new feature or bug fix.
+
+Reporting a bug is also helpful - please use [GitHub
+issues](https://github.com/Appsilon/shiny.i18n/issues) and describe your
+problem as detailed as possible.
+
+## Appsilon
+
+![](https://avatars0.githubusercontent.com/u/6096772)
+
+Appsilon is a **Posit (formerly RStudio) Full Service Certified
+Partner**.  
+Learn more at [appsilon.com](https://appsilon.com).
+
+Get in touch <opensource@appsilon.com>
+
+Explore the [Rhinoverse](https://rhinoverse.dev) - a family of R
+packages built around [Rhino](https://appsilon.github.io/rhino/)!
+
+[![We are
+hiring!](https://raw.githubusercontent.com/Appsilon/website-cdn/gh-pages/WeAreHiring1.png)](https://appsilon.com/careers/)
+
+# Package index
+
+## i18n Translator
+
+- [`Translator`](https://appsilon.github.io/shiny.i18n/reference/Translator.md)
+  : Translator R6 Class
+
+## Auxiliary functions
+
+- [`init_i18n()`](https://appsilon.github.io/shiny.i18n/reference/init_i18n.md)
+  : Creates new i18n Translator object
+- [`usei18n()`](https://appsilon.github.io/shiny.i18n/reference/usei18n.md)
+  : Use i18n in UI
+- [`update_lang()`](https://appsilon.github.io/shiny.i18n/reference/update_lang.md)
+  : Update language (i18n) in UI
+
+## Creating translation files
+
+- [`create_translation_file()`](https://appsilon.github.io/shiny.i18n/reference/create_translation_file.md)
+  : Create translation file
+
+## Automatic translations (in progress)
+
+- [`translate_with_google_cloud()`](https://appsilon.github.io/shiny.i18n/reference/translate_with_google_cloud.md)
+  : This provides functions for automatic translations with online APIs
+  Translate with Google cloud
+
+# Articles
+
+### All tutorials
+
+- [Introduction to
+  shiny.i18n](https://appsilon.github.io/shiny.i18n/articles/basics.md):
+- [Introduction to translation files
+  format](https://appsilon.github.io/shiny.i18n/articles/translation_format.md):
+- [shiny.i18n in Rhino
+  applications](https://appsilon.github.io/shiny.i18n/articles/rhino.md):
+- [shiny.i18n in
+  Quarto](https://appsilon.github.io/shiny.i18n/articles/quarto.md):
