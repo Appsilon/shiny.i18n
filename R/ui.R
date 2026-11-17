@@ -65,7 +65,7 @@ usei18n <- function(translator) {
       ),
       shiny::tags$script(src = js_file)
     ),
-    i18n_state(translator$key_translation)
+    i18n_state(key_translation)
   )
 }
 

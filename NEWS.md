@@ -1,3 +1,7 @@
+# shiny.i18n (development version)
+
+- `usei18n()` sets the initial language on the `i18n-state` element, and language changes made with `update_lang()` are now reported to the server as `input[["i18n-state"]]`. Previously the input was never set, and each language change logged a JavaScript error in recent Shiny versions.
+
 # shiny.i18n 0.3.0
 
 - `shiny.i18n` full compatibility with `rhino` applications

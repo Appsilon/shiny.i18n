@@ -38,6 +38,8 @@ test_that("usei18n returns proper format of shiny.tags from JSON parameters", {
     i18ntag[[2]]$attribs,
     list(
       id = "i18n-state",
+      `data-keylang` = "en",
+      `data-lang` = "en",
       style = "visibility: hidden; margin: 0; padding: 0; overflow: hidden; max-height: 0;"
     )
   )
