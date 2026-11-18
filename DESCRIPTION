@@ -1,6 +1,6 @@
 Package: shiny.i18n
 Title: Shiny Applications Internationalization
-Version: 0.3.0
+Version: 0.3.1
 Authors@R:
   c(
     person("Jakub", "Nowicki", email = "opensource+kuba@appsilon.com", role = c("cre", "aut")),
@@ -28,7 +28,7 @@ Encoding: UTF-8
 LazyData: true
 URL: https://appsilon.github.io/shiny.i18n/, https://github.com/Appsilon/shiny.i18n
 BugReports: https://github.com/Appsilon/shiny.i18n/issues
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.3
 Suggests:
     covr,
     googleLanguageR,

@@ -2,8 +2,7 @@
 % Please edit documentation in R/automatic.R
 \name{translate_with_google_cloud}
 \alias{translate_with_google_cloud}
-\title{This provides functions for automatic translations with online APIs
-Translate with Google cloud}
+\title{Translate with Google cloud}
 \usage{
 translate_with_google_cloud(txt_to_translate, target_lang)
 }
