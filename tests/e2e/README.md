@@ -28,7 +28,8 @@ Useful variants:
 | `npx playwright show-trace test-results/<test>/trace.zip` | Inspect a failed test's trace |
 
 When a test fails, its folder in `test-results/` holds a screenshot, a trace, and `app.log` with the app's R
-output. An app can serve several tests, so the log marks the line where the failed test started.
+output. An app can serve several tests, so the log marks the line where the failed test started. (If the app
+fails to start, there is no `app.log`: the error message includes the R output.)
 
 To run against another Shiny version, install it into a separate library and put that library on `R_LIBS`, e.g.
 `R_LIBS=/path/to/shiny-1.7.5.1-lib npm test`.

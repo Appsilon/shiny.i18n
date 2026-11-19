@@ -29,7 +29,7 @@ for (pkg in list.files(lib)) {
 }
 app <- Sys.getenv("E2E_APP")
 if (!dir.exists(app)) app <- shiny::shinyAppFile(app)
-# Ports from 10081 up: browsers refuse some lower ports (e.g. 1719-1723, 5060, 10080) that
+# Ports from 10081 up: browsers refuse some lower ports (e.g. 1719, 1720, 1723, 5060, 10080) that
 # httpuv's list of unsafe ports does not include, and the page would fail with ERR_UNSAFE_PORT.
 shiny::runApp(app, host = "127.0.0.1", port = httpuv::randomPort(min = 10081L),
               launch.browser = function(url) message("E2E_READY ", url))
