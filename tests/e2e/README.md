@@ -89,7 +89,7 @@ Guidelines:
 | `inputValue(inputId)` | The value of a Shiny input as the client last sent it to the server. |
 | `waitForIdle()` | Wait until Shiny is connected and not busy. Only needed in special cases; prefer assertions. |
 | `logs()` | R stdout/stderr of the app since this test started. |
-| `expectNoErrors()` | Assert there is no disconnect overlay, no visible output error, and no browser console error. |
+| `expectNoErrors()` | Wait until Shiny has been idle for 0.5 s (so outputs created by `renderUI()` have rendered), then assert there is no disconnect overlay, no visible output error, and no browser console error. |
 | `app.url` | Base URL of the running app. |
 
 ## Layout

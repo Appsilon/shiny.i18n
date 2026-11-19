@@ -7,6 +7,8 @@ type ShinyState = {
   busy: boolean;
   idleCount: number;
   initializedAt: number | null;
+  /** performance.now() of the last session start, busy or idle event. */
+  lastActivityAt: number | null;
 };
 
 /**
@@ -16,26 +18,47 @@ type ShinyState = {
  */
 const NO_WORK_WINDOW_MS = 500;
 
+/**
+ * How long Shiny must stay idle before expectNoErrors() checks for errors. Outputs created by
+ * renderUI() are bound and rendered in a later round of server work, after a first idle;
+ * checking for the absence of errors before that round would miss errors in those outputs.
+ */
+const SETTLE_WINDOW_MS = 500;
+
 // Runs before any page script. Shiny announces busy/idle with jQuery events, which
 // native listeners never see, so subscribe through jQuery once the DOM is parsed.
 // This DOMContentLoaded listener is registered before jQuery's own ready handler,
 // so it is in place before Shiny initialises.
 function trackShinyState() {
-  const state: ShinyState = { connected: false, disconnected: false, busy: false, idleCount: 0, initializedAt: null };
+  const state: ShinyState = {
+    connected: false,
+    disconnected: false,
+    busy: false,
+    idleCount: 0,
+    initializedAt: null,
+    lastActivityAt: null,
+  };
   (window as unknown as { __e2eShiny: ShinyState }).__e2eShiny = state;
   document.addEventListener('DOMContentLoaded', () => {
     const $ = (window as unknown as { jQuery?: (el: Document) => { on: (e: string, f: () => void) => void } }).jQuery;
     if (!$) return;
-    $(document).on('shiny:sessioninitialized', () => (state.initializedAt = performance.now()));
+    $(document).on('shiny:sessioninitialized', () => {
+      state.initializedAt = performance.now();
+      state.lastActivityAt = state.initializedAt;
+    });
     $(document).on('shiny:connected', () => (state.connected = true));
     $(document).on('shiny:disconnected', () => {
       state.connected = false;
       state.disconnected = true;
     });
-    $(document).on('shiny:busy', () => (state.busy = true));
+    $(document).on('shiny:busy', () => {
+      state.busy = true;
+      state.lastActivityAt = performance.now();
+    });
     $(document).on('shiny:idle', () => {
       state.busy = false;
       state.idleCount += 1;
+      state.lastActivityAt = performance.now();
     });
   });
 }
@@ -115,8 +138,21 @@ export class Shiny {
     return this.app.logs(this.logStart);
   }
 
-  /** Assert the app is healthy: still connected, no output errors, no browser errors. */
+  /**
+   * Assert the app is healthy: still connected, no output errors, no browser errors.
+   * Waits first until Shiny has been idle for SETTLE_WINDOW_MS, so outputs that appear later
+   * (e.g. inside renderUI) have rendered before their absence of errors is checked.
+   */
   async expectNoErrors(): Promise<void> {
+    await this.page.waitForFunction(
+      (settleMs) => {
+        const s = (window as unknown as { __e2eShiny?: ShinyState }).__e2eShiny;
+        if (!s || s.disconnected) return true; // the disconnect check below reports it
+        return !s.busy && s.lastActivityAt !== null && performance.now() - s.lastActivityAt > settleMs;
+      },
+      SETTLE_WINDOW_MS,
+      { polling: 50 },
+    );
     await expect(this.page.locator('#shiny-disconnected-overlay')).toHaveCount(0);
     await expect(
       this.page.locator('.shiny-output-error:not(.shiny-output-error-silent):not(.shiny-output-error-validation)'),
