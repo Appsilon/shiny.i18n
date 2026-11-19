@@ -22,7 +22,11 @@ $.extend(shinyi18n, {
     return new_lang;
   },
   subscribe: function(el, callback) {
-    $(el).on('change', callback);
+    // Call without arguments: jQuery would pass its event object, which Shiny
+    // would read as the input priority and reject.
+    $(el).on('change', function() {
+      callback();
+    });
   },
   receiveMessage: function(el, data) {
     $(el).data('lang', data.lang);

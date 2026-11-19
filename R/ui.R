@@ -2,15 +2,16 @@
 #'
 #' This hidden div contain information about i18 translation state.
 #'
-#' @param init_language key language code
+#' @param init_language code of the language the UI is initially translated to
+#' @param key_language key language code
 #'
 #' @return shiny tag with div \code{"i18n-state"}
 #' @import shiny
 #' @keywords internal
-i18n_state <- function(init_language) {
+i18n_state <- function(init_language, key_language = init_language) {
   shiny::tags$div(
     id = "i18n-state",
-    `data-keylang` = init_language,
+    `data-keylang` = key_language,
     `data-lang` = init_language,
     style = "visibility: hidden; margin: 0; padding: 0; overflow: hidden; max-height: 0;"
   )
@@ -65,7 +66,7 @@ usei18n <- function(translator) {
       ),
       shiny::tags$script(src = js_file)
     ),
-    i18n_state(translator$key_translation)
+    i18n_state(translator$get_translation_language(), key_translation)
   )
 }
 

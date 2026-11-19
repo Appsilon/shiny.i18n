@@ -4,10 +4,12 @@
 \alias{i18n_state}
 \title{Create i18n state div}
 \usage{
-i18n_state(init_language)
+i18n_state(init_language, key_language = init_language)
 }
 \arguments{
-\item{init_language}{key language code}
+\item{init_language}{code of the language the UI is initially translated to}
+
+\item{key_language}{key language code}
 }
 \value{
 shiny tag with div \code{"i18n-state"}
