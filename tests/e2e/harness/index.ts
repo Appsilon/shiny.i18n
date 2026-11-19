@@ -1,3 +1,4 @@
+import fs from 'node:fs';
 import { test as base } from '@playwright/test';
 import { Shiny } from './shiny';
 import { ShinyAppProcess } from './shiny-app';
@@ -42,7 +43,12 @@ export const test = base.extend<Options & { shiny: Shiny }, { appPool: AppPool }
     const logStart = proc.logLength;
     await use(new Shiny(page, proc, logStart));
     if (testInfo.status !== testInfo.expectedStatus) {
-      await testInfo.attach('app.log', { body: proc.logs(logStart), contentType: 'text/plain' });
+      // The whole R output of the app (it may have served earlier tests), with a marker where this
+      // test started. Written to the test's folder in test-results/ and linked from the HTML report.
+      const log = [proc.logs(0, logStart), '----- this test started here -----', proc.logs(logStart), ''].join('\n');
+      const file = testInfo.outputPath('app.log');
+      await fs.promises.writeFile(file, log);
+      await testInfo.attach('app.log', { path: file, contentType: 'text/plain' });
     }
   },
 });

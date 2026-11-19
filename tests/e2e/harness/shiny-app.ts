@@ -29,7 +29,9 @@ for (pkg in list.files(lib)) {
 }
 app <- Sys.getenv("E2E_APP")
 if (!dir.exists(app)) app <- shiny::shinyAppFile(app)
-shiny::runApp(app, host = "127.0.0.1", port = httpuv::randomPort(),
+# Ports from 10081 up: browsers refuse some lower ports (e.g. 1719, 1720, 1723, 5060, 10080) that
+# httpuv's list of unsafe ports does not include, and the page would fail with ERR_UNSAFE_PORT.
+shiny::runApp(app, host = "127.0.0.1", port = httpuv::randomPort(min = 10081L),
               launch.browser = function(url) message("E2E_READY ", url))
 `;
 
@@ -114,8 +116,8 @@ export class ShinyAppProcess {
   }
 
   /** Captured R stdout/stderr (stderr lines are prefixed with "[stderr]"). */
-  logs(fromLine = 0): string {
-    return this.lines.slice(fromLine).join('\n');
+  logs(fromLine = 0, toLine?: number): string {
+    return this.lines.slice(fromLine, toLine).join('\n');
   }
 
   /** Kill the R process and everything it started. */
