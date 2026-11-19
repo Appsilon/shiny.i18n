@@ -50,7 +50,10 @@ export class Shiny {
     private readonly logStart: number,
   ) {
     page.on('console', (msg) => {
-      if (msg.type() === 'error') this.browserErrors.push(`console: ${msg.text()}`);
+      // Google Chrome (unlike Playwright's headless shell) requests /favicon.ico, and most Shiny apps
+      // don't serve one. That 404 is not an app error.
+      if (msg.type() !== 'error' || msg.location().url.endsWith('/favicon.ico')) return;
+      this.browserErrors.push(`console: ${msg.text()}`);
     });
     page.on('pageerror', (error) => this.browserErrors.push(`pageerror: ${error.message}`));
   }

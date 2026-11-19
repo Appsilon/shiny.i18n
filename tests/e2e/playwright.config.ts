@@ -12,5 +12,15 @@ export default defineConfig({
     trace: 'retain-on-failure',
     screenshot: 'only-on-failure',
   },
-  projects: [{ name: 'chromium', use: { ...devices['Desktop Chrome'] } }],
+  projects: [
+    {
+      name: 'chromium',
+      use: {
+        ...devices['Desktop Chrome'],
+        // In CI, use the Google Chrome that comes with the GitHub runner image. Playwright's own Chromium
+        // needs system packages from the Ubuntu mirror (`--with-deps`), which is slow and sometimes fails.
+        channel: process.env.CI ? 'chrome' : undefined,
+      },
+    },
+  ],
 });

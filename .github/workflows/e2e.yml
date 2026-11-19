@@ -2,9 +2,30 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'R/**'
+      - 'inst/**'
+      - 'examples/**'
+      - 'tests/e2e/**'
+      - 'DESCRIPTION'
+      - 'NAMESPACE'
+      - '.github/workflows/e2e.yml'
   pull_request:
+    paths:
+      - 'R/**'
+      - 'inst/**'
+      - 'examples/**'
+      - 'tests/e2e/**'
+      - 'DESCRIPTION'
+      - 'NAMESPACE'
+      - '.github/workflows/e2e.yml'
 
 name: e2e
+
+# A new push to a PR cancels its run still in progress. Runs on main always finish.
+concurrency:
+  group: e2e-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   e2e:
@@ -12,7 +33,8 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    timeout-minutes: 20
+    # A normal run takes 2-4 minutes. Stop early when the Ubuntu mirror stalls instead of using up minutes.
+    timeout-minutes: 10
 
     strategy:
       fail-fast: false
@@ -23,6 +45,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      # setup-r installs R through apt. Retry failed connections to the Ubuntu mirror instead of failing the job.
+      - name: Make apt retry
+        run: echo 'Acquire::Retries "3";' | sudo tee /etc/apt/apt.conf.d/80-retries
 
       - name: Install R
         uses: r-lib/actions/setup-r@v2
@@ -37,6 +63,9 @@ jobs:
           extra-packages: ${{ matrix.shiny == 'latest' && 'any::shiny' || format('shiny@{0}', matrix.shiny) }}
           upgrade: ${{ matrix.shiny == 'latest' && 'TRUE' || 'FALSE' }}
           cache-version: shiny-${{ matrix.shiny }}
+          # Only the quarto/rmarkdown examples need these, and e2e doesn't run them.
+          install-pandoc: false
+          install-quarto: false
 
       - name: Check the Shiny version
         shell: Rscript {0}
@@ -56,11 +85,10 @@ jobs:
           cache: npm
           cache-dependency-path: tests/e2e/package-lock.json
 
+      # No `playwright install`: the tests use the runner's Google Chrome (see playwright.config.ts).
       - name: Install test dependencies
         working-directory: tests/e2e
-        run: |
-          npm ci
-          npx playwright install --with-deps chromium
+        run: npm ci
 
       - name: Run e2e tests
         working-directory: tests/e2e

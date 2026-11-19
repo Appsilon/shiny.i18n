@@ -35,8 +35,11 @@ To run against another Shiny version, install it into a separate library and put
 
 ### In CI
 
-`.github/workflows/e2e.yml` runs `npm test` on ubuntu with Chromium, once with the oldest Shiny version we test
-(1.7.5.1) and once with the current CRAN release. If a run fails, download the `e2e-shiny-<version>` artifact: it
+`.github/workflows/e2e.yml` runs `npm test` on ubuntu, once with the oldest Shiny version we test (1.7.5.1) and
+once with the current CRAN release. It runs only when the package, the examples or the e2e tests change. In CI
+the tests use the Google Chrome that comes with the GitHub runner (`CI` is set), not Playwright's own Chromium:
+that avoids installing browser system packages on every run. To reproduce CI locally with your own Chrome, run
+`CI=1 npm test`. If a run fails, download the `e2e-shiny-<version>` artifact: it
 holds the HTML report and, per failed test, the trace and `app.log`.
 
 ## How it works
