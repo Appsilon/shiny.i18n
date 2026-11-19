@@ -1,0 +1,77 @@
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+name: e2e
+
+jobs:
+  e2e:
+    name: e2e (Shiny ${{ matrix.shiny }})
+
+    runs-on: ubuntu-latest
+
+    timeout-minutes: 20
+
+    strategy:
+      fail-fast: false
+      matrix:
+        # The oldest Shiny version the e2e tests run against, and the current CRAN release.
+        shiny: ['1.7.5.1', 'latest']
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      # The Shiny pin is part of the same dependency solve, so the other packages fit that version.
+      - name: Install R package dependencies
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          dependencies: '"hard"'
+          extra-packages: ${{ matrix.shiny == 'latest' && 'any::shiny' || format('shiny@{0}', matrix.shiny) }}
+          upgrade: ${{ matrix.shiny == 'latest' && 'TRUE' || 'FALSE' }}
+          cache-version: shiny-${{ matrix.shiny }}
+
+      - name: Check the Shiny version
+        shell: Rscript {0}
+        run: |
+          expected <- "${{ matrix.shiny }}"
+          if (expected == "latest") {
+            expected <- available.packages(repos = "https://cloud.r-project.org")["shiny", "Version"]
+          }
+          installed <- as.character(packageVersion("shiny"))
+          cat("Shiny", installed, "\n")
+          if (installed != expected) stop("Expected Shiny ", expected, ", got ", installed)
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: tests/e2e/package-lock.json
+
+      - name: Install test dependencies
+        working-directory: tests/e2e
+        run: |
+          npm ci
+          npx playwright install --with-deps chromium
+
+      - name: Run e2e tests
+        working-directory: tests/e2e
+        run: npm test
+
+      - name: Upload report, traces and app logs
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-shiny-${{ matrix.shiny }}
+          path: |
+            tests/e2e/playwright-report/
+            tests/e2e/test-results/
+          retention-days: 14
