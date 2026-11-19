@@ -39,8 +39,9 @@ To run against another Shiny version, install it into a separate library and put
 once with the current CRAN release. It runs only when the package, the examples or the e2e tests change. In CI
 the tests use the Google Chrome that comes with the GitHub runner (`CI` is set), not Playwright's own Chromium:
 that avoids installing browser system packages on every run. To reproduce CI locally with your own Chrome, run
-`CI=1 npm test`. If a run fails, download the `e2e-shiny-<version>` artifact: it
-holds the HTML report and, per failed test, the trace and `app.log`.
+`CI=1 npm test`. If tests fail, download the `e2e-shiny-<version>` artifact: it holds the HTML report and, per
+failed test, the trace and `app.log`. If the job fails in an earlier step (e.g. while installing R), there is no
+artifact; read the job log.
 
 ## How it works
 

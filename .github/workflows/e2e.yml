@@ -10,6 +10,8 @@ on:
       - 'DESCRIPTION'
       - 'NAMESPACE'
       - '.github/workflows/e2e.yml'
+  # Note: with path filters, a PR that touches none of these paths gets no e2e checks at all. If these checks
+  # are ever made required, such PRs would wait for them forever; drop the filter (or add a skip job) first.
   pull_request:
     paths:
       - 'R/**'
@@ -22,7 +24,8 @@ on:
 
 name: e2e
 
-# A new push to a PR cancels its run still in progress. Runs on main always finish.
+# A new push to a PR cancels its run still in progress. A started run on main is never cancelled, but GitHub
+# keeps only the newest queued run per group, so a queued main run can be replaced by a newer push.
 concurrency:
   group: e2e-${{ github.ref }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
