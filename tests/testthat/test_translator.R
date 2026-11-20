@@ -77,6 +77,13 @@ test_that("test Translator general", {
                "mutually exclusive")
 })
 
+test_that("init_i18n enables automatic mode", {
+  i18n <- init_i18n(automatic = TRUE)
+
+  expect_equal(i18n$set_translation_language("fr"), "fr")
+  expect_equal(i18n$get_translation_language(), "fr")
+})
+
 test_that("test vector translations", {
   i18n <- Translator$new(translation_json_path = "data/translation.json")
   expect_equal(i18n$t(c("Hello Shiny!")), "Hello Shiny!")
