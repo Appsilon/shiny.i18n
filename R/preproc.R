@@ -40,7 +40,19 @@ save_to_json <- function(key_expressions, output_path = NULL) {
   )
 
   if (is.null(output_path)) output_path <- "translation.json"
-  write_json(list_to_save, output_path)
+  write_json_translations(list_to_save, output_path)
+}
+
+#' Write a list object as a JSON
+#'
+#' @inheritParams jsonlite::write_json
+#' @inheritDotParams jsonlite::toJSON
+#'
+#' @return None, writes to `path`
+#' @export
+
+write_json_translations <- function(x, path, auto_unbox = TRUE, pretty = TRUE, ...) {
+  jsonlite::write_json(x, path, auto_unbox = auto_unbox, pretty = pretty, ...)
 }
 
 #' Save example i18n file to CSV
@@ -85,6 +97,40 @@ create_translation_file <- function(path, type = "json", handle = "i18n",
     stop("'type' of output not recognized, check docs!")
   )
 }
+
+#' Combine two translation json files
+#'
+#' @param x \code{chr/list} A path to a file or a list via \link[jsonlite]{fromJSON}
+#' @param y \code{chr/list} A path to a file or a list via \link[jsonlite]{fromJSON}
+#'
+#' @return \code{list} combined translation object
+#' @export
+#'
+
+combine_translations <- function(x, y) {
+  translations <- lapply(list(x = x, y = y), \(.x) {
+    if (is.character(.x)) {
+      if (!file.exists(.x))
+        stop(paste0(.x, " does not exist. Check the path."))
+      jsonlite::read_json(.x)
+    } else
+      .x
+  })
+
+  if (!do.call(identical, sapply(unname(translations), \(.x) unlist(.x$languages), simplify = FALSE))) {
+    stop("x & y must have the same languages")
+  }
+
+
+  combined <- lapply(translations, \(.x) .x$translation)
+  combined <- append(combined$x, combined$y)
+  # Remove duplicated entries based on the source string
+  combined <- combined[!duplicated(sapply(combined, \(.x) .x[[1]]))]
+  translations$x$translation <- combined
+  return(translations$x)
+}
+
+
 
 #' Create translation file addin
 #' @keywords internal
