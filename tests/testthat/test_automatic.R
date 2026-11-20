@@ -1,12 +1,15 @@
 context("automatic")
 
 test_that("translate_with_google_cloud Should error if API is not set", {
+  skip_if_not_installed("googleLanguageR")
 
-  with_mock(
-    `googleLanguageR::gl_translate` = function(txt_to_translate, target) {
+  with_mocked_bindings(
+    gl_translate = function(txt_to_translate, target) {
       message("Mock: gl_translate called")
       stop("forced error")
-    }, {
+    },
+    .package = "googleLanguageR",
+    {
       # Arrange
       txt <- "Hello, how are you?"
       target_lang <- "fr"

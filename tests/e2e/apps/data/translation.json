@@ -1,0 +1,9 @@
+{
+  "languages": ["en", "pl", "it"],
+  "translation": [
+    {"en": "Change language", "pl": "Zmień język", "it": "Cambia lingua"},
+    {"en": "Hello Shiny!", "pl": "Witaj Shiny!", "it": "Ciao Shiny!"},
+    {"en": "This is a description.", "pl": "To jest opis.", "it": "Questa è una descrizione."},
+    {"en": "Translated on the server", "pl": "Przetłumaczone na serwerze", "it": "Tradotto sul server"}
+  ]
+}

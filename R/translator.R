@@ -199,12 +199,15 @@ Translator <- R6Class( #nolint
                       "or 'at' to translate via API."))
       if (identical(translation_language, private$key_translation))
         return(keyword)
-      tr <- as.character(private$translations[keyword, translation_language])
-      if (anyNA(tr)) {
+      # match() is exact; indexing by row names would match partially
+      rows <- match(keyword, rownames(private$translations))
+      tr <- as.character(private$translations[rows, translation_language])
+      missing <- is.na(tr) & !is.na(keyword)
+      if (any(missing)) {
         warning(sprintf("'%s' translation does not exist.",
-                        keyword[which(is.na(tr))]))
-        tr[which(is.na(tr))] <- keyword[which(is.na(tr))]
+                        keyword[which(missing)]))
       }
+      tr[which(is.na(tr))] <- keyword[which(is.na(tr))]
       tr
     },
     read_json = function(translation_file, key_translation) {

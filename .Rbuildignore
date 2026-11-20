@@ -14,3 +14,4 @@ pkgdown
 .lintr
 .whitesource
 vignettes
+^tests/e2e$

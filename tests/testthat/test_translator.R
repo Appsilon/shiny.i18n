@@ -96,3 +96,27 @@ test_that("test vector translations", {
   expect_warning(i18n$t(c("Hello Shiny!", "X")),
                  regexp = "'X' translation does not exist.")
 })
+
+test_that("keys are matched exactly and NA passes through unchanged", {
+  withr::with_tempdir({
+    write.csv(
+      data.frame(en = c("NASO", "Hello world", "one"),
+                 fr = c("OSAN", "Bonjour le monde", "un")),
+      file = file.path(getwd(), "translation_fr.csv"),
+      row.names = FALSE
+    )
+    i18n <- suppressWarnings(Translator$new(translation_csvs_path = getwd()))
+    i18n$set_translation_language("fr")
+
+    expect_no_warning(expect_identical(i18n$t(NA_character_), NA_character_))
+    expect_no_warning(expect_identical(i18n$t(NA), NA_character_))
+    expect_warning(
+      expect_identical(i18n$t("Hello"), "Hello"),
+      "'Hello' translation does not exist."
+    )
+    expect_warning(
+      expect_identical(i18n$t(c("one", NA, "x")), c("un", NA, "x")),
+      "'x' translation does not exist."
+    )
+  })
+})

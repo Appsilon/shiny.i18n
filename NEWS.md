@@ -1,3 +1,8 @@
+# shiny.i18n (development version)
+
+- `usei18n()` sets the initial language on the `i18n-state` element, and language changes made with `update_lang()` are now reported to the server as `input[["i18n-state"]]`. Previously the input was never set, and each language change logged a JavaScript error in recent Shiny versions.
+- `Translator$t()` matches keys exactly. Previously a unique prefix of a key was translated as that key (e.g. `NA_character_` was translated as `"NASO"`), and `NA` returned one value per dictionary row. `NA` now passes through unchanged, without a warning (#139).
+
 # shiny.i18n 0.3.0
 
 - `shiny.i18n` full compatibility with `rhino` applications
