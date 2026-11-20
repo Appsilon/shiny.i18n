@@ -9,6 +9,11 @@
   are now reported to the server as `input[["i18n-state"]]`. Previously
   the input was never set, and each language change logged a JavaScript
   error in recent Shiny versions.
+- `Translator$t()` matches keys exactly. Previously a unique prefix of a
+  key was translated as that key (e.g. `NA_character_` was translated as
+  `"NASO"`), and `NA` returned one value per dictionary row. `NA` now
+  passes through unchanged, without a warning
+  ([\#139](https://github.com/Appsilon/shiny.i18n/issues/139)).
 
 ## shiny.i18n 0.3.0
 
