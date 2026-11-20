@@ -17,18 +17,19 @@ Depends: R (>= 3.3.0)
 Imports: yaml,
          jsonlite,
          methods,
-         stringr,
+         stringi,
          R6,
          glue,
          shiny,
          rstudioapi,
-         utils
+         utils,
+         data.table
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 URL: https://appsilon.github.io/shiny.i18n/, https://github.com/Appsilon/shiny.i18n
 BugReports: https://github.com/Appsilon/shiny.i18n/issues
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.1
 Suggests:
     covr,
     googleLanguageR,
