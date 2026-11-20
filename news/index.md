@@ -14,6 +14,11 @@
   `"NASO"`), and `NA` returned one value per dictionary row. `NA` now
   passes through unchanged, without a warning
   ([\#139](https://github.com/Appsilon/shiny.i18n/issues/139)).
+- `init_i18n(automatic = TRUE)` enables automatic translation mode.
+  Previously the flag was passed to `Translator$new()` as the CSV
+  separator, so the call failed without translation files or with CSV
+  files, and left automatic mode off with a JSON file
+  ([\#144](https://github.com/Appsilon/shiny.i18n/issues/144)).
 
 ## shiny.i18n 0.3.0
 

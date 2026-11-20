@@ -18,13 +18,13 @@ Source:
 [`DESCRIPTION`](https://github.com/Appsilon/shiny.i18n/blob/main/DESCRIPTION)
 
 Nowicki J, Krzemiński D, Igras K, Sobolewski J (2026). *shiny.i18n:
-Shiny Applications Internationalization*. R package version 0.3.0.9001,
+Shiny Applications Internationalization*. R package version 0.3.0.9002,
 <https://appsilon.github.io/shiny.i18n/>.
 
     @Manual{,
       title = {shiny.i18n: Shiny Applications Internationalization},
       author = {Jakub Nowicki and Dominik Krzemiński and Krystian Igras and Jakub Sobolewski},
       year = {2026},
-      note = {R package version 0.3.0.9001},
+      note = {R package version 0.3.0.9002},
       url = {https://appsilon.github.io/shiny.i18n/},
     }
