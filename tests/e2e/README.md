@@ -8,7 +8,7 @@ This folder is excluded from the package build (`.Rbuildignore`), so `R CMD chec
 
 The harness (installing the package from source, one R process per app, the `shiny` fixture and the Playwright
 config) comes from `@appsilon/shiny-playwright`. Its
-[README](https://github.com/Appsilon/shiny.playwright/blob/v0.1.0/README.md) documents the fixture, its options
+[README](https://github.com/Appsilon/shiny.playwright/blob/v0.2.0/README.md) documents the fixture, its options
 and how to write a test.
 
 ## Running
@@ -33,7 +33,7 @@ output. If the app fails to start, there is no `app.log`: the error message incl
 
 `.github/workflows/e2e.yml` calls the reusable workflow of `shiny.playwright`, which runs `npm test` once with the
 oldest Shiny version we test (1.7.5.1) and once with the newest Shiny on Posit Package Manager, which can lag
-behind CRAN. The checks are `e2e / e2e (Shiny latest)` and `e2e / e2e (Shiny 1.7.5.1)`. If tests fail, download the
+behind CRAN. The checks are `e2e / Shiny latest` and `e2e / Shiny 1.7.5.1`. If tests fail, download the
 `e2e-shiny-<version>` artifact: it holds the HTML report and, per failed test, the trace and (if the app started)
 `app.log`.
 
