@@ -3,6 +3,7 @@
 - `usei18n()` sets the initial language on the `i18n-state` element, and language changes made with `update_lang()` are now reported to the server as `input[["i18n-state"]]`. Previously the input was never set, and each language change logged a JavaScript error in recent Shiny versions.
 - `Translator$t()` matches keys exactly. Previously a unique prefix of a key was translated as that key (e.g. `NA_character_` was translated as `"NASO"`), and `NA` returned one value per dictionary row. `NA` now passes through unchanged, without a warning (#139).
 - `init_i18n(automatic = TRUE)` enables automatic translation mode. Previously the flag was passed to `Translator$new()` as the CSV separator, so the call failed without translation files or with CSV files, and left automatic mode off with a JSON file (#144).
+- `Translator$automatic_translate()` and `$at()` stop with "Please provide a 'translation_language'" when no translation language is set. Previously, in automatic mode without translation files, the missing language (`NULL`) was passed on to Google Translate, and a failure was reported as a credentials problem (#152).
 
 # shiny.i18n 0.3.0
 

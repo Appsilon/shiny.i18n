@@ -150,7 +150,7 @@ Translator <- R6Class( #nolint
     #' @param api character with the name of the API you want to use. Currently
     #' supported: \code{google}.
     automatic_translate = function(keyword, api = "google") {
-      if (identical(private$translation_language, character(0)))
+      if (length(private$translation_language) == 0)
         stop("Please provide a 'translation_language'. Check docs how.")
       tr <- switch(
         api,
