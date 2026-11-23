@@ -33,3 +33,18 @@ test_that("translate_with_google_cloud Should error if API is not set", {
   expect_equal(result$message, expected_error_messages)
 
 })
+
+test_that("automatic_translate stops when no translation language is set", {
+  i18n <- Translator$new(automatic = TRUE)
+
+  with_mocked_bindings(
+    translate_with_google_cloud = function(txt_to_translate, target_lang) {
+      paste(target_lang, txt_to_translate)
+    },
+    {
+      expect_error(i18n$at("Hello"), "Please provide a 'translation_language'")
+      i18n$set_translation_language("fr")
+      expect_equal(i18n$at("Hello"), "fr Hello")
+    }
+  )
+})
