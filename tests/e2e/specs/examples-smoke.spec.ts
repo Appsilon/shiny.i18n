@@ -1,6 +1,4 @@
-import path from 'node:path';
-import { test } from '../harness';
-import { PKG_ROOT } from '../harness/paths';
+import { test } from '@appsilon/shiny-playwright';
 
 // Every Shiny example in examples/ must start and render without errors.
 // automatic_translations is left out: it needs Google Cloud credentials.
@@ -15,7 +13,7 @@ const EXAMPLES = [
 
 for (const example of EXAMPLES) {
   test.describe(`examples/${example}`, () => {
-    test.use({ app: path.join(PKG_ROOT, 'examples', example) });
+    test.use({ app: `examples/${example}` });
 
     test('starts and renders without errors', async ({ shiny }) => {
       await shiny.goto();
