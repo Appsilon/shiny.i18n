@@ -27,14 +27,15 @@ To run against another Shiny version, install it into a separate library and put
 `R_LIBS=/path/to/shiny-1.7.5.1-lib npm test`.
 
 When a test fails, its folder in `test-results/` holds a screenshot, a trace, and `app.log` with the app's R
-output.
+output. If the app fails to start, there is no `app.log`: the error message includes the R output.
 
 ### In CI
 
 `.github/workflows/e2e.yml` calls the reusable workflow of `shiny.playwright`, which runs `npm test` once with the
-oldest Shiny version we test (1.7.5.1) and once with the latest. The checks are `e2e / e2e (Shiny latest)` and
-`e2e / e2e (Shiny 1.7.5.1)`. If tests fail, download the `e2e-shiny-<version>` artifact: it holds the HTML report
-and, per failed test, the trace and `app.log`.
+oldest Shiny version we test (1.7.5.1) and once with the newest Shiny on Posit Package Manager, which can lag
+behind CRAN. The checks are `e2e / e2e (Shiny latest)` and `e2e / e2e (Shiny 1.7.5.1)`. If tests fail, download the
+`e2e-shiny-<version>` artifact: it holds the HTML report and, per failed test, the trace and (if the app started)
+`app.log`.
 
 To upgrade `@appsilon/shiny-playwright`, change the tag in both `package.json` (then run `npm install`) and the
 `uses:` line of the workflow.
