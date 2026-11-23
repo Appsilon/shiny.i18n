@@ -19,6 +19,12 @@
   separator, so the call failed without translation files or with CSV
   files, and left automatic mode off with a JSON file
   ([\#144](https://github.com/Appsilon/shiny.i18n/issues/144)).
+- `Translator$automatic_translate()` and `$at()` stop with “Please
+  provide a ‘translation_language’” when no translation language is set.
+  Previously, in automatic mode without translation files, the missing
+  language (`NULL`) was passed on to Google Translate, and a failure was
+  reported as a credentials problem
+  ([\#152](https://github.com/Appsilon/shiny.i18n/issues/152)).
 
 ## shiny.i18n 0.3.0
 
