@@ -15,6 +15,9 @@ extract_key_expressions(text, handle = "i18n")
 vector of characters with key expressions
 }
 \description{
-Extract key expressions
+Parses the script and returns the string literals passed as the first
+argument to \code{handle$t()} or \code{handle$translate()}. Escape sequences
+in the literals are resolved the same way as when the script runs, so the
+keys match the strings passed to the \code{Translator}.
 }
 \keyword{internal}

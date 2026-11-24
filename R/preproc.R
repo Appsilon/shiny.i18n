@@ -1,23 +1,35 @@
 #' Extract key expressions
 #'
+#' Parses the script and returns the string literals passed as the first
+#' argument to \code{handle$t()} or \code{handle$translate()}. Escape sequences
+#' in the literals are resolved the same way as when the script runs, so the
+#' keys match the strings passed to the \code{Translator}.
+#'
 #' @param text character with text of the script
 #' @param handle character with Translator object handle (default: 'i18n')
 #'
 #' @return vector of characters with key expressions
-#' @import stringr
-#' @import glue
 #' @keywords internal
 extract_key_expressions <- function(text, handle = "i18n") {
-  found <- unlist(str_extract_all(text, glue::glue("{handle}\\$t\\(([\"']).*?\\1\\)")))
-  ke1 <- str_replace(str_replace(found, glue::glue("{handle}\\$t\\([\"']"), ""), "[\"']\\)$", "")
-  found <- unlist(str_extract_all(text, glue::glue("{handle}\\$translate\\(([\"']).*?\\1\\)")))
-  ke2 <- str_replace(
-    str_replace(found, glue::glue("{handle}\\$translate\\([\"']"), ""),
-    "[\"']\\)$",
-    ""
-  )
-  key_expressions <- c(ke1, ke2)
-  key_expressions
+  keys <- character(0)
+  is_translate_call <- function(x) {
+    fun <- x[[1]]
+    is.call(fun) && length(fun) == 3 && identical(fun[[1]], as.name("$")) &&
+      identical(fun[[2]], as.name(handle)) &&
+      (is.name(fun[[3]]) || (is.character(fun[[3]]) && length(fun[[3]]) == 1)) &&
+      as.character(fun[[3]]) %in% c("t", "translate") &&
+      length(x) > 1 && is.character(x[[2]])
+  }
+  walk <- function(x) {
+    if (is.call(x) && is_translate_call(x)) keys <<- c(keys, x[[2]])
+    for (i in seq_along(x)) {
+      if (is.call(x[[i]]) || (is.pairlist(x[[i]]) && !is.null(x[[i]]))) walk(x[[i]])
+    }
+  }
+  for (expr in parse(text = text, keep.source = FALSE)) {
+    if (is.call(expr)) walk(expr)
+  }
+  keys
 }
 
 #' Save example i18n file to json
@@ -66,8 +78,9 @@ save_to_csv <- function(key_expressions, output_path = NULL) {
 #' Auxiliary shiny.i18n function that searches for all key expressions (e.g.
 #' surrounded by \code{i18n$t()} tag in the script).
 #'
-#' @param path character with path of the file that needs to be inspected for
-#' key translations
+#' @param path character with path of the R script that needs to be inspected
+#' for key translations. The file must be valid R code: keys are read by parsing
+#' it, so R Markdown or Quarto documents are not supported.
 #' @param type type of the example output file with translations, either "json"
 #' or "csv"
 #' @param handle name of \code{Translator} object within script from \code{path}
@@ -78,7 +91,16 @@ save_to_csv <- function(key_expressions, output_path = NULL) {
 create_translation_file <- function(path, type = "json", handle = "i18n",
                                     output = NULL) {
   file_source <- readLines(con = file(path))
-  key_expressions <- extract_key_expressions(file_source, handle)
+  key_expressions <- tryCatch(
+    extract_key_expressions(file_source, handle),
+    error = function(e) {
+      stop(
+        "Can't read translation keys from '", path, "': it must be a valid R script.\n",
+        conditionMessage(e),
+        call. = FALSE
+      )
+    }
+  )
   switch(type,
     json = save_to_json(key_expressions, output),
     csv = save_to_csv(key_expressions, output),

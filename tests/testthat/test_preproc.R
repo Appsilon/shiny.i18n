@@ -22,6 +22,55 @@ test_that("test extract_key_expressions", {
   expect_equal(extract_key_expressions(txt, handle = "tr"), c("abc", "xyz zxy"))
 })
 
+test_that("extract_key_expressions resolves escapes like R does (#56)", {
+  txt <- c(
+    'i18n$t("One \\\\& Two")',
+    'i18n$t("Say \\"hi\\"")',
+    "i18n$translate('it\\'s')"
+  )
+  expect_equal(extract_key_expressions(txt), c("One \\& Two", "Say \"hi\"", "it's"))
+})
+
+test_that("extract_key_expressions finds nested calls and skips other code", {
+  txt <- "
+  # i18n$t('in a comment')
+  ui <- fluidPage(
+    titlePanel(i18n$t('Title')),
+    p(i18n$t('a'), other$t('b'), i18n$t(key_var), 'i18n$t(\"in a string\")'),
+    f <- function(x = i18n$t('default')) x[, 1]
+  )
+  "
+  expect_equal(extract_key_expressions(txt), c("Title", "a", "default"))
+})
+
+test_that("extract_key_expressions skips malformed `$` calls", {
+  txt <- c(
+    '`$`(i18n)("x")',
+    '`$`(i18n, c("t", "other"))("y")',
+    'i18n$"t"("z")',
+    'i18n$t("kept")'
+  )
+  expect_equal(extract_key_expressions(txt), c("z", "kept"))
+})
+
+test_that("create_translation_file explains that the input must be an R script", {
+  withr::with_tempdir({
+    writeLines(c("# Title", "```{r}", "i18n$t('x')", "```"), "doc.Rmd")
+    expect_error(
+      create_translation_file("doc.Rmd", output = "out.json"),
+      "'doc.Rmd': it must be a valid R script"
+    )
+  })
+})
+
+test_that("create_translation_file writes keys that match the runtime strings (#56)", {
+  withr::with_tempdir({
+    writeLines('i18n$t("One \\\\& Two")', "app.R")
+    create_translation_file("app.R", type = "csv", output = "out.csv")
+    expect_equal(read.csv("out.csv")$key, "One \\& Two")
+  })
+})
+
 test_that("test save_to_json", {
   tmp_file <- "tmp.json"
   save_to_json(c("a", "b"), output_path = tmp_file)
