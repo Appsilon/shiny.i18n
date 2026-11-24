@@ -93,6 +93,11 @@ check_value_presence <- function(val, vect, warn_msg = "") {
 #' @keywords internal
 read_and_merge_csvs <- function(dir_path, sep = ",") {
   all_files <- list.files(dir_path, pattern = "translation_.*[.]csv", full.names = TRUE)
+  if (length(all_files) == 0)
+    stop(sprintf(
+      "No translation files found in '%s'. CSV files must be named 'translation_<language>.csv'.",
+      dir_path
+    ))
   multmerge(all_files, sep)
 }
 
