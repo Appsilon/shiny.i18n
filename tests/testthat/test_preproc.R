@@ -48,9 +48,27 @@ test_that("extract_key_expressions skips malformed `$` calls", {
     '`$`(i18n)("x")',
     '`$`(i18n, c("t", "other"))("y")',
     'i18n$"t"("z")',
+    "i18n$t(NA_character_)",
     'i18n$t("kept")'
   )
   expect_equal(extract_key_expressions(txt), c("z", "kept"))
+})
+
+test_that("extract_key_expressions finds the handle at the end of a `$` chain", {
+  txt <- c(
+    'session$userData$i18n$t("Welcome")',
+    'session$userData$"i18n"$t("Quoted")',
+    'env$tr$translate("Bye")',
+    'i18n$other$t("skipped")',
+    'myi18n$t("skipped")'
+  )
+  expect_equal(extract_key_expressions(txt), c("Welcome", "Quoted"))
+  expect_equal(extract_key_expressions(txt, handle = "tr"), "Bye")
+})
+
+test_that("extract_key_expressions returns each key once", {
+  txt <- c('i18n$t("Hello")', 'i18n$t("\\u0048ello")', 'i18n$t("Bye")', 'i18n$t("Hello")')
+  expect_equal(extract_key_expressions(txt), c("Hello", "Bye"))
 })
 
 test_that("create_translation_file explains that the input must be an R script", {

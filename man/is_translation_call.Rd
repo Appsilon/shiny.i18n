@@ -13,7 +13,8 @@ is_translation_call(x, handle)
 }
 \value{
 TRUE if \code{x} is \code{handle$t()} or \code{handle$translate()}
-with a string literal as the first argument
+with a string literal as the first argument. The handle can also be the last
+field of a \code{$} chain, e.g. \code{session$userData$handle$t()}.
 }
 \description{
 Check if an expression is a translation call

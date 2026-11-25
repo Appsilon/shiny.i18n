@@ -12,7 +12,7 @@ extract_key_expressions(text, handle = "i18n")
 \item{handle}{character with Translator object handle (default: 'i18n')}
 }
 \value{
-vector of characters with key expressions
+vector of unique key expressions, in order of first appearance
 }
 \description{
 Parses the script and returns the string literals passed as the first

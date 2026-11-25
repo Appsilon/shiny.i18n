@@ -8,14 +8,14 @@
 #' @param text character with text of the script
 #' @param handle character with Translator object handle (default: 'i18n')
 #'
-#' @return vector of characters with key expressions
+#' @return vector of unique key expressions, in order of first appearance
 #' @keywords internal
 extract_key_expressions <- function(text, handle = "i18n") {
   keys <- character(0)
   for (expr in parse(text = text, keep.source = FALSE)) {
     if (is.call(expr)) keys <- c(keys, collect_translation_keys(expr, handle))
   }
-  keys
+  unique(keys)
 }
 
 #' Collect translation keys from a parsed expression
@@ -44,16 +44,32 @@ collect_translation_keys <- function(x, handle) {
 #' @param handle character with Translator object handle
 #'
 #' @return TRUE if \code{x} is \code{handle$t()} or \code{handle$translate()}
-#' with a string literal as the first argument
+#' with a string literal as the first argument. The handle can also be the last
+#' field of a \code{$} chain, e.g. \code{session$userData$handle$t()}.
 #' @keywords internal
 is_translation_call <- function(x, handle) {
   if (!is.call(x)) return(FALSE)
   fun <- x[[1]]
   is.call(fun) && length(fun) == 3 && identical(fun[[1]], as.name("$")) &&
-    identical(fun[[2]], as.name(handle)) &&
+    is_handle(fun[[2]], handle) &&
     (is.name(fun[[3]]) || (is.character(fun[[3]]) && length(fun[[3]]) == 1)) &&
     as.character(fun[[3]]) %in% c("t", "translate") &&
-    length(x) > 1 && is.character(x[[2]])
+    length(x) > 1 && is.character(x[[2]]) && !is.na(x[[2]])
+}
+
+#' Check if an expression refers to the Translator handle
+#'
+#' @param x expression to check
+#' @param handle character with Translator object handle
+#'
+#' @return TRUE if \code{x} is the symbol \code{handle} or a \code{$} call
+#' whose last field is \code{handle} (e.g. \code{session$userData$handle})
+#' @keywords internal
+is_handle <- function(x, handle) {
+  identical(x, as.name(handle)) ||
+    (is.call(x) && length(x) == 3 && identical(x[[1]], as.name("$")) &&
+       (is.name(x[[3]]) || (is.character(x[[3]]) && length(x[[3]]) == 1)) &&
+       identical(as.character(x[[3]]), handle))
 }
 
 #' Save example i18n file to json
