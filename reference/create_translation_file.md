@@ -28,4 +28,4 @@ create_translation_file(path, type = "json", handle = "i18n", output = NULL)
 - output:
 
   if NULL (default) the output will be saved with a default file name
-  ("translation.json" for JSON and "translate_lang.csv" for CSV)
+  ("translation.json" for JSON and "translation_lang.csv" for CSV)

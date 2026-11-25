@@ -18,5 +18,5 @@ save_to_csv(key_expressions, output_path = NULL)
 
 - output_path:
 
-  character with path to output file (default: "translate_lang.csv" if
+  character with path to output file (default: "translation_lang.csv" if
   NULL)

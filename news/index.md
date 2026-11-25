@@ -25,6 +25,14 @@
   language (`NULL`) was passed on to Google Translate, and a failure was
   reported as a credentials problem
   ([\#152](https://github.com/Appsilon/shiny.i18n/issues/152)).
+- `create_translation_file(type = "csv")` names its default output
+  `translation_lang.csv`, so
+  `Translator$new(translation_csvs_path = ...)` finds it. Previously it
+  wrote `translate_lang.csv`, which `Translator` skipped, because it
+  reads only files named `translation_*.csv`. A folder with no such
+  files now fails with “No translation files found” instead of the
+  misleading “Key translation is not the same in all files”
+  ([\#137](https://github.com/Appsilon/shiny.i18n/issues/137)).
 
 ## shiny.i18n 0.3.0
 
