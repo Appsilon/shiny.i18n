@@ -10,7 +10,7 @@ save_to_csv(key_expressions, output_path = NULL)
 \item{key_expressions}{vector with key expression to translate}
 
 \item{output_path}{character with path to output file (default:
-"translate_lang.csv" if NULL)}
+"translation_lang.csv" if NULL)}
 }
 \description{
 It saves translation data structure with language key code "key" and
