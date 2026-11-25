@@ -7,8 +7,9 @@
 create_translation_file(path, type = "json", handle = "i18n", output = NULL)
 }
 \arguments{
-\item{path}{character with path of the file that needs to be inspected for
-key translations}
+\item{path}{character with path of the R script that needs to be inspected
+for key translations. The file must be valid R code: keys are read by parsing
+it, so R Markdown or Quarto documents are not supported.}
 
 \item{type}{type of the example output file with translations, either "json"
 or "csv"}

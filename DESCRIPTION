@@ -1,6 +1,6 @@
 Package: shiny.i18n
 Title: Shiny Applications Internationalization
-Version: 0.3.0.9004
+Version: 0.3.0.9005
 Authors@R:
   c(
     person("Jakub", "Nowicki", email = "opensource+kuba@appsilon.com", role = c("cre", "aut")),
@@ -17,7 +17,6 @@ Depends: R (>= 3.3.0)
 Imports: yaml,
          jsonlite,
          methods,
-         stringr,
          R6,
          glue,
          shiny,
