@@ -17,7 +17,7 @@ or "csv"}
 \item{handle}{name of \code{Translator} object within script from \code{path}}
 
 \item{output}{if NULL (default) the output will be saved with a default file
-name ("translation.json" for JSON and "translate_lang.csv" for CSV)}
+name ("translation.json" for JSON and "translation_lang.csv" for CSV)}
 }
 \description{
 Auxiliary shiny.i18n function that searches for all key expressions (e.g.

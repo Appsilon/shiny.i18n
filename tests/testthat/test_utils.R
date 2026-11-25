@@ -30,10 +30,21 @@ test_that("test check_value_presence", {
 })
 
 test_that("test read_and_merge_csvs", {
-  expect_error(read_and_merge_csvs("data2/"))
+  expect_error(read_and_merge_csvs("data2/"), "No translation files found in 'data2/'")
   csv_mrg <- dim(read_and_merge_csvs("data/"))
   expect_equal(csv_mrg[[1]], 6)
   expect_equal(csv_mrg[[2]], 3)
+})
+
+test_that("read_and_merge_csvs explains that a folder has no translation files", {
+  withr::with_tempdir({
+    write.csv(data.frame(en = "Hello", pl = "Witaj"), "translate_pl.csv", row.names = FALSE)
+    expect_error(
+      read_and_merge_csvs("."),
+      "No translation files found in '.'. CSV files must be named 'translation_<language>.csv'.",
+      fixed = TRUE
+    )
+  })
 })
 
 test_that("test load_local_config", {

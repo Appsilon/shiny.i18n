@@ -98,6 +98,25 @@ test_that("test save_to_csv", {
   file.remove("tmp.R")
 })
 
+test_that("a filled-in CSV from create_translation_file() is read by Translator", {
+  withr::with_tempdir({
+    cat("i18n$t('Hello')\ni18n$t('Goodbye')\n", file = "app.R")
+    dir.create("translations")
+    withr::with_dir("translations", create_translation_file("../app.R", type = "csv"))
+    csv_path <- file.path("translations", "translation_lang.csv")
+    expect_true(file.exists(csv_path))
+
+    csv <- read.csv(csv_path)
+    csv$lang <- c("Witaj", "Do widzenia")
+    write.csv(csv, csv_path, row.names = FALSE)
+
+    i18n <- suppressWarnings(Translator$new(translation_csvs_path = "translations"))
+    i18n$set_translation_language("lang")
+    expect_equal(i18n$t("Hello"), "Witaj")
+    expect_equal(i18n$t("Goodbye"), "Do widzenia")
+  })
+})
+
 test_that("create_translation_addin has proper behavior for rstudio addin", {
   temp <- tempfile()
   # Mock the behavior of RStudio API calls
