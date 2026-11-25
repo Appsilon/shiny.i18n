@@ -12,24 +12,48 @@
 #' @keywords internal
 extract_key_expressions <- function(text, handle = "i18n") {
   keys <- character(0)
-  is_translate_call <- function(x) {
-    fun <- x[[1]]
-    is.call(fun) && length(fun) == 3 && identical(fun[[1]], as.name("$")) &&
-      identical(fun[[2]], as.name(handle)) &&
-      (is.name(fun[[3]]) || (is.character(fun[[3]]) && length(fun[[3]]) == 1)) &&
-      as.character(fun[[3]]) %in% c("t", "translate") &&
-      length(x) > 1 && is.character(x[[2]])
-  }
-  walk <- function(x) {
-    if (is.call(x) && is_translate_call(x)) keys <<- c(keys, x[[2]])
-    for (i in seq_along(x)) {
-      if (is.call(x[[i]]) || (is.pairlist(x[[i]]) && !is.null(x[[i]]))) walk(x[[i]])
-    }
-  }
   for (expr in parse(text = text, keep.source = FALSE)) {
-    if (is.call(expr)) walk(expr)
+    if (is.call(expr)) keys <- c(keys, collect_translation_keys(expr, handle))
   }
   keys
+}
+
+#' Collect translation keys from a parsed expression
+#'
+#' Walks the expression depth-first and returns the keys of all translation
+#' calls (see \code{is_translation_call()}) in source order.
+#'
+#' @param x call or pairlist to inspect
+#' @param handle character with Translator object handle
+#'
+#' @return vector of characters with key expressions
+#' @keywords internal
+collect_translation_keys <- function(x, handle) {
+  keys <- if (is_translation_call(x, handle)) x[[2]] else character(0)
+  for (i in seq_along(x)) {
+    if (is.call(x[[i]]) || (is.pairlist(x[[i]]) && !is.null(x[[i]]))) {
+      keys <- c(keys, collect_translation_keys(x[[i]], handle))
+    }
+  }
+  keys
+}
+
+#' Check if an expression is a translation call
+#'
+#' @param x expression to check
+#' @param handle character with Translator object handle
+#'
+#' @return TRUE if \code{x} is \code{handle$t()} or \code{handle$translate()}
+#' with a string literal as the first argument
+#' @keywords internal
+is_translation_call <- function(x, handle) {
+  if (!is.call(x)) return(FALSE)
+  fun <- x[[1]]
+  is.call(fun) && length(fun) == 3 && identical(fun[[1]], as.name("$")) &&
+    identical(fun[[2]], as.name(handle)) &&
+    (is.name(fun[[3]]) || (is.character(fun[[3]]) && length(fun[[3]]) == 1)) &&
+    as.character(fun[[3]]) %in% c("t", "translate") &&
+    length(x) > 1 && is.character(x[[2]])
 }
 
 #' Save example i18n file to json
